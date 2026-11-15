@@ -1,92 +1,77 @@
 export const veiculosVans = {
-  'Fiat Ducato 2.3 Multijet (Nova)': {
+  'Renault Master 2.3 dCi (2013 em diante)': {
     sistemas: [
-      { sistema: 'Motor (2.3 MultiJet Diesel)', especificacao: 'SAE 5W-30 Sintético (Norma Fiat 9.55535-S1 / ACEA C2) [1]', capacidade: '6,5 L (com filtro)', intervalo: 'Ver nota [2]' },
-      { sistema: 'Câmbio Manual', especificacao: 'SAE 75W-80 API GL-4', capacidade: '2,7 L', intervalo: '60.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '9,0 L', intervalo: '60.000 km ou 2 anos' }
+      { sistema: 'Motor (M9T 2.3 16V Bi-Turbo)', especificacao: 'SAE 5W-30 Sintético (Norma Renault RN0720 / ACEA C4) [1]', capacidade: '8,5 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (PF6)', especificacao: 'SAE 75W-80 API GL-4+', capacidade: '2,7 L', intervalo: '80.000 km' },
+      { sistema: 'Direção Hidráulica / Elétrica', especificacao: 'Fluido Dexron III / Óleo Hidráulico', capacidade: '1,5 L', intervalo: 'Verificar nível' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (Pronto uso - 50/50)', capacidade: '9,0 L', intervalo: '4 anos ou 120.000 km' }
     ],
     notas: {
-      1: "Obrigatório o uso de óleo de baixo teor de cinzas sulfatadas (Low SAPS) para preservação do Filtro de Partículas (DPF).",
-      2: "Uso rodoviário: 15.000 km ou 1 ano. Uso severo (transporte urbano de passageiros, entregas porta a porta, trânsito pesado): Reduzir estritamente para 10.000 km ou 6 meses."
+      1: "Equipada com DPF (Filtro de Partículas). É obrigatório o uso exclusivo de óleos com tecnologia Low SAPS que atendam à norma Renault RN0720 / ACEA C4 para evitar o entupimento prematuro do escape.",
+      2: "Uso rodoviário: 20.000 km ou 1 ano. Uso severo urbano (entregas porta a porta, vans escolares, lotação urbana com excesso de marcha lenta): Reduzir para 10.000 km ou 6 meses."
     },
     filtros: {
-      oleo: { original: '55231924', tecfil: 'PEL109', authomix: 'FOL0109', mann: 'HU 7010 z', mahle: 'OX 380D', wega: 'WOE-530', fram: 'CH11311', vox: 'PEL109' },
-      ar: { original: '1355725080', tecfil: 'ARL5140', authomix: 'FAR5140', mann: 'C 14 008', mahle: 'LX 2991', wega: 'FAP-9280', fram: 'CA11200', vox: 'FAR5140' },
-      combustivel: { original: '77366565', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 723 x', mahle: 'KX 386D', wega: 'FCD-0742', fram: 'PS11797', vox: 'PSD980' },
-      cabine: { original: '1355724080', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 2842', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FCA0309' }
+      oleo: { original: '152095084R', tecfil: 'PEL109', authomix: 'FEL0109', mann: 'HU 711/5 x', mahle: 'OX 373 D', wega: 'WOE-520', fram: 'CH11299ECO', vox: 'LE109' },
+      ar: { original: '1654600Q0H', tecfil: 'ARL4300', authomix: 'FAR4300', mann: 'C 27 154', mahle: 'LX 2795', wega: 'FAP-4300', fram: 'CA11174', vox: 'ARL4300' },
+      combustivel: { original: '164005787R', tecfil: 'PSD530', authomix: 'FCO0530', mann: 'WK 939/2', mahle: 'KC 100', wega: 'FCD-0730', fram: 'PS11705', vox: 'PSD530' },
+      cabine: { original: '272778841R', tecfil: 'ACP927', authomix: 'FCA0927', mann: 'CU 22003', mahle: 'LA 715', wega: 'AKX-1992', fram: 'CF11783', vox: 'ACP927' }
     }
   },
 
-  'Fiat Ducato 2.8 JTD': {
+  'Fiat Ducato / Peugeot Boxer / Citroën Jumper 2.3 Multijet (2010 a 2016)': {
     sistemas: [
-      { sistema: 'Motor (8140.43S)', especificacao: 'SAE 15W-40 API CI-4 [1]', capacidade: '5,5 L (com filtro)', intervalo: 'Ver nota [2]' },
-      { sistema: 'Câmbio Manual', especificacao: 'SAE 75W-80 API GL-4', capacidade: '2,7 L', intervalo: '60.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)',capacidade: '8,5 L', intervalo: '40.000 km' }
+      { sistema: 'Motor (F1AE0481D - 2.3 16V Multijet)', especificacao: 'SAE 5W-30 Sintético (Norma Fiat 9.55535-S1 / ACEA C2) [1]', capacidade: '6,3 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (ML6C)', especificacao: 'SAE 75W-80 API GL-4+', capacidade: '2,7 L', intervalo: '60.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'Fluido ATF Dexron II / III (Tutela GI/A)', capacidade: '1,2 L', intervalo: 'Verificar nível' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Paraflu Up (50/50)', capacidade: '10,0 L', intervalo: '2 anos ou 60.000 km' }
     ],
     notas: {
-      1: "Óleo multiviscoso mineral ou semissintético para motores diesel pesados.",
-      2: "10.000 km (Rodoviário) / 5.000 km (Uso severo urbano)."
+      1: "Motor sem Arla-32 (geração Euro 4), mas exige lubrificantes sintéticos de qualidade com especificação Fiat 9.55535-S1.",
+      2: "Rodoviário: 20.000 km ou 1 ano. Uso severo urbano (transporte escolar, distribuição urbana intensa): Reduzir obrigatoriamente para 10.000 km ou 6 meses."
     },
     filtros: {
-      oleo: { original: '71738734', tecfil: 'PEL114', authomix: 'FOL0114', mann: 'WP 1144', mahle: 'OC 237', wega: 'WO-120', fram: 'PH2870', vox: 'PEL114' },
-      ar: { original: '1312328080', tecfil: 'ARL7001', authomix: 'FAR7001', mann: 'C 17 278/1', mahle: 'LX 824', wega: 'FAP-7001', fram: 'CA7164', vox: 'FAR7001' },
-      combustivel: { original: '1336717080', tecfil: 'PSD470', authomix: 'FCO0470', mann: 'PU 723 x', mahle: 'KC 19', wega: 'FCD-0740', fram: 'P4102', vox: 'PSD470' },
-      cabine: { original: '1312329080', tecfil: 'ACP302', authomix: 'FCA0302', mann: 'CU 4442', mahle: 'LA 67', wega: 'AKX-1100', fram: 'CF1028', vox: 'FCA0302' }
+      oleo: { original: '5801384954', tecfil: 'PEL110', authomix: 'FEL0110', mann: 'HU 7010 z', mahle: 'OX 437 D', wega: 'WOE-512', fram: 'CH11330ECO', vox: 'LE110' },
+      ar: { original: '1356779080', tecfil: 'ARL7002', authomix: 'FAR7002', mann: 'C 35 154', mahle: 'LX 1742', wega: 'FAP-7002', fram: 'CA10660', vox: 'ARL7002' },
+      combustivel: { original: '77365614', tecfil: 'PSD960', authomix: 'FCO0960', mann: 'WK 854/1', mahle: 'KC 102', wega: 'FCD-0742', fram: 'PS11176', vox: 'PSD960' },
+      cabine: { original: '1347427080', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'ACP309' }
     }
   },
 
-  'Renault Master 2.3 dCi (Nova)': {
+  'Mercedes-Benz Sprinter 311 / 415 / 515 CDI (2012 em diante)': {
     sistemas: [
-      { sistema: 'Motor (M9T Bi-Turbo)', especificacao: 'SAE 5W-30 (Norma Renault RN0720) [1]', capacidade: '8,5 L (com filtro)', intervalo: 'Ver nota [2]' },
-      { sistema: 'Câmbio Manual', especificacao: 'SAE 75W-80 API GL-4+', capacidade: '2,4 L', intervalo: '80.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Tipo D (50/50)', capacidade: '9,5 L', intervalo: '60.000 km ou 3 anos' }
+      { sistema: 'Motor (OM 651 - 2.2 Bi-Turbo)', especificacao: 'SAE 5W-30 ou 5W-40 Sintético (Norma MB 228.51 / 229.51 - Low SAPS) [1]', capacidade: '11,5 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (NSG 370 - 6 marchas)', especificacao: 'SAE 75W-85 Óleo Sintético (Norma MB 235.4)', capacidade: '1,8 L', intervalo: '60.000 km' },
+      { sistema: 'Diferencial Traseiro', especificacao: 'SAE 85W-90 API GL-5 (Norma MB 235.0)', capacidade: '1,5 L a 2,2 L', intervalo: '60.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'Fluido Norma MB 236.3', capacidade: '1,2 L', intervalo: 'Verificar nível' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '11,0 L', intervalo: '2 anos ou 100.000 km' }
     ],
     notas: {
-      1: "Exigido óleo 100% sintético com aprovação Renault RN0720 (Low SAPS) para proteger o DPF.",
-      2: "15.000 km ou 1 ano em uso rodoviário. Reduzir para 10.000 km em uso severo urbano."
+      1: "Motores equipados com sistema de pós-tratamento Bluetec 5 (utilizam Arla-32) e DPF. É estritamente obrigatório o uso de óleos de baixo teor de cinzas homologados MB 228.51 ou MB 229.51.",
+      2: "Rodoviário de longa distância: 20.000 km a 30.000 km (conforme painel Assyst/computador de bordo). Uso urbano / frotas severas: 10.000 km a 15.000 km ou 1 ano."
     },
     filtros: {
-      oleo: { original: '152095084R', tecfil: 'PEL674', authomix: 'FOL0674', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9641', vox: 'PEL674' },
-      ar: { original: '1654600Q1H', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 35 015', mahle: 'LX 2681', wega: 'FAP-9295', fram: 'CA11050', vox: 'FAR5047' },
-      combustivel: { original: '164005954R', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 9011 z', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS11797', vox: 'PSD980' },
-      cabine: { original: '2727700Q0A', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1991', fram: 'CF10549', vox: 'FCA0309' }
+      oleo: { original: 'A6511800109', tecfil: 'PEL108', authomix: 'FEL0108', mann: 'HU 7015 z', mahle: 'OX 813 D', wega: 'WOE-515', fram: 'CH11438ECO', vox: 'LE108' },
+      ar: { original: 'A6510940104', tecfil: 'ARL5200', authomix: 'FAR5200', mann: 'C 14 130/1', mahle: 'LX 2838', wega: 'FAP-5200', fram: 'CA11450', vox: 'ARL5200' },
+      combustivel: { original: 'A6510901652', tecfil: 'PSD950', authomix: 'FCO0950', mann: 'WK 820/19', mahle: 'KC 208', wega: 'FCD-0750', fram: 'PS11700', vox: 'PSD950' },
+      cabine: { original: 'A9068300318', tecfil: 'ACP906', authomix: 'FCA0906', mann: 'CU 35 002', mahle: 'LA 302', wega: 'AKX-3502', fram: 'CF11176', vox: 'ACP906' }
     }
   },
 
-  'Peugeot Boxer 2.2 / 2.0 BlueHDi (Nova)': {
+  'Volkswagen Kombi 1.4 Total Flex (2009 a 2013)': {
     sistemas: [
-      { sistema: 'Motor (BlueHDi Diesel)', especificacao: 'SAE 0W-30 ou 5W-30 (Norma PSA B71 2312) [1]', capacidade: '6,1 L (com filtro)', intervalo: 'Ver nota [2]' },
-      { sistema: 'Câmbio Manual', especificacao: 'SAE 75W-80 API GL-4', capacidade: '2,7 L', intervalo: '60.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico OAT (50/50)', capacidade: '9,0 L', intervalo: '60.000 km' }
+      { sistema: 'Motor (EA111 - 1.4 8V Flex)', especificacao: 'SAE 5W-40 Sintético (Norma VW 502 00) [1]', capacidade: '3,3 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (Transaxle)', especificacao: 'SAE 75W-90 API GL-4', capacidade: '3,0 L', intervalo: '50.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico G12 / G13 (50/50)', capacidade: '7,5 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Obrigatório óleo sintético de alta tecnologia compatível com sistemas SCR (Arla 32) e DPF.",
-      2: "15.000 km (Normal) / 10.000 km (Severo urbano)."
+      1: "Motor a combustão interna ciclo Otto (gasolina/etanol) refrigerado a água. Não utiliza sistemas de pós-tratamento complexos como DPF ou Arla.",
+      2: "Troca de óleo a cada 10.000 km ou 6 meses (o que vencer primeiro). Em uso urbano severo (táxi, entrega urbana pesada), recomenda-se antecipar para 7.500 km."
     },
     filtros: {
-      oleo: { original: '9818914980', tecfil: 'PEL109', authomix: 'FOL0109', mann: 'HU 7010 z', mahle: 'OX 380D', wega: 'WOE-530', fram: 'CH11311', vox: 'PEL109' },
-      ar: { original: '9807530380', tecfil: 'ARL5140', authomix: 'FAR5140', mann: 'C 14 008', mahle: 'LX 2991', wega: 'FAP-9280', fram: 'CA11200', vox: 'FAR5140' },
-      combustivel: { original: '9808381580', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 723 x', mahle: 'KX 386D', wega: 'FCD-0742', fram: 'PS11797', vox: 'PSD980' },
-      cabine: { original: '1610486880', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 2842', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FCA0309' }
-    }
-  },
-
-  'Mercedes-Benz Sprinter 416 / 515 (CDI)': {
-    sistemas: [
-      { sistema: 'Motor (OM 651 Bi-Turbo)', especificacao: 'SAE 5W-30 ou 5W-40 (Norma MB 228.51 / 229.51) [1]', capacidade: '11,5 L (com filtro)', intervalo: 'Ver nota [2]' },
-      { sistema: 'Câmbio Manual (EcoGear)', especificacao: 'MB 235.10 (Óleo Sintético Específico)', capacidade: '1,8 L', intervalo: '80.000 km' },
-      { sistema: 'Diferencial Traseiro', especificacao: 'SAE 85W-90 API GL-5 (MB 235.0)', capacidade: '2,5 L', intervalo: '60.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.5 / 325.6 Orgânico (50/50)', capacidade: '12,0 L', intervalo: '2 anos' }
-    ],
-    notas: {
-      1: "Obrigatório uso de óleo MB 228.51 (Low SAPS) para proteger o DPF e catalisador.",
-      2: "20.000 km (Rodoviário) ou 10.000 km a 15.000 km (Uso severo urbano / lotação máxima)."
-    },
-    filtros: {
-      oleo: { original: 'A6511800109', tecfil: 'PEL674', authomix: 'FOL0674', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9641', vox: 'PEL674' },
-      ar: { original: 'A0000903751', tecfil: 'ARS9839', authomix: 'FAR9839', mann: 'C 35 154', mahle: 'LX 1791', wega: 'WAP-182', fram: 'CA10665', vox: 'ARS9839' },
-      combustivel: { original: 'A6510901652', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 9011 z', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'PSD980' },
-      cabine: { original: 'A9068300318', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FCA0309' }
+      oleo: { original: '030115561AN', tecfil: 'PEL107', authomix: 'FEL0107', mann: 'HU 712/11 x', mahle: 'OX 388 D', wega: 'WOE-501', fram: 'CH10593ECO', vox: 'LE107' },
+      ar: { original: '0291296201', tecfil: 'ARL4120', authomix: 'FAR4120', mann: 'C 29 111', mahle: 'LX 975', wega: 'FAP-4120', fram: 'CA8802', vox: 'ARL4120' },
+      combustivel: { original: '5U0201511', tecfil: 'GI04/7', authomix: 'FCO0004', mann: 'WK 58/3', mahle: 'KL 582', wega: 'FCI-1630', fram: 'G10256', vox: 'GI04/7' },
+      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
     }
   }
 };

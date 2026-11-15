@@ -351,5 +351,155 @@ export const veiculosCaminhoes = {
       combustivel: { original: '1853123', tecfil: 'PSD990', authomix: 'FCO0990', mann: 'WK 1060/3 X', mahle: 'KC 110', wega: 'FCD-0950', fram: 'PS11800', vox: 'PSD990' },
       cabine: { original: '1689333', tecfil: 'ACP930', authomix: 'FCA0930', mann: 'CU 3200', mahle: 'LA 250', wega: 'AKX-1320', fram: 'CF11800', vox: 'ACP930' }
     }
-  }
+  },
+
+  // ==========================================
+  // LINHA DAF (NOVOS - PACCAR MX-13)
+  // ==========================================
+  'DAF XF 105 / XF / CF - PACCAR MX-13 480 / 530 cv (2013 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (PACCAR MX-13 480 / 530 cv)', especificacao: 'API CK-4 / ACEA E9 15W40', capacidade: '38,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Euro VI (PACCAR MX-13). Combustível: Diesel S10. Potência: 480 / 530 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL928', mann: 'W11102', fleetguard: 'LF16015' },
+      combustivel: { tecfil: 'PSD920', mann: 'WK1080/x' },
+      ar: { tecfil: 'AR1490', mann: 'CF2025' },
+      arla: { tecfil: 'F-Arla32', mann: 'WK1999' }
+    }
+  },
+
+  // ==========================================
+  // LINHA FORD (NOVOS - CARGO / RANGER)
+  // ==========================================
+  'Ford Cargo (816 / 1119 / 1319 / 1723 / 2429 / 2629) - Cummins ISB 4.5 162cv (Cargo 816 / 1119) (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (Cummins ISB 4.5 162cv (Cargo 816 / 1119))', especificacao: 'API CI-4 / ACEA E7 15W40', capacidade: '11,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V (Cummins ISB 4.5 / 6.7). Combustível: Diesel S10. Potência: 162 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL341', mann: 'W11102/34' },
+      combustivel: { tecfil: 'PSD530', mann: 'WK829/2' },
+      ar: { tecfil: 'AR1490', mann: 'C24650' },
+      arla: { tecfil: 'Arla 32', mann: 'WK 1999' }
+    }
+  },
+
+  'Ford Cargo (816 / 1119 / 1319 / 1723 / 2429 / 2629) - Cummins ISB 6.7 230 / 290cv (Cargo 1723 / 2429) (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (Cummins ISB 6.7 230 / 290cv (Cargo 1723 / 2429))', especificacao: 'API CI-4 / CK-4 15W40', capacidade: '18,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V (Cummins ISB 4.5 / 6.7). Combustível: Diesel S10. Potência: 230 / 290 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL341', mann: 'W11102/34' },
+      combustivel: { tecfil: 'PSD980', mann: 'WK950/26' },
+      ar: { tecfil: 'AR1490', mann: 'C25114' },
+      arla: { tecfil: 'Arla 32' }
+    }
+  },
+
+  'Ford Ranger - 2.2 / 3.2 Duratorq Turbo Diesel (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (2.2 / 3.2 Duratorq Turbo Diesel)', especificacao: 'API WSS-M2C913-D / 5W30', capacidade: '9,5 L (3.2)', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Euro VI (2.2 / 3.2 / 2.0 Panther / V6). Combustível: Diesel S10. Potência: 160 / 200 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PEL106', mann: 'HU7010z' },
+      combustivel: { tecfil: 'PCD38', mann: 'WK720' },
+      ar: { tecfil: 'ARSL18', mann: 'C30163' },
+      cabine: { tecfil: 'ACP308' }
+    }
+  },
+
+  'Ford Ranger - 2.0 Turbo / V6 3.0 Turbo Diesel (Nova Ranger) (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (2.0 Turbo / V6 3.0 Turbo Diesel (Nova Ranger))', especificacao: 'API WSS-M2C950-A / 0W30', capacidade: '7,0 / 8,5 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Euro VI (2.2 / 3.2 / 2.0 Panther / V6). Combustível: Diesel S10. Potência: 170 / 250 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PEL119', mann: 'HU6007x' },
+      combustivel: { tecfil: 'PCD509' },
+      ar: { tecfil: 'AR1200' },
+      cabine: { tecfil: 'ACP720' }
+    }
+  },
+
+  // ==========================================
+  // LINHA MERCEDES-BENZ (NOVOS - ACCELO/ATEGO/ACTROS)
+  // ==========================================
+  'Mercedes-Benz Accelo / Atego / Actros - OM 924 LA 4.8 (Accelo 1016 / Atego 1419) (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (OM 924 LA 4.8 (Accelo 1016 / Atego 1419))', especificacao: 'MB 228.51 / API CJ-4 10W40', capacidade: '15,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Bluetec 5 (OM 924 / OM 926 / OM 471). Combustível: Diesel S10. Potência: 156 / 185 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL985', mann: 'W950/26' },
+      combustivel: { tecfil: 'PSD980', mann: 'WK950/26' },
+      ar: { tecfil: 'AR1490', mann: 'C24650' },
+      arla: { tecfil: 'F-Arla32' }
+    }
+  },
+
+  'Mercedes-Benz Accelo / Atego / Actros - OM 471 LA (Actros Euro V / VI) (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (OM 471 LA (Actros Euro V / VI))', especificacao: 'MB 228.51 10W40', capacidade: '38,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Bluetec 5 (OM 924 / OM 926 / OM 471). Combustível: Diesel S10. Potência: 460 / 530 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL928', mann: 'W11102' },
+      combustivel: { tecfil: 'PSD920' },
+      ar: { tecfil: 'AR1490' },
+      arla: { tecfil: 'F-Arla32' }
+    }
+  },
+
+  // ==========================================
+  // LINHA SCANIA (NOVOS - NOVA GERAÇÃO)
+  // ==========================================
+  'Scania Nova Geração (P, G, R, S) 13L / 16L - DC13 13 Litros (410 / 450 / 500 / 540 cv) (2018 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (DC13 13 Litros (410 / 450 / 500 / 540 cv))', especificacao: 'Scania LDF-4 / API CK-4 10W40', capacidade: '43,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Euro VI (Motores DC13 / DC16). Combustível: Diesel S10. Potência: 410 a 540 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL928', mann: 'W11102', original: 'Original Scania' },
+      combustivel: { tecfil: 'PSD920', mann: 'WK1080/x' },
+      ar: { tecfil: 'AR1490', mann: 'CF2025' },
+      arla: { tecfil: 'F-Arla32', mann: 'WK 1999' }
+    }
+  },
+
+  // ==========================================
+  // LINHA VOLVO (NOVOS - FH/FM/FMX)
+  // ==========================================
+  'Volvo FH / FM / FMX (13L) - D13C / D13K 13 Litros (420 / 460 / 500 / 540 cv) (2012 – 2026+)': {
+    sistemas: [
+      { sistema: 'Motor (D13C / D13K 13 Litros (420 / 460 / 500 / 540 cv))', especificacao: 'VDS-4.5 / API CK-4 15W40', capacidade: '33,0 L', intervalo: 'Consultar o manual do fabricante' }
+    ],
+    notas: {
+      1: "Norma de emissão: Euro V / Euro VI (D13C / D13K). Combustível: Diesel S10. Potência: 420 a 540 cv."
+    },
+    filtros: {
+      oleo: { tecfil: 'PSL928', mann: 'W11102', original: '21707133' },
+      combustivel: { tecfil: 'PSD920', mann: 'WK1080/x' },
+      ar: { tecfil: 'AR1490', mann: 'CF2025' },
+      arla: { tecfil: 'F-Arla32' }
+    }
+  },
 };

@@ -26,7 +26,7 @@ button { font-family: inherit; }
 .fundo-menu { display: none; }
 .menu-lateral { 
   position: fixed; top: var(--alt-topo); left: 0; bottom: 0; 
-  width: var(--larg-menu); max-width: var(--larg-menu); /* Força o tamanho correto */
+  width: var(--larg-menu); max-width: var(--larg-menu);
   background: #fff; border-right: 1px solid var(--borda); 
   overflow-y: auto; z-index: 40; display: flex; flex-direction: column; 
 }
@@ -34,47 +34,50 @@ button { font-family: inherit; }
 .menu-cabecalho { display: none; align-items: center; justify-content: space-between; padding: 14px 18px; background: var(--topo); color: #fff; }
 .menu-cabecalho button { border: 0; background: #1e293b; color: #fff; width: 34px; height: 34px; border-radius: 8px; font-size: 1.3rem; cursor: pointer; }
 
-/* Barra de Busca no Menu */
+/* Busca no Menu */
 .menu-busca { padding: 15px 18px 10px; }
 .menu-busca input { 
   width: 100%; padding: 10px 14px; border: 1px solid var(--borda); border-radius: 8px; 
-  background: #f8fafc; font-size: 0.9rem; color: var(--texto); 
-  transition: all 0.2s ease; font-family: inherit; box-sizing: border-box;
+  background: #f8fafc; font-size: 0.9rem; color: var(--texto); font-family: inherit; 
 }
-.menu-busca input::placeholder { color: #94a3b8; }
 .menu-busca input:focus { border-color: var(--acento); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15); }
 
 /* Itens do Menu */
-.item-menu { display: flex; align-items: center; gap: 10px; padding: 11px 18px; text-decoration: none; font-weight: 600; font-size: .92rem; border-left: 4px solid transparent; transition: all 0.2s; color: var(--texto); }
-.item-menu:hover { background: #f8fafc; color: var(--acento-esc); }
+.item-menu { display: flex; align-items: center; gap: 10px; padding: 11px 18px; text-decoration: none; font-weight: 600; font-size: .92rem; border-left: 4px solid transparent; color: var(--texto); }
+.item-menu:hover { background: #f8fafc; }
 .item-menu.ativo { background: #fff7e6; border-left-color: var(--acento); color: var(--acento-esc); }
 
-/* Botões das Montadoras */
-.grupo-menu { display: flex; width: 100%; align-items: center; padding: 11px 18px; border: 0; background: none; font-weight: 700; font-size: .92rem; text-align: left; cursor: pointer; color: var(--texto); border-left: 4px solid transparent; transition: all 0.2s; }
-.grupo-menu:hover { background: #f8fafc; color: var(--acento-esc); }
-.grupo-menu[aria-expanded="true"] { background: #f8fafc; border-left-color: var(--acento); color: var(--acento-esc); }
+/* Botões das Marcas (Conforme gerado pelo seu app.js) */
+.grupo-menu { 
+  display: flex; width: 100%; align-items: center; 
+  padding: 11px 18px; border: 0; background: none; 
+  font-weight: 700; font-size: .92rem; text-align: left; 
+  cursor: pointer; color: var(--texto); border-left: 4px solid transparent; 
+  transition: background .15s;
+}
+.grupo-menu:hover { background: #f8fafc; }
+.grupo-menu[aria-expanded="true"] { background: #f8fafc; border-left-color: var(--acento); }
 
-/* Agrupamento do Contador e Seta (O Segredo para alinhar) */
-.grupo-icones { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+/* O Contador de Veículos (em.qtd) */
+.grupo-menu .qtd { 
+  font-style: normal; font-size: .75rem; font-weight: 700; 
+  background: var(--fundo); color: var(--suave); 
+  padding: 2px 8px; border-radius: 12px; margin-left: auto; 
+}
+.grupo-menu:hover .qtd, .grupo-menu[aria-expanded="true"] .qtd { background: var(--acento); color: #111; }
 
-/* Contador (Badge) */
-.badge { background: var(--fundo); color: var(--suave); font-size: .75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; transition: all 0.2s; }
-.grupo-menu:hover .badge, .grupo-menu[aria-expanded="true"] .badge { background: var(--acento); color: #111; }
+/* A Seta (span:last-child) */
+.grupo-menu > span:last-child { 
+  margin-left: 8px; color: var(--suave); transition: transform .2s; font-size: 1.1rem; 
+}
+.grupo-menu[aria-expanded="true"] > span:last-child { transform: rotate(180deg); color: var(--acento-esc); }
 
-/* Seta (Chevron) */
-.chevron { color: var(--suave); font-size: .8rem; transition: transform .3s ease, color 0.2s; }
-.grupo-menu[aria-expanded="true"] .chevron { transform: rotate(180deg); color: var(--acento-esc); }
-
-/* Sub-menu */
+/* Sub-menu (Carros) */
 .sub-menu { display: none; background: #f8fafc; padding: 4px 0 8px; border-bottom: 1px solid var(--borda); }
-.sub-menu.aberto { display: block; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-.sub-menu a { display: block; padding: 8px 18px 8px 34px; font-size: .87rem; text-decoration: none; color: #334155; border-left: 4px solid transparent; line-height: 1.3; position: relative; transition: all 0.2s; }
-.sub-menu a::before { content: "•"; position: absolute; left: 20px; top: 8px; color: #cbd5e1; }
-.sub-menu a:hover { background: #eef2f7; color: var(--texto); }
-.sub-menu a:hover::before { color: var(--acento); }
-.sub-menu a.ativo { background: #fff7e6; color: var(--acento-esc); font-weight: 700; border-left-color: var(--acento); }
-.sub-menu a.ativo::before { color: var(--acento); }
+.sub-menu.aberto { display: block; }
+.sub-menu a { display: block; padding: 8px 18px 8px 34px; font-size: .87rem; text-decoration: none; color: #334155; border-left: 4px solid transparent; }
+.sub-menu a:hover { background: #eef2f7; }
+.sub-menu a.ativo { background: var(--acento); color: #111; font-weight: 700; border-left-color: var(--acento-esc); }
 .menu-rodape { padding: 14px 18px; font-size: .72rem; color: var(--suave); border-top: 1px solid var(--borda); }
 
 /* Conteúdo */
@@ -90,22 +93,56 @@ button { font-family: inherit; }
 .hero-acoes { display: flex; flex-wrap: wrap; gap: 10px; }
 .botao { display: inline-block; padding: 11px 18px; border-radius: 10px; font-weight: 700; font-size: .92rem; text-decoration: none; border: 0; cursor: pointer; }
 .botao.principal { background: var(--acento); color: #111; }
-.botao.secundario { background: rgba(255,255,255,.1); color: #fff; }
 
-/* Seções de Conteúdo e Cards de Matéria */
 .secao { margin-top: 34px; }
 .cabecalho-secao { margin-bottom: 14px; }
 .cabecalho-secao h2 { margin: 4px 0 0; font-size: 1.4rem; }
+
+/* Cards de Conteúdo Técnico */
 .grade-conteudo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .card-conteudo { background: var(--cartao); border: 1px solid var(--borda); border-radius: 14px; padding: 25px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
 .card-conteudo:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: var(--acento); }
 .card-icone { font-size: 40px; margin-bottom: 15px; }
 .card-conteudo h3 { margin: 0 0 10px 0; color: var(--texto); font-size: 1.2rem; }
-.card-conteudo p { color: var(--suave); font-size: 0.95rem; line-height: 1.5; margin: 0; flex-grow: 1; }
+.card-conteudo p { color: var(--suave); font-size: 0.95rem; margin: 0; flex-grow: 1; }
 .card-saiba-mais { margin-top: 15px; font-weight: bold; color: var(--acento-esc); font-size: 0.9rem; }
 
-.rodape { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--borda); display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .8rem; color: var(--suave); }
-.voltar-topo { border: 1px solid var(--borda); background: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+/* Grade de Montadoras (Início) */
+.grade-marcas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+.cartao-marca { background: var(--cartao); border: 1px solid var(--borda); border-radius: 14px; padding: 18px; }
+.cartao-marca h3 { margin: 0 0 10px 0; font-size: 1.1rem; border-bottom: 1px solid var(--borda); padding-bottom: 8px; }
+.cartao-marca h3 small { font-size: 0.75rem; color: var(--suave); font-weight: normal; }
+.cartao-marca ul { list-style: none; padding: 0; margin: 0; }
+.cartao-marca li { margin-bottom: 5px; font-size: 0.9rem; }
+.cartao-marca a { text-decoration: none; color: var(--azul); }
+.cartao-marca a:hover { text-decoration: underline; }
+
+/* Ficha do Veículo */
+.migalhas { font-size: 0.85rem; color: var(--suave); margin-bottom: 15px; }
+.migalhas a, .migalhas button { color: var(--azul); background: none; border: none; cursor: pointer; padding: 0; font-size: inherit; }
+.migalhas button:hover { text-decoration: underline; }
+.ficha-titulo { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.ficha-titulo h1 { margin: 0; font-size: 2rem; }
+.tag-categoria { background: var(--acento); color: #111; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+.grade-sis { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+.cartao-sis { background: var(--cartao); border: 1px solid var(--borda); border-radius: 12px; padding: 18px; }
+.cartao-sis h3 { margin: 0 0 12px 0; font-size: 1.1rem; color: var(--azul); }
+.cartao-sis dl { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.cartao-sis dt { font-size: 0.75rem; text-transform: uppercase; color: var(--suave); font-weight: bold; }
+.cartao-sis dd { margin: 0; font-size: 0.95rem; }
+.cartao-sis dd.destaque { font-weight: bold; color: var(--acento-esc); }
+
+/* Tabela de Filtros */
+.caixa-tabela { overflow-x: auto; border: 1px solid var(--borda); border-radius: 12px; background: var(--cartao); }
+.tabela-filtros { width: 100%; border-collapse: collapse; font-size: 0.9rem; white-space: nowrap; }
+.tabela-filtros th, .tabela-filtros td { padding: 12px 15px; border-bottom: 1px solid var(--borda); text-align: left; }
+.tabela-filtros th { background: #f8fafc; font-weight: bold; }
+.filtro-tag { background: #f1f5f9; padding: 4px 8px; border-radius: 4px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0; }
+.lista-notas { margin: 10px 0 0 0; padding-left: 20px; font-size: 0.9rem; }
+.nav-ficha { display: flex; justify-content: space-between; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--borda); }
+.nav-ficha a { text-decoration: none; color: var(--texto); display: flex; flex-direction: column; }
+.nav-ficha a small { color: var(--suave); font-size: 0.75rem; text-transform: uppercase; margin-bottom: 4px; }
+.nav-ficha a.prox { text-align: right; }
 
 /* Modais (Matérias) */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.8); display: none; justify-content: center; align-items: center; z-index: 9999; opacity: 0; transition: opacity 0.3s ease; }
@@ -116,7 +153,10 @@ button { font-family: inherit; }
 .artigo-tecnico h2 { color: var(--acento-esc); margin-top: 0; border-bottom: 2px solid var(--borda); padding-bottom: 10px; }
 .artigo-tecnico h3 { color: var(--texto); margin-top: 25px; }
 .artigo-tecnico p, .artigo-tecnico ul { color: #444; line-height: 1.6; }
-.destaque-box { background: #fff7e6; border-left: 4px solid var(--acento); padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0; font-size: 15px; }
+.destaque-box { background: #fff7e6; border-left: 4px solid var(--acento); padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+
+.rodape { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--borda); display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .8rem; color: var(--suave); }
+.voltar-topo { border: 1px solid var(--borda); background: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
 
 /* Celular / tablet */
 @media (max-width: 1000px) {

@@ -1,8 +1,29 @@
-import { bancoDeDadosGlobal } from './dados/index.js';
-import { veiculosPasseio } from './dados/passeio.js';
-import { veiculosUtilitarios } from './dados/utilitarios.js';
-import { veiculosCaminhoes } from './dados/caminhoes.js';
-import { veiculosVans } from './dados/vans.js';
+/* ---------- Carregamento dos dados (mostra um aviso na página se algo faltar) ---------- */
+function mostrarErro(detalhe) {
+  console.error(detalhe);
+  const aviso = `<div class="alerta"><strong>Não foi possível carregar o guia.</strong><p>${detalhe}</p></div>`;
+  const alvo = document.getElementById('indiceMarcas');
+  if (alvo) alvo.innerHTML = aviso;
+  const resumo = document.getElementById('resumo');
+  if (resumo) resumo.textContent = 'Erro ao carregar os dados';
+}
+
+if (!window.Menu) {
+  mostrarErro('O arquivo <code>js/menu.js</code> não foi encontrado. Envie a pasta <code>js/</code> inteira para o site.');
+  throw new Error('js/menu.js não carregou');
+}
+
+let bancoDeDadosGlobal, veiculosPasseio, veiculosUtilitarios, veiculosCaminhoes, veiculosVans;
+try {
+  ({ bancoDeDadosGlobal } = await import('./dados/index.js'));
+  ({ veiculosPasseio } = await import('./dados/passeio.js'));
+  ({ veiculosUtilitarios } = await import('./dados/utilitarios.js'));
+  ({ veiculosCaminhoes } = await import('./dados/caminhoes.js'));
+  ({ veiculosVans } = await import('./dados/vans.js'));
+} catch (erro) {
+  mostrarErro('Falha ao ler a pasta <code>js/dados/</code> (' + erro.message + '). Confira se ela foi enviada com index.js, passeio.js, utilitarios.js, caminhoes.js e vans.js, com esses nomes exatos (minúsculas).');
+  throw erro;
+}
 
 /* ---------- Utilidades ---------- */
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c =>

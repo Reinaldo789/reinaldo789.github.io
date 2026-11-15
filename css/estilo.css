@@ -62,7 +62,9 @@ button { font-family: inherit; }
 .secao { margin-top: 34px; }
 .cabecalho-secao { margin-bottom: 14px; }
 .cabecalho-secao h2 { margin: 4px 0 0; font-size: 1.4rem; }
-.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+/* .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; } */
+.cartoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.cartao.destaque-principal { grid-column: span 3; } /* Ocupa a linha inteira */
 .cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 14px; padding: 18px; }
 .cartao h3 { margin: 6px 0 4px; }
 .cartao p { margin: 0; color: var(--suave); font-size: .92rem; }

@@ -14,6 +14,7 @@ if (!window.Menu) {
 }
 
 let bancoDeDadosGlobal, veiculosPasseio, veiculosUtilitarios, veiculosCaminhoes, veiculosVans;
+let filtrosBrasil = {};
 try {
   ({ bancoDeDadosGlobal } = await import('./dados/index.js'));
   ({ veiculosPasseio } = await import('./dados/passeio.js'));
@@ -23,6 +24,13 @@ try {
 } catch (erro) {
   mostrarErro('Falha ao ler a pasta <code>js/dados/</code> (' + erro.message + '). Confira se ela foi enviada com index.js, passeio.js, utilitarios.js, caminhoes.js e vans.js, com esses nomes exatos (minúsculas).');
   throw erro;
+}
+
+// Códigos Filtros Brasil (opcional: se o arquivo faltar, a coluna aparece vazia)
+try {
+  ({ filtrosBrasil } = await import('./dados/filtros-brasil.js'));
+} catch (erro) {
+  console.warn('js/dados/filtros-brasil.js não carregou:', erro.message);
 }
 
 /* ---------- Utilidades ---------- */
@@ -122,6 +130,29 @@ function renderInicio() {
     </article>`).join('');
 }
 
+
+/* ---------- Filtros Brasil ---------- */
+function tagFB(nome, tipo) {
+  const fb = filtrosBrasil[nome];
+  const codigos = fb && fb[tipo];
+  if (!codigos || !codigos.length) return '<td><span class="filtro-tag">-</span></td>';
+  const rotulo = (c, i) => {
+    if (c.startsWith('FBC')) return ' title="Com carvão ativado"';
+    if (tipo === 'oleo' && i === 1) return ' title="Linha Multi"';
+    return '';
+  };
+  return '<td>' + codigos.map((c, i) => `<span class="filtro-tag"${rotulo(c, i)}>${esc(c)}</span>`).join(' ') + '</td>';
+}
+
+function notaFB(nome) {
+  if (!(nome in filtrosBrasil) || filtrosBrasil[nome] === null) {
+    return '<p class="nota">Filtros Brasil: este veículo não consta no Catálogo Unificado 2021 da marca.</p>';
+  }
+  const fb = filtrosBrasil[nome];
+  const conf = { alta: 'alta', media: 'média', baixa: 'baixa' }[fb.conf] || fb.conf;
+  return `<p class="nota"><strong>Filtros Brasil</strong> (Catálogo Unificado 2021) · correspondência ${esc(conf)}. ${esc(fb.nota)}</p>`;
+}
+
 /* ---------- Ficha do veículo ---------- */
 const ROTULOS_FILTRO = { oleo: 'Óleo do motor', ar: 'Ar do motor', combustivel: 'Combustível', cabine: 'Cabine (A/C)' };
 
@@ -163,19 +194,20 @@ function mostrarFicha(nome) {
       <div class="caixa-tabela">
         <table class="tabela-filtros">
           <thead><tr>
-            <th>Componente</th><th>Original / OE</th><th>Vox</th><th>Tecfil</th><th>Authomix</th>
+            <th>Componente</th><th>Original / OE</th><th>Filtros Brasil</th><th>Vox</th><th>Tecfil</th><th>Authomix</th>
             <th>Mann</th><th>Mahle</th><th>Wega</th><th>Fram</th>
           </tr></thead>
           <tbody>
             ${Object.entries(d.filtros).map(([tipo, f]) => `
               <tr>
                 <td><strong>${esc(ROTULOS_FILTRO[tipo] || tipo)}</strong></td>
-                ${tag(f.original)}${tag(f.vox)}${tag(f.tecfil)}${tag(f.authomix)}
+                ${tag(f.original)}${tagFB(nome, tipo)}${tag(f.vox)}${tag(f.tecfil)}${tag(f.authomix)}
                 ${tag(f.mann)}${tag(f.mahle)}${tag(f.wega)}${tag(f.fram)}
               </tr>`).join('')}
           </tbody>
         </table>
       </div>
+      ${notaFB(nome)}
     </section>`;
 
   if (d.notas && Object.keys(d.notas).length) {

@@ -279,9 +279,21 @@ a{color:inherit}
    DADOS: vêm de js/dados/index.js (bancoDeDadosGlobal).
    As montadoras do menu são montadas a partir do nome de cada veículo.
    ===================================================================== */
-var banco = {}, erroDados = false;
-try { banco = (await import("./js/dados/index.js")).bancoDeDadosGlobal; }
-catch (e) { erroDados = true; console.error("Falha ao carregar js/dados/index.js", e); }
+var banco = {}, falhas = [];
+try { banco = (await import("./js/dados/index.js")).bancoDeDadosGlobal || {}; }
+catch (e) {
+  console.error("Falha ao carregar js/dados/index.js", e);
+  /* Se um arquivo de dados quebrar, os outros continuam funcionando e o aviso diz qual falhou. */
+  var ARQUIVOS = [["passeio.js","veiculosPasseio"],["utilitarios.js","veiculosUtilitarios"],["caminhoes.js","veiculosCaminhoes"],["vans.js","veiculosVans"]];
+  var res = await Promise.allSettled(ARQUIVOS.map(function(a){ return import("./js/dados/"+a[0]); }));
+  res.forEach(function(r,i){
+    var a = ARQUIVOS[i];
+    if(r.status === "fulfilled" && r.value[a[1]]) Object.assign(banco, r.value[a[1]]);
+    else falhas.push(a[0]+": "+(r.status === "fulfilled" ? "não exporta "+a[1] : r.reason.message));
+  });
+  if(!falhas.length) falhas.push("index.js: "+e.message);
+}
+var erroDados = falhas.length > 0;
 
 var NOMES_MARCA = { "VW": "Volkswagen" };
 var MONTADORAS = (function(){
@@ -649,6 +661,7 @@ function paginaVeiculo(v){
 }
 
 if(erroDados){
+  $("erro-dados").textContent = "Alguns dados não carregaram ("+falhas.join(" | ")+"). Confira o arquivo indicado em js/dados; se abriu o site direto do disco, use o endereço publicado ou um servidor local.";
   $("erro-dados").hidden = false;
 }
 montarMenu();

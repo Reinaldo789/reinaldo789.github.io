@@ -1,46 +1,72 @@
-/* Comportamento do menu lateral: gaveta no celular e grupos (montadoras) abrindo um por vez. */
-(function () {
-  const body = document.body;
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Abrir e fechar o menu no celular
+    const menuToggle = document.getElementById('menuToggle');
+    const fecharMenu = document.getElementById('fecharMenu');
+    const fundoMenu = document.getElementById('fundoMenu');
+    const abrirMenuHero = document.getElementById('abrirMenuHero');
 
-  function abrirGaveta(aberta) {
-    body.classList.toggle('menu-aberto', aberta);
-    const t = document.getElementById('menuToggle');
-    if (t) t.setAttribute('aria-expanded', String(aberta));
-  }
+    function abrirMenu() { document.body.classList.add('menu-aberto'); }
+    function fecharMenuFn() { document.body.classList.remove('menu-aberto'); }
 
-  function definirGrupo(botao, aberto) {
-    botao.setAttribute('aria-expanded', String(aberto));
-    const sub = document.getElementById(botao.getAttribute('aria-controls'));
-    if (sub) sub.classList.toggle('aberto', aberto);
-  }
+    if(menuToggle) menuToggle.addEventListener('click', abrirMenu);
+    if(abrirMenuHero) abrirMenuHero.addEventListener('click', abrirMenu);
+    if(fecharMenu) fecharMenu.addEventListener('click', fecharMenuFn);
+    if(fundoMenu) fundoMenu.addEventListener('click', fecharMenuFn);
 
-  // Abre apenas o grupo com esse id (e fecha todos os outros). Id vazio fecha todos.
-  function abrirSo(id) {
-    document.querySelectorAll('.grupo-menu').forEach(b =>
-      definirGrupo(b, b.getAttribute('aria-controls') === id));
-  }
+    // 2. Montar as marcas no menu lateral
+    // (Aqui você pode puxar do seu banco de dados, estou colocando fixo de exemplo)
+    const marcas = [
+        { nome: "Chevrolet", qtd: 3, modelos: ["Onix", "Tracker", "S10"] },
+        { nome: "Fiat", qtd: 6, modelos: ["Argo", "Mobi", "Toro", "Strada"] },
+        { nome: "Ford", qtd: 11, modelos: ["Ka", "Ranger"] },
+        { nome: "Nissan", qtd: 3, modelos: ["Frontier 2.3", "Sentra", "Versa 1.6"] }
+    ];
 
-  document.addEventListener('click', (e) => {
-    const alvo = e.target;
-    if (alvo.closest('#menuToggle')) {
-      abrirGaveta(!body.classList.contains('menu-aberto'));
-    } else if (alvo.closest('#fecharMenu') || alvo.closest('#fundoMenu')) {
-      abrirGaveta(false);
-    } else if (alvo.closest('#voltarTopo')) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const menuMarcas = document.getElementById('menuMarcas');
+    
+    if (menuMarcas) {
+        marcas.forEach(marca => {
+            // Cria o botão da marca
+            const botao = document.createElement('button');
+            botao.className = 'grupo-menu';
+            botao.setAttribute('aria-expanded', 'false');
+            botao.innerHTML = `
+                <span>${marca.nome}</span>
+                <div class="grupo-icones">
+                    <span class="badge">${marca.qtd}</span>
+                    <span class="chevron">▼</span>
+                </div>
+            `;
+            
+            // Cria o submenu
+            const submenu = document.createElement('div');
+            submenu.className = 'sub-menu';
+            marca.modelos.forEach(modelo => {
+                const link = document.createElement('a');
+                link.href = `#${modelo.toLowerCase().replace(/\s+/g, '-')}`;
+                link.textContent = modelo;
+                submenu.appendChild(link);
+            });
+
+            // Lógica de abrir/fechar o acordeão
+            botao.addEventListener('click', () => {
+                const isExpanded = botao.getAttribute('aria-expanded') === 'true';
+                
+                // Fecha todos os outros
+                document.querySelectorAll('.grupo-menu').forEach(btn => {
+                    btn.setAttribute('aria-expanded', 'false');
+                    if(btn.nextElementSibling) btn.nextElementSibling.classList.remove('aberto');
+                });
+
+                // Se não estava aberto, abre o atual
+                if (!isExpanded) {
+                    botao.setAttribute('aria-expanded', 'true');
+                    submenu.classList.add('aberto');
+                }
+            });
+
+            menuMarcas.appendChild(botao);
+            menuMarcas.appendChild(submenu);
+        });
     }
-
-    const grupo = alvo.closest('.grupo-menu');
-    if (grupo) {
-      const abrir = grupo.getAttribute('aria-expanded') !== 'true';
-      abrirSo(abrir ? grupo.getAttribute('aria-controls') : '');
-      if (abrir) grupo.scrollIntoView({ block: 'nearest' });
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') abrirGaveta(false);
-  });
-
-  window.Menu = { abrirGaveta, abrirSo, definirGrupo };
-})();
+});

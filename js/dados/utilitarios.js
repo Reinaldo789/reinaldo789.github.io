@@ -1,5 +1,5 @@
 export const veiculosUtilitarios = {
-  'Toyota Hilux 3.0': {
+  'Toyota Hilux 3.0 2013': {
     sistemas: [
       { sistema: 'Motor', especificacao: 'SAE 5W-30 ou 15W-40 [1]', capacidade: '7,0 L (com filtro)', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Manual / Transferência', especificacao: 'SAE 75W-90 GL-4 / GL-5', capacidade: 'Câmbio: 2,2 L | Transferência: 1,0 L', intervalo: '40.000 km' },

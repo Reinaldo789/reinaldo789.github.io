@@ -85,9 +85,6 @@ a{color:inherit}
 .busca-campo input{flex:1;min-width:0;height:100%;border:0;background:none;font:inherit;font-size:1.12rem;color:var(--texto)}
 .busca-campo input:focus{outline:none}
 .busca-campo kbd{font:500 .8rem "IBM Plex Sans",sans-serif;border:1px solid var(--linha);border-radius:6px;padding:2px 8px;color:var(--suave)}
-.atalhos{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.atalhos button{border:1px solid var(--linha);background:var(--cartao);border-radius:99px;padding:6px 14px;font:inherit;font-size:.9rem;color:var(--texto);cursor:pointer}
-.atalhos button:hover{border-color:var(--tinta3)}
 .resultados{margin-top:14px;background:var(--cartao);border:1px solid var(--linha);border-radius:14px;overflow:hidden}
 .resultados[hidden]{display:none}
 .resultados ul{list-style:none;margin:0;padding:6px}
@@ -254,7 +251,6 @@ a{color:inherit}
             <kbd aria-hidden="true">/</kbd>
           </label>
           <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
-          <div class="atalhos" id="atalhos"></div>
           <div class="resultados" id="resultados" aria-live="polite" hidden></div>
         </div>
       </section>
@@ -551,14 +547,6 @@ $("resultados").addEventListener("keydown", function(e){
   var links = Array.prototype.slice.call(this.querySelectorAll("a")), i = links.indexOf(document.activeElement);
   if(e.key === "ArrowDown" && i < links.length-1){ e.preventDefault(); links[i+1].focus(); }
   if(e.key === "ArrowUp"){ e.preventDefault(); (i > 0 ? links[i-1] : $("busca")).focus(); }
-});
-
-$("atalhos").innerHTML = ["óleo do motor","graxeira","correia dentada","bateria"].map(function(t){
-  return '<button type="button">'+esc(t)+'</button>';
-}).join("");
-$("atalhos").addEventListener("click", function(e){
-  if(e.target.tagName !== "BUTTON") return;
-  $("busca").value = e.target.textContent; mostrarResultados(); $("busca").focus();
 });
 
 document.addEventListener("keydown", function(e){

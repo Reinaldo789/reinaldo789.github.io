@@ -3,77 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guia técnico de lubrificantes e filtros por montadora e veículo: óleo, câmbio, diferencial, arrefecimento e filtros equivalentes.">
+  <meta name="description" content="Guia técnico de lubrificantes e filtros por montadora e veículo.">
   <title>Guia Técnico de Lubrificantes & Filtros</title>
   <link rel="stylesheet" href="css/estilo.css">
-  <link rel="stylesheet" href="css/fichas.css">
-  
-  <style>
-    /* --- ESTILOS DA FERRAMENTA DE CONVERSÃO --- */
-    .ferramenta-conversao { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 40px; border: 1px solid #e0e0e0; }
-    .ferramenta-conversao h2 { margin-top: 0; color: #333; }
-    .ferramenta-conversao p { color: #666; margin-bottom: 20px; }
-    .busca-box { display: flex; gap: 10px; }
-    .busca-box input { flex: 1; padding: 15px; font-size: 16px; border: 2px solid #0056b3; border-radius: 6px; outline: none; text-transform: uppercase; }
-    .busca-box button { padding: 15px 30px; font-size: 16px; background-color: #0056b3; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
-    .busca-box button:hover { background-color: #004494; }
-    
-    .resultado-conversao { margin-top: 20px; }
-    .card-resultado { border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; }
-    .card-resultado-header { background-color: #f8f9fa; padding: 15px; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; }
-    .card-resultado-header h3 { margin: 0; color: #0056b3; font-size: 18px; }
-    .card-resultado-header span { background-color: #28a745; color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
-    .card-resultado-body { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; padding: 15px; }
-    .marca-item { background: #f9f9f9; padding: 10px; border-radius: 5px; border-left: 3px solid #0056b3; }
-    .marca-nome { font-size: 11px; color: #777; text-transform: uppercase; font-weight: bold; margin-bottom: 3px; }
-    .marca-codigo { font-size: 15px; color: #333; font-weight: bold; }
-    .sem-resultado { text-align: center; color: #e74c3c; font-weight: bold; padding: 20px; border: 2px dashed #e74c3c; border-radius: 8px; }
-
-    /* --- ESTILOS DOS CARDS DE CONTEÚDO --- */
-    .grade-conteudo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-    .card-conteudo { background: #fff; border-radius: 8px; padding: 25px; border: 1px solid #e0e0e0; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-    .card-conteudo:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: #0056b3; }
-    .card-icone { font-size: 40px; margin-bottom: 15px; }
-    .card-conteudo h3 { margin: 0 0 10px 0; color: #333; font-size: 20px; }
-    .card-conteudo p { color: #666; font-size: 14px; line-height: 1.5; margin: 0; flex-grow: 1; }
-    .card-saiba-mais { margin-top: 15px; font-weight: bold; color: #0056b3; font-size: 14px; display: inline-block; }
-
-    /* --- ESTILOS DA JANELA MODAL (MATÉRIAS) --- */
-    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 9999; opacity: 0; transition: opacity 0.3s ease; }
-    .modal-overlay.ativo { display: flex; opacity: 1; }
-    .modal-content { background: #fff; width: 90%; max-width: 800px; max-height: 85vh; border-radius: 10px; overflow-y: auto; position: relative; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease; }
-    .modal-overlay.ativo .modal-content { transform: translateY(0); }
-    .fechar-modal { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #999; cursor: pointer; background: none; border: none; transition: color 0.2s; }
-    .fechar-modal:hover { color: #e74c3c; }
-    
-    /* Tipografia Interna das Matérias */
-    .artigo-tecnico h2 { color: #0056b3; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-    .artigo-tecnico h3 { color: #333; margin-top: 25px; margin-bottom: 10px; }
-    .artigo-tecnico p { color: #444; line-height: 1.6; margin-bottom: 15px; }
-    .artigo-tecnico ul { margin-bottom: 20px; padding-left: 20px; color: #444; line-height: 1.6; }
-    .artigo-tecnico li { margin-bottom: 8px; }
-    .artigo-tecnico strong { color: #222; }
-    .destaque-box { background: #eef5fc; border-left: 4px solid #0056b3; padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0; font-size: 15px; }
-
-    @media (max-width: 768px) {
-      .busca-box { flex-direction: column; }
-      .busca-box input, .busca-box button { width: 100%; }
-      .modal-content { padding: 25px; width: 95%; }
-    }
-  </style>
-
   <script src="js/menu.js" defer></script>
-  <script type="module" src="js/app.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
   <header class="topo">
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuLateral" aria-label="Abrir menu">☰</button>
-    <a class="marca" href="#inicio"><span class="marca-icone">⚙</span><span>Guia Técnico<br><small>Lubrificantes &amp; Filtros · Frota e Oficina</small></span></a>
+    <a class="marca" href="#inicio"><span class="marca-icone">⚙</span><span>Guia Técnico<br><small>Lubrificantes &amp; Filtros</small></span></a>
     <span class="topo-tag" id="topoTag">Veículos</span>
   </header>
 
   <div class="fundo-menu" id="fundoMenu"></div>
+  
   <aside class="menu-lateral" id="menuLateral" aria-label="Menu principal">
     <div class="menu-cabecalho"><strong>Montadoras</strong><button id="fecharMenu" aria-label="Fechar menu">×</button></div>
     <nav>
@@ -81,17 +25,15 @@
       <div class="menu-busca">
         <input id="buscaMenu" type="search" placeholder="Buscar veículo..." autocomplete="off" aria-label="Buscar veículo no menu">
       </div>
-      <div id="menuMarcas">
-        <a class="item-menu" href="#">Volkswagen</a>
-        <a class="item-menu" href="#">Fiat</a>
-        <a class="item-menu" href="#">Chevrolet</a>
-      </div>
+      <!-- AQUI O JAVASCRIPT VAI INJETAR AS MARCAS -->
+      <div id="menuMarcas"></div>
     </nav>
     <div class="menu-rodape">Confirme sempre com o manual do fabricante antes de executar a manutenção.</div>
   </aside>
 
   <main id="conteudo" class="conteudo">
     <div id="inicio">
+      <!-- HERO -->
       <section class="hero">
         <div class="sobretitulo">BIBLIOTECA DE MANUTENÇÃO</div>
         <h1>Lubrificantes &amp;<br><span>Filtros por veículo</span></h1>
@@ -99,18 +41,18 @@
         <div class="hero-acoes"><button class="botao principal" id="abrirMenuHero" type="button">Escolher montadora →</button></div>
       </section>
 
-      <section class="secao" id="conversao-filtros">
-        <div class="ferramenta-conversao">
-          <h2>Consulta Rápida de Filtros</h2>
-          <p>Tem o código original da peça? Digite abaixo para descobrir as marcas equivalentes (Fram, Mahle, Tecfil, etc.).</p>
-          <div class="busca-box">
-            <input type="text" id="codigoOriginal" placeholder="Digite o código original (Ex: 6811009140)..." onkeypress="handleKeyPress(event)">
-            <button onclick="consultarCodigo()">Consultar Conversão</button>
-          </div>
-          <div id="resultadoArea" class="resultado-conversao"></div>
+      <!-- FERRAMENTA DE BUSCA DE FILTROS -->
+      <section class="secao" id="conversao-filtros" style="background: #fff; padding: 30px; border-radius: 14px; border: 1px solid var(--borda); margin-top: 30px;">
+        <div class="cabecalho-secao"><div><div class="sobretitulo">CONVERSÃO</div><h2>Consulta Rápida de Filtros</h2></div></div>
+        <p style="color: var(--suave); margin-bottom: 15px;">Tem o código original da peça? Digite abaixo para descobrir as marcas equivalentes.</p>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" id="codigoOriginal" placeholder="Ex: 6811009140..." style="flex:1; padding: 12px; border: 2px solid var(--borda); border-radius: 8px; font-size: 16px;" onkeypress="handleKeyPress(event)">
+          <button onclick="consultarCodigo()" class="botao principal" style="padding: 12px 20px;">Consultar</button>
         </div>
+        <div id="resultadoArea" style="margin-top: 20px;"></div>
       </section>
 
+      <!-- CARDS DE CONTEÚDO TÉCNICO -->
       <section class="secao" id="dicas-manutencao">
         <div class="cabecalho-secao">
           <div>
@@ -123,278 +65,102 @@
           <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('oleo')">
             <div class="card-icone">🛢️</div>
             <h3>Óleo do Motor</h3>
-            <p>Saiba como identificar a viscosidade correta (SAE), a especificação API/ACEA e a diferença entre óleos minerais, sintéticos e semissintéticos.</p>
-            <span class="card-saiba-mais">Ler matéria completa →</span>
+            <p>Viscosidade (SAE), especificação API/ACEA e as diferenças entre óleos minerais, sintéticos e semissintéticos.</p>
+            <span class="card-saiba-mais">Ler matéria →</span>
           </a>
-
           <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('pneu')">
             <div class="card-icone">🛞</div>
             <h3>Pneus e Segurança</h3>
-            <p>Aprenda a ler a medida do pneu, verificar o TWI (indicador de desgaste), a pressão correta e quando é hora de fazer o rodízio ou a troca.</p>
-            <span class="card-saiba-mais">Ler matéria completa →</span>
+            <p>Como ler a medida, verificar o TWI, a pressão correta e quando fazer o rodízio ou a troca.</p>
+            <span class="card-saiba-mais">Ler matéria →</span>
           </a>
-
           <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('correias')">
             <div class="card-icone">⚙️</div>
             <h3>Correias e Tensores</h3>
-            <p>Entenda a diferença entre correia dentada e poly-V, os sinais de desgaste (rachaduras, ruídos) e a importância de trocar o kit completo.</p>
-            <span class="card-saiba-mais">Ler matéria completa →</span>
+            <p>Diferença entre correia dentada e poly-V, sinais de desgaste e a importância do kit completo.</p>
+            <span class="card-saiba-mais">Ler matéria →</span>
           </a>
-
           <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('dicas')">
             <div class="card-icone">💡</div>
             <h3>Dicas de Manutenção</h3>
-            <p>Checklist do dia a dia para motoristas e oficinas: como economizar combustível, o que verificar antes de pegar a estrada e cuidados com o motor.</p>
-            <span class="card-saiba-mais">Ler matéria completa →</span>
+            <p>Checklist diário: economia de combustível, verificações antes da estrada e cuidados com o motor.</p>
+            <span class="card-saiba-mais">Ler matéria →</span>
           </a>
-
           <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('inspecao')">
             <div class="card-icone">🔍</div>
             <h3>Pontos de Inspeção</h3>
-            <p>O que verificar em uma revisão preventiva: níveis de fluidos, freios, suspensão, sistema de arrefecimento e vazamentos.</p>
-            <span class="card-saiba-mais">Ler matéria completa →</span>
+            <p>O que verificar em uma revisão: fluidos, freios, suspensão, arrefecimento e vazamentos.</p>
+            <span class="card-saiba-mais">Ler matéria →</span>
           </a>
-
           <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('lubrificacao')">
             <div class="card-icone">💧</div>
             <h3>Pontos de Lubrificação</h3>
-            <p>Guia de graxas e lubrificantes para chassis, rolamentos, articulações e engates. Evite desgastes prematuros com a lubrificação correta.</p>
-            <span class="card-saiba-mais">Ler matéria completa →</span>
+            <p>Guia de graxas para chassis, rolamentos, articulações e engates. Evite desgastes prematuros.</p>
+            <span class="card-saiba-mais">Ler matéria →</span>
           </a>
         </div>
       </section>
     </div>
 
     <div id="ficha" hidden></div>
-
     <footer class="rodape"><span>Guia Técnico de Lubrificantes &amp; Filtros</span><button id="voltarTopo" class="voltar-topo" type="button">↑ Voltar ao início</button></footer>
   </main>
 
-  <!-- ESTRUTURA DA JANELA MODAL -->
+  <!-- MODAL DE MATÉRIAS -->
   <div class="modal-overlay" id="modalMateria" onclick="fecharMateria(event)">
     <div class="modal-content">
       <button class="fechar-modal" onclick="fecharMateria(event)">×</button>
-      <div class="artigo-tecnico" id="conteudoMateria">
-        <!-- O texto entra aqui via JS -->
-      </div>
+      <div class="artigo-tecnico" id="conteudoMateria"></div>
     </div>
   </div>
 
   <script>
-    // --- 1. SISTEMA DE CONVERSÃO DE FILTROS ---
+    // --- 1. SISTEMA DE BUSCA DE FILTROS ---
     const bancoDeDados = [
-        { original: "6811009140", fb: "FB028", mil: "", fram: "CF1001", hengst: "CF1767-2", japan: "FAAS504", mahle: "LA1097/5", mann: "MP335/2", tecfil: "", vox: "FAC818", wega: "AKX3583" },
-        { original: "971332F200 | 971332F000", fb: "FB1001F", mil: "FC3201", fram: "CF10248", hengst: "", japan: "FAAK10", mahle: "LA298", mann: "CU2424", tecfil: "ACP977", vox: "FAC977", wega: "AKX1985" },
-        { original: "7700420498", fb: "FB101", mil: "FC2104", fram: "CF9085 | CF8838", hengst: "E962L1", japan: "FAARED9", mahle: "LA87", mann: "CU2945", tecfil: "ACP550", vox: "FAC550", wega: "AKX35112" }
+        { original: "6811009140", fb: "FB028", fram: "CF1001", mahle: "LA1097/5", mann: "MP335/2", tecfil: "", vox: "FAC818", wega: "AKX3583" },
+        { original: "971332F200", fb: "FB1001F", fram: "CF10248", mahle: "LA298", mann: "CU2424", tecfil: "ACP977", vox: "FAC977", wega: "AKX1985" }
     ];
-
     function consultarCodigo() {
         const termo = document.getElementById('codigoOriginal').value.trim().toUpperCase();
-        const resultadoArea = document.getElementById('resultadoArea');
+        const area = document.getElementById('resultadoArea');
+        if (!termo) { area.innerHTML = '<p style="color:#e74c3c;">Digite um código.</p>'; return; }
         
-        if (!termo) {
-            resultadoArea.innerHTML = '<div class="sem-resultado">Por favor, digite um código original para consultar.</div>';
-            return;
-        }
+        const res = bancoDeDados.filter(i => i.original.includes(termo));
+        if (res.length === 0) { area.innerHTML = `<p style="color:#e74c3c;">Nenhum resultado para <strong>${termo}</strong>.</p>`; return; }
 
-        const resultados = bancoDeDados.filter(item => item.original.toUpperCase().includes(termo));
-
-        if (resultados.length === 0) {
-            resultadoArea.innerHTML = `<div class="sem-resultado">Nenhum resultado encontrado para o código: <strong>${termo}</strong><br><br>Tente digitar apenas parte do código.</div>`;
-            return;
-        }
-
-        let html = '';
-        resultados.forEach(res => {
-            html += `
-                <div class="card-resultado">
-                    <div class="card-resultado-header">
-                        <h3>Código Original: ${res.original}</h3>
-                        <span>CÓD. FB: ${res.fb}</span>
-                    </div>
-                    <div class="card-resultado-body">
-                        ${res.fram ? `<div class="marca-item"><div class="marca-nome">FRAM</div><div class="marca-codigo">${res.fram}</div></div>` : ''}
-                        ${res.mahle ? `<div class="marca-item"><div class="marca-nome">MAHLE</div><div class="marca-codigo">${res.mahle}</div></div>` : ''}
-                        ${res.mann ? `<div class="marca-item"><div class="marca-nome">MANN</div><div class="marca-codigo">${res.mann}</div></div>` : ''}
-                        ${res.tecfil ? `<div class="marca-item"><div class="marca-nome">TECFIL</div><div class="marca-codigo">${res.tecfil}</div></div>` : ''}
-                        ${res.hengst ? `<div class="marca-item"><div class="marca-nome">HENGST</div><div class="marca-codigo">${res.hengst}</div></div>` : ''}
-                        ${res.wega ? `<div class="marca-item"><div class="marca-nome">WEGA</div><div class="marca-codigo">${res.wega}</div></div>` : ''}
-                        ${res.vox ? `<div class="marca-item"><div class="marca-nome">VOX</div><div class="marca-codigo">${res.vox}</div></div>` : ''}
-                    </div>
+        area.innerHTML = res.map(r => `
+            <div style="border:1px solid var(--borda); border-radius:8px; padding:15px; margin-bottom:10px; background:#f8fafc;">
+                <strong style="color:var(--acento-esc); font-size:1.1rem;">Cód. FB: ${r.fb}</strong><br>
+                <small>Original: ${r.original}</small>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+                    ${r.fram ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">FRAM: ${r.fram}</span>` : ''}
+                    ${r.mahle ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">MAHLE: ${r.mahle}</span>` : ''}
+                    ${r.mann ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">MANN: ${r.mann}</span>` : ''}
+                    ${r.tecfil ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">TECFIL: ${r.tecfil}</span>` : ''}
                 </div>
-            `;
-        });
-        resultadoArea.innerHTML = html;
+            </div>
+        `).join('');
     }
-
     function handleKeyPress(e) { if (e.key === 'Enter') consultarCodigo(); }
 
-    // --- 2. SISTEMA DE MATÉRIAS (MODAL) ---
+    // --- 2. SISTEMA DE MATÉRIAS ---
     const materias = {
-        oleo: `
-            <h2>Óleo do Motor: Viscosidade e Classificação</h2>
-            <p>O óleo lubrificante é o "sangue" do motor. Ele reduz o atrito, limpa as peças internas, evita a corrosão e ajuda a resfriar o motor. Mas para escolher o óleo certo, você precisa entender duas classificações principais: <strong>SAE (Viscosidade)</strong> e <strong>API/ACEA (Desempenho)</strong>.</p>
-            
-            <h3>1. Viscosidade (SAE - Society of Automotive Engineers)</h3>
-            <p>A viscosidade é a resistência do óleo ao escoamento. Exemplo: <strong>5W-30</strong>.</p>
-            <ul>
-                <li><strong>O primeiro número (5):</strong> Refere-se ao comportamento a frio. O "W" significa Winter (Inverno). Quanto menor o número, mais fluido o óleo fica em baixas temperaturas, facilitando a partida a frio e protegendo o motor imediatamente.</li>
-                <li><strong>O segundo número (30):</strong> Refere-se à viscosidade em alta temperatura (motor quente). Ele indica a espessura do óleo quando o motor atinge sua temperatura de trabalho. Quanto maior o número, mais "grosso" o óleo se mantém.</li>
-            </ul>
-            <div class="destaque-box">Um óleo <strong>0W-20</strong> é ideal para motores modernos que buscam economia de combustível. Já um <strong>15W-40</strong> é muito comum em motores mais antigos ou de trabalho pesado (diesel).</div>
-
-            <h3>2. Classificação de Desempenho (API / ACEA)</h3>
-            <p>As letras indicam a qualidade e as propriedades do óleo.</p>
-            <ul>
-                <li><strong>API (Americana):</strong> A primeira letra indica o tipo de motor (S para Gasolina, C para Diesel). A segunda letra indica a geração (quanto mais avançada a letra, melhor). Ex: <strong>API SP</strong> é mais moderno que <strong>API SN</strong>.</li>
-                <li><strong>ACEA (Europeia):</strong> Segue um padrão mais rigoroso. Ex: <strong>A3/B4</strong> (motores a gasolina e diesel de passeio), <strong>C3</strong> (motores com filtro de partículas DPF).</li>
-            </ul>
-
-            <h3>3. Base do Óleo: Mineral vs. Sintético</h3>
-            <ul>
-                <li><strong>Mineral:</strong> Refinado diretamente do petróleo. Menos resistente a altas temperaturas. Exige trocas mais frequentes.</li>
-                <li><strong>Sintético:</strong> Desenvolvido em laboratório. Alta resistência à oxidação, mantém a viscosidade por mais tempo e limpa melhor o motor.</li>
-                <li><strong>Semissintético:</strong> Uma mistura dos dois, equilibrando preço e performance.</li>
-            </ul>
-            <p><em>Sempre consulte o manual do seu veículo ou a etiqueta no cofre do motor antes de comprar.</em></p>
-        `,
-        pneu: `
-            <h2>Guia Prático de Pneus e Segurança</h2>
-            <p>Os pneus são o único contato do veículo com o solo. Verificá-los periodicamente não é apenas questão de economia, mas de sobrevivência.</p>
-
-            <h3>Como ler a medida do pneu?</h3>
-            <p>Vamos usar o exemplo <strong>205/55 R16 91V</strong>:</p>
-            <ul>
-                <li><strong>205:</strong> Largura do pneu em milímetros.</li>
-                <li><strong>55:</strong> Perfil (altura da parede lateral). É uma porcentagem da largura. Neste caso, 55% de 205.</li>
-                <li><strong>R:</strong> Indica que o pneu é de construção Radial (o padrão moderno).</li>
-                <li><strong>16:</strong> Diâmetro da roda em polegadas. O pneu só encaixa em rodas aro 16.</li>
-                <li><strong>91V:</strong> 91 é o índice de carga (peso que suporta) e V é o índice de velocidade máxima.</li>
-            </ul>
-
-            <h3>O TWI (Tread Wear Indicator)</h3>
-            <p>No fundo dos sulcos do pneu, existem pequenas elevações de borracha chamadas TWIs. Se a banda de rodagem estiver no mesmo nível que essas elevações, o pneu está <strong>careca</strong> e deve ser trocado imediatamente. O limite legal no Brasil é de 1,6mm de profundidade.</p>
-
-            <h3>Pressão e Desgaste</h3>
-            <ul>
-                <li><strong>Pressão baixa:</strong> Aumenta o consumo de combustível, superaquece o pneu e causa desgaste nas bordas (ombros). Pode causar estouro.</li>
-                <li><strong>Pressão alta:</strong> Deixa o carro mais duro, reduz a área de contato e causa desgaste no centro da banda de rodagem.</li>
-            </ul>
-            <div class="destaque-box">Calibre os pneus sempre a frio (o carro deve estar parado há pelo menos 3 horas). Se precisar viajar carregado, consulte a pressão recomendada para "carga máxima" no manual ou na etiqueta da porta do motorista.</div>
-
-            <h3>Rodízio de Pneus</h3>
-            <p>A troca de posição dos pneus (dianteiros para traseiros e vice-versa) garante um desgaste uniforme. Recomenda-se fazer o rodízio a cada 10.000 km (ou conforme o manual).</p>
-        `,
-        correias: `
-            <h2>Correias e Tensores: O Silêncio Pode Custar Caro</h2>
-            <p>O sistema de correias é responsável por sincronizar o motor e mover os acessórios (alternador, ar-condicionado, bomba d'água, direção hidráulica).</p>
-
-            <h3>1. Correia Dentada (Timing Belt)</h3>
-            <p>É a correia interna do motor. Ela sincroniza o virabrequim (parte de baixo) com o comando de válvulas (parte de cima).</p>
-            <ul>
-                <li><strong>Se romper:</strong> O motor para na hora e as válvulas batem nos pistões, causando um prejuízo altíssimo. A troca é preventiva.</li>
-                <li><strong>Troca:</strong> Geralmente entre 50.000 km e 80.000 km, ou a cada 5 anos (o que vencer primeiro), dependendo da montadora.</li>
-            </ul>
-            <p><em>Atenção:</em> Muitos motores modernos usam <strong>Corrente de Comando</strong> (Timing Chain) no lugar da correia, que teoricamente dura a vida útil do motor, mas exige óleo de qualidade e revisões.</p>
-
-            <h3>2. Correia Poly-V (Acessórios)</h3>
-            <p>É a correia externa que você consegue ver ao abrir o capô. Ela move os acessórios.</p>
-            <ul>
-                <li><strong>Sinais de desgaste:</strong> Rachaduras transversais na parte interna (lisa), brilho excessivo na parte de trás, ou aspereza nos dentes.</li>
-                <li><strong>Sintomas de falha:</strong> Chiado ao ligar o carro a frio (pode ser apenas escorregando, mas indica desgaste).</li>
-            </ul>
-
-            <h3>Por que trocar o Kit Completo?</h3>
-            <p>Quando o mecânico avisa que é hora de trocar a correia, ele sempre sugere o "Kit". Isso inclui a correia, o(s) tensor(es) e, se aplicável, a bomba d'água e polias.</p>
-            <div class="destaque-box"><strong>Regra de ouro:</strong> Nunca troque apenas a correia. O tensor velho pode travar e quebrar a correia nova. O custo do kit é muito menor do que o custo de um motor fundido.</div>
-        `,
-        dicas: `
-            <h2>Dicas de Manutenção Diária e Semanal</h2>
-            <p>Pequenos hábitos podem evitar grandes problemas na estrada e economizar combustível. Faça uma inspeção rápida (5 minutos) uma vez por semana.</p>
-
-            <h3>Checklist Rápido do Motorista</h3>
-            <ul>
-                <li><strong>Nível de Óleo (Motor Frio):</strong> Puxe a vareta, limpe, insira novamente e verifique. O nível deve estar entre as marcas Mín e Máx.</li>
-                <li><strong>Água do Radiador:</strong> Nunca abra o reservatório com o motor quente. Verifique se o líquido está no nível e se não há vazamentos no chão da garagem.</li>
-                <li><strong>Palhetas do Para-brisa:</strong> Se estiverem deixando rastros ou fazendo barulho, devem ser trocadas. Segurança em dias de chuva.</li>
-                <li><strong>Iluminação:</strong> Confira faróis, lanternas, luz de freio e setas. Um pisca queimado gera multa.</li>
-            </ul>
-
-            <h3>Economia de Combustível</h3>
-            <ul>
-                <li><strong>Calibragem dos pneus:</strong> Pneu murcho consome mais.</li>
-                <li><strong>Peso desnecessário:</strong> Não carregue o porta-malas cheio de tralhas.</li>
-                <li><strong>Filtro de ar sujo:</strong> Um filtro de ar entupido faz o motor "estrangular" e beber mais.</li>
-                <li><strong>Ar-condicionado:</strong> Em baixas velocidades, deixe a janela aberta. Em altas velocidades (estrada), o vidro fechado e o ar ligado gastam menos (devido à aerodinâmica).</li>
-            </ul>
-
-            <div class="destaque-box"><strong>Antes de pegar a estrada:</strong> Verifique o estepe, o macaco e a chave de roda. Não adianta ter o pneu reserva se ele está murcho há 2 anos!</div>
-        `,
-        inspecao: `
-            <h2>Pontos de Inspeção Preventiva</h2>
-            <p>Uma revisão bem feita não olha apenas o motor, mas todo o conjunto do veículo. Esses são os pontos que todo mecânico e motorista atento devem verificar.</p>
-
-            <h3>1. Sistema de Freios</h3>
-            <ul>
-                <li><strong>Pastilhas e Discos:</strong> Verifique a espessura do material de atrito das pastilhas. Discos riscados ou com rebarbas precisam de usinagem ou troca.</li>
-                <li><strong>Fluido de Freio:</strong> Ele absorve umidade com o tempo. Deve ser trocado a cada 1 ou 2 anos (consulte o manual). Um fluido velho ferve e o pedal "afunda" em descidas longas.</li>
-            </ul>
-
-            <h3>2. Sistema de Suspensão</h3>
-            <ul>
-                <li><strong>Amortecedores:</strong> Vazamento de óleo é sinal claro de desgaste. Carro quicando muito ou pneus com desgaste irregular indicam amortecedor fraco.</li>
-                <li><strong>Buchas e Coxins:</strong> São as peças de borracha que isolam o chassi. Quando ressecam, causam barulhos de "toc-toc" em buracos.</li>
-            </ul>
-
-            <h3>3. Arrefecimento</h3>
-            <ul>
-                <li><strong>Mangueiras:</strong> Aperte-as para ver se estão muito moles ou rachadas. Uma mangueira que estoura na estrada deixa você na mão.</li>
-                <li><strong>Ventoinha (Eletroventilador):</strong> Ligue o ar quente e observe se a ventoinha arma quando o motor esquenta.</li>
-            </ul>
-
-            <h3>4. Correias e Filtros</h3>
-            <p>Todo o sistema de filtragem (ar, óleo, combustível e cabine) deve estar limpo. Filtro de cabine entupido mofa e causa alergias nos ocupantes.</p>
-        `,
-        lubrificacao: `
-            <h2>Guia de Pontos de Lubrificação</h2>
-            <p>Muitos componentes do carro não usam óleo líquido, mas sim <strong>graxa</strong>. A graxa é essencial para peças que sofrem altíssimo impacto e pressão (como articulações), onde o óleo escorreria.</p>
-
-            <h3>Onde a graxa é aplicada?</h3>
-            <ul>
-                <li><strong>Pivôs de Suspensão:</strong> Liga a bandeja ao conjunto de roda.</li>
-                <li><strong>Terminais de Direção:</strong> Permitem que as rodas girem ao virar o volante.</li>
-                <li><strong>Junta Homocinética:</strong> Transmite a força do motor para as rodas. É protegida pela "coifa" (uma borracha sanfonada). Se a coifa rasgar, a graxa sai e entra terra, destruindo a junta.</li>
-                <li><strong>Cardã (Veículos 4x4 e caminhões):</strong> A cruzeta do cardã possui "graxeiras".</li>
-            </ul>
-
-            <h3>Tipos de Graxa</h3>
-            <ul>
-                <li><strong>Graxa de Lítio (NLGI 2):</strong> A mais comum. Suporta bem a água e altas temperaturas. Excelente para chassis em geral.</li>
-                <li><strong>Graxa de Bário:</strong> Alta resistência à lavagem por água. Usada em equipamentos que trabalham em lama.</li>
-                <li><strong>Graxa de Molibdênio (MoS2):</strong> Possui um pó preto que se aloja nas micro-ranhuras do metal, suportando pressões extremas. Muito usada em juntas homocinéticas.</li>
-            </ul>
-
-            <div class="destaque-box"><strong>Alerta Técnico:</strong> Graxas de bases diferentes (ex: lítio e cálcio) não devem ser misturadas, pois podem reagir quimicamente e perder a capacidade de lubrificar. Ao engraxar, limpe o bico da graxeira antes de acoplar a bomba, para não empurrar areia para dentro da articulação.</div>
-        `
+        oleo: `<h2>Óleo do Motor</h2><p>Texto da matéria sobre viscosidade e classificação...</p>`,
+        pneu: `<h2>Pneus e Segurança</h2><p>Texto da matéria sobre TWI e calibragem...</p>`,
+        correias: `<h2>Correias e Tensores</h2><p>Texto da matéria sobre kit de correia...</p>`,
+        dicas: `<h2>Dicas de Manutenção</h2><p>Texto da matéria sobre economia...</p>`,
+        inspecao: `<h2>Pontos de Inspeção</h2><p>Texto da matéria sobre revisão...</p>`,
+        lubrificacao: `<h2>Pontos de Lubrificação</h2><p>Texto da matéria sobre graxas...</p>`
     };
-
     function abrirMateria(id) {
-        const modal = document.getElementById('modalMateria');
-        const conteudo = document.getElementById('conteudoMateria');
-        
-        if(materias[id]) {
-            conteudo.innerHTML = materias[id];
-            modal.classList.add('ativo');
-            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
-        }
+        document.getElementById('conteudoMateria').innerHTML = materias[id];
+        document.getElementById('modalMateria').classList.add('ativo');
+        document.body.style.overflow = 'hidden';
     }
-
-    function fecharMateria(event) {
-        // Se clicou no fundo ou no botão de fechar
-        if (event.target.id === 'modalMateria' || event.target.classList.contains('fechar-modal')) {
-            const modal = document.getElementById('modalMateria');
-            modal.classList.remove('ativo');
-            document.body.style.overflow = ''; // Libera o scroll do fundo
+    function fecharMateria(e) {
+        if (e.target.id === 'modalMateria' || e.target.classList.contains('fechar-modal')) {
+            document.getElementById('modalMateria').classList.remove('ativo');
+            document.body.style.overflow = '';
         }
     }
   </script>

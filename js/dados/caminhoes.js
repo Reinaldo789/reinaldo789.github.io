@@ -237,6 +237,7 @@ export const veiculosCaminhoes = {
       { sistema: 'Motor (Cummins ISC 8.3)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 [1]', capacidade: '28,0 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Manual (ZF 16S 1585 TD)', especificacao: 'SAE 80W API GL-4', capacidade: '13,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial com Redução nos Cubos', especificacao: 'SAE 85W-140 API GL-5', capacidade: '22,0 L', intervalo: '40.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'ATF Dexron II / III', capacidade: '3,5 L', intervalo: 'Verificar nível / 2 anos' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '40,0 L', intervalo: '2 anos' }
     ],
     notas: {
@@ -267,6 +268,88 @@ export const veiculosCaminhoes = {
       ar: { original: '2V0129620', tecfil: 'ARS9842', authomix: 'FAR9842', mann: 'C 32 145', mahle: 'LX 1819', wega: 'WAP-185', fram: 'CA10667', vox: 'HS9842' },
       combustivel: { original: '2R0127177J', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'WK 950/26', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'FBS980' },
       cabine: { original: '2V0819653', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FAC309' }
+    }
+  },
+
+  // ==========================================
+  // LINHA FORD CAMINHÕES (Cargo / Pesados)
+  // ==========================================
+  'Ford Cargo 816': {
+    sistemas: [
+      { sistema: 'Motor (Cummins ISF 3.8)', especificacao: 'SAE 15W-40 (API CI-4/CJ-4) [1]', capacidade: '11,0 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (Eaton FSO-4505)', especificacao: 'SAE 75W-90 API GL-4', capacidade: '3,8 L', intervalo: '40.000 km' },
+      { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '4,5 L', intervalo: '60.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '18,0 L', intervalo: '2 anos ou 100.000 km' }
+    ],
+    notas: {
+      1: "Obrigatório o uso de óleo para motores diesel Heavy Duty atendendo à classificação API CI-4/CJ-4 ou superior.",
+      2: "Uso rodoviário: 20.000 km. Uso severo (distribuição urbana intensa, anda e para): 10.000 km ou 250 horas. Máximo: 12 meses."
+    },
+    filtros: {
+      oleo: { original: 'BG5X6714AA', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 940/25', mahle: 'OC 237', wega: 'WO-120', fram: 'PH8A', vox: 'LB55' },
+      ar: { original: '2C459601AA', tecfil: 'ARS9839', authomix: 'FAR9839', mann: 'C 24 650', mahle: 'LX 1791', wega: 'WAP-182', fram: 'CA10665', vox: 'ARS9839' },
+      combustivel: { original: 'BG5X9155AA', tecfil: 'PSD470', authomix: 'FCO0470', mann: 'WK 8159', mahle: 'KL 440', wega: 'FCI-1630', fram: 'P10237', vox: 'PSD470' },
+      cabine: { original: 'Original Ford', tecfil: '-', authomix: '-', mann: 'CU 27 010', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  },
+
+  'Ford Cargo 2423 / 2629 (Cummins ISB 6.7)': {
+    sistemas: [
+      { sistema: 'Motor (Cummins ISB 6.7)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 [1]', capacidade: '20,0 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (Eaton)', especificacao: 'SAE 80W-90 API GL-4 / GL-5', capacidade: '9,5 L a 10,0 L', intervalo: '60.000 km' },
+      { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '15,0 L a 16,0 L', intervalo: '60.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Pesado (50/50)', capacidade: '32,0 L a 34,0 L', intervalo: '2 anos' }
+    ],
+    notas: {
+      1: "Motores Cummins com EGR/DOC exigem óleos de baixa cinzas sulfatadas e especificação Heavy Duty.",
+      2: "Rodoviário: 30.000 km. Distribuição/Misto: 15.000 km. Severo (obra, basculante, cana): 10.000 km ou 250 horas. Máximo: 12 meses."
+    },
+    filtros: {
+      oleo: { original: 'BG6X6714AA', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
+      ar: { original: 'BC4Z9601A', tecfil: 'ARS9840', authomix: 'FAR9840', mann: 'C 30 850', mahle: 'LX1819', wega: 'WAP-183', fram: 'CA10666', vox: 'ARS9840' },
+      combustivel: { original: 'BG6X9155AA', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'WK 950/26', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'PSD980' },
+      cabine: { original: '-', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  },
+
+  'Ford Cargo 1933 / 3133 (Cummins ISC 9.0)': {
+    sistemas: [
+      { sistema: 'Motor (Cummins ISC / ISL 8.9 - Euro 5)', especificacao: 'SAE 15W-40 / 10W-40 API CJ-4 / CK-4 [1]', capacidade: '28,0 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (Eaton / ZF)', especificacao: 'SAE 80W-90 API GL-4', capacidade: '11,0 L a 13,0 L', intervalo: '60.000 km' },
+      { sistema: 'Diferencial com Redução', especificacao: 'SAE 85W-140 API GL-5', capacidade: '18,0 L a 22,0 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '38,0 L', intervalo: '2 anos' }
+    ],
+    notas: {
+      1: "Motores Euro 5 com Arla-32 exigem óleos API CJ-4 ou CK-4.",
+      2: "Rodoviário longa distância: 30.000 km. Rodoviário pesado / serra: 20.000 km. Severo (basculante / fora de estrada): 12.000 km ou 300 horas. Máximo: 12 meses."
+    },
+    filtros: {
+      oleo: { original: '5266731', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
+      ar: { original: 'CC459601AA', tecfil: 'ARS9842', authomix: 'FAR9842', mann: 'C 32 145', mahle: 'LX1819', wega: 'WAP-185', fram: 'CA10667', vox: 'ARS9842' },
+      combustivel: { original: 'BG6X9155AA', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'WK 950/26', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'PSD980' },
+      cabine: { original: 'Original', tecfil: '-', authomix: '-', mann: 'CU 27 010', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  },
+
+  // ==========================================
+  // LINHA DAF (XF 105 / PACCAR)
+  // ==========================================
+  'DAF XF 105 (Motor PACCAR MX 12.9)': {
+    sistemas: [
+      { sistema: 'Motor (PACCAR MX 360 / 410 / 460 cv)', especificacao: 'SAE 10W-40 Sintético (Norma DAF / ACEA E4 / E7 - API CI-4/CJ-4) [1]', capacidade: '36,0 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Automatizado (ZF AS-Tronic)', especificacao: 'SAE 75W-80 API GL-4 (ZF Ecofluid M)', capacidade: '12,5 L', intervalo: '150.000 km ou 2 anos' },
+      { sistema: 'Diferencial Traseiro (Meritor / DAF)', especificacao: 'SAE 85W-140 API GL-5', capacidade: '15,0 L', intervalo: '120.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (Pronto uso 50/50)', capacidade: '40,0 L', intervalo: '2 anos ou 200.000 km' }
+    ],
+    notas: {
+      1: "Obrigatório o uso de lubrificante sintético de alto desempenho para motores PACCAR de longo intervalo.",
+      2: "Rodoviário de longa distância (com óleo sintético homologado): até 50.000 km a 60.000 km (conforme painel/condições). Operação mista/severa: reduzir para 20.000 km ou 400 horas."
+    },
+    filtros: {
+      oleo: { original: '1848520 / 1686772', tecfil: 'PSL910', authomix: 'FOL0910', mann: 'W 11 010', mahle: 'OX 439 D', wega: 'WO-630', fram: 'PH11350', vox: 'LB910' },
+      ar: { original: '1839182', tecfil: 'ARS9845', authomix: 'FAR9845', mann: 'C 30 1540', mahle: 'LX 2000', wega: 'WAP-190', fram: 'CA11500', vox: 'ARS9845' },
+      combustivel: { original: '1853123', tecfil: 'PSD990', authomix: 'FCO0990', mann: 'WK 1060/3 X', mahle: 'KC 110', wega: 'FCD-0950', fram: 'PS11800', vox: 'PSD990' },
+      cabine: { original: '1689333', tecfil: 'ACP930', authomix: 'FCA0930', mann: 'CU 3200', mahle: 'LA 250', wega: 'AKX-1320', fram: 'CF11800', vox: 'ACP930' }
     }
   }
 };

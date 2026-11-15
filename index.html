@@ -61,5 +61,32 @@
 
     <footer class="rodape"><span>Guia Técnico de Lubrificantes &amp; Filtros</span><button id="voltarTopo" class="voltar-topo" type="button">↑ Voltar ao início</button></footer>
   </main>
+  
+<div class="busca-tecnica-container">
+  <div class="busca-input-box">
+    <input 
+      type="text" 
+      id="campoBuscaVeiculo" 
+      placeholder="Digite o modelo (ex: 24-280, Axor), motor (MAN, Cummins) ou código de filtro (ex: PEL2011, PSL283)..." 
+      autocomplete="off"
+    />
+    <button id="btnLimparBusca" title="Limpar pesquisa" style="display: none;">✕</button>
+  </div>
+
+  <!-- Filtros rápidos por categoria (opcional) -->
+  <div class="filtros-rapidos">
+    <button class="tag-filtro ativa" data-categoria="todos">Todos</button>
+    <button class="tag-filtro" data-categoria="Mercedes-Benz">Mercedes-Benz</button>
+    <button class="tag-filtro" data-categoria="VW">Volkswagen</button>
+    <button class="tag-filtro" data-categoria="Ford">Ford</button>
+    <button class="tag-filtro" data-categoria="DAF">DAF</button>
+    <button class="tag-filtro" data-categoria="Vans">Vans / Utilitários</button>
+  </div>
+
+  <div id="contadorResultados" class="contador-resultados"></div>
+  <div id="listaResultados" class="lista-resultados"></div>
+</div>
+
+
 </body>
 </html>

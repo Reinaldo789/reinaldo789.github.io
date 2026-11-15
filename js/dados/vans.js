@@ -1,4 +1,4 @@
-export const vansOnibusUtilitarios = {
+export const vans = {
   'Ford Transit 2.0 EcoBlue (Pós-2022 / Euro 6)': {
     usaArla32: true,
     sistemas: [

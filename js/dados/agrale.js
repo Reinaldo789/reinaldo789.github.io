@@ -1,46 +1,44 @@
-// agrale.js - Guia Técnico de Lubrificantes e Filtros (Agrale Completo 2012+)
 export const agraleVehicles = {
   montadora: "Agrale",
   veiculos: [
     {
-      modelo: "Marruá (AM100, AM150, AM200, AM300, VTNE)",
-      categoria: "Utilitários 4x4 Militar e Civil",
-      geracoes: [
-        {
-          periodo: "2012 - 2026+",
-          normaEmissao: "Euro V e Euro VI / Proconve P8",
-          motorizacoes: [
-            {
-              codigo: "Cummins ISF 2.8 (150 cv) e Cummins F3.8 Euro VI (175 cv)",
-              combustivel: "Diesel",
-              potencia: "150 cv (Euro V) / 175 cv (Euro VI)",
-              capacidadeOleo: "6.5 litros (ISF 2.8) / 10.5 litros (F3.8 com filtro)",
-              especificacaoOleo: "Óleo 15W-40 ou 10W-40 Low SAPS (Norma Cummins CES 20081 / CES 20086 / API CK-4 com Arla 32)",
-              filtros: { oleo: "Filtro blindado Fleetguard", combustivel: "Filtro separador de água + filtro fino", ar: "Filtro de ar pesado com elemento de segurança" }
-            }
-          ]
-        }
-      ]
+      modelo: "Marruá AM 100 / AM 200 / AM 300",
+      categoria: "Utilitário / Militar / Caminhonete",
+      geracoes: [{
+        periodo: "2011 – 2026+",
+        normaEmissao: "Euro V / MWM 3.0",
+        motorizacoes: [{
+          codigo: "MWM 3.0 Turbo Diesel Intercooler (Fase II / Euro V)",
+          combustivel: "Diesel S10 / S500", potencia: "150 cv", capacidadeOleo: "9.5 Litros (com filtro)",
+          especificacaoOleo: "API CI-4 / CH-4 15W40 ou ACEA E7",
+          filtros: {
+            oleo: "Tecfil PSL341 / Mann W11102/34 / Vox LB341",
+            combustivel: "Tecfil PSD530 / Racor R120LJ / Mann WK829/2",
+            ar: "Tecfil AR8429 / Mann C25114 / Vox HLP8429",
+            cabine: "Não aplicável / Filtro de tela lavável",
+            transmissao: "Tecfil PEC300 / Vox LEC300"
+          }
+        }]
+      }]
     },
     {
-      modelo: "Caminhões Linha A / LX (6500, 8700, 10000, 14000) e Chassis MA / MT",
-      categoria: "Caminhões Leves/Médios e Chassis para Micro-ônibus / Ônibus",
-      geracoes: [
-        {
-          periodo: "2012 - 2026+",
-          normaEmissao: "Euro V e Euro VI / Proconve P8",
-          motorizacoes: [
-            {
-              codigo: "Cummins ISF 3.8 / F3.8 e MWM MaxxForce 4.8 / 7.2",
-              combustivel: "Diesel",
-              potencia: "152 cv a 230 cv",
-              capacidadeOleo: "10.5L (Cummins 3.8) / 14.5L (MWM 4.8) / 20.0L (MWM 7.2)",
-              especificacaoOleo: "Óleo 15W-40 API CJ-4 / CK-4 (Low SAPS no Euro VI com Arla 32)",
-              filtros: { oleo: "Filtro blindado", combustivel: "Filtro separador de água e filtro principal", ar: "Filtro de ar principal e segurança" }
-            }
-          ]
-        }
-      ]
+      modelo: "Caminhões Agrale (Linha 8500 / 9200 / 10000)",
+      categoria: "Caminhão Médio",
+      geracoes: [{
+        periodo: "2011 – 2026+",
+        normaEmissao: "Euro V (MWM MaxxForce 4.8)",
+        motorizacoes: [{
+          codigo: "MWM MaxxForce 4.8 165cv",
+          combustivel: "Diesel S10", potencia: "165 cv", capacidadeOleo: "14.0 Litros",
+          especificacaoOleo: "API CI-4 / ACEA E7 15W40",
+          filtros: {
+            oleo: "Tecfil PSL985 / Mann W950/26 / Vox LB985",
+            combustivel: "Tecfil PSD980 / Mann WK950/26",
+            ar: "Tecfil AR1490 / Mann C24650",
+            arla: "Tecfil Arla 32 / Mann WK 1999 x (Secador APU)"
+          }
+        }]
+      }]
     }
   ]
 };

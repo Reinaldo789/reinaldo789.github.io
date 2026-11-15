@@ -1,4 +1,3 @@
-// frota_completa.js - Exportação unificada de todas as montadoras (2011 - 2026+)
 import { agraleVehicles } from './agrale.js';
 import { chevroletVehicles } from './chevrolet.js';
 import { citroenVehicles } from './citroen.js';
@@ -22,25 +21,8 @@ import { vwVehicles } from './vw.js';
 import { vwCarrosVehicles } from './vw_carros.js';
 
 export const todasAsMontadoras = [
-  agraleVehicles,
-  chevroletVehicles,
-  citroenVehicles,
-  dafVehicles,
-  fiatVehicles,
-  fordVehicles,
-  fordCarrosVehicles,
-  hondaVehicles,
-  hyundaiVehicles,
-  ivecoVehicles,
-  jeepRamVehicles,
-  mercedesVehicles,
-  mitsubishiVehicles,
-  nissanVehicles,
-  peugeotVehicles,
-  renaultVehicles,
-  scaniaVehicles,
-  toyotaVehicles,
-  volvoVehicles,
-  vwVehicles,
-  vwCarrosVehicles
+  agraleVehicles, chevroletVehicles, citroenVehicles, dafVehicles, fiatVehicles,
+  fordVehicles, fordCarrosVehicles, hondaVehicles, hyundaiVehicles, ivecoVehicles,
+  jeepRamVehicles, mercedesVehicles, mitsubishiVehicles, nissanVehicles, peugeotVehicles,
+  renaultVehicles, scaniaVehicles, toyotaVehicles, volvoVehicles, vwVehicles, vwCarrosVehicles
 ];

@@ -1,136 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guia técnico de lubrificantes e filtros por montadora e veículo: óleo, câmbio, diferencial, arrefecimento e filtros equivalentes.">
   <title>Guia Técnico de Lubrificantes & Filtros</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <style>
-    :root {
-      --bg: #f1f5f9; --card: #ffffff; --texto: #0f172a; --suave: #64748b;
-      --borda: #e2e8f0; --primaria: #1d4ed8; --destaque: #b45309; --topo: 56px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--texto); }
-    button { font-family: inherit; }
-
-    /* ===== Topo ===== */
-    .topo { position: sticky; top: 0; z-index: 30; height: var(--topo); background: #0f172a; color: #fff; display: flex; align-items: center; gap: 12px; padding: 0 16px; }
-    .topo h1 { margin: 0; font-size: 1.05rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .btn-menu { display: none; border: 0; background: #1e293b; color: #fff; padding: 8px 12px; border-radius: 8px; font-size: .9rem; cursor: pointer; }
-
-    /* ===== Layout ===== */
-    .layout { display: grid; grid-template-columns: 340px 1fr; max-width: 1500px; margin: 0 auto; }
-
-    /* ===== Painel lateral ===== */
-    .lateral { position: sticky; top: var(--topo); height: calc(100vh - var(--topo)); overflow-y: auto; background: var(--card); border-right: 1px solid var(--borda); }
-    .lateral-topo { position: sticky; top: 0; z-index: 2; background: var(--card); padding: 12px; border-bottom: 1px solid var(--borda); }
-    .busca-campo { position: relative; }
-    .busca-campo > i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--suave); pointer-events: none; }
-    .busca-campo input { width: 100%; padding: 11px 38px 11px 36px; font-size: .95rem; border: 2px solid var(--borda); border-radius: 10px; background: #fff; color: var(--texto); outline: none; }
-    .busca-campo input:focus { border-color: var(--primaria); }
-    .busca-campo button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: #e2e8f0; color: var(--suave); width: 26px; height: 26px; border-radius: 50%; cursor: pointer; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .chip { border: 1px solid var(--borda); background: #f8fafc; color: var(--texto); padding: 4px 11px; border-radius: 999px; font-size: .78rem; cursor: pointer; }
-    .chip:hover { border-color: var(--primaria); }
-    .chip.ativo { background: var(--primaria); border-color: var(--primaria); color: #fff; }
-    .contador { margin: 10px 0 0; font-size: .75rem; color: var(--suave); }
-
-    .marca { border-bottom: 1px solid var(--borda); }
-    .marca > summary { list-style: none; cursor: pointer; padding: 11px 14px; font-weight: 700; font-size: .9rem; display: flex; align-items: center; justify-content: space-between; user-select: none; }
-    .marca > summary::-webkit-details-marker { display: none; }
-    .marca > summary:hover { background: #f8fafc; }
-    .marca > summary .seta { color: var(--suave); font-size: .7rem; transition: transform .15s; }
-    .marca[open] > summary .seta { transform: rotate(90deg); }
-    .marca > summary .qtd { margin-left: auto; margin-right: 10px; font-weight: 500; font-size: .72rem; color: var(--suave); background: #f1f5f9; padding: 1px 8px; border-radius: 999px; }
-    .marca ul { list-style: none; margin: 0; padding: 0 0 6px; }
-    .item-veiculo { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 8px 14px 8px 30px; font-size: .86rem; color: var(--texto); cursor: pointer; border-left: 3px solid transparent; line-height: 1.3; }
-    .item-veiculo:hover { background: #eff6ff; }
-    .item-veiculo.ativo { background: var(--primaria); border-left-color: #1e3a8a; font-weight: 700; color: #fff; }
-    .item-veiculo small { color: var(--suave); font-size: .7rem; margin-left: 6px; font-weight: 400; }
-    .sem-resultado { padding: 24px 16px; text-align: center; color: var(--suave); font-size: .9rem; }
-
-    /* ===== Conteúdo ===== */
-    .conteudo { padding: 16px 20px 40px; min-width: 0; }
-    .ficha-nav { position: sticky; top: var(--topo); z-index: 5; background: var(--bg); padding: 8px 0; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .ficha-nav button { border: 1px solid var(--borda); background: #fff; color: var(--texto); padding: 8px 12px; border-radius: 8px; font-size: .85rem; cursor: pointer; }
-    .ficha-nav button:hover:not(:disabled) { border-color: var(--primaria); color: var(--primaria); }
-    .ficha-nav button:disabled { opacity: .4; cursor: default; }
-    .ficha-nav .pos { font-size: .8rem; color: var(--suave); margin: 0 auto 0 4px; }
-
-    .vazio { text-align: center; color: var(--suave); padding: 60px 10px; }
-    .vazio i { font-size: 2.4rem; display: block; margin-bottom: 12px; color: #94a3b8; }
-    .vazio button { margin-top: 14px; border: 0; background: var(--primaria); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: .95rem; cursor: pointer; display: none; }
-
-    .titulo-modelo { margin: 0 0 4px; font-size: 1.5rem; }
-    .secao-titulo { margin: 24px 0 10px; font-size: 1.05rem; color: var(--primaria); }
-    .sis { background: var(--card); border: 1px solid var(--borda); border-left: 4px solid var(--primaria); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
-    .sis-titulo { font-weight: 700; margin-bottom: 8px; }
-    .sis-dados { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0; }
-    .sis-dados dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; color: var(--suave); }
-    .sis-dados dd { margin: 2px 0 0; font-size: .95rem; }
-    .sis-dados dd.destaque { color: var(--destaque); font-weight: 600; }
-    .filtros-box { background: var(--card); border: 1px solid var(--borda); border-radius: 10px; padding: 12px; }
-    .tabela-container { overflow-x: auto; }
-    .tabela-filtros { width: 100%; border-collapse: collapse; font-size: .85rem; white-space: nowrap; }
-    .tabela-filtros th, .tabela-filtros td { padding: 8px 10px; border-bottom: 1px solid var(--borda); text-align: left; }
-    .tabela-filtros th { background: #f8fafc; font-size: .75rem; text-transform: uppercase; color: var(--suave); }
-    .filtro-tag { display: inline-block; padding: 2px 8px; border: 1px solid #818cf8; border-radius: 6px; background: #e0e7ff; font-family: ui-monospace, monospace; }
-    .erro { color: #b91c1c; }
-
-    /* ===== Celular / tablet: painel vira gaveta ===== */
-    @media (max-width: 900px) {
-      .btn-menu { display: inline-flex; align-items: center; gap: 6px; }
-      .layout { display: block; }
-      .lateral { position: fixed; top: var(--topo); left: 0; bottom: 0; width: min(380px, 92vw); height: auto; z-index: 40; transform: translateX(-100%); transition: transform .2s; box-shadow: 4px 0 20px rgba(0,0,0,.2); }
-      body.menu-aberto .lateral { transform: translateX(0); }
-      .fundo { display: none; position: fixed; inset: var(--topo) 0 0 0; background: rgba(15,23,42,.45); z-index: 35; }
-      body.menu-aberto .fundo { display: block; }
-      .vazio button { display: inline-block; }
-      .conteudo { padding: 12px 12px 40px; }
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/fichas.css">
+  <script src="js/menu.js" defer></script>
+  <script type="module" src="js/app.js"></script>
 </head>
 <body>
-
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
   <header class="topo">
-    <button id="btn-menu" class="btn-menu" type="button" aria-label="Abrir lista de veículos"><i class="fas fa-bars"></i> Veículos</button>
-    <h1><i class="fas fa-oil-can"></i> Guia Técnico de Lubrificantes & Filtros</h1>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuLateral" aria-label="Abrir menu">☰</button>
+    <a class="marca" href="#inicio"><span class="marca-icone">⚙</span><span>Guia Técnico<br><small>Lubrificantes &amp; Filtros · Frota e Oficina</small></span></a>
+    <span class="topo-tag" id="topoTag">Veículos</span>
   </header>
 
-  <div class="layout">
-
-    <aside class="lateral" id="lateral">
-      <div class="lateral-topo">
-        <div class="busca-campo">
-          <i class="fas fa-search"></i>
-          <input id="busca-veiculo" type="search" placeholder="Buscar: Hilux, Sprinter, Gol..." autocomplete="off" aria-label="Buscar veículo">
-          <button id="limpar-busca" type="button" aria-label="Limpar busca" hidden><i class="fas fa-times"></i></button>
-        </div>
-        <div id="categorias" class="chips"></div>
-        <p id="contador" class="contador"></p>
+  <div class="fundo-menu" id="fundoMenu"></div>
+  <aside class="menu-lateral" id="menuLateral" aria-label="Menu principal">
+    <div class="menu-cabecalho"><strong>Montadoras</strong><button id="fecharMenu" aria-label="Fechar menu">×</button></div>
+    <nav>
+      <a class="item-menu ativo" href="#inicio" data-inicio>⌂ Visão geral</a>
+      <div class="menu-busca">
+        <input id="buscaMenu" type="search" placeholder="Buscar veículo..." autocomplete="off" aria-label="Buscar veículo no menu">
       </div>
-      <nav id="lista-veiculos" aria-label="Veículos por marca"></nav>
-    </aside>
+      <div id="menuMarcas"></div>
+    </nav>
+    <div class="menu-rodape">Confirme sempre com o manual do fabricante antes de executar a manutenção.</div>
+  </aside>
 
-    <main class="conteudo">
-      <section id="resultado">
-        <div class="vazio">
-          <i class="fas fa-car-side"></i>
-          Escolha um veículo na lista ao lado ou busque pelo nome.<br>
-          <small>Dica: aperte <b>/</b> para ir direto na busca.</small><br>
-          <button id="abrir-lista" type="button"><i class="fas fa-list"></i> Ver lista de veículos</button>
+  <main id="conteudo" class="conteudo">
+
+    <div id="inicio">
+      <section class="hero">
+        <div class="sobretitulo">BIBLIOTECA DE MANUTENÇÃO</div>
+        <h1>Lubrificantes &amp;<br><span>Filtros por veículo</span></h1>
+        <p>Escolha a montadora no menu e abra o modelo para ver óleo do motor, câmbio, diferencial, arrefecimento, intervalos de troca e a tabela de filtros equivalentes.</p>
+        <div class="hero-acoes"><button class="botao principal" id="abrirMenuHero" type="button">Escolher montadora →</button></div>
+        <div class="avisos-hero"><strong id="resumo">—</strong></div>
+      </section>
+
+      <section class="secao" id="marcas">
+        <div class="cabecalho-secao"><div><div class="sobretitulo">MONTADORAS</div><h2>Todos os veículos</h2></div></div>
+        <div class="grade-marcas" id="indiceMarcas"></div>
+      </section>
+
+      <section class="secao" id="metodo">
+        <div class="cabecalho-secao"><div><div class="sobretitulo">COMO USAR</div><h2>Três passos</h2></div></div>
+        <div class="cartoes">
+          <article class="cartao"><span class="numero">01</span><h3>Montadora</h3><p>Abra a montadora no menu lateral para listar os modelos dela.</p></article>
+          <article class="cartao"><span class="numero">02</span><h3>Veículo</h3><p>Clique no modelo para ver fluidos, capacidades e intervalos.</p></article>
+          <article class="cartao"><span class="numero">03</span><h3>Filtros</h3><p>Compare o código original com Vox, Tecfil, Authomix, Mann, Mahle, Wega e Fram.</p></article>
         </div>
       </section>
-    </main>
+    </div>
 
-  </div>
+    <div id="ficha" hidden></div>
 
-  <div class="fundo" id="fundo"></div>
-
-  <script type="module" src="js/app.js"></script>
+    <footer class="rodape"><span>Guia Técnico de Lubrificantes &amp; Filtros</span><button id="voltarTopo" class="voltar-topo" type="button">↑ Voltar ao início</button></footer>
+  </main>
 </body>
 </html>

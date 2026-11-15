@@ -93,92 +93,98 @@ export const veiculosCaminhoes = {
 
   'Mercedes-Benz 915c': {
     sistemas: [
-      { sistema: 'Motor (OM 904 LA)', especificacao: 'SAE 15W-40 (MB 228.3) [1]', capacidade: '15,0 L (com filtro)', intervalo: 'Ver nota [2]' },
-      { sistema: 'Câmbio Manual', especificacao: 'SAE 80W-90 API GL-4', capacidade: '4,0 L', intervalo: '50.000 km' },
-      { sistema: 'Diferencial', especificacao: 'SAE 85W-90 API GL-5', capacidade: '3,5 L', intervalo: '50.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.5 / 325.6 (50/50)', capacidade: '20,0 L', intervalo: '2 anos' }
+      { sistema: 'Motor (OM 904 LA)', especificacao: 'SAE 15W-40 (MB 228.3) [1]', capacidade: '15,8 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (MB G 56-6)', especificacao: 'SAE 80W / ATF (Norma MB 235.1 / 236.2)', capacidade: '5,0 L', intervalo: '60.000 km' },
+      { sistema: 'Diferencial (MB HL 2/43)', especificacao: 'SAE 85W-90 API GL-5 (MB 235.0)', capacidade: '3,2 L', intervalo: '60.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'Fluido MB 236.3 / ATF Dexron II', capacidade: '2,5 L', intervalo: 'Verificar nível / 2 anos' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '20,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Atender rigorosamente à norma Mercedes-Benz 228.3 (API CI-4).",
+      1: "Atender rigorosamente à norma Mercedes-Benz 228.3 (API CI-4) ou MB 228.5.",
       2: "20.000 km (Rodoviário) ou 10.000 km (Uso severo urbano / entregas porta a porta)."
     },
     filtros: {
-      oleo: { original: 'A0001802609', tecfil: 'PSL39', authomix: 'FOL0039', mann: 'W 940/25', mahle: 'OC 237', wega: 'WO-120', fram: 'PH8A', vox: 'LB39' },
-      ar: { original: 'A0030945804', tecfil: 'ARL7001', authomix: 'FAR7001', mann: 'C 24 650', mahle: 'LX 824', wega: 'FAP-7001', fram: 'CA7164', vox: 'FAR7001' },
-      combustivel: { original: 'A0000903651', tecfil: 'PSD470', authomix: 'FCO0470', mann: 'WK 842/2', mahle: 'KC 19', wega: 'FCD-0740', fram: 'P4102', vox: 'PSD470' },
+      oleo: { original: 'A9041800009', tecfil: 'PEL39', authomix: 'FEL0039', mann: 'HU 727/1 X', mahle: 'OX 153/7 D', wega: 'WOE-451', fram: 'CH9548ECO', vox: 'LE39' },
+      ar: { original: 'A0030945804', tecfil: 'ARL7001', authomix: 'FAR7001', mann: 'C 24 650', mahle: 'LX 824', wega: 'FAP-7001', fram: 'CA7164', vox: 'HL7001' },
+      combustivel: { original: 'A9060920205 / A9584770115', tecfil: 'PEC3022 / PSD920/1', authomix: 'FCE3022 / FCO0920', mann: 'PU 999/1 X / WK 1060/4', mahle: 'KX 67/2 D / KC 489', wega: 'FCD-0803 / FCD-30124F', fram: 'C9765ECO', vox: 'CE3022 / FBS920/1' },
       cabine: { original: 'Não possui original', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
     }
   },
 
   'Mercedes-Benz 1418E': {
     sistemas: [
-      { sistema: 'Motor (OM 358 / OM 906)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '17,0 L', intervalo: 'Ver nota [1]' },
-      { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '7,0 L', intervalo: '50.000 km' },
-      { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '12,0 L', intervalo: '50.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '25,0 L', intervalo: '2 anos' }
+      { sistema: 'Motor (OM 904 LA - 4 cil. Eletrônico)', especificacao: 'SAE 15W-40 (MB 228.3) [1]', capacidade: '15,8 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (MB G 60-6)', especificacao: 'SAE 40 / 80W (Norma MB 235.12 / 235.1)', capacidade: '9,0 L', intervalo: '60.000 km' },
+      { sistema: 'Diferencial (MB HL 4)', especificacao: 'SAE 85W-90 API GL-5 (MB 235.0)', capacidade: '10,0 L', intervalo: '60.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'Fluido MB 236.3 / ATF Dexron II', capacidade: '3,0 L', intervalo: 'Verificar nível / 2 anos' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '24,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "15.000 km ou 6 meses em operação mista (estrada/terra)."
+      1: "Motor eletrônico OM 904 LA (177 cv). Exige óleo homologado MB 228.3 (API CI-4).",
+      2: "20.000 km (Rodoviário) ou 10.000 km em operação mista/severa."
     },
     filtros: {
-      oleo: { original: 'A0001802609', tecfil: 'PSL39', authomix: 'FOL0039', mann: 'W 940/25', mahle: 'OC 237', wega: 'WO-120', fram: 'PH8A', vox: 'LB39' },
-      ar: { original: 'A0030946504', tecfil: 'ARS9839', authomix: 'FAR9839', mann: 'C 30 850', mahle: 'LX1791', wega: 'WAP-182', fram: 'CA10665', vox: 'ARS9839' },
-      combustivel: { original: 'A0000903651', tecfil: 'PSD470', authomix: 'FCO0470', mann: 'WK 842/2', mahle: 'KC 19', wega: 'FCD-0740', fram: 'P4102', vox: 'PSD470' },
+      oleo: { original: 'A9041800009', tecfil: 'PEL39', authomix: 'FEL0039', mann: 'HU 727/1 X', mahle: 'OX 153/7 D', wega: 'WOE-451', fram: 'CH9548ECO', vox: 'LE39' },
+      ar: { original: 'A0030949604', tecfil: 'AP9496', authomix: 'FAP9496', mann: 'C 29 1032/1', mahle: 'LX 776/1', wega: 'WAP-104', fram: 'CA9388', vox: 'HP9496' },
+      combustivel: { original: 'A9060920205 / A9584770115', tecfil: 'PEC3022 / PSD920/1', authomix: 'FCE3022 / FCO0920', mann: 'PU 999/1 X / WK 1060/4', mahle: 'KX 67/2 D / KC 489', wega: 'FCD-0803 / FCD-30124F', fram: 'C9765ECO', vox: 'CE3022 / FBS920/1' },
       cabine: { original: '-', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
     }
   },
 
   'Mercedes-Benz 2627': {
     sistemas: [
-      { sistema: 'Motor (OM 906 LA / OM 926)', especificacao: 'SAE 15W-40 MB 228.3', capacidade: '25,0 L', intervalo: 'Ver nota [1]' },
-      { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '11,0 L', intervalo: '60.000 km' },
-      { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '20,0 L', intervalo: '50.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.5 (50/50)', capacidade: '36,0 L', intervalo: '2 anos' }
+      { sistema: 'Motor (OM 906 LA / OM 926 LA)', especificacao: 'SAE 15W-40 MB 228.3 / 228.5', capacidade: '29,3 L (com filtro)', intervalo: 'Ver nota [1]' },
+      { sistema: 'Câmbio Manual (MB G 85-6)', especificacao: 'SAE 40 (Norma MB 235.12)', capacidade: '9,0 L (+0,5 L c/ radiador)', intervalo: '60.000 km' },
+      { sistema: 'Diferencial (Tração 6x4)', especificacao: 'SAE 85W-90 API GL-5 (MB 235.0)', capacidade: '20,0 L (10,5 L + 9,5 L)', intervalo: '50.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'Fluido MB 236.3', capacidade: '3,5 L', intervalo: 'Verificar nível / 2 anos' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '32,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Uso severo em canteiro de obras / basculante: Trocar a cada 10.000 km."
+      1: "Uso severo em canteiro de obras / basculante: Trocar a cada 10.000 km. Rodoviário/Misto: 20.000 km."
     },
     filtros: {
-      oleo: { original: 'A0001803009', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
-      ar: { original: 'A0040940304', tecfil: 'ARS9840', authomix: 'FAR9840', mann: 'C 31 1414', mahle: 'LX1819', wega: 'WAP-183', fram: 'CA10666', vox: 'ARS9840' },
-      combustivel: { original: 'A0000904251', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'WK 950/26', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'PSD980' },
-      cabine: { original: 'Original', tecfil: '-', authomix: '-', mann: 'CU 27 010', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: { original: 'A9061800209', tecfil: 'PEL2002', authomix: 'FEL2002', mann: 'HU 945/2 X', mahle: 'OX 152/1 D', wega: 'WOE-450', fram: 'CH9547ECO', vox: 'LE2002' },
+      ar: { original: 'A0040940304', tecfil: 'ARS9840', authomix: 'FAR9840', mann: 'C 31 1414', mahle: 'LX 1819', wega: 'WAP-183', fram: 'CA10666', vox: 'HS9840' },
+      combustivel: { original: 'A9060920205 / A9584770115', tecfil: 'PEC3022 / PSD920/1', authomix: 'FCE3022 / FCO0920', mann: 'PU 999/1 X / WK 1060/4', mahle: 'KX 67/2 D / KC 489', wega: 'FCD-0803 / FCD-30124F', fram: 'C9765ECO', vox: 'CE3022 / FBS920/1' },
+      cabine: { original: 'A9408350147', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FAC309' }
     }
   },
 
   'Mercedes-Benz AXOR 3344': {
     sistemas: [
-      { sistema: 'Motor (OM 457 LA)', especificacao: 'SAE 15W-40 (Norma MB 228.5 / 228.3)', capacidade: '35,0 L', intervalo: 'Ver nota [1]' },
-      { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '13,0 L', intervalo: '60.000 km' },
-      { sistema: 'Diferencial com Redução nos Cubos', especificacao: 'SAE 85W-140 API GL-5', capacidade: '24,0 L (Total com cubos)', intervalo: '40.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico MB 325.5 (50/50)', capacidade: '42,0 L', intervalo: '2 anos' }
+      { sistema: 'Motor (OM 457 LA)', especificacao: 'SAE 15W-40 / 10W-40 (Norma MB 228.5 / 228.3)', capacidade: '35,0 L (com filtro)', intervalo: 'Ver nota [1]' },
+      { sistema: 'Câmbio (MB G 240-16 / Powershift)', especificacao: 'SAE 80W / 75W-85 (Norma MB 235.1 / 235.4)', capacidade: '13,0 L', intervalo: '60.000 km' },
+      { sistema: 'Diferencial com Redução nos Cubos', especificacao: 'SAE 85W-90 / 85W-140 API GL-5 (MB 235.0 / 235.8)', capacidade: '24,0 L (Total eixos + cubos)', intervalo: '40.000 km' },
+      { sistema: 'Direção Hidráulica', especificacao: 'Fluido MB 236.3', capacidade: '4,0 L', intervalo: 'Verificar nível / 2 anos' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '42,0 L', intervalo: '2 anos' }
     ],
     notas: {
       1: "Operação fora de estrada extrema (mineração/cana): 15.000 km. Rodoviário/Misto: até 30.000 km com óleo sintético MB 228.5."
     },
     filtros: {
-      oleo: { original: 'A0001803009', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
-      ar: { original: 'A0040940304', tecfil: 'ARS9842', authomix: 'FAR9842', mann: 'C 32 145', mahle: 'LX1819', wega: 'WAP-185', fram: 'CA10667', vox: 'ARS9842' },
-      combustivel: { original: 'A0000904251', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'WK 950/26', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'PSD980' },
-      cabine: { original: 'A9408350147', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FCA0309' }
+      oleo: { original: 'A4571800109', tecfil: 'PEL106', authomix: 'FEL0106', mann: 'HU 935/4 X', mahle: 'OX 387 D', wega: 'WOE-502', fram: 'CH9973ECO', vox: 'LE106' },
+      ar: { original: 'A0040940304', tecfil: 'ARS9842', authomix: 'FAR9842', mann: 'C 32 145', mahle: 'LX 1819', wega: 'WAP-185', fram: 'CA10667', vox: 'HS9842' },
+      combustivel: { original: 'A5410900151 / A9584770115', tecfil: 'PEC3023 / PSD920/1', authomix: 'FCE3023 / FCO0920', mann: 'PU 1046/1 X / WK 1060/4', mahle: 'KX 80/1 D / KC 489', wega: 'FCD-0804 / FCD-30124F', fram: 'C9766ECO', vox: 'CE3023 / FBS920/1' },
+      cabine: { original: 'A9408350147', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FAC309' }
     }
   },
 
   'Mercedes-Benz Atego 1725': {
     sistemas: [
-      { sistema: 'Motor (OM 906 LA)', especificacao: 'SAE 15W-40 MB 228.3', capacidade: '23,0 L', intervalo: 'Ver nota [1]' },
-      { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '9,0 L', intervalo: '60.000 km' },
-      { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '14,0 L', intervalo: '60.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.5 (50/50)', capacidade: '28,0 L', intervalo: '2 anos' }
+      { sistema: 'Motor (OM 906 LA)', especificacao: 'SAE 15W-40 MB 228.3 / 228.5', capacidade: '29,3 L (com filtro)', intervalo: 'Ver nota [1]' },
+      { sistema: 'Câmbio Manual (MB G 85-6)', especificacao: 'SAE 40 (Norma MB 235.12)', capacidade: '9,0 L (+0,5 L c/ radiador)', intervalo: '60.000 km' },
+      { sistema: 'Diferencial (MB HL 4/062)', especificacao: 'SAE 85W-90 API GL-5 (MB 235.0)', capacidade: '10,0 L', intervalo: '60.000 km' },
+      { sistema: 'Direção Hidráulica (MB LS 6 BK)', especificacao: 'Fluido MB 236.3', capacidade: '3,5 L', intervalo: 'Verificar nível / 2 anos' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '25,0 L', intervalo: '2 anos' }
     ],
     notas: {
       1: "20.000 km (Rodoviário) / 10.000 km (Severo)."
     },
     filtros: {
-      oleo: { original: 'A0001803009', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
-      ar: { original: 'A0030946504', tecfil: 'ARS9840', authomix: 'FAR9840', mann: 'C 30 850', mahle: 'LX1819', wega: 'WAP-183', fram: 'CA10666', vox: 'ARS9840' },
-      combustivel: { original: 'A0000903651', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'WK 950/26', mahle: 'KC 104', wega: 'FCD-0941', fram: 'PS10756', vox: 'PSD980' },
-      cabine: { original: 'Original', tecfil: '-', authomix: '-', mann: 'CU 27 010', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: { original: 'A9061800209', tecfil: 'PEL2002', authomix: 'FEL2002', mann: 'HU 945/2 X', mahle: 'OX 152/1 D', wega: 'WOE-450', fram: 'CH9547ECO', vox: 'LE2002' },
+      ar: { original: 'A0030949604', tecfil: 'AP9496', authomix: 'FAP9496', mann: 'C 29 1032/1', mahle: 'LX 776/1', wega: 'WAP-104', fram: 'CA9388', vox: 'HP9496' },
+      combustivel: { original: 'A9060920205 / A9584770115', tecfil: 'PEC3022 / PSD920/1', authomix: 'FCE3022 / FCO0920', mann: 'PU 999/1 X / WK 1060/4', mahle: 'KX 67/2 D / KC 489', wega: 'FCD-0803 / FCD-30124F', fram: 'C9765ECO', vox: 'CE3022 / FBS920/1' },
+      cabine: { original: 'A9408350147', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 27 010', mahle: 'LA 74', wega: 'AKX-1122', fram: 'CF11175', vox: 'FAC309' }
     }
   },
 

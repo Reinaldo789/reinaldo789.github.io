@@ -87,3 +87,131 @@ button { font-family: inherit; }
   .hero h1 { font-size: 1.7rem; }
   .topo-tag { display: none; }
 }
+
+/* --- ESTILOS DO MENU LATERAL --- */
+
+/* Cabeçalho do menu */
+.menu-cabecalho {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-cabecalho strong {
+    font-size: 18px;
+    color: #333;
+}
+.menu-cabecalho button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.menu-cabecalho button:hover {
+    color: #e74c3c;
+}
+
+/* Barra de Busca */
+.menu-busca {
+    padding: 15px 20px;
+}
+.menu-busca input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    background-color: #f8f9fa;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+.menu-busca input::placeholder {
+    color: #999;
+}
+.menu-busca input:focus {
+    border-color: #0056b3;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15); /* Efeito de foco elegante */
+}
+
+/* Área de rolagem das marcas */
+#menuMarcas {
+    padding: 0 10px 20px 10px;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+/* Scrollbar customizada (fica mais fina e elegante) */
+#menuMarcas::-webkit-scrollbar { width: 6px; }
+#menuMarcas::-webkit-scrollbar-track { background: transparent; }
+#menuMarcas::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+#menuMarcas::-webkit-scrollbar-thumb:hover { background: #999; }
+
+/* Itens do Menu (Marcas) */
+.item-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    border-radius: 8px; /* Bordas arredondadas nos itens */
+    color: #444;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+
+.item-menu:hover {
+    background-color: #f0f4f8; /* Fundo azul clarinho ao passar o mouse */
+    color: #0056b3;
+}
+
+/* Item Ativo (Visão Geral) */
+.item-menu.ativo {
+    background-color: #eef5fc;
+    color: #0056b3;
+    border-left: 4px solid #0056b3; /* Borda lateral azul */
+    border-radius: 4px 8px 8px 4px; /* Ajusta o arredondamento por causa da borda */
+}
+
+/* Contador de veículos (Badge) */
+.badge-count {
+    background-color: #f1f3f5;
+    color: #666;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px; /* Formato de pílula */
+    transition: background 0.2s;
+}
+.item-menu:hover .badge-count {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Seta (Chevron) */
+.chevron {
+    font-size: 12px;
+    color: #bbb;
+    transition: transform 0.3s ease, color 0.2s;
+}
+.item-menu:hover .chevron {
+    color: #0056b3;
+    transform: translateY(2px); /* Efeito de setinha pulando */
+}
+
+/* Rodapé do menu */
+.menu-rodape {
+    padding: 20px;
+    font-size: 12px;
+    color: #888;
+    border-top: 1px solid #eee;
+    background: #fafafa;
+    text-align: center;
+}

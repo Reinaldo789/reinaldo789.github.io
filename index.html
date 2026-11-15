@@ -6,10 +6,13 @@
   <meta name="description" content="Guia técnico de lubrificantes e filtros por montadora e veículo.">
   <title>Guia Técnico de Lubrificantes & Filtros</title>
   <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/fichas.css">
   <script src="js/menu.js" defer></script>
+  <script type="module" src="js/app.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  
   <header class="topo">
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuLateral" aria-label="Abrir menu">☰</button>
     <a class="marca" href="#inicio"><span class="marca-icone">⚙</span><span>Guia Técnico<br><small>Lubrificantes &amp; Filtros</small></span></a>
@@ -25,8 +28,10 @@
       <div class="menu-busca">
         <input id="buscaMenu" type="search" placeholder="Buscar veículo..." autocomplete="off" aria-label="Buscar veículo no menu">
       </div>
-      <!-- AQUI O JAVASCRIPT VAI INJETAR AS MARCAS -->
+      
+      <!-- O app.js preenche essa div com os menus de marcas -->
       <div id="menuMarcas"></div>
+      
     </nav>
     <div class="menu-rodape">Confirme sempre com o manual do fabricante antes de executar a manutenção.</div>
   </aside>
@@ -39,17 +44,7 @@
         <h1>Lubrificantes &amp;<br><span>Filtros por veículo</span></h1>
         <p>Escolha a montadora no menu lateral para ver óleo do motor, câmbio, diferencial, arrefecimento, intervalos de troca e a tabela de filtros equivalentes.</p>
         <div class="hero-acoes"><button class="botao principal" id="abrirMenuHero" type="button">Escolher montadora →</button></div>
-      </section>
-
-      <!-- FERRAMENTA DE BUSCA DE FILTROS -->
-      <section class="secao" id="conversao-filtros" style="background: #fff; padding: 30px; border-radius: 14px; border: 1px solid var(--borda); margin-top: 30px;">
-        <div class="cabecalho-secao"><div><div class="sobretitulo">CONVERSÃO</div><h2>Consulta Rápida de Filtros</h2></div></div>
-        <p style="color: var(--suave); margin-bottom: 15px;">Tem o código original da peça? Digite abaixo para descobrir as marcas equivalentes.</p>
-        <div style="display: flex; gap: 10px;">
-          <input type="text" id="codigoOriginal" placeholder="Ex: 6811009140..." style="flex:1; padding: 12px; border: 2px solid var(--borda); border-radius: 8px; font-size: 16px;" onkeypress="handleKeyPress(event)">
-          <button onclick="consultarCodigo()" class="botao principal" style="padding: 12px 20px;">Consultar</button>
-        </div>
-        <div id="resultadoArea" style="margin-top: 20px;"></div>
+        <div class="avisos-hero" style="margin-top: 20px; font-size: .85rem; color: #cbd5e1; border-top: 1px solid #334155; padding-top: 14px;"><strong id="resumo">—</strong></div>
       </section>
 
       <!-- CARDS DE CONTEÚDO TÉCNICO -->
@@ -61,48 +56,26 @@
           </div>
         </div>
         
-        <div class="grade-conteudo">
-          <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('oleo')">
-            <div class="card-icone">🛢️</div>
-            <h3>Óleo do Motor</h3>
-            <p>Viscosidade (SAE), especificação API/ACEA e as diferenças entre óleos minerais, sintéticos e semissintéticos.</p>
-            <span class="card-saiba-mais">Ler matéria →</span>
-          </a>
-          <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('pneu')">
-            <div class="card-icone">🛞</div>
-            <h3>Pneus e Segurança</h3>
-            <p>Como ler a medida, verificar o TWI, a pressão correta e quando fazer o rodízio ou a troca.</p>
-            <span class="card-saiba-mais">Ler matéria →</span>
-          </a>
-          <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('correias')">
-            <div class="card-icone">⚙️</div>
-            <h3>Correias e Tensores</h3>
-            <p>Diferença entre correia dentada e poly-V, sinais de desgaste e a importância do kit completo.</p>
-            <span class="card-saiba-mais">Ler matéria →</span>
-          </a>
-          <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('dicas')">
-            <div class="card-icone">💡</div>
-            <h3>Dicas de Manutenção</h3>
-            <p>Checklist diário: economia de combustível, verificações antes da estrada e cuidados com o motor.</p>
-            <span class="card-saiba-mais">Ler matéria →</span>
-          </a>
-          <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('inspecao')">
-            <div class="card-icone">🔍</div>
-            <h3>Pontos de Inspeção</h3>
-            <p>O que verificar em uma revisão: fluidos, freios, suspensão, arrefecimento e vazamentos.</p>
-            <span class="card-saiba-mais">Ler matéria →</span>
-          </a>
-          <a href="javascript:void(0)" class="card-conteudo" onclick="abrirMateria('lubrificacao')">
-            <div class="card-icone">💧</div>
-            <h3>Pontos de Lubrificação</h3>
-            <p>Guia de graxas para chassis, rolamentos, articulações e engates. Evite desgastes prematuros.</p>
-            <span class="card-saiba-mais">Ler matéria →</span>
-          </a>
+        <div class="grade-conteudo" id="gradeMaterias">
+          <!-- O script no final do arquivo preenche esses cards -->
         </div>
+      </section>
+
+      <!-- MONTADORAS (O app.js vai preencher o indiceMarcas) -->
+      <section class="secao" id="marcas">
+        <div class="cabecalho-secao">
+          <div>
+            <div class="sobretitulo">MONTADORAS</div>
+            <h2>Todos os veículos</h2>
+          </div>
+        </div>
+        <div class="grade-marcas" id="indiceMarcas"></div>
       </section>
     </div>
 
+    <!-- FICHA DO VEÍCULO (O app.js exibe isso ao clicar no menu) -->
     <div id="ficha" hidden></div>
+
     <footer class="rodape"><span>Guia Técnico de Lubrificantes &amp; Filtros</span><button id="voltarTopo" class="voltar-topo" type="button">↑ Voltar ao início</button></footer>
   </main>
 
@@ -114,49 +87,59 @@
     </div>
   </div>
 
+  <!-- SCRIPT EXCLUSIVO PARA OS CARDS (Não interfere no seu app.js) -->
   <script>
-    // --- 1. SISTEMA DE BUSCA DE FILTROS ---
-    const bancoDeDados = [
-        { original: "6811009140", fb: "FB028", fram: "CF1001", mahle: "LA1097/5", mann: "MP335/2", tecfil: "", vox: "FAC818", wega: "AKX3583" },
-        { original: "971332F200", fb: "FB1001F", fram: "CF10248", mahle: "LA298", mann: "CU2424", tecfil: "ACP977", vox: "FAC977", wega: "AKX1985" }
-    ];
-    function consultarCodigo() {
-        const termo = document.getElementById('codigoOriginal').value.trim().toUpperCase();
-        const area = document.getElementById('resultadoArea');
-        if (!termo) { area.innerHTML = '<p style="color:#e74c3c;">Digite um código.</p>'; return; }
-        
-        const res = bancoDeDados.filter(i => i.original.includes(termo));
-        if (res.length === 0) { area.innerHTML = `<p style="color:#e74c3c;">Nenhum resultado para <strong>${termo}</strong>.</p>`; return; }
-
-        area.innerHTML = res.map(r => `
-            <div style="border:1px solid var(--borda); border-radius:8px; padding:15px; margin-bottom:10px; background:#f8fafc;">
-                <strong style="color:var(--acento-esc); font-size:1.1rem;">Cód. FB: ${r.fb}</strong><br>
-                <small>Original: ${r.original}</small>
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-                    ${r.fram ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">FRAM: ${r.fram}</span>` : ''}
-                    ${r.mahle ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">MAHLE: ${r.mahle}</span>` : ''}
-                    ${r.mann ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">MANN: ${r.mann}</span>` : ''}
-                    ${r.tecfil ? `<span style="background:#fff; padding:4px 8px; border:1px solid #ccc; border-radius:4px;">TECFIL: ${r.tecfil}</span>` : ''}
-                </div>
-            </div>
-        `).join('');
-    }
-    function handleKeyPress(e) { if (e.key === 'Enter') consultarCodigo(); }
-
-    // --- 2. SISTEMA DE MATÉRIAS ---
     const materias = {
-        oleo: `<h2>Óleo do Motor</h2><p>Texto da matéria sobre viscosidade e classificação...</p>`,
-        pneu: `<h2>Pneus e Segurança</h2><p>Texto da matéria sobre TWI e calibragem...</p>`,
-        correias: `<h2>Correias e Tensores</h2><p>Texto da matéria sobre kit de correia...</p>`,
-        dicas: `<h2>Dicas de Manutenção</h2><p>Texto da matéria sobre economia...</p>`,
-        inspecao: `<h2>Pontos de Inspeção</h2><p>Texto da matéria sobre revisão...</p>`,
-        lubrificacao: `<h2>Pontos de Lubrificação</h2><p>Texto da matéria sobre graxas...</p>`
+        oleo: {
+            icone: "🛢️", titulo: "Óleo do Motor", resumo: "Viscosidade (SAE), especificação API/ACEA e as diferenças entre óleos minerais, sintéticos e semissintéticos.",
+            html: `<h2>Óleo do Motor: Viscosidade e Classificação</h2><p>O óleo lubrificante é o "sangue" do motor. Ele reduz o atrito, limpa as peças internas, evita a corrosão e ajuda a resfriar o motor.</p><h3>1. Viscosidade (SAE)</h3><p>Exemplo: <strong>5W-30</strong>. O "5W" indica o comportamento a frio (Inverno). Quanto menor, mais fluido. O "30" indica a viscosidade em alta temperatura. Quanto maior, mais "grosso".</p><div class="destaque-box">Um óleo <strong>0W-20</strong> é ideal para motores modernos que buscam economia. Já um <strong>15W-40</strong> é comum em motores a diesel de trabalho pesado.</div><h3>2. Classificação (API / ACEA)</h3><p><strong>API:</strong> Letras indicam o motor (S para Gasolina, C para Diesel). Ex: API SP. <strong>ACEA:</strong> Padrão europeu (Ex: A3/B4, C3).</p>`
+        },
+        pneu: {
+            icone: "🛞", titulo: "Pneus e Segurança", resumo: "Como ler a medida, verificar o TWI, a pressão correta e quando fazer o rodízio ou a troca.",
+            html: `<h2>Guia Prático de Pneus e Segurança</h2><p>Os pneus são o único contato do veículo com o solo.</p><h3>Como ler a medida? (205/55 R16)</h3><ul><li><strong>205:</strong> Largura em mm.</li><li><strong>55:</strong> Perfil (altura).</li><li><strong>R:</strong> Radial.</li><li><strong>16:</strong> Aro em polegadas.</li></ul><h3>O TWI (Tread Wear Indicator)</h3><p>Se a banda de rodagem estiver no nível dos TWIs, o pneu está <strong>careca</strong> (limite legal: 1,6mm).</p><div class="destaque-box">Calibre sempre a frio. Faça o rodízio a cada 10.000 km para desgaste uniforme.</div>`
+        },
+        correias: {
+            icone: "⚙️", titulo: "Correias e Tensores", resumo: "Diferença entre correia dentada e poly-V, sinais de desgaste e a importância do kit completo.",
+            html: `<h2>Correias e Tensores</h2><h3>1. Correia Dentada</h3><p>Sincroniza o virabrequim com o comando de válvulas. Se romper, as válvulas batem nos pistões (prejuízo altíssimo). Troca: 50.000 km a 80.000 km.</p><h3>2. Correia Poly-V</h3><p>Move acessórios (alternador, ar). Sinais de desgaste: rachaduras e chiados.</p><div class="destaque-box"><strong>Regra de ouro:</strong> Nunca troque apenas a correia. Troque o Kit completo (correia + tensores + bomba d'água).</div>`
+        },
+        dicas: {
+            icone: "💡", titulo: "Dicas de Manutenção", resumo: "Checklist diário: economia de combustível, verificações antes da estrada e cuidados com o motor.",
+            html: `<h2>Checklist do Motorista</h2><ul><li><strong>Nível de Óleo:</strong> Motor frio, entre Mín e Máx.</li><li><strong>Água do Radiador:</strong> Nunca abra quente.</li><li><strong>Palhetas:</strong> Troque se deixarem rastros.</li></ul><h3>Economia de Combustível</h3><ul><li>Pneus calibrados.</li><li>Sem peso desnecessário no porta-malas.</li><li>Filtro de ar limpo.</li></ul>`
+        },
+        inspecao: {
+            icone: "🔍", titulo: "Pontos de Inspeção", resumo: "O que verificar em uma revisão: fluidos, freios, suspensão, arrefecimento e vazamentos.",
+            html: `<h2>Inspeção Preventiva</h2><h3>Freios</h3><p>Verifique pastilhas/discos e troque o fluido a cada 1 ou 2 anos.</p><h3>Suspensão</h3><p>Amortecedores vazando e buchas ressecadas causam barulho e instabilidade.</p><h3>Arrefecimento</h3><p>Mangueiras não devem estar moles ou rachadas.</p>`
+        },
+        lubrificacao: {
+            icone: "💧", titulo: "Pontos de Lubrificação", resumo: "Guia de graxas para chassis, rolamentos, articulações e engates.",
+            html: `<h2>Lubrificação com Graxa</h2><p>Peças com alto impacto usam graxa, onde o óleo escorreria.</p><ul><li><strong>Pivôs e Terminais:</strong> Sofrem impacto.</li><li><strong>Junta Homocinética:</strong> Protegida pela coifa.</li></ul><div class="destaque-box"><strong>Alerta:</strong> Não misture graxas de bases diferentes (ex: lítio e cálcio).</div>`
+        }
     };
+
+    // Cria os cards na tela
+    const gradeMaterias = document.getElementById('gradeMaterias');
+    if(gradeMaterias) {
+        for (let id in materias) {
+            const card = document.createElement('a');
+            card.href = "javascript:void(0)";
+            card.className = "card-conteudo";
+            card.onclick = () => abrirMateria(id);
+            card.innerHTML = `
+                <div class="card-icone">${materias[id].icone}</div>
+                <h3>${materias[id].titulo}</h3>
+                <p>${materias[id].resumo}</p>
+                <span class="card-saiba-mais">Ler matéria →</span>
+            `;
+            gradeMaterias.appendChild(card);
+        }
+    }
+
     function abrirMateria(id) {
-        document.getElementById('conteudoMateria').innerHTML = materias[id];
+        document.getElementById('conteudoMateria').innerHTML = materias[id].html;
         document.getElementById('modalMateria').classList.add('ativo');
         document.body.style.overflow = 'hidden';
     }
+
     function fecharMateria(e) {
         if (e.target.id === 'modalMateria' || e.target.classList.contains('fechar-modal')) {
             document.getElementById('modalMateria').classList.remove('ativo');

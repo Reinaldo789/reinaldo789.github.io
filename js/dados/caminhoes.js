@@ -12,7 +12,7 @@ export const veiculosCaminhoes = {
     ],
     notas: {
       1: "Atender rigorosamente à norma Mercedes-Benz 228.3 (API CI-4) ou MB 228.5.",
-      2: "20.000 km (Rodoviário) ou 10.000 km (Uso severo urbano / entregas porta a porta)."
+      2: "Rodoviário: 30.000 km (MB 228.3) ou 45.000 km (sintético MB 228.5). Misto/Urbano (entregas): 15.000 km a 20.000 km. Severo: 10.000 km ou 300 horas. Máximo: 12 meses (6 meses no severo)."
     },
     filtros: {
       oleo: { original: 'A9041800009', tecfil: 'PEL39', authomix: 'FEL0039', mann: 'HU 727/1 X', mahle: 'OX 153/7 D', wega: 'WOE-451', fram: 'CH9548ECO', vox: 'LE39' },
@@ -32,7 +32,7 @@ export const veiculosCaminhoes = {
     ],
     notas: {
       1: "Motor eletrônico OM 904 LA (177 cv). Exige óleo homologado MB 228.3 (API CI-4).",
-      2: "20.000 km (Rodoviário) ou 10.000 km em operação mista/severa."
+      2: "Rodoviário: 30.000 km (MB 228.3) ou 45.000 km (MB 228.5). Misto/Urbano: 20.000 km. Severo (terra/obra): 10.000 km ou 300 horas. Máximo: 12 meses (6 meses no severo)."
     },
     filtros: {
       oleo: { original: 'A9041800009', tecfil: 'PEL39', authomix: 'FEL0039', mann: 'HU 727/1 X', mahle: 'OX 153/7 D', wega: 'WOE-451', fram: 'CH9548ECO', vox: 'LE39' },
@@ -51,7 +51,7 @@ export const veiculosCaminhoes = {
       { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '32,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Uso severo em canteiro de obras / basculante: Trocar a cada 10.000 km. Rodoviário/Misto: 20.000 km."
+      1: "Uso Severo (canteiro de obras, basculante, fora de estrada): 10.000 km ou 300 horas (trocar a cada 6 meses). Operação Mista: 15.000 km a 20.000 km. Rodoviário: 30.000 km (MB 228.3)."
     },
     filtros: {
       oleo: { original: 'A9061800209', tecfil: 'PEL2002', authomix: 'FEL2002', mann: 'HU 945/2 X', mahle: 'OX 152/1 D', wega: 'WOE-450', fram: 'CH9547ECO', vox: 'LE2002' },
@@ -70,7 +70,7 @@ export const veiculosCaminhoes = {
       { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '42,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Operação fora de estrada extrema (mineração/cana): 15.000 km. Rodoviário/Misto: até 30.000 km com óleo sintético MB 228.5."
+      1: "Fora de estrada extremo (mineração, cana, madeira): 15.000 km ou 300 horas (MB 228.3) / 20.000 km (MB 228.5). Misto: 25.000 km. Rodoviário: 30.000 km (MB 228.3) ou até 45.000 km (sintético MB 228.5). Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: 'A4571800109', tecfil: 'PEL106', authomix: 'FEL0106', mann: 'HU 935/4 X', mahle: 'OX 387 D', wega: 'WOE-502', fram: 'CH9973ECO', vox: 'LE106' },
@@ -89,7 +89,7 @@ export const veiculosCaminhoes = {
       { sistema: 'Arrefecimento', especificacao: 'Aditivo MB 325.0 / 326.0 (50/50)', capacidade: '25,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "20.000 km (Rodoviário) / 10.000 km (Severo)."
+      1: "Rodoviário: 30.000 km (óleo MB 228.3) ou até 45.000 km (óleo sintético MB 228.5). Misto/Urbano: 20.000 km. Severo (terra, obra, fora de estrada): 10.000 km ou 300 horas. Limite máximo de tempo: 12 meses (6 meses em uso severo)."
     },
     filtros: {
       oleo: { original: 'A9061800209', tecfil: 'PEL2002', authomix: 'FEL2002', mann: 'HU 945/2 X', mahle: 'OX 152/1 D', wega: 'WOE-450', fram: 'CH9547ECO', vox: 'LE2002' },
@@ -104,13 +104,14 @@ export const veiculosCaminhoes = {
   // ==========================================
   'VW Worker 8.150 / 815': {
     sistemas: [
-      { sistema: 'Motor (MWM 4.12 TCE)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '10,0 L', intervalo: '10.000 km a 15.000 km' },
+      { sistema: 'Motor (MWM 4.12 TCE)', especificacao: 'SAE 15W-40 API CI-4 [1]', capacidade: '10,0 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '3,5 L', intervalo: '50.000 km' },
       { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '4,0 L', intervalo: '50.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '16,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Uso urbano severo / entregas: 10.000 km. Rodoviário: 15.000 km."
+      1: "Óleo para motor diesel pesado API CI-4.",
+      2: "Rodoviário: 15.000 km. Urbano/Entregas (severo): 10.000 km ou 250 horas. Máximo: 12 meses (6 meses no severo)."
     },
     filtros: {
       oleo: { original: '2T0115561', tecfil: 'PSL39', authomix: 'FOL0039', mann: 'W 940/25', mahle: 'OC 237', wega: 'WO-120', fram: 'PH8A', vox: 'LB39' },
@@ -122,13 +123,13 @@ export const veiculosCaminhoes = {
 
   'VW Worker 13.180 / 15.180': {
     sistemas: [
-      { sistema: 'Motor (MWM 6.10 TCA / Cummins 6BTAA)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '14,0 L', intervalo: '8.000 km a 15.000 km' },
+      { sistema: 'Motor (MWM 6.10 TCA / Cummins 6BTAA)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '14,0 L', intervalo: 'Ver nota [1]' },
       { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '7,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '12,0 L', intervalo: '60.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '26,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Rodoviário: 15.000 km / Severo: 8.000 km a 10.000 km."
+      1: "Rodoviário: 15.000 km. Misto/Urbano: 10.000 km. Severo (terra/obra): 7.500 km a 8.000 km ou 250 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '2T0115561', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
@@ -140,13 +141,13 @@ export const veiculosCaminhoes = {
 
   'VW Worker 17.220 / 24.220 / 26.220': {
     sistemas: [
-      { sistema: 'Motor (Cummins 6CTAA)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '18,0 L', intervalo: '10.000 km a 20.000 km' },
+      { sistema: 'Motor (Cummins 6CTAA)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '18,0 L', intervalo: 'Ver nota [1]' },
       { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '9,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '15,0 L a 18,0 L', intervalo: '60.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '30,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Rodoviário: 20.000 km / Severo (basculante/obra): 10.000 km."
+      1: "Rodoviário: 20.000 km. Misto: 15.000 km. Severo (basculante/obra): 10.000 km ou 250 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '2T0115561', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
@@ -158,13 +159,13 @@ export const veiculosCaminhoes = {
 
   'VW Worker 26.260E': {
     sistemas: [
-      { sistema: 'Motor (Cummins ISC 8.3 Eletrônico)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4', capacidade: '20,0 L', intervalo: '12.000 km a 25.000 km' },
+      { sistema: 'Motor (Cummins ISC 8.3 Eletrônico)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4', capacidade: '20,0 L', intervalo: 'Ver nota [1]' },
       { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '11,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial com Redução', especificacao: 'SAE 85W-140 API GL-5', capacidade: '20,0 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '32,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Rodoviário: 25.000 km / Obra/Severo: 12.000 km."
+      1: "Rodoviário/Misto: 25.000 km. Severo (obra, cana, fora de estrada): 10.000 km a 12.000 km ou 300 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '2T0115561', tecfil: 'PSL341', authomix: 'FOL0341', mann: 'W 11102/34', mahle: 'OC506', wega: 'WO-612', fram: 'PH3545', vox: 'LB341' },
@@ -176,13 +177,14 @@ export const veiculosCaminhoes = {
 
   'VW Constellation 13.190 / 15.190 / 17.190': {
     sistemas: [
-      { sistema: 'Motor (MAN D08 34 - EGR)', especificacao: 'SAE 15W-40 / 10W-40 Low SAPS (MAN M 3275)', capacidade: '15,5 L', intervalo: '15.000 km a 30.000 km' },
+      { sistema: 'Motor (MAN D08 34 - EGR)', especificacao: 'SAE 15W-40 / 10W-40 Low SAPS (MAN M 3275) [1]', capacidade: '15,5 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio', especificacao: 'SAE 80W-90 API GL-4', capacidade: '6,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '12,0 L', intervalo: '60.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '24,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Obrigatório óleo Low SAPS (baixo teor de cinzas) para sistema EGR."
+      1: "Obrigatório óleo Low SAPS (baixo teor de cinzas) homologado MAN M 3275 para sistema EGR.",
+      2: "Rodoviário: 30.000 km. Misto: 20.000 km. Severo: 10.000 km a 15.000 km ou 300 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '07W115436A', tecfil: 'PEL2011', authomix: 'FEL2011', mann: 'HU 947/2 X', mahle: 'OX 152/1 D', wega: 'WOE-473', fram: 'CH9547ECO', vox: 'LE2011' },
@@ -194,13 +196,14 @@ export const veiculosCaminhoes = {
 
   'VW Constellation 17.250 / 24.250': {
     sistemas: [
-      { sistema: 'Motor (Cummins ISBe 5.9 Interact 6)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4', capacidade: '19,0 L', intervalo: '15.000 km a 30.000 km' },
+      { sistema: 'Motor (Cummins ISBe 5.9 Interact 6)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 [1]', capacidade: '19,0 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Manual (Eaton FS-6306B)', especificacao: 'SAE 80W-90 API GL-4', capacidade: '9,2 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial (Meritor RS 23-240)', especificacao: 'SAE 85W-140 API GL-5', capacidade: '18,5 L', intervalo: '60.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '32,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Rodoviário: 30.000 km / Urbano/Regional: 15.000 km."
+      1: "Motor Cummins Interact 6 (Euro 3). Utilizar óleo diesel Heavy Duty API CI-4 ou superior.",
+      2: "Rodoviário longa distância: 30.000 km. Distribuição regional/urbana: 15.000 km a 20.000 km. Severo: 10.000 km ou 300 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '2R0115403', tecfil: 'PSL283', authomix: 'FOL0283', mann: 'W 950/26', mahle: 'OC 522', wega: 'WO-610', fram: 'PH8519', vox: 'LB283' },
@@ -212,13 +215,14 @@ export const veiculosCaminhoes = {
 
   'VW Constellation 17.280 / 24.280 / 26.280 / 31.280': {
     sistemas: [
-      { sistema: 'Motor (MAN D08 36 - EGR)', especificacao: 'SAE 15W-40 / 10W-40 Low SAPS (MAN M 3275)', capacidade: '24,5 L', intervalo: '15.000 km a 30.000 km' },
+      { sistema: 'Motor (MAN D08 36 - EGR)', especificacao: 'SAE 15W-40 / 10W-40 Low SAPS (Norma MAN M 3275 / M 3575) [1]', capacidade: '24,5 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Manual (ZF 9S 1110 TD)', especificacao: 'SAE 80W (ZF TE-ML 02)', capacidade: '8,8 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '19,0 L a 22,0 L', intervalo: '50.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico VW/MAN (50/50)', capacidade: '35,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Rodoviário: 30.000 km / Severo (obra/basculante): 10.000 km a 15.000 km."
+      1: "Motor MAN D08 com sistema EGR (sem Arla-32): obrigatório óleo de baixo teor de cinzas (Low SAPS) homologado MAN M 3275 / M 3575.",
+      2: "Rodoviário: 30.000 km. Misto: 20.000 km. Severo (obra, basculante, fora de estrada): 10.000 km a 15.000 km ou 300 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '07W115436A', tecfil: 'PEL2011', authomix: 'FEL2011', mann: 'HU 947/2 X', mahle: 'OX 152/1 D', wega: 'WOE-473', fram: 'CH9547ECO', vox: 'LE2011' },
@@ -230,13 +234,14 @@ export const veiculosCaminhoes = {
 
   'VW Constellation 19.320 / 25.320 / 31.320': {
     sistemas: [
-      { sistema: 'Motor (Cummins ISC 8.3)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4', capacidade: '28,0 L', intervalo: '12.000 km a 30.000 km' },
+      { sistema: 'Motor (Cummins ISC 8.3)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 [1]', capacidade: '28,0 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Manual (ZF 16S 1585 TD)', especificacao: 'SAE 80W API GL-4', capacidade: '13,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial com Redução nos Cubos', especificacao: 'SAE 85W-140 API GL-5', capacidade: '22,0 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '40,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Rodoviário: 30.000 km / Severo (mineração/terraplanagem): 10.000 km a 12.000 km."
+      1: "Motores Cummins ISC exigem lubrificantes de alto desempenho para serviço pesado.",
+      2: "Rodoviário: 30.000 km. Misto: 15.000 km. Severo (mineração, terraplanagem, basculante pesado): 10.000 km a 12.000 km ou 300 horas. Máximo: 12 meses (6 meses no severo)."
     },
     filtros: {
       oleo: { original: '2T2115561', tecfil: 'PSL909', authomix: 'FOL0909', mann: 'W 1170/7', mahle: 'OC 516', wega: 'WO-612', fram: 'PH3545', vox: 'LB909' },
@@ -248,13 +253,14 @@ export const veiculosCaminhoes = {
 
   'VW Constellation 24.330 / 31.330': {
     sistemas: [
-      { sistema: 'Motor (Cummins ISL 8.9 - Euro 5)', especificacao: 'SAE 15W-40 / 10W-40 API CJ-4 / CK-4 (Low SAPS)', capacidade: '28,0 L', intervalo: '12.000 km a 30.000 km' },
+      { sistema: 'Motor (Cummins ISL 8.9 - Euro 5)', especificacao: 'SAE 15W-40 / 10W-40 API CJ-4 / CK-4 (Low SAPS) [1]', capacidade: '28,0 L', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio', especificacao: 'SAE 80W API GL-4', capacidade: '13,0 L', intervalo: '60.000 km' },
       { sistema: 'Diferencial', especificacao: 'SAE 85W-140 API GL-5', capacidade: '20,0 L a 22,0 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico (50/50)', capacidade: '40,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Motores Euro 5 com SCR (Arla-32) exigem óleos API CJ-4 / CK-4."
+      1: "Motores Euro 5 com pós-tratamento SCR (Arla-32) exigem óleos API CJ-4 ou CK-4 de baixo teor de cinzas.",
+      2: "Rodoviário: 30.000 km. Misto: 15.000 km. Severo (basculante / fora de estrada): 10.000 km a 12.000 km ou 300 horas. Máximo: 12 meses."
     },
     filtros: {
       oleo: { original: '2T2115561', tecfil: 'PSL909', authomix: 'FOL0909', mann: 'W 1170/7', mahle: 'OC 516', wega: 'WO-612', fram: 'PH3545', vox: 'LB909' },

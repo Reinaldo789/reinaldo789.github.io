@@ -119,6 +119,33 @@ a{color:inherit}
 .conferir li::before{content:"";position:absolute;left:16px;top:17px;width:16px;height:9px;border-left:3px solid var(--ambar);border-bottom:3px solid var(--ambar);transform:rotate(-45deg) scale(.9)}
 .nota{max-width:720px;margin-top:22px;padding:16px 18px;border-left:4px solid var(--ambar);background:#FFF6E0;border-radius:0 12px 12px 0}
 
+
+/* ---------- Ficha do veículo ---------- */
+.grade-sis{display:grid;gap:12px;max-width:860px}
+.cartao-sis{background:var(--cartao);border:1px solid var(--linha);border-left:5px solid var(--ambar);border-radius:12px;padding:16px 18px}
+.cartao-sis h3{font-size:1.3rem;margin-bottom:10px}
+.cartao-sis dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0}
+.cartao-sis dt{font-size:.82rem;color:var(--suave)}
+.cartao-sis dd{margin:2px 0 0}
+.cartao-sis dd.destaque{font-weight:600;color:var(--ambar-txt)}
+.detalhe .sec-filtros{margin-top:34px}
+.caixa-tabela{background:var(--cartao);border:1px solid var(--linha);border-radius:12px;padding:6px 12px;overflow-x:auto}
+.tabela-filtros{width:100%;border-collapse:collapse;font-size:.9rem;white-space:nowrap}
+.tabela-filtros th,.tabela-filtros td{padding:11px 10px;border-bottom:1px solid var(--linha);text-align:left}
+.tabela-filtros tr:last-child>*{border-bottom:0}
+.tabela-filtros thead th{font-size:.82rem;font-weight:500;color:var(--suave)}
+.tabela-filtros tbody th{font-weight:600;text-transform:capitalize}
+.filtro-tag{display:inline-block;padding:2px 9px;border:1px solid #818CF8;border-radius:6px;background:#E0E7FF;color:#1E1B4B;font:500 .86rem ui-monospace,SFMono-Regular,Menlo,monospace}
+.sem{color:var(--suave)}
+.lista-notas{max-width:760px;margin:0;padding-left:22px}
+.lista-notas li{margin-bottom:10px}
+.nav-ficha{display:flex;justify-content:space-between;gap:12px;margin-top:40px;max-width:860px}
+.nav-ficha a{flex:1;max-width:49%;padding:12px 14px;background:var(--cartao);border:1px solid var(--linha);border-radius:12px;text-decoration:none;font-size:.92rem}
+.nav-ficha a:hover{border-color:var(--tinta3)}
+.nav-ficha small{display:block;color:var(--suave);font-size:.8rem}
+.nav-ficha .prox{margin-left:auto;text-align:right}
+#erro-dados{margin:14px 0 0}
+
 /* ---------- Celular e tablet ---------- */
 @media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}.card.destaque{grid-column:span 2}}
 @media (max-width:900px){
@@ -179,14 +206,15 @@ a{color:inherit}
     <div id="vista-inicio">
       <section class="hero">
         <h1>Encontre óleo, filtro e intervalo de troca</h1>
-        <p class="lead">Busque por veículo, montadora ou assunto. As montadoras ficam no menu lateral.</p>
+        <p class="lead">Busque por veículo, código de filtro ou assunto. As montadoras ficam no menu lateral.</p>
         <div class="busca" role="search">
           <label class="busca-campo" for="busca">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
             <span class="sr">Buscar no guia</span>
-            <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Marruá, correia dentada, graxeira" aria-controls="resultados">
+            <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Hilux, PSL619, correia dentada" aria-controls="resultados">
             <kbd aria-hidden="true">/</kbd>
           </label>
+          <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
           <div class="atalhos" id="atalhos"></div>
           <div class="resultados" id="resultados" aria-live="polite" hidden></div>
         </div>
@@ -206,20 +234,26 @@ a{color:inherit}
   </main>
 </div>
 
-<script>
+<script type="module">
 /* =====================================================================
-   DADOS
-   Troque a lista MONTADORAS pela sua lista real (56 veículos).
-   Cada veículo vira um item do submenu e entra na busca.
+   DADOS: vêm de js/dados/index.js (bancoDeDadosGlobal).
+   As montadoras do menu são montadas a partir do nome de cada veículo.
    ===================================================================== */
-var MONTADORAS = [
-  { nome: "Agrale",     veiculos: ["Marruá AM11", "Marruá AM21", "Marruá AM200"] },
-  { nome: "Chevrolet",  veiculos: ["S10", "Montana", "Onix"] },
-  { nome: "Fiat",       veiculos: ["Strada", "Toro", "Ducato"] },
-  { nome: "Ford",       veiculos: ["Ranger", "Cargo 816"] },
-  { nome: "Mercedes-Benz", veiculos: ["Sprinter", "Accelo 815"] },
-  { nome: "Volkswagen", veiculos: ["Amarok", "Delivery 11.180", "Constellation"] }
-];
+var banco = {}, erroDados = false;
+try { banco = (await import("./js/dados/index.js")).bancoDeDadosGlobal; }
+catch (e) { erroDados = true; console.error("Falha ao carregar js/dados/index.js", e); }
+
+var NOMES_MARCA = { "VW": "Volkswagen" };
+var MONTADORAS = (function(){
+  var grupos = {}, ordem = [];
+  Object.keys(banco).forEach(function(chave){
+    var p = chave.split(" "), marca = NOMES_MARCA[p[0]] || p[0];
+    if(!grupos[marca]){ grupos[marca] = []; ordem.push(marca); }
+    grupos[marca].push({ chave:chave, modelo:p.slice(1).join(" ") || chave });
+  });
+  ordem.sort(function(a,b){ return a.localeCompare(b,"pt-BR"); });
+  return ordem.map(function(m){ return { nome:m, veiculos:grupos[m] }; });
+})();
 
 var ICONES = {
   gota:   '<path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/>',
@@ -295,16 +329,21 @@ var TOPICOS = [
 /* =====================================================================
    UTILITÁRIOS
    ===================================================================== */
+function compacto(s){ return norm(s).replace(/[^a-z0-9]/g,""); }
+var ROTULO_FILTRO = { oleo:"Filtro de óleo", ar:"Filtro de ar", combustivel:"Filtro de combustível", cabine:"Filtro de cabine" };
 function norm(s){ return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
 function slug(s){ return norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
 function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
 function $(id){ return document.getElementById(id); }
 
-var VEICULOS = [];
+var VEICULOS = [], usados = {};
 MONTADORAS.forEach(function(m){
   m.id = slug(m.nome);
   m.veiculos = m.veiculos.map(function(v){
-    var o = { marca:m.nome, modelo:v, id:slug(m.nome+" "+v) };
+    var id = slug(m.nome+" "+v.modelo);
+    while(usados[id]) id += "-2";
+    usados[id] = 1;
+    var o = { marca:m.nome, modelo:v.modelo, id:id, dados:banco[v.chave] };
     VEICULOS.push(o); return o;
   });
 });
@@ -382,25 +421,44 @@ function montarCards(){
 
 var INDICE = [];
 TOPICOS.forEach(function(t){
-  INDICE.push({ titulo:t.titulo, tag:"Assunto", href:"#/assunto/"+t.id, texto:norm(t.titulo+" "+t.busca) });
+  INDICE.push({ titulo:t.titulo, tag:"Assunto", href:"#/assunto/"+t.id, texto:norm(t.titulo+" "+t.busca), compacto:compacto(t.titulo+" "+t.busca) });
 });
 VEICULOS.forEach(function(v){
-  INDICE.push({ titulo:v.marca+" "+v.modelo, tag:"Veículo", href:"#/veiculo/"+v.id, texto:norm(v.marca+" "+v.modelo) });
+  var d = v.dados || {}, partes = [v.marca, v.modelo], codigos = [];
+  (d.sistemas || []).forEach(function(x){ partes.push(x.sistema, x.especificacao); });
+  Object.keys(d.filtros || {}).forEach(function(tipo){
+    Object.keys(d.filtros[tipo]).forEach(function(marca){
+      var cod = d.filtros[tipo][marca];
+      if(cod && cod !== "-") codigos.push({ cod:cod, compacto:compacto(cod), rotulo:ROTULO_FILTRO[tipo]+" "+marca+" "+cod });
+    });
+  });
+  var texto = norm(partes.join(" "));
+  INDICE.push({ titulo:v.marca+" "+v.modelo, tag:"Veículo", href:"#/veiculo/"+v.id,
+    texto:texto, compacto:compacto(texto), codigos:codigos });
 });
 MONTADORAS.forEach(function(m){
-  INDICE.push({ titulo:m.nome, tag:m.veiculos.length+" veículos", href:"#/veiculo/"+m.veiculos[0].id, texto:norm(m.nome) });
+  INDICE.push({ titulo:m.nome, tag:m.veiculos.length+" veículos", href:"#/veiculo/"+m.veiculos[0].id, texto:norm(m.nome), compacto:compacto(m.nome) });
 });
 
 function buscar(q){
   var termos = norm(q).split(/\s+/).filter(Boolean);
   if(!termos.length) return null;
   return INDICE.map(function(item){
-    var ok = termos.every(function(t){ return item.texto.indexOf(t) > -1; });
+    var motivo = "";
+    var ok = termos.every(function(t){
+      var tc = t.replace(/[^a-z0-9]/g,"");
+      if(item.texto.indexOf(t) > -1 || (tc && item.compacto.indexOf(tc) > -1)) return true;
+      var achou = (item.codigos || []).filter(function(c){ return tc && c.compacto.indexOf(tc) > -1; })[0];
+      if(achou){ motivo = achou.rotulo; return true; }
+      return false;
+    });
     if(!ok) return null;
     var nt = norm(item.titulo);
     var pontos = termos.reduce(function(s,t){ return s + (nt.indexOf(t) === 0 ? 3 : nt.indexOf(t) > -1 ? 2 : 1); }, 0);
-    return { item:item, pontos:pontos };
-  }).filter(Boolean).sort(function(a,b){ return b.pontos - a.pontos; }).slice(0,8).map(function(r){ return r.item; });
+    return { item:item, motivo:motivo, pontos:pontos };
+  }).filter(Boolean).sort(function(a,b){ return b.pontos - a.pontos; }).slice(0,8).map(function(r){
+    return { titulo:r.item.titulo, href:r.item.href, tag:r.motivo || r.item.tag };
+  });
 }
 
 function mostrarResultados(){
@@ -408,7 +466,7 @@ function mostrarResultados(){
   if(lista === null){ box.hidden = true; box.innerHTML = ""; return; }
   box.hidden = false;
   if(!lista.length){
-    box.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> Tente só o modelo (ex.: Strada) ou um assunto (ex.: pneu, bateria).</p>';
+    box.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> Tente só o modelo (ex.: Strada), um código de filtro ou um assunto (ex.: pneu, bateria).</p>';
     return;
   }
   box.innerHTML = '<ul>'+lista.map(function(i){
@@ -464,31 +522,66 @@ function rota(){
   gaveta(false);
   window.scrollTo(0,0);
 
-  if(rotaAtiva.indexOf("veiculo/") === 0) abrirFicha(VEICULOS.filter(function(x){ return x.id === id; })[0]);
 }
 
 function paginaAssunto(t){
   return '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(t.titulo)+'</span></nav>'+
     '<h1>'+esc(t.titulo)+'</h1><p class="lead">'+esc(t.resumo)+'</p>'+
     '<h2>O que conferir</h2><ul class="conferir">'+t.pontos.map(function(p){ return '<li>'+esc(p)+'</li>'; }).join("")+'</ul>'+
-    '<p class="nota">Valores e intervalos mudam de veículo para veículo. Abra a ficha do modelo no menu para ver o que o fabricante especifica.</p>';
+    '<p class="nota">Valores e intervalos mudam de veículo para veículo. Abra a ficha do modelo no menu para ver o que está especificado para ele.</p>';
 }
+
+var ORDEM_FILTROS = ["original","vox","tecfil","authomix","mann","mahle","wega","fram"];
+var NOME_COLUNA = { original:"Original", vox:"Vox", tecfil:"Tecfil", authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram" };
 
 function paginaVeiculo(v){
-  return '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(v.marca)+'</span><span>/</span><span>'+esc(v.modelo)+'</span></nav>'+
-    '<h1>'+esc(v.modelo)+'</h1><p class="lead">'+esc(v.marca)+'</p>'+
-    '<div id="resultado"></div>';
+  var d = v.dados || {}, k = VEICULOS.indexOf(v);
+  var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(v.marca)+'</span><span>/</span><span>'+esc(v.modelo)+'</span></nav>'+
+    '<h1>'+esc(v.modelo)+'</h1><p class="lead">'+esc(v.marca)+'</p>';
+
+  if(d.sistemas && d.sistemas.length){
+    h += '<h2>Lubrificantes e fluidos</h2><div class="grade-sis">'+d.sistemas.map(function(x){
+      return '<article class="cartao-sis"><h3>'+esc(x.sistema)+'</h3><dl>'+
+        '<div><dt>Especificação</dt><dd class="destaque">'+esc(x.especificacao)+'</dd></div>'+
+        '<div><dt>Capacidade</dt><dd>'+esc(x.capacidade)+'</dd></div>'+
+        '<div><dt>Intervalo</dt><dd>'+esc(x.intervalo)+'</dd></div></dl></article>';
+    }).join("")+'</div>';
+  }
+
+  if(d.filtros){
+    var tipos = Object.keys(d.filtros), cols = [];
+    tipos.forEach(function(t){ Object.keys(d.filtros[t]).forEach(function(m){ if(cols.indexOf(m) < 0) cols.push(m); }); });
+    cols.sort(function(a,b){
+      var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    h += '<h2 class="sec-filtros">Filtros equivalentes</h2><div class="caixa-tabela"><table class="tabela-filtros"><thead><tr><th>Filtro</th>'+
+      cols.map(function(c){ return '<th>'+esc(NOME_COLUNA[c] || c)+'</th>'; }).join("")+'</tr></thead><tbody>'+
+      tipos.map(function(t){
+        return '<tr><th scope="row">'+esc((ROTULO_FILTRO[t] || t).replace("Filtro de ",""))+'</th>'+cols.map(function(c){
+          var cod = d.filtros[t][c];
+          return '<td>'+(cod && cod !== "-" ? '<span class="filtro-tag">'+esc(cod)+'</span>' : '<span class="sem">-</span>')+'</td>';
+        }).join("")+'</tr>';
+      }).join("")+'</tbody></table></div>';
+  }
+
+  if(d.notas){
+    h += '<h2 class="sec-filtros">Notas</h2><ol class="lista-notas">'+Object.keys(d.notas).map(function(n){
+      return '<li value="'+esc(n)+'">'+esc(d.notas[n])+'</li>';
+    }).join("")+'</ol>';
+  }
+  if(!d.sistemas && !d.filtros) h += '<p class="nota">A ficha técnica deste veículo ainda não está disponível aqui.</p>';
+
+  var ant = VEICULOS[k-1], prox = VEICULOS[k+1];
+  h += '<div class="nav-ficha">'+
+    (ant ? '<a href="#/veiculo/'+ant.id+'"><small>Anterior</small>'+esc(ant.marca+" "+ant.modelo)+'</a>' : '<span></span>')+
+    (prox ? '<a class="prox" href="#/veiculo/'+prox.id+'"><small>Próximo</small>'+esc(prox.marca+" "+prox.modelo)+'</a>' : '')+'</div>';
+  return h;
 }
 
-/* Ligação com as fichas: o seu app.js pode escutar o evento "veiculo:abrir",
-   desenhar a ficha dentro de #resultado e chamar event.preventDefault(). */
-function abrirFicha(v){
-  var alvo = $("resultado");
-  var evento = new CustomEvent("veiculo:abrir", { cancelable:true, detail:{ marca:v.marca, modelo:v.modelo, id:v.id, alvo:alvo } });
-  var tratado = !document.dispatchEvent(evento);
-  if(!tratado) alvo.innerHTML = '<p class="nota">A ficha técnica deste veículo ainda não está disponível aqui.</p>';
+if(erroDados){
+  $("erro-dados").hidden = false;
 }
-
 montarMenu();
 montarCards();
 window.addEventListener("hashchange", rota);

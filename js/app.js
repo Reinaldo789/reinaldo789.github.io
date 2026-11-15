@@ -1,276 +1,196 @@
-/* ---------- Carregamento dos dados (mostra um aviso na página se algo faltar) ---------- */
-function mostrarErro(detalhe) {
-  console.error(detalhe);
-  const aviso = `<div class="alerta"><strong>Não foi possível carregar o guia.</strong><p>${detalhe}</p></div>`;
-  const alvo = document.getElementById('indiceMarcas');
-  if (alvo) alvo.innerHTML = aviso;
-  const resumo = document.getElementById('resumo');
-  if (resumo) resumo.textContent = 'Erro ao carregar os dados';
+// Importa o banco de dados unificado que você criou na pasta dados/index.js
+import { bancoDeDadosGlobal } from './dados/index.js';
+
+// Função para normalizar texto (remove acentos, pontos, traços e espaços extras)
+function normalizarTexto(texto) {
+  return String(texto)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+    .replace(/[-./\s]/g, '');        // Remove traços, pontos, barras e espaços
 }
 
-if (!window.Menu) {
-  mostrarErro('O arquivo <code>js/menu.js</code> não foi encontrado. Envie a pasta <code>js/</code> inteira para o site.');
-  throw new Error('js/menu.js não carregou');
-}
+// Função principal que inicializa o motor de busca
+export function iniciarMotorDeBusca() {
+  const inputBusca = document.getElementById('campoBuscaVeiculo');
+  const btnLimpar = document.getElementById('btnLimparBusca');
+  const containerResultados = document.getElementById('listaResultados');
+  const contadorResultados = document.getElementById('contadorResultados');
+  const botoesCategoria = document.querySelectorAll('.tag-filtro');
 
-let bancoDeDadosGlobal, veiculosPasseio, veiculosUtilitarios, veiculosCaminhoes, veiculosVans;
-let filtrosBrasil = {};
-try {
-  ({ bancoDeDadosGlobal } = await import('./dados/index.js'));
-  ({ veiculosPasseio } = await import('./dados/passeio.js'));
-  ({ veiculosUtilitarios } = await import('./dados/utilitarios.js'));
-  ({ veiculosCaminhoes } = await import('./dados/caminhoes.js'));
-  ({ veiculosVans } = await import('./dados/vans.js'));
-} catch (erro) {
-  mostrarErro('Falha ao ler a pasta <code>js/dados/</code> (' + erro.message + '). Confira se ela foi enviada com index.js, passeio.js, utilitarios.js, caminhoes.js e vans.js, com esses nomes exatos (minúsculas).');
-  throw erro;
-}
+  // Trava de segurança: só executa se a barra de busca existir na página atual
+  if (!inputBusca || !containerResultados) return;
 
-// Códigos Filtros Brasil (opcional: se o arquivo faltar, a coluna aparece vazia)
-try {
-  ({ filtrosBrasil } = await import('./dados/filtros-brasil.js'));
-} catch (erro) {
-  console.warn('js/dados/filtros-brasil.js não carregou:', erro.message);
-}
+  let categoriaAtual = 'todos';
 
-/* ---------- Utilidades ---------- */
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c =>
-  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  function executarBusca() {
+    const termoOriginal = inputBusca.value.trim();
+    const termoNormalizado = normalizarTexto(termoOriginal);
 
-const norm = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-const slug = (t) => norm(t).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    if (btnLimpar) {
+      btnLimpar.style.display = termoOriginal.length > 0 ? 'block' : 'none';
+    }
 
-/* ---------- Categorias ---------- */
-const categoriaDe = {};
-[['Passeio', veiculosPasseio], ['Utilitário', veiculosUtilitarios],
- ['Caminhão', veiculosCaminhoes], ['Van', veiculosVans]]
-  .forEach(([nome, dados]) => Object.keys(dados).forEach(v => { categoriaDe[v] = nome; }));
+    const resultados = [];
 
-/* ---------- Montadoras e modelos ---------- */
-const NOMES_MARCA = { VW: 'Volkswagen' };
-const marcaDe = (nome) => { const p = nome.split(' ')[0]; return NOMES_MARCA[p] || p; };
-const modeloDe = (nome) => nome.replace(/^\S+\s*(-\s*)?/, '').trim() || nome;
+    for (const [modelo, dados] of Object.entries(bancoDeDadosGlobal)) {
+      // Filtro rápido por botões de categoria (se houver no HTML)
+      if (categoriaAtual !== 'todos') {
+        const tipoVeiculo = dados.tipo || ''; // Caso queira categorizar futuramente
+        if (categoriaAtual.toLowerCase() !== tipoVeiculo.toLowerCase() && !modelo.toLowerCase().includes(categoriaAtual.toLowerCase())) {
+          continue;
+        }
+      }
 
-const marcas = new Map();
-Object.keys(bancoDeDadosGlobal).forEach(nome => {
-  const m = marcaDe(nome);
-  if (!marcas.has(m)) marcas.set(m, []);
-  marcas.get(m).push({ nome, modelo: modeloDe(nome) });
-});
-const ordemMarcas = [...marcas.keys()].sort((a, b) => a.localeCompare(b, 'pt-BR'));
-ordemMarcas.forEach(m =>
-  marcas.get(m).sort((a, b) => a.modelo.localeCompare(b.modelo, 'pt-BR', { numeric: true })));
-const ordemGlobal = ordemMarcas.flatMap(m => marcas.get(m).map(v => v.nome));
+      // Se a busca estiver vazia, exibe todos
+      if (termoNormalizado === '') {
+        resultados.push({ modelo, dados, motivoMatch: null });
+        continue;
+      }
 
-let atual = null;
+      // 1. Busca no nome do modelo
+      const matchModelo = normalizarTexto(modelo).includes(termoNormalizado);
 
-/* ---------- Menu lateral: montadoras > veículos ---------- */
-function renderMenu(termo = '') {
-  const alvo = document.getElementById('menuMarcas');
-  const termos = norm(termo).split(/\s+/).filter(Boolean);
-  let total = 0;
-  alvo.innerHTML = '';
+      // 2. Busca nos sistemas (motor, câmbio, especificações)
+      const matchSistema = dados.sistemas?.some(s =>
+        normalizarTexto(s.sistema).includes(termoNormalizado) ||
+        normalizarTexto(s.especificacao).includes(termoNormalizado)
+      );
 
-  ordemMarcas.forEach(marca => {
-    const lista = marcas.get(marca).filter(v => termos.every(t => norm(v.nome).includes(t)));
-    if (!lista.length) return;
-    total += lista.length;
+      // 3. Busca avançada nos códigos de filtros (Original, Tecfil, Mann, Mahle, etc.)
+      let filtroEncontrado = null;
+      if (dados.filtros) {
+        for (const [tipoFiltro, marcas] of Object.entries(dados.filtros)) {
+          for (const [marca, codigo] of Object.entries(marcas)) {
+            if (codigo && codigo !== '-' && normalizarTexto(codigo).includes(termoNormalizado)) {
+              filtroEncontrado = `Filtro de ${tipoFiltro.toUpperCase()} (${marca.toUpperCase()}: ${codigo})`;
+              break;
+            }
+          }
+          if (filtroEncontrado) break;
+        }
+      }
 
-    const id = 'grupo-' + slug(marca);
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'grupo-menu';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-controls', id);
-    btn.innerHTML = `<span>${esc(marca)}</span><em class="qtd">${lista.length}</em><span>⌄</span>`;
+      if (matchModelo || matchSistema || filtroEncontrado) {
+        resultados.push({
+          modelo,
+          dados,
+          motivoMatch: filtroEncontrado
+        });
+      }
+    }
 
-    const sub = document.createElement('div');
-    sub.className = 'sub-menu';
-    sub.id = id;
-    lista.forEach(v => {
-      const a = document.createElement('a');
-      a.href = '#' + encodeURIComponent(v.nome);
-      a.textContent = v.modelo;
-      a.dataset.veiculo = v.nome;
-      sub.appendChild(a);
+    renderizarResultados(resultados, containerResultados, contadorResultados);
+  }
+
+  // Eventos de digitação e limpeza
+  inputBusca.addEventListener('input', executarBusca);
+
+  if (btnLimpar) {
+    btnLimpar.addEventListener('click', () => {
+      inputBusca.value = '';
+      executarBusca();
+      inputBusca.focus();
     });
-    alvo.append(btn, sub);
+  }
+
+  // Eventos para os botões de filtro rápido por categoria (se existirem)
+  botoesCategoria.forEach(btn => {
+    btn.addEventListener('click', () => {
+      botoesCategoria.forEach(b => b.classList.remove('ativa'));
+      btn.classList.add('ativa');
+      categoriaAtual = btn.dataset.categoria;
+      executarBusca();
+    });
   });
 
-  if (!total) {
-    alvo.innerHTML = '<p class="menu-vazio">Nenhum veículo encontrado.</p>';
+  // Executa a listagem inicial ao carregar a página
+  executarBusca();
+}
+
+// Função responsável por desenhar os cards na tela
+function renderizarResultados(lista, container, contador) {
+  if (contador) {
+    contador.textContent = `${lista.length} veículo(s) encontrado(s)`;
+  }
+  container.innerHTML = '';
+
+  if (lista.length === 0) {
+    container.innerHTML = `
+      <div class="sem-resultados" style="padding: 20px; text-align: center; color: #64748b;">
+        Nenhum veículo ou código de filtro encontrado. Tente buscar por termos mais curtos (ex: "24280", "Pel39", "Master").
+      </div>`;
     return;
   }
 
-  if (termos.length) {
-    // Buscando: abre todas as montadoras com resultado
-    alvo.querySelectorAll('.grupo-menu').forEach(b => window.Menu.definirGrupo(b, true));
-  }
-  marcarAtivo(!termos.length);
-}
+  lista.forEach(({ modelo, dados, motivoMatch }) => {
+    const card = document.createElement('div');
+    card.className = 'card-veiculo';
 
-function marcarAtivo(abrirGrupo = true) {
-  document.querySelectorAll('#menuMarcas a').forEach(a =>
-    a.classList.toggle('ativo', a.dataset.veiculo === atual));
-  if (atual && abrirGrupo) window.Menu.abrirSo('grupo-' + slug(marcaDe(atual)));
-  const ativo = document.querySelector('#menuMarcas a.ativo');
-  if (ativo) ativo.scrollIntoView({ block: 'nearest' });
-}
+    const badgeMatch = motivoMatch
+      ? `<span class="badge-match">Encontrado por: ${motivoMatch}</span>`
+      : '';
 
-/* ---------- Página inicial ---------- */
-function renderInicio() {
-  document.getElementById('resumo').textContent =
-    `${ordemGlobal.length} veículos · ${ordemMarcas.length} montadoras`;
+    const linhasSistemas = dados.sistemas ? dados.sistemas.map(s => `
+      <tr>
+        <td><strong>${s.sistema}</strong></td>
+        <td>${s.especificacao}</td>
+        <td>${s.capacidade}</td>
+        <td>${s.intervalo}</td>
+      </tr>
+    `).join('') : '<tr><td colspan="4">Dados de sistemas não informados.</td></tr>';
 
-  document.getElementById('indiceMarcas').innerHTML = ordemMarcas.map(marca => `
-    <article class="cartao-marca">
-      <h3>${esc(marca)} <small>${marcas.get(marca).length} ${marcas.get(marca).length === 1 ? 'veículo' : 'veículos'}</small></h3>
-      <ul>${marcas.get(marca).map(v =>
-        `<li><a href="#${encodeURIComponent(v.nome)}">${esc(v.modelo)}</a></li>`).join('')}</ul>
-    </article>`).join('');
-}
+    const notasHtml = dados.notas
+      ? `<div class="notas-tecnicas" style="margin-top: 10px;">
+          ${Object.entries(dados.notas).map(([num, texto]) => `<p><strong>[${num}]</strong> ${texto}</p>`).join('')}
+         </div>`
+      : '';
 
+    // Bloco seguro para exibição de filtros caso existam
+    let filtrosHtml = '';
+    if (dados.filtros) {
+      const oleoOrig = dados.filtros.oleo?.original || '-';
+      const oleoTec = dados.filtros.oleo?.tecfil || '-';
+      const combTec = dados.filtros.combustivel?.tecfil || '-';
+      const arTec = dados.filtros.ar?.tecfil || '-';
+      
+      filtrosHtml = `
+        <div class="box-filtros" style="margin-top: 10px; font-size: 13px;">
+          <strong>Filtros Principais:</strong>
+          <span><b>Óleo:</b> Orig. ${oleoOrig} (Tecfil: ${oleoTec})</span> •
+          <span><b>Combustível:</b> ${combTec}</span> •
+          <span><b>Ar:</b> ${arTec}</span>
+        </div>
+      `;
+    }
 
-/* ---------- Filtros Brasil ---------- */
-function tagFB(nome, tipo) {
-  const fb = filtrosBrasil[nome];
-  const codigos = fb && fb[tipo];
-  if (!codigos || !codigos.length) return '<td><span class="filtro-tag">-</span></td>';
-  const rotulo = (c, i) => {
-    if (c.startsWith('FBC')) return ' title="Com carvão ativado"';
-    if (tipo === 'oleo' && i === 1) return ' title="Linha Multi"';
-    return '';
-  };
-  return '<td>' + codigos.map((c, i) => `<span class="filtro-tag"${rotulo(c, i)}>${esc(c)}</span>`).join(' ') + '</td>';
-}
-
-function notaFB(nome) {
-  if (!(nome in filtrosBrasil) || filtrosBrasil[nome] === null) {
-    return '<p class="nota">Filtros Brasil: este veículo não consta no Catálogo Unificado 2021 da marca.</p>';
-  }
-  const fb = filtrosBrasil[nome];
-  const conf = { alta: 'alta', media: 'média', baixa: 'baixa' }[fb.conf] || fb.conf;
-  return `<p class="nota"><strong>Filtros Brasil</strong> (Catálogo Unificado 2021) · correspondência ${esc(conf)}. ${esc(fb.nota)}</p>`;
-}
-
-/* ---------- Ficha do veículo ---------- */
-const ROTULOS_FILTRO = { oleo: 'Óleo do motor', ar: 'Ar do motor', combustivel: 'Combustível', cabine: 'Cabine (A/C)' };
-
-function mostrarFicha(nome) {
-  const d = bancoDeDadosGlobal[nome];
-  const marca = marcaDe(nome);
-  const i = ordemGlobal.indexOf(nome);
-  const ant = ordemGlobal[i - 1];
-  const prox = ordemGlobal[i + 1];
-
-  const tag = (v) => `<td><span class="filtro-tag">${esc(v || '-')}</span></td>`;
-
-  let html = `
-    <nav class="migalhas">
-      <a href="#inicio">Início</a> › <button type="button" data-marca="${esc(marca)}">${esc(marca)}</button> › ${esc(modeloDe(nome))}
-    </nav>
-    <div class="ficha-titulo">
-      <h1>${esc(nome)}</h1>
-      ${categoriaDe[nome] ? `<span class="tag-categoria">${esc(categoriaDe[nome])}</span>` : ''}
-    </div>
-
-    <section class="secao">
-      <div class="cabecalho-secao"><div><div class="sobretitulo">FLUIDOS E SISTEMAS</div><h2>Especificações e intervalos</h2></div></div>
-      <div class="grade-sis">
-        ${d.sistemas.map(s => `
-          <article class="cartao-sis">
-            <h3>${esc(s.sistema)}</h3>
-            <dl>
-              <div><dt>Especificação / Norma</dt><dd class="destaque">${esc(s.especificacao)}</dd></div>
-              <div><dt>Capacidade</dt><dd>${esc(s.capacidade)}</dd></div>
-              <div><dt>Intervalo / Troca</dt><dd>${esc(s.intervalo)}</dd></div>
-            </dl>
-          </article>`).join('')}
+    card.innerHTML = `
+      <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="margin: 0; font-size: 18px;">${modelo}</h3>
+        ${badgeMatch}
       </div>
-    </section>
-
-    <section class="secao">
-      <div class="cabecalho-secao"><div><div class="sobretitulo">FILTROS</div><h2>Tabela de equivalência</h2></div></div>
-      <div class="caixa-tabela">
-        <table class="tabela-filtros">
-          <thead><tr>
-            <th>Componente</th><th>Original / OE</th><th>Filtros Brasil</th><th>Vox</th><th>Tecfil</th><th>Authomix</th>
-            <th>Mann</th><th>Mahle</th><th>Wega</th><th>Fram</th>
-          </tr></thead>
-          <tbody>
-            ${Object.entries(d.filtros).map(([tipo, f]) => `
-              <tr>
-                <td><strong>${esc(ROTULOS_FILTRO[tipo] || tipo)}</strong></td>
-                ${tag(f.original)}${tagFB(nome, tipo)}${tag(f.vox)}${tag(f.tecfil)}${tag(f.authomix)}
-                ${tag(f.mann)}${tag(f.mahle)}${tag(f.wega)}${tag(f.fram)}
-              </tr>`).join('')}
-          </tbody>
+      <div class="tabela-responsiva" style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+          <thead>
+            <tr style="background: #f8fafc; text-align: left;">
+              <th style="padding: 8px;">Sistema</th>
+              <th style="padding: 8px;">Especificação</th>
+              <th style="padding: 8px;">Capacidade</th>
+              <th style="padding: 8px;">Intervalo</th>
+            </tr>
+          </thead>
+          <tbody>${linhasSistemas}</tbody>
         </table>
       </div>
-      ${notaFB(nome)}
-    </section>`;
+      ${filtrosHtml}
+      ${notasHtml}
+    `;
 
-  if (d.notas && Object.keys(d.notas).length) {
-    html += `
-    <section class="secao">
-      <div class="alerta">
-        <strong>Notas técnicas e condições de uso</strong>
-        <ul class="lista-notas">
-          ${Object.entries(d.notas).map(([n, t]) => `<li><strong>[${esc(n)}]</strong> ${esc(t)}</li>`).join('')}
-        </ul>
-      </div>
-    </section>`;
-  }
-
-  html += `
-    <div class="nav-ficha">
-      ${ant ? `<a href="#${encodeURIComponent(ant)}"><small>← Anterior</small>${esc(ant)}</a>` : '<span></span>'}
-      ${prox ? `<a class="prox" href="#${encodeURIComponent(prox)}"><small>Próximo →</small>${esc(prox)}</a>` : ''}
-    </div>`;
-
-  document.getElementById('ficha').innerHTML = html;
+    container.appendChild(card);
+  });
 }
 
-/* ---------- Navegação por hash ---------- */
-function rotear() {
-  const nome = decodeURIComponent(location.hash.slice(1));
-  atual = bancoDeDadosGlobal[nome] ? nome : null;
-
-  document.getElementById('inicio').hidden = !!atual;
-  document.getElementById('ficha').hidden = !atual;
-  document.querySelector('[data-inicio]').classList.toggle('ativo', !atual);
-  document.getElementById('topoTag').textContent = atual ? marcaDe(atual) : 'Veículos';
-  document.title = atual ? `${atual} | Guia de Lubrificantes & Filtros` : 'Guia Técnico de Lubrificantes & Filtros';
-
-  if (atual) mostrarFicha(atual);
-  else window.Menu.abrirSo('');
-
-  marcarAtivo(true);
-  window.Menu.abrirGaveta(false);
-  window.scrollTo(0, 0);
-}
-
-/* ---------- Inicialização ---------- */
-renderMenu();
-renderInicio();
-rotear();
-window.addEventListener('hashchange', rotear);
-
-const busca = document.getElementById('buscaMenu');
-busca.addEventListener('input', () => renderMenu(busca.value));
-busca.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') { busca.value = ''; renderMenu(''); }
-  if (e.key === 'Enter') document.querySelector('#menuMarcas a')?.click();
-});
-
-document.getElementById('abrirMenuHero').addEventListener('click', () => window.Menu.abrirGaveta(true));
-
-// Clique na montadora do "Início › Marca": abre o grupo no menu
-document.addEventListener('click', (e) => {
-  const b = e.target.closest('[data-marca]');
-  if (!b) return;
-  window.Menu.abrirGaveta(true);
-  window.Menu.abrirSo('grupo-' + slug(b.dataset.marca));
-  document.getElementById('grupo-' + slug(b.dataset.marca))?.previousElementSibling
-    ?.scrollIntoView({ block: 'start' });
+// Inicializa o motor assim que o DOM carregar
+document.addEventListener('DOMContentLoaded', () => {
+  iniciarMotorDeBusca();
 });

@@ -285,7 +285,8 @@ var ARQUIVOS = [
   ["passeio.js","veiculosPasseio"], ["utilitarios.js","veiculosUtilitarios"],
   ["caminhoes.js","veiculosCaminhoes"], ["vans.js","veiculosVans"],
   ["agrale.js"], ["citroen.js"], ["fiat.js"], ["iveco.js"], ["mercedes.js"], ["nissan.js"],
-  ["peugeot.js"], ["renault.js"], ["scania.js"], ["volvo.js"], ["vw.js"]
+  ["peugeot.js"], ["renault.js"], ["scania.js"], ["volvo.js"], ["vw.js"],
+  ["chevrolet.js"], ["daf.js"], ["ford.js"], ["mitsubishi.js"], ["toyota.js"], ["man.js"]
 ];
 var banco = {}, falhas = [];
 var res = await Promise.allSettled(ARQUIVOS.map(function(a){ return import("./js/dados/"+a[0]+"?v="+Date.now()); }));
@@ -306,9 +307,11 @@ var MONTADORAS = (function(){
   var grupos = {}, ordem = [];
   Object.keys(banco).forEach(function(chave){
     var p = chave.split(" "), marca = banco[chave].montadora || NOMES_MARCA[p[0]] || p[0];
+    /* Caminhões e chassis de ônibus da VW (Worker, Constellation, Delivery, Volksbus) ficam na montadora MAN */
+    if(/^(VW|Volkswagen)\s+(Worker|Constellation|Delivery)\b|^Volkswagen \/ MAN\b/.test(chave)) marca = "MAN";
     var resto = chave.indexOf(marca+" ") === 0 ? chave.slice(marca.length+1) : p.slice(1).join(" ");
     if(!grupos[marca]){ grupos[marca] = []; ordem.push(marca); }
-    grupos[marca].push({ chave:chave, modelo:resto.replace(/^[\/\-\s]+/, "") || chave });
+    grupos[marca].push({ chave:chave, modelo:resto.replace(/^[\/\-\s]+/, "").replace(/^MAN\s+/, "") || chave });
   });
   ordem.sort(function(a,b){ return a.localeCompare(b,"pt-BR"); });
   return ordem.map(function(m){ return { nome:m, veiculos:grupos[m] }; });
@@ -420,6 +423,7 @@ var LOGOS = {
   "Fiat": '<rect x="2" y="7" width="20" height="10" rx="5"/><text'+F+T+' x="12" y="14.2" font-size="6">FIAT</text>',
   "Ford": '<ellipse cx="12" cy="12" rx="10.5" ry="7"/><text'+F+' x="12" y="14.6" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="7.5">Ford</text>',
   "Jeep": '<text'+F+T+' x="12" y="15.2" font-size="8">JEEP</text>',
+  "MAN": '<rect x="2" y="6.5" width="20" height="11" rx="2"/><text'+F+T+' x="12" y="14.4" font-size="6.5">MAN</text>',
   "Mercedes-Benz": '<circle cx="12" cy="12" r="9.5"/><path'+F+' d="M12 4.2l1.5 7.3 6 4.2-7.5-2.4-7.5 2.4 6-4.2z"/>',
   "Mitsubishi": '<g'+F+' transform="translate(12 12)"><path d="M0-9.5 3.4-4 0 1.5-3.4-4z"/><path transform="rotate(120)" d="M0-9.5 3.4-4 0 1.5-3.4-4z"/><path transform="rotate(240)" d="M0-9.5 3.4-4 0 1.5-3.4-4z"/></g>',
   "Nissan": '<circle cx="12" cy="12" r="8.6"/><rect'+F+' x="1.5" y="10.3" width="21" height="3.4" rx=".6"/>',

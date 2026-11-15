@@ -283,11 +283,17 @@ a{color:inherit}
    O "?v=" com a hora força o navegador a baixar sempre a versão mais recente (evita menu desatualizado). */
 var ARQUIVOS = [
   ["passeio.js","veiculosPasseio"], ["utilitarios.js","veiculosUtilitarios"],
-  ["caminhoes.js","veiculosCaminhoes"], ["vans.js","veiculosVans"],
-  ["agrale.js"], ["citroen.js"], ["fiat.js"], ["iveco.js"], ["mercedes.js"], ["nissan.js"],
-  ["peugeot.js"], ["renault.js"], ["scania.js"], ["volvo.js"], ["vw.js"],
-  ["chevrolet.js"], ["daf.js"], ["ford.js"], ["mitsubishi.js"], ["toyota.js"], ["man.js"]
+  ["caminhoes.js","veiculosCaminhoes"], ["vans.js","veiculosVans"]
 ];
+/* Fichas resumidas (só motor e filtros), convertidas dos arquivos por montadora.
+   Ficam desligadas para não misturar com as fichas completas. Para ligar, troque false por true. */
+var CARREGAR_RESUMIDAS = false;
+var RESUMIDAS = [
+  ["agrale.js"], ["chevrolet.js"], ["citroen.js"], ["daf.js"], ["fiat.js"], ["ford.js"], ["iveco.js"], ["man.js"],
+  ["mercedes.js"], ["mitsubishi.js"], ["nissan.js"], ["peugeot.js"], ["renault.js"], ["scania.js"], ["toyota.js"],
+  ["volvo.js"], ["vw.js"]
+];
+if(CARREGAR_RESUMIDAS) ARQUIVOS = ARQUIVOS.concat(RESUMIDAS);
 var banco = {}, falhas = [];
 var res = await Promise.allSettled(ARQUIVOS.map(function(a){ return import("./js/dados/"+a[0]+"?v="+Date.now()); }));
 res.forEach(function(r,i){

@@ -157,6 +157,13 @@ a{color:inherit}
 .nav-ficha .prox{margin-left:auto;text-align:right}
 #erro-dados{margin:14px 0 0}
 
+/* ---------- Alinhamento das caixas e coluna fixa da tabela ---------- */
+.grade-sis,.notas-tec,.nav-ficha,.conferir,.detalhe .nota{max-width:none}
+.caixa-tabela{padding:6px 0}
+.tabela-filtros{border-collapse:separate;border-spacing:0}
+.tabela-filtros th:first-child,.tabela-filtros td:first-child{position:sticky;left:0;z-index:1;background:var(--cartao);padding-left:16px;box-shadow:1px 0 0 var(--linha)}
+.tabela-filtros th:last-child,.tabela-filtros td:last-child{padding-right:16px}
+
 /* ---------- Celular e tablet ---------- */
 @media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}.card.destaque{grid-column:span 2}}
 @media (max-width:900px){

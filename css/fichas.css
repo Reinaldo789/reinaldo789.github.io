@@ -1,0 +1,54 @@
+/* ===== Menu por montadora, índice de marcas e ficha do veículo ===== */
+
+/* Busca no menu */
+.menu-busca { position: sticky; top: 0; z-index: 2; background: #fff; padding: 8px 14px 10px; border-bottom: 1px solid var(--borda); }
+.menu-busca input { width: 100%; padding: 9px 12px; border: 2px solid var(--borda); border-radius: 9px; font-size: .9rem; outline: none; background: #fff; }
+.menu-busca input:focus { border-color: var(--acento); }
+.grupo-menu .qtd { font-style: normal; font-weight: 600; font-size: .7rem; color: var(--suave); background: #eef2f7; padding: 1px 8px; border-radius: 999px; margin-left: auto; }
+.grupo-menu .qtd + span { margin-left: 4px; }
+.menu-vazio { padding: 20px 18px; color: var(--suave); font-size: .88rem; }
+
+/* Índice de montadoras na página inicial */
+.grade-marcas { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.cartao-marca { background: var(--cartao); border: 1px solid var(--borda); border-radius: 14px; padding: 14px 16px 12px; }
+.cartao-marca h3 { margin: 0 0 8px; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: baseline; }
+.cartao-marca h3 small { font-weight: 500; color: var(--suave); font-size: .75rem; }
+.cartao-marca ul { list-style: none; margin: 0; padding: 0; }
+.cartao-marca li a { display: block; padding: 6px 8px; margin: 0 -8px; border-radius: 7px; text-decoration: none; font-size: .88rem; color: #334155; }
+.cartao-marca li a:hover { background: #fff7e6; color: #111; }
+
+/* Ficha */
+.migalhas { font-size: .8rem; color: var(--suave); margin-bottom: 10px; }
+.migalhas a, .migalhas button { color: var(--azul); text-decoration: none; background: none; border: 0; padding: 0; font-size: inherit; cursor: pointer; }
+.migalhas a:hover, .migalhas button:hover { text-decoration: underline; }
+.ficha-titulo { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 4px; }
+.ficha-titulo h1 { margin: 0; font-size: 1.9rem; line-height: 1.15; }
+.tag-categoria { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: #fff7e6; color: var(--acento-esc); border: 1px solid #fcd34d; padding: 3px 10px; border-radius: 999px; }
+
+.grade-sis { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.cartao-sis { background: var(--cartao); border: 1px solid var(--borda); border-left: 5px solid var(--acento); border-radius: 12px; padding: 14px 16px; }
+.cartao-sis h3 { margin: 0 0 10px; font-size: 1.02rem; }
+.cartao-sis dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 0; }
+.cartao-sis dt { font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--suave); }
+.cartao-sis dd { margin: 2px 0 0; font-size: .95rem; }
+.cartao-sis dd.destaque { color: var(--acento-esc); font-weight: 700; }
+
+.caixa-tabela { background: var(--cartao); border: 1px solid var(--borda); border-radius: 12px; padding: 6px 12px; overflow-x: auto; }
+.tabela-filtros { width: 100%; border-collapse: collapse; font-size: .85rem; white-space: nowrap; }
+.tabela-filtros th, .tabela-filtros td { padding: 10px; border-bottom: 1px solid var(--borda); text-align: left; }
+.tabela-filtros tr:last-child td { border-bottom: 0; }
+.tabela-filtros th { font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; color: var(--suave); }
+.filtro-tag { display: inline-block; padding: 2px 8px; border: 1px solid #818cf8; border-radius: 6px; background: #e0e7ff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.lista-notas { margin: 8px 0 0; padding-left: 20px; }
+.lista-notas li { margin-bottom: 8px; }
+
+.nav-ficha { display: flex; justify-content: space-between; gap: 10px; margin-top: 30px; }
+.nav-ficha a { flex: 1; max-width: 48%; display: block; padding: 12px 14px; background: #fff; border: 1px solid var(--borda); border-radius: 12px; text-decoration: none; font-size: .88rem; }
+.nav-ficha a:hover { border-color: var(--acento); }
+.nav-ficha a small { display: block; color: var(--suave); font-size: .7rem; text-transform: uppercase; letter-spacing: .05em; }
+.nav-ficha .prox { text-align: right; margin-left: auto; }
+
+@media (max-width: 1000px) {
+  .ficha-titulo h1 { font-size: 1.5rem; }
+}

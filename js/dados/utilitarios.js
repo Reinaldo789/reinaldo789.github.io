@@ -153,7 +153,7 @@ export const veiculosUtilitarios = {
     }
   },
 
-  'Marruá MWM Sprint 2.8 Euro III)': {
+  'Agrale Marruá MWM Sprint 2.8 Euro III)': {
     usaArla32: false,
     sistemas: [
       { sistema: 'Motor (MWM Sprint 2.8)', especificacao: 'SAE 15W-40 API CI-4', capacidade: '7,0 L (com filtro)', intervalo: '5.000 km a 7.500 km (Uso severo/trilha)' },
@@ -173,7 +173,7 @@ export const veiculosUtilitarios = {
     }
   },
 
-  'Marruá Cummins ISF 2.8 - Euro V)': {
+  'Agrale Marruá Cummins ISF 2.8 - Euro V)': {
     usaArla32: true,
     sistemas: [
       { sistema: 'Motor (Cummins ISF 2.8 Euro V)', especificacao: 'SAE 5W-30 Sintético (Norma CES 20081)', capacidade: '5,5 L (com filtro)', intervalo: '10.000 km' },

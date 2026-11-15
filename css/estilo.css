@@ -1,114 +1,163 @@
-/* ===== Base, topo, menu lateral e seções (mesmas classes do manual do Marruá) ===== */
-:root {
-  --fundo: #f3f5f8; --cartao: #ffffff; --texto: #111827; --suave: #64748b; --borda: #e2e8f0;
-  --topo: #0f172a; --acento: #f59e0b; --acento-esc: #b45309; --azul: #1d4ed8;
-  --alt-topo: 60px; --larg-menu: 310px;
+/* --- MENU LATERAL --- */
+
+/* Container Principal do Menu */
+.menu-lateral { 
+    position: fixed; 
+    top: var(--alt-topo); 
+    left: 0; 
+    bottom: 0; 
+    width: var(--larg-menu); /* Fixa a largura em 310px */
+    background: #fff; 
+    border-right: 1px solid var(--borda); 
+    overflow-y: auto; 
+    z-index: 40; 
+    display: flex; 
+    flex-direction: column; 
 }
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
-body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fundo); color: var(--texto); line-height: 1.5; }
-a { color: inherit; }
-button { font-family: inherit; }
 
-.pular { position: absolute; left: -999px; top: 0; background: #fff; padding: 8px 12px; z-index: 100; }
-.pular:focus { left: 8px; top: 8px; }
+.menu-lateral nav { 
+    flex: 1; 
+    padding: 6px 0 10px; 
+    display: flex;
+    flex-direction: column;
+}
 
-/* Topo */
-.topo { position: sticky; top: 0; z-index: 50; height: var(--alt-topo); background: var(--topo); color: #fff; display: flex; align-items: center; gap: 14px; padding: 0 16px; }
-.menu-toggle { display: none; border: 0; background: #1e293b; color: #fff; width: 40px; height: 40px; border-radius: 10px; font-size: 1.3rem; cursor: pointer; }
-.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; line-height: 1.15; font-weight: 700; font-size: .95rem; }
-.marca small { font-weight: 400; color: #94a3b8; font-size: .72rem; }
-.marca-icone { width: 36px; height: 36px; border-radius: 9px; background: var(--acento); color: #111; display: grid; place-items: center; font-size: 1.2rem; }
-.topo-tag { margin-left: auto; font-size: .75rem; border: 1px solid #334155; color: #cbd5e1; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.menu-cabecalho { 
+    display: none; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 14px 18px; 
+    background: var(--topo); 
+    color: #fff; 
+}
 
+.menu-cabecalho button { 
+    border: 0; 
+    background: #1e293b; 
+    color: #fff; 
+    width: 34px; 
+    height: 34px; 
+    border-radius: 8px; 
+    font-size: 1.3rem; 
+    cursor: pointer; 
+}
 
-/* --- MENU LATERAL (UPGRADE VISUAL) --- */
-
-/* Cabeçalho do Menu (Mobile) */
-.menu-cabecalho { display: none; align-items: center; justify-content: space-between; padding: 16px 20px; background: var(--topo); color: #fff; }
-.menu-cabecalho button { border: 0; background: rgba(255,255,255,0.1); color: #fff; width: 36px; height: 36px; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; }
-.menu-cabecalho button:hover { background: rgba(255,255,255,0.2); }
-
-/* Barra de Busca (Adicionada conforme sua imagem) */
+/* Barra de Busca */
 .menu-busca { padding: 15px 18px 10px; }
-.menu-busca input { width: 100%; padding: 10px 14px; border: 1px solid var(--borda); border-radius: 8px; background: #f8fafc; font-size: 0.9rem; color: var(--texto); transition: all 0.2s ease; font-family: inherit; }
+.menu-busca input { 
+    width: 100%; 
+    padding: 10px 14px; 
+    border: 1px solid var(--borda); 
+    border-radius: 8px; 
+    background: #f8fafc; 
+    font-size: 0.9rem; 
+    color: var(--texto); 
+    transition: all 0.2s ease; 
+    font-family: inherit;
+}
 .menu-busca input::placeholder { color: #94a3b8; }
-.menu-busca input:focus { border-color: var(--acento); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15); }
+.menu-busca input:focus { 
+    border-color: var(--acento); 
+    background: #fff; 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15); 
+}
 
-/* Item do Menu (Visão Geral) */
-.item-menu { display: flex; align-items: center; gap: 10px; padding: 12px 18px; text-decoration: none; font-weight: 600; font-size: 0.92rem; border-left: 4px solid transparent; color: var(--texto); transition: all 0.2s ease; }
-.item-menu:hover { background: #f1f5f9; color: var(--acento-esc); }
-.item-menu.ativo { background: #fff7e6; border-left-color: var(--acento); color: var(--acento-esc); }
+/* Item "Visão Geral" e Botão da Marca */
+.item-menu, .grupo-menu { 
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 18px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: .92rem; 
+    border-left: 4px solid transparent; 
+    transition: all 0.2s ease;
+}
 
-/* Grupo de Marcas (Botão Acordeão) */
-.grupo-menu { display: flex; width: 100%; align-items: center; gap: 8px; padding: 13px 18px; border: 0; background: none; font-weight: 700; font-size: 0.92rem; text-align: left; cursor: pointer; color: var(--texto); border-left: 4px solid transparent; transition: all 0.2s ease; }
-.grupo-menu:hover { background: #f8fafc; }
-.grupo-menu[aria-expanded="true"] { background: #f8fafc; border-left-color: var(--acento); }
+.item-menu { color: var(--texto); }
+.grupo-menu { 
+    border: 0; 
+    background: none; 
+    font-weight: 700; 
+    text-align: left; 
+    cursor: pointer; 
+    color: var(--texto); 
+}
 
-/* Contador (Badge) de Veículos */
-.grupo-menu .badge { background: var(--fundo); color: var(--suave); font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; margin-left: auto; transition: all 0.2s ease; }
-.grupo-menu:hover .badge, .grupo-menu[aria-expanded="true"] .badge { background: var(--acento); color: #111; }
+.item-menu:hover, .grupo-menu:hover { background: #f1f5f9; color: var(--acento-esc); }
+.item-menu.ativo, .grupo-menu[aria-expanded="true"] { background: #fff7e6; border-left-color: var(--acento); color: var(--acento-esc); }
 
-/* Setinha (Chevron) */
-.grupo-menu .chevron { color: var(--suave); font-size: 0.8rem; transition: transform 0.3s ease, color 0.2s; margin-left: 8px; }
-.grupo-menu[aria-expanded="true"] .chevron { transform: rotate(180deg); color: var(--acento-esc); }
+/* Agrupamento do Contador e Seta */
+.grupo-menu .grupo-icones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto; /* Empurra o grupo todo para a direita */
+}
 
-/* Sub-menu (Modelos de Veículos) */
-.sub-menu { display: none; background: #f8fafc; padding: 6px 0; border-bottom: 1px solid var(--borda); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }
-.sub-menu.aberto { display: block; animation: fadeIn 0.3s ease; }
-.sub-menu a { display: block; padding: 10px 18px 10px 38px; font-size: 0.87rem; text-decoration: none; color: #475569; border-left: 4px solid transparent; line-height: 1.3; transition: all 0.2s ease; position: relative; }
-.sub-menu a::before { content: "•"; position: absolute; left: 22px; color: #cbd5e1; font-size: 1.2rem; line-height: 1; top: 12px; transition: color 0.2s; }
-.sub-menu a:hover { background: #f1f5f9; color: var(--texto); }
+/* Contador (Badge) */
+.badge {
+    background: var(--fundo);
+    color: var(--suave);
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+.grupo-menu:hover .badge, .grupo-menu[aria-expanded="true"] .badge { 
+    background: var(--acento); 
+    color: #111; 
+}
+
+/* Seta (Chevron) */
+.chevron {
+    color: var(--suave);
+    font-size: .8rem;
+    transition: transform .3s ease, color 0.2s;
+}
+.grupo-menu[aria-expanded="true"] .chevron { 
+    transform: rotate(180deg); 
+    color: var(--acento-esc); 
+}
+
+/* Sub-menu (Lista de Veículos) */
+.sub-menu { display: none; background: #f8fafc; padding: 6px 0 8px; border-bottom: 1px solid var(--borda); }
+.sub-menu.aberto { display: block; }
+.sub-menu a { 
+    display: block; 
+    padding: 9px 18px 9px 38px; 
+    font-size: .87rem; 
+    text-decoration: none; 
+    color: #475569; 
+    border-left: 4px solid transparent; 
+    position: relative;
+}
+.sub-menu a::before { 
+    content: "•"; 
+    position: absolute; 
+    left: 22px; 
+    top: 10px;
+    color: #cbd5e1; 
+}
+.sub-menu a:hover { background: #eef2f7; color: var(--texto); }
 .sub-menu a:hover::before { color: var(--acento); }
-.sub-menu a.ativo { background: #fff7e6; color: var(--acento-esc); font-weight: 700; border-left-color: var(--acento); }
-.sub-menu a.ativo::before { color: var(--acento); }
+.sub-menu a.ativo { background: var(--acento); color: #111; font-weight: 700; border-left-color: var(--acento-esc); }
+.sub-menu a.ativo::before { color: #111; }
 
-/* Animação suave para abrir o sub-menu */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Conteúdo */
-.conteudo { margin-left: var(--larg-menu); padding: 28px 32px 20px; }
-.conteudo > div, .conteudo > footer { max-width: 1060px; }
-
-.hero { background: linear-gradient(135deg, #0f172a, #1e293b); color: #fff; border-radius: 18px; padding: 34px 32px; }
-.sobretitulo { font-size: .72rem; letter-spacing: .12em; font-weight: 700; color: var(--acento-esc); text-transform: uppercase; }
-.hero .sobretitulo { color: var(--acento); }
-.hero h1 { margin: 8px 0 12px; font-size: 2.2rem; line-height: 1.1; }
-.hero h1 span { color: var(--acento); }
-.hero p { max-width: 640px; color: #cbd5e1; margin: 0 0 18px; }
-.hero-acoes { display: flex; flex-wrap: wrap; gap: 10px; }
-.botao { display: inline-block; padding: 11px 18px; border-radius: 10px; font-weight: 700; font-size: .92rem; text-decoration: none; border: 0; cursor: pointer; }
-.botao.principal { background: var(--acento); color: #111; }
-.botao.secundario { background: rgba(255,255,255,.1); color: #fff; }
-.avisos-hero { margin-top: 20px; font-size: .85rem; color: #cbd5e1; border-top: 1px solid #334155; padding-top: 14px; }
-
-.secao { margin-top: 34px; }
-.cabecalho-secao { margin-bottom: 14px; }
-.cabecalho-secao h2 { margin: 4px 0 0; font-size: 1.4rem; }
-.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-.cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 14px; padding: 18px; }
-.cartao h3 { margin: 6px 0 4px; }
-.cartao p { margin: 0; color: var(--suave); font-size: .92rem; }
-.numero { font-size: .8rem; font-weight: 800; color: var(--acento-esc); }
-.alerta { background: #fff7e6; border: 1px solid #fcd34d; border-left: 5px solid var(--acento); border-radius: 12px; padding: 14px 16px; }
-.alerta p { margin: 6px 0 0; }
-.nota { font-size: .85rem; color: var(--suave); }
-
-.rodape { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--borda); display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: .8rem; color: var(--suave); }
-.voltar-topo { border: 1px solid var(--borda); background: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
-
-/* Celular / tablet: menu vira gaveta */
+/* Modo Mobile (Gaveta) - Mantendo o original */
 @media (max-width: 1000px) {
-  .menu-toggle { display: inline-grid; place-items: center; }
-  .menu-lateral { top: 0; width: min(340px, 90vw); z-index: 60; transform: translateX(-100%); transition: transform .2s; box-shadow: 6px 0 24px rgba(0,0,0,.25); }
+  .menu-lateral { 
+      top: 0; 
+      width: min(340px, 90vw); /* Aqui ele limita o tamanho no celular */
+      z-index: 60; 
+      transform: translateX(-100%); 
+      transition: transform .2s; 
+      box-shadow: 6px 0 24px rgba(0,0,0,.25); 
+  }
   body.menu-aberto .menu-lateral { transform: translateX(0); }
   .menu-cabecalho { display: flex; }
-  .fundo-menu { position: fixed; inset: 0; background: rgba(15,23,42,.5); z-index: 55; }
-  body.menu-aberto .fundo-menu { display: block; }
-  .conteudo { margin-left: 0; padding: 16px 12px 20px; }
-  .hero { padding: 24px 18px; }
-  .hero h1 { font-size: 1.7rem; }
-  .topo-tag { display: none; }
 }
-

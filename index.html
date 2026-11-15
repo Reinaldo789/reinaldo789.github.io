@@ -294,18 +294,23 @@ var RESUMIDAS = [
   ["volvo.js"], ["vw.js"]
 ];
 if(CARREGAR_RESUMIDAS) ARQUIVOS = ARQUIVOS.concat(RESUMIDAS);
-var banco = {}, falhas = [];
-var res = await Promise.allSettled(ARQUIVOS.map(function(a){ return import("./js/dados/"+a[0]+"?v="+Date.now()); }));
-res.forEach(function(r,i){
-  var a = ARQUIVOS[i];
-  if(r.status === "fulfilled"){
-    /* Usa o nome esperado; se o arquivo exportar com outro nome (ex.: "vans"), usa o primeiro conjunto exportado. */
-    var dados = r.value[a[1]] || Object.keys(r.value).map(function(k){ return r.value[k]; }).filter(function(v){ return v && typeof v === "object"; })[0];
-    var entradas = dados ? Object.keys(dados).filter(function(k){ var v = dados[k]; return v && typeof v === "object" && (v.sistemas || v.filtros); }) : [];
-    if(entradas.length) entradas.forEach(function(k){ banco[k] = dados[k]; });
-    else falhas.push(a[0]+": não tem veículos no formato esperado (sistemas e filtros)");
-  } else { falhas.push(a[0]+": "+r.reason.message); console.error(a[0], r); }
-});
+var banco = {}, falhas = [], usouResumidas = false;
+async function carregar(lista){
+  var res = await Promise.allSettled(lista.map(function(a){ return import("./js/dados/"+a[0]+"?v="+Date.now()); }));
+  res.forEach(function(r,i){
+    var a = lista[i];
+    if(r.status === "fulfilled"){
+      /* Usa o nome esperado; se o arquivo exportar com outro nome (ex.: "vans"), usa o primeiro conjunto exportado. */
+      var dados = r.value[a[1]] || Object.keys(r.value).map(function(k){ return r.value[k]; }).filter(function(v){ return v && typeof v === "object"; })[0];
+      var entradas = dados ? Object.keys(dados).filter(function(k){ var v = dados[k]; return v && typeof v === "object" && (v.sistemas || v.filtros); }) : [];
+      if(entradas.length) entradas.forEach(function(k){ banco[k] = dados[k]; });
+      else { falhas.push(a[0]); console.error(a[0]+": não tem veículos no formato esperado (sistemas e filtros)"); }
+    } else { falhas.push(a[0]); console.error(a[0], r.reason); }
+  });
+}
+await carregar(ARQUIVOS);
+/* Se nenhum arquivo completo carregou, tenta as fichas resumidas para o guia não ficar vazio. */
+if(!Object.keys(banco).length && !CARREGAR_RESUMIDAS){ usouResumidas = true; await carregar(RESUMIDAS); }
 var erroDados = falhas.length > 0;
 
 var NOMES_MARCA = { "VW": "Volkswagen" };
@@ -684,7 +689,7 @@ function paginaVeiculo(v){
 }
 
 if(erroDados){
-  $("erro-dados").textContent = "Alguns dados não carregaram ("+falhas.join(" | ")+"). Confira o arquivo indicado em js/dados; se abriu o site direto do disco, use o endereço publicado ou um servidor local.";
+  $("erro-dados").textContent = "Não foi possível carregar: "+falhas.join(", ")+". Confira se esses arquivos estão na pasta js/dados do repositório publicado e se não têm erro de sintaxe."+(usouResumidas ? " Enquanto isso, o guia mostra só as fichas resumidas." : "");
   $("erro-dados").hidden = false;
 }
 montarMenu();

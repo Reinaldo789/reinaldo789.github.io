@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guia técnico de lubrificantes e filtros por montadora e veículo.">
+  <meta name="description" content="Guia técnico de lubrificantes e filtros por montadora e veículo: óleo, câmbio, diferencial, arrefecimento e filtros equivalentes.">
   <title>Guia Técnico de Lubrificantes & Filtros</title>
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/fichas.css">
@@ -15,7 +15,7 @@
   
   <header class="topo">
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuLateral" aria-label="Abrir menu">☰</button>
-    <a class="marca" href="#inicio"><span class="marca-icone">⚙</span><span>Guia Técnico<br><small>Lubrificantes &amp; Filtros</small></span></a>
+    <a class="marca" href="#inicio"><span class="marca-icone">⚙</span><span>Guia Técnico<br><small>Lubrificantes &amp; Filtros · Frota e Oficina</small></span></a>
     <span class="topo-tag" id="topoTag">Veículos</span>
   </header>
 
@@ -29,7 +29,7 @@
         <input id="buscaMenu" type="search" placeholder="Buscar veículo..." autocomplete="off" aria-label="Buscar veículo no menu">
       </div>
       
-      <!-- O app.js preenche essa div com os menus de marcas -->
+      <!-- O seu app.js preenche essa div com as montadoras -->
       <div id="menuMarcas"></div>
       
     </nav>
@@ -42,38 +42,40 @@
       <section class="hero">
         <div class="sobretitulo">BIBLIOTECA DE MANUTENÇÃO</div>
         <h1>Lubrificantes &amp;<br><span>Filtros por veículo</span></h1>
-        <p>Escolha a montadora no menu lateral para ver óleo do motor, câmbio, diferencial, arrefecimento, intervalos de troca e a tabela de filtros equivalentes.</p>
+        <p>Escolha a montadora no menu e abra o modelo para ver óleo do motor, câmbio, diferencial, arrefecimento, intervalos de troca e a tabela de filtros equivalentes.</p>
         <div class="hero-acoes"><button class="botao principal" id="abrirMenuHero" type="button">Escolher montadora →</button></div>
-        <div class="avisos-hero" style="margin-top: 20px; font-size: .85rem; color: #cbd5e1; border-top: 1px solid #334155; padding-top: 14px;"><strong id="resumo">—</strong></div>
+        <div class="avisos-hero"><strong id="resumo">—</strong></div>
+      </section>
+
+      <!-- CONSULTA RÁPIDA DE FILTROS -->
+      <section class="secao" id="consulta-filtros">
+        <div class="cabecalho-secao"><div><div class="sobretitulo">CONVERSÃO</div><h2>Consulta Rápida de Filtros</h2></div></div>
+        <div style="background: var(--cartao); padding: 25px; border-radius: 14px; border: 1px solid var(--borda);">
+          <p style="margin-top: 0; color: var(--suave);">Tem o código original da peça? Digite abaixo para descobrir as marcas equivalentes.</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="codigoOriginal" placeholder="Ex: 6811009140..." style="flex: 1; padding: 12px; border: 2px solid var(--borda); border-radius: 8px; font-size: 16px; min-width: 250px;" onkeypress="if(event.key === 'Enter') consultarCodigo()">
+            <button onclick="consultarCodigo()" class="botao principal" style="padding: 12px 20px;">Consultar</button>
+          </div>
+          <div id="resultadoArea" style="margin-top: 20px;"></div>
+        </div>
       </section>
 
       <!-- CARDS DE CONTEÚDO TÉCNICO -->
       <section class="secao" id="dicas-manutencao">
-        <div class="cabecalho-secao">
-          <div>
-            <div class="sobretitulo">CONHECIMENTO TÉCNICO</div>
-            <h2>Dicas de Manutenção e Inspeção</h2>
-          </div>
-        </div>
-        
+        <div class="cabecalho-secao"><div><div class="sobretitulo">CONHECIMENTO TÉCNICO</div><h2>Dicas de Manutenção e Inspeção</h2></div></div>
         <div class="grade-conteudo" id="gradeMaterias">
-          <!-- O script no final do arquivo preenche esses cards -->
+          <!-- O JS no final da página preenche esses cards -->
         </div>
       </section>
 
-      <!-- MONTADORAS (O app.js vai preencher o indiceMarcas) -->
+      <!-- MONTADORAS (O seu app.js preenche essa seção) -->
       <section class="secao" id="marcas">
-        <div class="cabecalho-secao">
-          <div>
-            <div class="sobretitulo">MONTADORAS</div>
-            <h2>Todos os veículos</h2>
-          </div>
-        </div>
+        <div class="cabecalho-secao"><div><div class="sobretitulo">MONTADORAS</div><h2>Todos os veículos</h2></div></div>
         <div class="grade-marcas" id="indiceMarcas"></div>
       </section>
     </div>
 
-    <!-- FICHA DO VEÍCULO (O app.js exibe isso ao clicar no menu) -->
+    <!-- FICHA DO VEÍCULO (O seu app.js preenche essa seção) -->
     <div id="ficha" hidden></div>
 
     <footer class="rodape"><span>Guia Técnico de Lubrificantes &amp; Filtros</span><button id="voltarTopo" class="voltar-topo" type="button">↑ Voltar ao início</button></footer>
@@ -87,8 +89,11 @@
     </div>
   </div>
 
-  <!-- SCRIPT EXCLUSIVO PARA OS CARDS (Não interfere no seu app.js) -->
+  <!-- SCRIPT EXTRA (Não interfere no seu app.js, apenas adiciona os cards e a busca) -->
   <script>
+    // ==========================================
+    // 1. CARDS DE CONTEÚDO TÉCNICO (MATÉRIAS)
+    // ==========================================
     const materias = {
         oleo: {
             icone: "🛢️", titulo: "Óleo do Motor", resumo: "Viscosidade (SAE), especificação API/ACEA e as diferenças entre óleos minerais, sintéticos e semissintéticos.",
@@ -116,7 +121,7 @@
         }
     };
 
-    // Cria os cards na tela
+    // Cria os cards visualmente
     const gradeMaterias = document.getElementById('gradeMaterias');
     if(gradeMaterias) {
         for (let id in materias) {
@@ -145,6 +150,43 @@
             document.getElementById('modalMateria').classList.remove('ativo');
             document.body.style.overflow = '';
         }
+    }
+
+    // ==========================================
+    // 2. CONSULTA RÁPIDA DE FILTROS
+    // ==========================================
+    const bancoFiltros = [
+        { original: "6811009140", fb: "FB028", fram: "CF1001", mahle: "LA1097/5", mann: "MP335/2", tecfil: "", wega: "AKX3583" },
+        { original: "971332F200 | 971332F000", fb: "FB1001F", fram: "CF10248", mahle: "LA298", mann: "CU2424", tecfil: "ACP977", wega: "AKX1985" },
+        { original: "7700420498", fb: "FB101", fram: "CF9085 | CF8838", mahle: "LA87", mann: "CU2945", tecfil: "ACP550", wega: "AKX35112" }
+    ];
+
+    function consultarCodigo() {
+        const termo = document.getElementById('codigoOriginal').value.trim().toUpperCase();
+        const area = document.getElementById('resultadoArea');
+        
+        if (!termo) { area.innerHTML = '<p style="color:#e74c3c; font-weight:bold;">Digite um código para consultar.</p>'; return; }
+        
+        const res = bancoFiltros.filter(i => i.original.toUpperCase().includes(termo));
+        
+        if (res.length === 0) { 
+            area.innerHTML = `<p style="color:#e74c3c; font-weight:bold;">Nenhum resultado encontrado para o código <strong>${termo}</strong>.</p>`; 
+            return; 
+        }
+
+        area.innerHTML = res.map(r => `
+            <div style="border:1px solid var(--borda); border-radius:8px; padding:15px; margin-bottom:10px; background:#f8fafc;">
+                <strong style="color:var(--acento-esc); font-size:1.1rem;">Cód. Filtros Brasil: ${r.fb}</strong><br>
+                <span style="color:var(--suave); font-size:0.85rem;">Cód. Original: ${r.original}</span>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+                    ${r.fram ? `<span style="background:#fff; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;"><strong>FRAM:</strong> ${r.fram}</span>` : ''}
+                    ${r.mahle ? `<span style="background:#fff; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;"><strong>MAHLE:</strong> ${r.mahle}</span>` : ''}
+                    ${r.mann ? `<span style="background:#fff; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;"><strong>MANN:</strong> ${r.mann}</span>` : ''}
+                    ${r.tecfil ? `<span style="background:#fff; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;"><strong>TECFIL:</strong> ${r.tecfil}</span>` : ''}
+                    ${r.wega ? `<span style="background:#fff; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;"><strong>WEGA:</strong> ${r.wega}</span>` : ''}
+                </div>
+            </div>
+        `).join('');
     }
   </script>
 </body>

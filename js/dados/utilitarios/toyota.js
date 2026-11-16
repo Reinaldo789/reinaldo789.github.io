@@ -58,4 +58,5 @@ export const utilitariosToyota = {
       combustivel: { original: '23390-0L070', tecfil: 'PC953', authomix: 'FCO0953', mann: 'PU 8028', mahle: 'KX 531D', wega: 'JFC-216', fram: 'C11919', vox: 'CE953' },
       cabine: { original: '87139-0K060', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 22 032', mahle: 'LA 1255', wega: 'AKX-1999', fram: 'CF12157', vox: 'FAC309' }
     }
-  },
+  }
+};

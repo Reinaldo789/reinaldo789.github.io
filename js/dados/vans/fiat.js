@@ -55,7 +55,7 @@ export const vansFiat = {
       combustivel: { original: '77366607', tecfil: 'PEC3043', authomix: 'FCO3043', mann: 'PU 9007 z', mahle: 'KX 338/26D', wega: 'FCD-0793', fram: 'C11666', vox: 'CE3043' },
       cabine: { original: '68169308AA', tecfil: 'ACP319', authomix: 'FCA0319', mann: 'CU 25 014', mahle: 'LA 926', wega: 'AKX-3550', fram: 'CF11662', vox: 'FAC319' }
     }
-  }
+  },
 
   'Fiat Ducato 2.2 BlueHDi (Proconve L7/L8 - 2023 a 2026)': {
     usaArla32: true,

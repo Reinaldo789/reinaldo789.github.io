@@ -206,6 +206,35 @@ a{color:inherit}
 }
 @media (max-width:600px){.cards{grid-template-columns:1fr}.card.destaque{grid-column:auto}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+  /* Menu lateral: "Início" colado no topo e travado; só o restante do menu rola.
+   Carregar DEPOIS do <style> do index.html. Usa #menu para vencer as regras antigas. */
+
+#menu .menu-topo{display:none!important;padding:0!important;margin:0!important;height:0!important;border:0!important}
+
+#menu .menu-fixo{
+  flex:none;
+  margin:0;
+  padding:12px 12px 12px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+#menu .menu-fixo .item{margin:0}
+
+#menu .menu-corpo{padding-top:0}
+#menu .menu-corpo .grupo-titulo:first-child{margin-top:16px}
+
+/* Celular e tablet: o botão × fica sobre o topo, sem ocupar uma faixa própria */
+@media (max-width:900px){
+  #menu .menu-topo{
+    display:block!important;
+    position:absolute;
+    top:10px;
+    right:10px;
+    height:auto!important;
+    z-index:2;
+  }
+  #menu .menu-fixo{padding:12px 62px 12px 12px}
+}
 </style>
 </head>
 <body>

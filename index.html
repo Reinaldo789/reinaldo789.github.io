@@ -213,17 +213,17 @@ a{color:inherit}
 
 <aside class="menu" id="menu" aria-label="Menu principal">
   <div class="menu-topo">
-    <a class="marca" href="#/inicio">
-      <span class="marca-sinal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg></span>
-      <span><strong>Guia Técnico</strong><small>Lubrificantes e filtros</small></span>
-    </a>
     <button class="fechar" id="fechar" aria-label="Fechar menu">&times;</button>
   </div>
-  <nav class="menu-corpo" aria-label="Seções do guia">
+
+  <div class="menu-fixo">
     <a class="item" href="#/inicio" data-rota="inicio">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>
       Início
     </a>
+  </div>
+
+  <nav class="menu-corpo" aria-label="Seções do guia">
     <p class="grupo-titulo">Montadoras e veículos</p>
     <div id="menu-montadoras"></div>
     <p class="grupo-titulo">Manutenção por assunto</p>

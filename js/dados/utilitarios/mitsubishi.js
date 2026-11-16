@@ -1,4 +1,23 @@
 export const utilitariosMitsubishi = {
+  'Mitsubishi L200 Sport / Outdoor 2.5 (8V - Até 2012)': {
+    usaArla32: false,
+    sistemas: [
+      { sistema: 'Motor (2.5 8V - 4D56 Tradicional)', especificacao: 'SAE 15W-40 API CI-4 / CH-4', capacidade: '6,5 L a 7,0 L (com filtro)', intervalo: '5.000 km a 7.500 km' },
+      { sistema: 'Câmbio Manual / Automático', especificacao: 'Manual: SAE 75W-90 GL-4 | Auto: ATF DEXRON III', capacidade: 'Manual: ~2,2 L', intervalo: '40.000 km' },
+      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: 75W-90 GL-5 | Tras: 85W-140 GL-5 (LSD)', capacidade: 'Diant: 1,2 L | Tras: 2,6 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Etilenoglicol (50/50)', capacidade: '8,0 L', intervalo: '40.000 km ou 2 anos' }
+    ],
+    notas: {
+      1: "Linha clássica L200 Sport, Outdoor e Savana com motor 2.5 de 8 válvulas, focada em robustez mecânica e sem eletrônica complexa."
+    },
+    filtros: {
+      oleo: { original: 'MD050318', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 940/25', mahle: 'OC 237', wega: 'WO-120', fram: 'PH8A', vox: 'LB55' },
+      ar: { original: 'MR239618', tecfil: 'ARL7001', authomix: 'FAR7001', mann: 'C 24 120', mahle: 'LX 824', wega: 'FAP-7001', fram: 'CA7164', vox: 'FAR7001' },
+      combustivel: { original: 'MB220900', tecfil: 'PSD380', authomix: 'FCO0380', mann: 'WK 842/2', mahle: 'KC 19', wega: 'FCD-0740', fram: 'P4102', vox: 'PCD33' },
+      cabine: { original: 'Não possui de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  },
+  
   'Mitsubishi L200 Triton 3.2 (Motores 4M41 - 2012 a 2018)': {
     usaArla32: false,
     sistemas: [

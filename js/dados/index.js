@@ -1,3 +1,4 @@
+// index.js (Global)
 import { veiculosPasseio } from './passeio.js';
 import { veiculosUtilitarios } from './utilitarios.js';
 import { veiculosCaminhoes } from './caminhoes.js';

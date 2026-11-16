@@ -37,7 +37,7 @@ export const utilitariosToyota = {
       combustivel: { original: '23390-0E020', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 8028', mahle: 'KX 531D', wega: 'FCI-1620', fram: 'PS10038', vox: 'PSD980' },
       cabine: { original: '87139-YZZ20', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'FP 1919', mahle: 'LA 250', wega: 'AKX-1999', fram: 'CF10729', vox: 'FCA0309' }
     }
-  }
+  },
 
   'Toyota Hilux 2.8 - Atualizada (Pós-2025 / Proconve L8)': {
     usaArla32: true,
@@ -58,4 +58,4 @@ export const utilitariosToyota = {
       combustivel: { original: '23390-0L070', tecfil: 'PC953', authomix: 'FCO0953', mann: 'PU 8028', mahle: 'KX 531D', wega: 'JFC-216', fram: 'C11919', vox: 'CE953' },
       cabine: { original: '87139-0K060', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 22 032', mahle: 'LA 1255', wega: 'AKX-1999', fram: 'CF12157', vox: 'FAC309' }
     }
-  }
+  },

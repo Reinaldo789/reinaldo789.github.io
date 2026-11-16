@@ -1,4 +1,4 @@
-export const vansVWുംAgrale = {
+export const vansVWAgrale = {
   'Volkswagen / MAN Chassis para Ônibus (Linha Volksbus - Ex: 15.190 / 17.230 / 17.260)': {
     usaArla32: true,
     sistemas: [

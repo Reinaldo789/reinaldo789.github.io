@@ -351,62 +351,79 @@ function svg(nome, classe){
 }
 
 var TOPICOS = [
-  { id:"lubrificacao", titulo:"Pesquisa Lubrificação e Filtros", destaque:true,
-    /* resumo:"Óleo do motor, câmbio, diferencial e arrefecimento, com viscosidade, especificação e intervalo de troca.", */
-    /* chips:["Motor","Câmbio","Diferencial","Arrefecimento"], */
-    busca:"oleo motor cambio diferencial arrefecimento filtro de oleo viscosidade fluido",
-    pontos:[
-      "Use a viscosidade e a especificação (API, ACEA) que o manual indica, nunca só a que está na prateleira.",
-      "Confira o nível com o motor frio e o veículo em piso plano.",
-      "Troque o filtro de óleo junto com o óleo.",
-      "Câmbio e diferencial usam óleo próprio, com intervalo de troca diferente do motor.",
-      "Anote data e quilometragem de cada troca para não perder o intervalo." ]},
-  { id:"pontos-de-lubrificacao", titulo:"Pontos de lubrificação", icone:"graxa",
-    resumo:"Graxeiras de cruzetas, pivôs, terminais e buchas: onde engraxar e como.",
-    busca:"graxeira graxa cruzeta pivo terminal bucha cardan engraxar lubrificar",
-    pontos:[
-      "Limpe a graxeira antes de engraxar, para não empurrar sujeira para dentro.",
-      "Engraxe cruzetas e luvas do cardã, pivôs, terminais de direção e buchas que tenham graxeira.",
-      "Pare quando a graxa nova aparecer na vedação; em coifas de borracha, não estufe.",
-      "Use o tipo de graxa que o manual indica para cada ponto.",
-      "Troque a graxeira que não aceita graxa em vez de forçar." ]},
-  { id:"pneus", titulo:"Pneus", icone:"pneu",
-    resumo:"Calibragem, rodízio, desgaste e idade do pneu.",
-    busca:"pneu calibragem pressao rodizio desgaste sulco dot estepe alinhamento balanceamento",
-    pontos:[
-      "Calibre a frio, com a pressão da etiqueta do veículo, e confira o estepe.",
-      "A profundidade mínima dos sulcos é 1,6 mm; o indicador TWI no pneu mostra quando chegou.",
-      "Desgaste irregular aponta alinhamento, balanceamento ou suspensão a revisar.",
-      "Procure cortes, bolhas e deformações nas laterais.",
-      "O código DOT informa semana e ano de fabricação; pneu muito velho ressecca mesmo com sulco." ]},
-  { id:"correias", titulo:"Correias", icone:"correia",
-    resumo:"Correia dentada, correia poli-V, tensor e polias.",
-    busca:"correia dentada poli v tensor polia acessorios alternador",
-    pontos:[
-      "Troque a correia dentada pelo intervalo de km ou tempo do manual, sem esperar romper.",
-      "Na correia poli-V, procure rachaduras, vitrificação e desfiamento.",
-      "Ruído ou folga no tensor e nas polias pede troca junto com a correia.",
-      "Prefira trocar o kit (correia, tensor e polia) de uma vez.",
-      "Confira o alinhamento: correia que sai de lado indica polia desalinhada." ]},
-  { id:"baterias", titulo:"Baterias", icone:"bateria",
-    resumo:"Tensão, carga do alternador, terminais e idade da bateria.",
-    busca:"bateria tensao alternador terminais carga eletrolito 12v",
-    pontos:[
-      "Em repouso, uma bateria carregada fica em torno de 12,6 V.",
-      "Com o motor ligado, o alternador deve carregar entre 13,8 e 14,8 V.",
-      "Mantenha terminais limpos, apertados e sem sulfatação.",
-      "Confira a fixação da bateria no suporte.",
-      "Em baterias não seladas, verifique o nível do eletrólito; veja também a data de fabricação." ]},
-  { id:"inspecoes", titulo:"Inspeções", icone:"lista",
-    resumo:"Checklist rápido de níveis, vazamentos, freios, luzes e filtros.",
-    busca:"inspecao checklist revisao niveis vazamento freio luzes palheta filtro de ar filtro de combustivel suspensao",
-    pontos:[
-      "Níveis: óleo do motor, arrefecimento, freio e direção.",
-      "Procure vazamentos sob o veículo e nas conexões.",
-      "Freios: espessura das pastilhas ou lonas e estado dos discos.",
-      "Luzes, palhetas do limpador e buzina.",
-      "Filtros de ar, de combustível e de cabine, conforme o intervalo.",
-      "Folgas na suspensão e na direção." ]}
+  { 
+    id: "lubrificacao", 
+    titulo: "Engenharia de Lubrificantes: Motores, Câmbios e Diferenciais", 
+    destaque: true,
+    resumo: "Manual definitivo de viscosidades, normas internacionais (API, ACEA, JASO), a armadilha do GL-4 vs GL-5 e os critérios de fluidos de freio DOT.",
+    busca: "oleo motor cambio diferencial gl4 gl5 dot 3 dot 4 dot 5.1 viscosidade acea api lsd aditivo",
+    pontos: [
+      "A Armadilha Química do GL-4 e GL-5: Transmissões manuais com anéis sincronizadores de latão, bronze ou ligas amarelas exigem estritamente óleos com classificação API GL-4. O erro fatal de aplicar óleo GL-5 em caixas projetadas para GL-4 libera aditivos de extrema pressão à base de enxofre e fósforo em alta temperatura, provocando corrosão química severa, esfarelamento dos sincronizadores e engates duros. O GL-5 é reservado exclusivamente para diferenciais e eixos hypoid.",
+      "Diferenciais com Deslizamento Limitado (LSD / Trac-Lok): Eixos traseiros equipados com blocos de fricção ou discos de bloqueio mecânico exigem óleo GL-5 certificado para LSD ou a adição obrigatória de aditivo modificador de atrito (friction modifier). Sem esse aditivo, os discos travam incorretamente nas curvas, gerando estalos metálicos insuportáveis e desgaste prematuro do conjunto.",
+      "Fluidos de Freio e Seus Pontos de Ebulição (DOT 3, DOT 4 e DOT 5.1): A especificação do fluido de freio é ditada pelo ponto de ebulição (seco e úmido). O DOT 3 ferve a ~205°C (seco), o DOT 4 a ~230°C e o DOT 5.1 (base glicol, compatível para mistura) ultrapassa os 260°C, ideal para uso severo e frotas carregadas. ATENÇÃO: Nunca utilize fluidos à base de silicone (DOT 5) em sistemas projetados para DOT 3/4, pois o silicone não absorve umidade, criando bolhas de água líquida nas pinças e causando falha catastrófica no pedal.",
+      "Viscosidade Dinâmica e Normas Rigorosas: Em motores modernos equipados com DPF, EGR ou SCR (como os blocos Cummins ISF, FPT Cursor e Duramax), o uso de óleos Low SAPS (baixo teor de cinzas sulfatadas, fósforo e enxofre) nas normas ACEA C2/C3 ou API CJ-4/CK-4 é obrigatório. Ignorar a norma e usar um óleo mineral comum gera cinzas que entopem o catalisador e travam o filtro de partículas em poucos milhares de quilômetros."
+    ]
+  },
+  { 
+    id: "pontos-de-lubrificacao", 
+    titulo: "Manutenção de Pontos Críticos, Cardãs e Graxeiras", 
+    icone: "graxa",
+    resumo: "Técnicas profissionais de lubrificação em cruzetas, luvas de cardã, pivôs e seleção de graxas de lítio e Bissulfeto de Molibdênio.",
+    busca: "graxeira graxa cruzeta pivo terminal bucha cardan homocinetica molibdenio litio",
+    pontos: [
+      "Higiene e Assepsia da Graxeira: Injetar graxa em um bico sujo transforma a pistola de lubrificação em um injetor de areia e terra, compactando abrasivos diretamente contra os roletes internos da cruzeta. Limpe rigorosamente a graxeira com pano limpo e limpa-contatos antes de acoplar o bico.",
+      "O Ponto de Saturação e Coifas: Bombeie a pistola até que a graxa velha e contaminada comece a escapar pelas extremidades da cruzeta ou luva do cardã, expulsando a umidade. CUIDADO EXTREMO em articulações vedadas por coifas de borracha (pivôs e terminais de direção): pare imediatamente ao notar a coifa estufando. Pressão excessiva rompe a borracha e invalida a peça.",
+      "Seleção de Aditivos Especiais: Para cruzetas, mancais e cargas de alto impacto estático, utilize graxas à base de sabão de lítio complexo com aditivos de extrema pressão (EP). Para pontos sujeitos a deslizamento axial sob alta carga (como o estriado da luva do eixo cardã), utilize graxas encorpadas com Bissulfeto de Molibdênio ($MoS_2$), que suportam esmagamento sob torque pesado."
+    ]
+  },
+  { 
+    id: "pneus", 
+    titulo: "Análise Estrutural, Leitura de DOT e Diagnóstico de Desgaste", 
+    icone: "pneu",
+    resumo: "Decodificação completa da banda lateral, limites de sulco TWI, índices de carga/velocidade e leitura mecânica de geometria.",
+    busca: "pneu dot semana ano twi indice carga velocidade calibragem alinhamento cambagem",
+    pontos: [
+      "Decodificando o Código DOT: O DOT na lateral revela a vida útil cronológica da carcaça. Os últimos 4 dígitos informam semana e ano de fabricação (ex: '3522' indica a 35ª semana de 2022). Pneus com mais de 5 a 6 anos sofrem degradação molecular (ressecamento da borracha e perda de elasticidade), perdendo aderência severamente em piso molhado, mesmo com sulcos altos.",
+      "O Limite do TWI e Segurança em Pista Molhada: A profundidade mínima legal e de segurança no Brasil é de 1,6 mm. Os ressaltos TWI (Tread Wear Indicator) posicionados nos canais principais servem de gabarito visual. Abaixo dessa marca, o pneu perde a capacidade de drenagem de água, provocando aquaplanagem instantânea.",
+      "Geometria e Diagnóstico Visual de Desgaste: Pneus desgastados nas duas bordas externas revelam rodagem crônica com calibragem baixa; desgaste exclusivo na banda central indica excesso de pressão. Desgastes irregulares em escama (dente de serra) nos blocos denunciam amortecedores exauridos ou folgas severas em buchas e terminais de direção."
+    ]
+  },
+  { 
+    id: "correias", 
+    titulo: "Sistemas de Sincronismo e Acabamento por Correias", 
+    icone: "correia",
+    resumo: "Inspeção preventiva de correias dentadas, poli-V, tensores automáticos e prevenção de colisão de válvulas.",
+    busca: "correia dentada poli v tensor polia alternador direcao hidraulica ressecamento kit",
+    pontos: [
+      "A Criticidade da Correia Dentada (Sincronismo): Responsável por manter a harmonia exata entre o virabrequim e o comando de válvulas. Siga religiosamente o prazo combinado de quilometragem ou tempo (geralmente 3 a 5 anos). O rompimento em motores de alta taxa de compressão (como utilitários a diesel) resulta em colisão catastrófica de válvulas contra os pistões, empenamento de bielas e destruição total do cabeçote.",
+      "Análise de Fadiga na Correia Poli-V (Acessórios): Inspecione o costado e os frisos em busca de microfissuras transversais. A presença de mais de 3 trincas em um espaço de 5 cm exige substituição imediata. Observe também o desfiamento lateral ou o brilho espelhado (vitrificação), que causa patinação sob carga do alternador ou ar-condicionado.",
+      "A Regra de Ouro do Kit Completo: Nunca substitua apenas a correia mantendo tensores e polias guias antigos. Um rolamento com microfolga ou atrito interno invisível aquece a correia nova, provocando o seu rompimento prematuro ou o salto de dentes no sincronismo."
+    ]
+  },
+  { 
+    id: "baterias", 
+    titulo: "Diagnóstico Elétrico Avançado: Baterias e Alternadores", 
+    icone: "bateria",
+    resumo: "Medição de tensão de repouso, testes sob carga, eficiência do regulador de voltagem e prevenção de sulfatação em frotas.",
+    busca: "bateria tensao alternador 12v sulfatacao repouso regulador voltagem carga borne",
+    pontos: [
+      "Tensão de Repouso e Estado de Carga Real: Com o veículo estático e desligado por pelo menos 4 horas, meça os bornes com um multímetro. Uma bateria de 12V saudável e 100% carregada deve marcar entre 12,6V e 12,8V. Leituras abaixo de 12,2V indicam descarga profunda ou início de sulfatação irreversível das placas de chumbo.",
+      "Avaliação do Sistema de Carga (Alternador): Com o motor funcionando em rotação intermediária (cerca de 2.000 rpm) e os faróis/ar-condicionado ligados, a tensão nos bornes deve estabilizar rigorosamente na faixa de 13,8V a 14,8V. Valores abaixo de 13,5V deixam a bateria sobcarregada e esgotada; acima de 15,0V indicam falha no regulador de voltagem, provocando fervura do eletrólito e estufamento da bateria.",
+      "Resistência de Contato nos Bornes: Zinabre, corrosão e aperto frouxo nos terminais aumentam a resistência elétrica do circuito de alta corrente. Isso gera quedas de tensão severas no momento da partida, aquecimento localizado e falhas intermitentes nos módulos eletrônicos de bordo."
+    ]
+  },
+  { 
+    id: "inspecoes", 
+    titulo: "Checklist Sistêmico de Inspeção e Diagnóstico Preventivo", 
+    icone: "lista",
+    resumo: "Protocolo de checagem de vazamentos, integridade de linhas de freio, suspensão e sistemas de filtragem de frotas.",
+    busca: "inspecao checklist revisao vazamento pastilha disco suspensao palheta filtro ar",
+    pontos: [
+      "Inspeção Estanque e Monitoramento de Fluidos: Inspecione visualmente o cárter, carcaças de câmbio e diferenciais em busca de umidade ou gotejamentos ativos nas juntas. Monitore o consumo cíclico de fluidos entre as trocas para antecipar falhas de retentores e juntas homocinéticas.",
+      "Integridade do Sistema de Freios: Monitore a espessura física das pastilhas de freio (limite crítico de segurança em 3 mm), verifique sulcos profundos ou empenamentos nos discos e analise as mangueiras flexíveis de borracha sob pressão quanto a ressecamentos ou bolhas estruturais.",
+      "Eficiência de Filtragem Periférica: Substitua os filtros de ar do motor e de cabine nos prazos recomendados. Um elemento de ar sufocado por poeira restringe a admissão, elevando drasticamente o consumo de combustível, gerando fumaça preta em motores diesel e superaquecendo a câmara de combustão."
+    ]
+  }
 ];
 
 /* =====================================================================

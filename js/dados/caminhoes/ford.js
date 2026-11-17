@@ -103,3 +103,19 @@ export const caminhoesFord = {
     sistemas: [
       { sistema: 'Motor (FPT Cursor 10 10.3L)', especificacao: 'SAE 15W-40 / 10W-40 API CJ-4 / ACEA E7/E9', capacidade: '30,0 L', intervalo: 'Ver nota' },
       { sistema: 'Câmbio Automatizado (ZF 12AS 2330TD Astronic)', especificacao: 'SAE 75W-80 Sintético API GL-4 (ZF TE-ML 02E)', capacidade: '11,0 L', intervalo: '120.000 km' },
+      { sistema: 'Diferencial (Meritor MS 18X / MT 23-165)', especificacao: 'SAE 85W-140 API GL-5', capacidade: '18,0 L (4x2) / 30,0 L (6x2/6x4)', intervalo: '80.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '42,0 L', intervalo: '2 anos' }
+    ],
+    notas: {
+      1: "Motor FPT Cursor 10 (Euro 5 com sistema SCR / ARLA 32). Troca de óleo: Rodoviário 40.000 km; Misto/Severo 20.000 km."
+    },
+    filtros: {
+      oleo: { original: 'BH2X6714AA / 2992242', tecfil: 'PSL300', authomix: 'FOL0300', mann: 'W 1170/7', mahle: 'OC 515', wega: 'WO-630', fram: 'PH10935', vox: 'LB300' },
+      ar: { original: 'BH2X9601AA', tecfil: 'ARS9845', authomix: 'FAR9845', mann: 'C 31 1254', mahle: 'LX 2845', wega: 'WAP-188', fram: 'CA11234', vox: 'HP9845' },
+      ar_secundario: { original: 'BH2X9E673AA', tecfil: 'ASR845', authomix: 'FAS0845', mann: 'CF 1940', mahle: 'LXS 350', wega: 'WAP-188/S', fram: 'CA11234SY', vox: 'HS845' },
+      combustivel: { original: 'BH2X9155AA / 2992241', tecfil: 'PSC355', authomix: 'FCO0355', mann: 'WK 950/19', mahle: 'KC 197', wega: 'FCD-0945', fram: 'P11040', vox: 'FBD355' },
+      separador_agua: { original: 'BH2X9W155AA / 504170771', tecfil: 'PSD985', authomix: 'FCO0985', mann: 'WK 11 001', mahle: 'KC 502D', wega: 'FCD-0946', fram: 'PS11045', vox: 'FBS985' },
+      cabine: { original: 'BH1X19N619AA', tecfil: 'ACP200', authomix: '-', mann: 'CU 27 010', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  }
+};

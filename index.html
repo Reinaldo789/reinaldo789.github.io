@@ -351,77 +351,88 @@ function svg(nome, classe){
 }
 
 var TOPICOS = [
-  { 
-    id: "lubrificacao", 
-    titulo: "Guia Avançado de Lubrificação e Fluidos", 
+  {
+    id: "lubrificacao",
+    titulo: "Óleos, Fluidos e Filtros: O Que Realmente Importa",
     destaque: true,
-    resumo: "Decodificação de viscosidades, normas API/ACEA, diferenças críticas entre óleos de câmbio (GL-4 vs GL-5) e fluidos de freio DOT.",
-    busca: "oleo motor cambio diferencial gl4 gl5 dot 3 dot 4 dot 5.1 viscosidade acea api",
+    resumo: "Viscosidade, normas API/ACEA, a guerra GL-4 vs GL-5, fluidos de freio DOT e a lógica dos filtros.",
+    busca: "oleo motor cambio diferencial gl4 gl5 dot 3 dot 4 dot 5.1 viscosidade 5w30 15w40 acea api filtro",
     pontos: [
-      "Viscosidade e Normas: Nunca utilize apenas a viscosidade visual (ex: 15W-40). O rigor técnico exige seguir a norma da montadora (API CI-4, CJ-4, CK-4 ou ACEA E7/E9 para diesel pesados; dexos2/dexosD para leves modernos), garantindo a integridade em altas temperaturas e o controle de fuligem.",
-      "A Armadilha do GL-4 e GL-5: Transmissões manuais com anéis sincronizadores de latão/bronze exigem estritamente óleos API GL-4. O uso de óleos API GL-5 nessas caixas libera aditivos de extrema pressão à base de enxofre/fósforo que corroem quimicamente os sincronizadores. O GL-5 é reservado exclusivamente para diferenciais e eixos rígidos.",
-      "Diferenciais com Deslizamento Limitado (LSD): Eixos equipados com blocos mecânicos ou discos de fricção (LSD / Trac-Lok) exigem óleo GL-5 compatível com LSD ou a adição obrigatória de aditivo modificador de atrito para eliminar ruídos, estalos e desgaste prematuro dos discos.",
-      "Fluidos de Freio (DOT 3, DOT 4 e DOT 5.1): O ponto de ebulição define a categoria. O DOT 3 ferve a cerca de 205°C (seco), o DOT 4 a 230°C e o DOT 5.1 (base glicol, misturável) ultrapassa 260°C. Atenção: Nunca utilize fluidos à base de silicone (DOT 5) em sistemas projetados para DOT 3/4, pois causam falhas graves nas vedações e borrachas do sistema."
+      "Viscosidade não é enfeite: 5W-30, 10W-40, 15W-40 — o primeiro número (antes do W) indica o comportamento a frio (quanto menor, mais fino e melhor a partida no frio); o segundo, a viscosidade a quente (quanto maior, mais grosso em alta temperatura). Mas viscosidade sozinha não basta: siga sempre a norma da montadora (API CI-4, CJ-4, CK-4 ou ACEA E7/E9 em diesel pesado; dexos2/dexosD em leves modernos).",
+      "A armadilha do GL-4 e GL-5: câmbios manuais com anéis sincronizadores de latão/bronze exigem API GL-4. Colocar GL-5 nesses câmbios libera aditivos de extrema pressão (enxofre/fósforo) que corroem quimicamente os sincronizadores — o câmbio começa a 'raspar' marcha e o reparo é caro. GL-5 é para diferenciais e eixos rígidos, onde não há sincronizadores.",
+      "Diferenciais com LSD (deslizamento limitado): eixos com blocos mecânicos ou discos de fricção (Trac-Lok, LSD) pedem GL-5 compatível com LSD ou aditivo modificador de atrito obrigatório. Sem isso, o diferencial estala nas curvas e os discos se desgastam prematuramente.",
+      "Fluidos de freio DOT: o que muda é o ponto de ebulição e a base química. DOT 3 ferve ~205 °C (seco), DOT 4 ~230 °C, DOT 5.1 (base glicol, misturável com 3 e 4) passa de 260 °C. DOT 5 é à base de silicone e NÃO deve ser usado em sistemas projetados para DOT 3/4 — causa falha de vedações e borrachas. Regra de ouro: nunca misture silicone com glicol.",
+      "Filtros: óleo, ar, combustível e cabine têm intervalos próprios e não são opcionais. Filtro de óleo entupido desvia a válvula de alívio e o motor roda com óleo sujo; filtro de ar obstruído sufoca a admissão e eleva consumo e temperatura. Troque o filtro de óleo junto com o óleo, sempre."
     ]
   },
-  { 
-    id: "pontos-de-lubrificacao", 
-    titulo: "Manutenção de Pontos Críticos e Graxeiras", 
+  {
+    id: "pontos-de-lubrificacao",
+    titulo: "Graxeiras, Cruzetas e Buchas: Lubrificar Sem Estragar",
     icone: "graxa",
-    resumo: "Técnicas de lubrificação em cruzetas, juntas homocinéticas, buchas e terminais sob regime severo.",
-    busca: "graxeira graxa cruzeta pivo terminal bucha cardan homocinetica graxa litio mola",
+    resumo: "Onde engraxar, qual graxa usar (lítio, complexo, MoS₂) e o erro que transforma a graxeira em injetor de areia.",
+    busca: "graxeira graxa cruzeta pivo terminal bucha cardan homocinetica graxa litio complexo mos2 molibdenio",
     pontos: [
-      "Higiene Prévia Absoluta: Antes de acoplar a bomba de graxa, limpe rigorosamente a graxeira com um pano limpo. Injetar graxa sem limpeza transforma o bico em um injetor de abrasivos (areia e terra), destruindo os roletes internos da cruzeta.",
-      "Ponto de Saturação Correta: Bombeie até que a graxa velha e contaminada comece a escapar pelas vedações. Em articulações vedadas por coifas de borracha (pivôs e terminais), pare imediatamente ao notar a coifa estufando para evitar romper o bolsão de borracha.",
-      "Seleção da Graxa Adequada: Utilize graxas à base de sabão de lítio complexo ou com aditivos de Bissulfeto de Molibdênio ($MoS_2$) para pontos de alto impacto e carga estática (como o sistema de direção, buchas de balança e corrediças de cardã)."
+      "Higiene antes de tudo: limpe a graxeira com pano limpo antes de acoplar a bomba. Engraxar sem limpar empurra areia e terra para dentro do rolamento — a cruzeta começa a roncar e o reparo é inevitável.",
+      "Ponto de saturação correto: bombeie até a graxa velha e contaminada começar a sair pelas vedações. Em coifas de borracha (pivôs, terminais), pare no instante em que a coifa estufar — forçar rompe o bolsão e a articulação perde a vedação.",
+      "Qual graxa usar: graxas à base de sabão de lítio complexo são o padrão para a maioria dos pontos. Para alto impacto e carga estática (direção, buchas de balança, corrediças de cardã), graxas com Bissulfeto de Molibdênio (MoS₂) reduzem atrito e desgaste. Siga o manual para cada ponto — misturar bases de sabão incompatíveis pode amolecer ou endurecer a graxa.",
+      "Não force graxeira entupida: se a graxeira não aceita graxa, troque-a. Forçar a bomba só danifica o bico e o encaixe.",
+      "Anote o que engraxou e quando: pontos esquecidos são a causa mais comum de falha prematura em cruzetas e terminais."
     ]
   },
-  { 
-    id: "pneus", 
-    titulo: "Análise Estrutural e Leitura de Pneus", 
+  {
+    id: "pneus",
+    titulo: "Pneus: Ler o DOT, o TWI e o Desgaste Como um Diagnóstico",
     icone: "pneu",
-    resumo: "Decodificação completa do DOT, limites de desgaste TWI, índices de carga/velocidade e geometria.",
-    busca: "pneu dot semana ano twi indice carga velocidade calibragem alinhamento",
+    resumo: "Decodificação do DOT (semana/ano), limites de sulco TWI, índices de carga e velocidade, e o que cada tipo de desgaste denuncia.",
+    busca: "pneu dot semana ano twi sulco 1.6mm indice carga velocidade calibragem alinhamento cambagem desgaste",
     pontos: [
-      "Decodificando o Código DOT: O DOT revela a vida útil real do pneu. Os últimos 4 dígitos informam a fabricação (ex: '2424' significa 24ª semana de 2024). Pneus com mais de 5 anos sofrem rigidez molecular e ressecamento da borracha, perdendo aderência severamente mesmo com sulcos profundos.",
-      "Limites de Segurança e o TWI (Tread Wear Indicator): O limite legal e técnico de sulco no Brasil é de 1,6 mm. Os ressaltos TWI espalhados nos sulcos principais indicam o momento exato da troca. Rodar abaixo disso em piso molhado gera aquaplanagem imediata.",
-      "Diagnóstico de Desgaste por Geometria: Desgaste excessivo nas duas bordas externas indica calibragem baixa crônica; desgaste exclusivo na banda central aponta excesso de pressão. Desgastes em escama (dente de serra) denunciam amortecedores exauridos ou desalinhamento severo de cambagem/cárter."
+      "DOT — a certidão de nascimento do pneu: os 4 últimos dígitos indicam semana e ano de fabricação (ex.: '2424' = 24ª semana de 2024). Pneu com mais de 5 anos resseca e endurece mesmo com sulco profundo — a borracha perde aderência molecularmente.",
+      "TWI (Tread Wear Indicator): o limite legal e técnico no Brasil é 1,6 mm de sulco. Os ressaltos no fundo dos sulcos principais mostram quando chegar lá. Abaixo disso, aquaplanagem em piso molhado é quase certa.",
+      "Índices de carga e velocidade: na lateral do pneu, algo como '91V' significa carga máxima (91 = 615 kg por pneu) e velocidade máxima (V = 240 km/h). Trocar por índice inferior ao original é risco, não economia.",
+      "Desgaste como diagnóstico: desgaste nas duas bordas externas = calibragem baixa crônica; desgaste só no centro = excesso de pressão; desgaste em escama (dente de serra) = amortecedor exaurido ou cambagem/cáster fora. Cada padrão aponta para uma causa específica.",
+      "Calibragem e rodízio: calibre a frio com a pressão da etiqueta do veículo (não a do pneu) e confira o estepe. Rodízio periódico equaliza o desgaste e prolonga a vida do jogo."
     ]
   },
-  { 
-    id: "correias", 
-    titulo: "Sistemas de Transmissão por Correias", 
+  {
+    id: "correias",
+    titulo: "Correias e Tensores: A Sincronização Que Salva o Motor",
     icone: "correia",
-    resumo: "Inspeção preventiva de correias dentadas, poli-V, tensores hidráulicos e polias livres.",
-    busca: "correia dentada poli v tensor polia alternador direcao hidraulica ressecamento",
+    resumo: "Correia dentada (interferência), poli-V, tensor hidráulico e polias livres — inspeção e troca em kit.",
+    busca: "correia dentada poli v tensor hidraulico polia livre alternador direcao hidraulica sincronismo",
     pontos: [
-      "Prevenção na Correia Dentada: Responsável pela sincronização exata entre virabrequim e comando de válvulas. Siga rigorosamente o limite de quilometragem ou tempo (geralmente 3 a 5 anos). O rompimento em motores de interferência causa colisão de válvulas nos pistões e destruição total do motor.",
-      "Análise Visual da Poli-V (Acessórios): Inspecione o dorso e os flancos em busca de microfissuras transversais (mais de 3 trincas por polegada indicam troca imediata), desfiamento lateral ou vitrificação (brilho espelhado na borracha que causa patinação e chiado).",
-      "Kit Completo (Correia + Tensor + Polias): Nunca substitua apenas a correia mantendo rolamentos antigos. Um tensor travado ou com folga reduz drasticamente a vida útil da correia nova e pode provocar o salto de dentes no sincronismo."
+      "Correia dentada — questão de vida ou morte do motor: sincroniza virabrequim e comando de válvulas. Em motores de interferência, o rompimento faz as válvulas colidirem com os pistões — destruição total. Siga o intervalo de km OU tempo (geralmente 3 a 5 anos), o que vier primeiro.",
+      "Poli-V (acessórios): inspecione dorso e flancos. Mais de 3 microfissuras transversais por polegada, desfiamento lateral ou vitrificação (brilho espelhado que causa chiado e patinação) indicam troca imediata.",
+      "Tensor e polias: nunca troque só a correia mantendo rolamentos antigos. Tensor travado ou com folga reduz a vida da correia nova e pode provocar salto de dentes no sincronismo. Troque o kit completo (correia + tensor + polias).",
+      "Alinhamento: correia que 'sai de lado' ou desgasta uma borda indica polia desalinhada ou empenada — corrija antes de instalar a correia nova.",
+      "Ruído ao ligar a frio: chiado curto pode ser correia patinando; ronco contínuo aponta rolamento de tensor ou polia. Diagnostique antes que vire falha maior."
     ]
   },
-  { 
-    id: "baterias", 
-    titulo: "Diagnóstico Elétrico de Baterias e Carga", 
+  {
+    id: "baterias",
+    titulo: "Bateria e Alternador: Medir, Diagnosticar, Não Chutar",
     icone: "bateria",
-    resumo: "Medição correta de tensão em repouso, teste de eficiência do alternador e combate à sulfatação.",
-    busca: "bateria tensao alternador 12v sulfatacao repouso regulador voltagem",
+    resumo: "Tensão de repouso, faixa do alternador (13,8–14,8 V), sulfatação, terminais e data de fabricação.",
+    busca: "bateria tensao repouso 12.6v alternador 13.8 14.8 regulador sulfatacao eletrolito terminais",
     pontos: [
-      "Tensão de Repouso (Estado de Carga): Com o veículo desligado por pelo menos 4 horas e capô aberto, uma bateria 100% saudável e carregada deve apresentar leitura de aproximadamente 12,6V a 12,8V. Leituras abaixo de 12,2V indicam descarga profunda ou sulfatação das placas.",
-      "Teste do Alternador e Regulador de Voltagem: Com o motor em funcionamento e rotação intermediária (acessórios ligados), a tensão nos terminais da bateria deve estabilizar estritamente entre 13,8V e 14,8V. Abaixo de 13,5V a bateria descarregará rodando; acima de 15,0V causará sobrecarga e fervura do eletrólito.",
-      "Cuidados com Terminais e Fixação: Corrosão e sulfatação nos bornes aumentam a resistência elétrica, gerando queda de tensão e falhas intermitentes no painel de instrumentos ou partida pesada. Mantenha os bornes limpos e o suporte da bateria firmemente ancorado."
+      "Tensão de repouso: com o veículo desligado há pelo menos 4 horas e capô aberto, bateria 100% saudável lê 12,6 V a 12,8 V. Abaixo de 12,2 V indica descarga profunda ou sulfatação das placas.",
+      "Alternador e regulador: com motor em rotação intermediária e acessórios ligados, a tensão nos terminais deve ficar estritamente entre 13,8 V e 14,8 V. Abaixo de 13,5 V a bateria descarrega rodando; acima de 15,0 V há sobrecarga e fervura do eletrólito.",
+      "Sulfatação e terminais: corrosão nos bornes aumenta a resistência elétrica, gera queda de tensão e falhas intermitentes no painel ou partida pesada. Mantenha bornes limpos, apertados e o suporte firme.",
+      "Eletrólito (baterias não seladas): verifique o nível e complete só com água destilada. Nunca com ácido.",
+      "Idade e data de fabricação: baterias duram em média 3 a 5 anos. Anote a data de instalação — trocar antes de falhar evita pane em momento ruim."
     ]
   },
-  { 
-    id: "inspecoes", 
-    titulo: "Checklist de Inspeção e Diagnóstico de Frotas", 
+  {
+    id: "inspecoes",
+    titulo: "Checklist de Inspeção: O Olhar Que Evita a Pane",
     icone: "lista",
-    resumo: "Rotina sistemática de verificação de vazamentos, integridade de suspensão, freios e filtragem.",
-    busca: "inspecao checklist revisao vazamento pastilha disco suspensao palheta filtro",
+    resumo: "Rotina sistemática de níveis, vazamentos, freios, suspensão, luzes, palhetas e filtragem.",
+    busca: "inspecao checklist revisao niveis vazamento freio pastilha disco suspensao palheta filtro ar combustivel cabine",
     pontos: [
-      "Inspeção de Níveis e Estanqueidade: Monitore o cárter do motor, caixas de transferência e diferenciais em busca de gotejamentos ou umidade excessiva nas juntas. Verifique o consumo anômalo de fluidos entre as trocas programadas.",
-      "Sistema de Frenagem: Verifique a espessura física das pastilhas de freio (limite mínimo de segurança de 3 mm), riscos ou empenamentos nos discos de freio, e o estado das mangueiras flexíveis quanto a ressecamentos ou microfissuras sob pressão.",
-      "Filtragem Periférica: Substitua os filtros de ar do motor e de cabine (ar-condicionado) nos períodos recomendados. Um filtro de ar obstruído sufoca a admissão, elevando drasticamente o consumo de combustível e a temperatura de trabalho do motor."
+      "Níveis e estanqueidade: monitore óleo do motor, arrefecimento, freio e direção. Procure gotejamentos sob o veículo e umidade nas juntas — consumo anômalo entre trocas é sinal de alerta.",
+      "Freios: pastilhas com espessura mínima de segurança de 3 mm, discos sem riscos ou empenamento, mangueiras flexíveis sem ressecamento ou microfissuras sob pressão.",
+      "Suspensão e direção: verifique folgas, coifas rasgadas, batentes e terminais. Folga na direção ou 'estalo' em lombadas pede diagnóstico antes que vire desgaste de pneu e instabilidade.",
+      "Luzes, palhetas e buzina: itens baratos que, falhando, reprovam inspeção e comprometem segurança — palheta ressecada risca o para-brisa e reduz visibilidade na chuva.",
+      "Filtragem periférica: filtros de ar do motor, combustível e cabine (ar-condicionado) nos intervalos recomendados. Filtro de ar obstruído eleva consumo e temperatura de trabalho do motor; filtro de cabine saturado deixa o ar interno com cheiro e pouca vazão."
     ]
   }
 ];

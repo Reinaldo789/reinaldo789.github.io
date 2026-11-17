@@ -40,22 +40,42 @@ export const utilitariosFord = {
     }
   },
 
-  'Ford Ranger 2.2 / 3.2 Duratorq TDCi (2013 a 2023)': {
+ 'Ford Ranger 2.2 / 3.2 Duratorq TDCi (2013 a 2016)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (Duratorq 2.2 4cil / 3.2 5cil)', especificacao: 'SAE 5W-30 Sintético (Ford WSS-M2C913-C/D ou ACEA C2/C3 para DPF) [1]', capacidade: '2.2: 8,6 L | 3.2: 9,8 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
-      { sistema: 'Câmbio Manual (MT82) / Automático (6R80)', especificacao: 'Manual: SAE 75W-80 (WSS-M2C200-D2) | Auto: ATF Mercon LV', capacidade: 'Manual: 2,7 L | Auto: 10,5 L (Total)', intervalo: 'Manual: 80.000 km | Auto: 100.000 km' },
+      { sistema: 'Motor (Duratorq 2.2 4cil / 3.2 5cil)', especificacao: 'SAE 5W-30 Sintético (Ford WSS-M2C913-D)', capacidade: '2.2: 8,6 L | 3.2: 9,8 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Câmbio Manual (MT82) / Automático (6R80)', especificacao: 'Manual: SAE 75W-80 | Auto: ATF Mercon LV', capacidade: 'Manual: 2,7 L | Auto: 10,5 L (Total)', intervalo: 'Manual: 80.000 km | Auto: 100.000 km' },
       { sistema: 'Caixa de Transferência (4x4)', especificacao: 'ATF Mercon LV', capacidade: '1,2 L', intervalo: '80.000 km' },
-      { sistema: 'Diferencial Traseiro / Dianteiro', especificacao: 'SAE 75W-85 ou 75W-90 Sintético API GL-5', capacidade: 'Tras: 2,3 L | Diant: 1,1 L', intervalo: '60.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Motorcraft Super Plus / Orgânico (50/50)', capacidade: '11,5 L', intervalo: '80.000 km ou 3 anos' }
+      { sistema: 'Diferencial Traseiro / Dianteiro', especificacao: 'SAE 75W-90 Sintético API GL-5', capacidade: 'Tras: 2,3 L | Diant: 1,1 L', intervalo: '60.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Motorcraft Super Plus Orgânico (50/50)', capacidade: '11,5 L', intervalo: '80.000 km ou 3 anos' }
     ],
     notas: {
-      1: "Modelos a partir de 2017 receberam filtro de partículas (DPF) e válvula EGR refrigerada (sem uso de ARLA 32), exigindo óleo 5W-30 de baixo teor de cinzas (Low SAPS - ACEA C2/C3)."
+      1: "Primeira fase da carroceria T6 (2013-2016). Atenção: o elemento do filtro de óleo e o refil de combustível mudam a partir do modelo 2017."
+    },
+    filtros: {
+      oleo: { original: 'BB3Q-6744-BA', tecfil: 'PEL310', authomix: 'FOL0310', mann: 'HU 711/51 x', mahle: 'OX 440D', wega: 'WOE-131', fram: 'CH11299', vox: 'LE310' },
+      ar: { original: 'AB39-9601-AB', tecfil: 'ARS5133', authomix: 'FAR5133', mann: 'C 22 024', mahle: 'LX 3503', wega: 'JFA-0327', fram: 'CA11402', vox: 'HD5133' },
+      combustivel: { original: 'AB39-9176-AC', tecfil: 'PEC3037', authomix: 'FCO03037', mann: 'PU 8007', mahle: 'KX 338/28D', wega: 'FCD-0783', fram: 'C11403', vox: 'CE3037' },
+      cabine: { original: 'AB39-19N619-AA', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 872', wega: 'AKX-3518', fram: 'CF11404', vox: 'FAC312' }
+    }
+  },
+
+  'Ford Ranger 2.2 / 3.2 Duratorq TDCi (2017 a 2023)': {
+    usaArla32: false,
+    sistemas: [
+      { sistema: 'Motor (Duratorq 2.2 4cil / 3.2 5cil - Com DPF)', especificacao: 'SAE 5W-30 Sintético Low SAPS (ACEA C2 / C3) [1]', capacidade: '2.2: 8,6 L | 3.2: 9,8 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Câmbio Manual (MT82) / Automático (6R80)', especificacao: 'Manual: SAE 75W-80 | Auto: ATF Mercon LV', capacidade: 'Manual: 2,7 L | Auto: 10,5 L (Total)', intervalo: 'Manual: 80.000 km | Auto: 100.000 km' },
+      { sistema: 'Caixa de Transferência (4x4)', especificacao: 'ATF Mercon LV', capacidade: '1,2 L', intervalo: '80.000 km' },
+      { sistema: 'Diferencial Traseiro / Dianteiro', especificacao: 'SAE 75W-85 ou 75W-90 Sintético API GL-5', capacidade: 'Tras: 2,3 L | Diant: 1,1 L', intervalo: '60.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Motorcraft Super Plus Orgânico (50/50)', capacidade: '11,5 L', intervalo: '80.000 km ou 3 anos' }
+    ],
+    notas: {
+      1: "Fase reestilizada (facelift) com inclusão de DPF e EGR refrigerada. Exige obrigatoriamente óleo 5W-30 de baixo teor de cinzas (Low SAPS) para proteger o DPF."
     },
     filtros: {
       oleo: { original: 'JU2J-6744-AB', tecfil: 'PEL311', authomix: 'FOL0311', mann: 'HU 7002 z', mahle: 'OX 440D', wega: 'WOE-131', fram: 'CH11299', vox: 'LE311' },
       ar: { original: 'AB39-9601-AB', tecfil: 'ARS5133', authomix: 'FAR5133', mann: 'C 22 024', mahle: 'LX 3503', wega: 'JFA-0327', fram: 'CA11402', vox: 'HD5133' },
-      combustivel: { original: 'AB39-9176-AC', tecfil: 'PEC3037', authomix: 'FCO3037', mann: 'PU 8007', mahle: 'KX 338/28D', wega: 'FCD-0783', fram: 'C11403', vox: 'CE3037' },
+      combustivel: { original: 'U2Y0-13-ZA5', tecfil: 'PEC3046', authomix: 'FCO03046', mann: 'PU 8021', mahle: 'KX 338/29D', wega: 'FCD-0792', fram: 'C11850', vox: 'CE3046' },
       cabine: { original: 'AB39-19N619-AA', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 872', wega: 'AKX-3518', fram: 'CF11404', vox: 'FAC312' }
     }
   },

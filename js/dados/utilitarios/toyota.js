@@ -10,12 +10,14 @@ export const utilitariosToyota = {
     notas: {
       1: "Conforme manual: API CF-4, CF ou CI-4. Viscosidade preferencial SAE 5W-30 (uso geral/rodovia) ou SAE 15W-40 em temperaturas ambientes muito elevadas/uso severo.",
       2: "Intervalo de troca: 10.000 km em uso normal; Reduzir para 5.000 km ou 3 meses em uso severo, estradas de terra, poeira ou reboque pesado.",
-      3: "Se o veículo possuir bloqueio de diferencial traseiro original (LSD), utilizar óleo específico para deslizamento limitado."
+      3: "Se o veículo possuir bloqueio de diferencial traseiro original (LSD), utilizar óleo específico para deslizamento limitado.",
+      4: "Sistema de alimentação (2012 a 2015) possui dois filtros: o elemento principal no copo (23390-0L041 / KX 268D) e o pré-filtro auxiliar blindado em linha (23300-30450 / Mahle KL 1061)."
     },
     filtros: {
       oleo: { original: '90915-YZZD2', tecfil: 'PSL127', authomix: 'FOL0127', mann: 'W 712/83', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB127' },
       ar: { original: '17801-0C010', tecfil: 'ARS7065', authomix: 'FAR7065', mann: 'C 23 107', mahle: 'LX 2125', wega: 'JFA-0292/2', fram: 'CA10112', vox: 'HD7065' },
       combustivel: { original: '23390-0L041', tecfil: 'PC949', authomix: 'FCO0949', mann: 'PU 835 x', mahle: 'KX 268D', wega: 'JFC-207/2', fram: 'C10256', vox: 'CE949' },
+      preFiltroCombustivel: { original: '23300-30450', tecfil: 'FCI778', authomix: 'FCO0778', mann: '-', mahle: 'KL 1061', wega: 'JFC-283', fram: '-', vox: 'FBI778' },
       cabine: { original: '87139-0K010', tecfil: 'ACP887', authomix: 'FCA0887', mann: 'CU 1919', mahle: 'LA 655', wega: 'AKX-1965', fram: 'CF10285', vox: 'FAC887' }
     }
   },

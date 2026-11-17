@@ -89,3 +89,5 @@ button { font-family: inherit; }
   .hero h1 { font-size: 1.7rem; }
   .topo-tag { display: none; }
 }
+.titulo-pagina{margin:0 0 22px;padding:26px 34px;background:var(--tinta);color:#fff;border-radius:16px}
+.titulo-pagina h1{font-size:clamp(2rem,4vw,3rem)}

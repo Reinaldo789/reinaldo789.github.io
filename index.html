@@ -207,8 +207,7 @@ a{color:inherit}
 @media (max-width:600px){.cards{grid-template-columns:1fr}.card.destaque{grid-column:auto}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
-  /* Menu lateral: "Início" colado no topo e travado; só o restante do menu rola.
-   Carregar DEPOIS do <style> do index.html. Usa #menu para vencer as regras antigas. */
+  /* Menu lateral: "Início" colado no topo e travado */
 
 #menu .menu-topo{display:none!important;padding:0!important;margin:0!important;height:0!important;border:0!important}
 
@@ -512,14 +511,8 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape") gaveta(
    TELA INICIAL: CARDS E BUSCA
    ===================================================================== */
 function montarCards(){
-  var principal = TOPICOS.filter(function(t){ return t.destaque; })[0];
-  if(principal){
-    $("principal").innerHTML = '<a class="card destaque lub-topo" href="#/assunto/'+principal.id+'">'+
-      '<span class="ico">'+svg(principal.icone)+'</span>'+
-      '<div class="corpo"><h1>'+esc(principal.titulo)+'</h1><p>'+esc(principal.resumo)+'</p>'+
-      (principal.chips ? '<div class="chips">'+principal.chips.map(function(c){return '<span>'+esc(c)+'</span>';}).join("")+'</div>' : '')+
-      '</div><span class="mais">Ver o que conferir</span></a>';
-  }
+  $("principal").innerHTML = '<header class="titulo-pagina"><h1>Pesquisa Lubrificação e Filtros</h1></header>';
+  
   $("cards").innerHTML = TOPICOS.filter(function(t){ return !t.destaque; }).map(function(t){
     return '<a class="card" href="#/assunto/'+t.id+'">'+
       '<span class="ico">'+svg(t.icone)+'</span>'+

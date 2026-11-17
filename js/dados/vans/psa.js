@@ -1,4 +1,4 @@
-export const vanspsa = {
+export const vansPsa = {
   'Citroën Jumper / Peugeot Boxer 2.3 Multijet (Euro 3 - 2010 a 2012)': {
     usaArla32: false,
     sistemas: [

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia Técnico - Montadoras</title>
+  <title>Guia Técnico - Lubrificantes e Filtros</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
     
     <!-- Botão Hambúrguer (Visível apenas no Celular) -->
     <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Abrir menu">
-      ☰ Menu
+      ☰ Montadoras
     </button>
 
     <!-- Fundo escuro ao abrir menu no celular -->
@@ -27,15 +27,78 @@
         <span id="toggle-icon">‹</span>
       </button>
 
-      <!-- Cabeçalho do Card -->
-      <div class="sidebar-header">
+      <!-- Cabeçalho do Card (Clicar volta para a Tela Inicial) -->
+      <div class="sidebar-header" id="btn-home" title="Voltar para a tela inicial" style="cursor: pointer;">
         <div class="brand-logo">GT</div>
-        <span class="brand-title">Guia Técnico</span>
+        <span class="brand-title">Montadoras</span>
       </div>
 
       <!-- Lista Rolável de Montadoras -->
       <nav class="menu-list" id="montadoras-list">
-        <!-- Preenchido dinamicamente pelo script.js ou dados -->
+        <a href="#agrale" class="menu-item" data-marca="Agrale" title="Agrale">
+          <span class="icon">A</span>
+          <span class="label">Agrale</span>
+        </a>
+        <a href="#chevrolet" class="menu-item" data-marca="Chevrolet" title="Chevrolet">
+          <span class="icon">✚</span>
+          <span class="label">Chevrolet</span>
+        </a>
+        <a href="#citroen" class="menu-item" data-marca="Citroën" title="Citroën">
+          <span class="icon">⌃</span>
+          <span class="label">Citroën</span>
+        </a>
+        <a href="#daf" class="menu-item" data-marca="DAF" title="DAF">
+          <span class="icon">D</span>
+          <span class="label">DAF</span>
+        </a>
+        <a href="#fiat" class="menu-item" data-marca="Fiat" title="Fiat">
+          <span class="icon">F</span>
+          <span class="label">Fiat</span>
+        </a>
+        <a href="#ford" class="menu-item" data-marca="Ford" title="Ford">
+          <span class="icon">F</span>
+          <span class="label">Ford</span>
+        </a>
+        <a href="#iveco" class="menu-item" data-marca="Iveco" title="Iveco">
+          <span class="icon">I</span>
+          <span class="label">Iveco</span>
+        </a>
+        <a href="#mercedes" class="menu-item" data-marca="Mercedes-Benz" title="Mercedes-Benz">
+          <span class="icon">✪</span>
+          <span class="label">Mercedes-Benz</span>
+        </a>
+        <a href="#mitsubishi" class="menu-item" data-marca="Mitsubishi" title="Mitsubishi">
+          <span class="icon">▲</span>
+          <span class="label">Mitsubishi</span>
+        </a>
+        <a href="#nissan" class="menu-item" data-marca="Nissan" title="Nissan">
+          <span class="icon">⊖</span>
+          <span class="label">Nissan</span>
+        </a>
+        <a href="#peugeot" class="menu-item" data-marca="Peugeot" title="Peugeot">
+          <span class="icon">P</span>
+          <span class="label">Peugeot</span>
+        </a>
+        <a href="#renault" class="menu-item" data-marca="Renault" title="Renault">
+          <span class="icon">◇</span>
+          <span class="label">Renault</span>
+        </a>
+        <a href="#scania" class="menu-item" data-marca="Scania" title="Scania">
+          <span class="icon">★</span>
+          <span class="label">Scania</span>
+        </a>
+        <a href="#toyota" class="menu-item" data-marca="Toyota" title="Toyota">
+          <span class="icon">◎</span>
+          <span class="label">Toyota</span>
+        </a>
+        <a href="#volkswagen" class="menu-item" data-marca="Volkswagen" title="Volkswagen">
+          <span class="icon">Ⓦ</span>
+          <span class="label">Volkswagen</span>
+        </a>
+        <a href="#volvo" class="menu-item" data-marca="Volvo" title="Volvo">
+          <span class="icon">◷</span>
+          <span class="label">Volvo</span>
+        </a>
       </nav>
 
       <!-- Rodapé Fixo com Botão de Tema -->
@@ -48,23 +111,13 @@
 
     </aside>
 
-    <!-- Área Principal de Conteúdo (Cards das Montadoras e Fichas) -->
-    <main class="main-content" id="conteudo-principal">
-      <div class="secao-header">
-        <h2><i class="fa-solid fa-flag" style="color: var(--active-text);"></i> Montadoras</h2>
-        <p>Selecione uma montadora abaixo ou no menu lateral para consultar os modelos, fluidos e filtros.</p>
-      </div>
-      
-      <!-- Grid de Cards de Montadoras na Tela Inicial -->
-      <div id="grid-montadoras-home" class="modelos-grid" style="margin-top: 20px;">
-        <!-- Os cards das montadoras aparecem aqui automaticamente -->
-      </div>
-    </main>
+    <!-- Área Principal -->
+    <main class="main-content" id="conteudo-principal"></main>
 
   </div>
 
+  <!-- Carrega o seu banco de dados existente, se estiver na pasta -->
   <script src="dados.js"></script>
-  <script src="app.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

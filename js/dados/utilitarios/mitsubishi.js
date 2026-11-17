@@ -18,60 +18,63 @@ export const utilitariosMitsubishi = {
     }
   },
   
-  'Mitsubishi L200 Triton 3.2 (Motores 4M41 - 2012 a 2018)': {
+  'Mitsubishi L200 Triton 3.2 16V (Motor 4M41 - 2008 a 2016)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (3.2 16V - 4M41 Diesel)', especificacao: 'SAE 5W-30 ou 15W-40 API CI-4 / ACEA B4', capacidade: '8,5 L (com filtro)', intervalo: '10.000 km' },
-      { sistema: 'Câmbio Manual / Automático', especificacao: 'Manual: SAE 75W-85 GL-4 | Auto: ATF SP-III', capacidade: 'Manual: 3,4 L | Auto: 8,7 L', intervalo: '40.000 km' },
-      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: 75W-90 GL-5 | Tras: 85W-140 GL-5 (LSD)', capacidade: 'Diant: 1,2 L | Tras: 3,2 L', intervalo: '40.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Mitsubishi Long Life Coolant (50/50)', capacidade: '8,5 L', intervalo: '40.000 km ou 2 anos' }
+      { sistema: 'Motor (4M41 3.2 Diesel - 165/180 cv)', especificacao: 'SAE 15W-40 ou 10W-30 (API CI-4 / ACEA A3/B4)', capacidade: '8,0 L a 8,3 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
+      { sistema: 'Câmbio Manual (5 marchas) / Automático (5 marchas - INVECS-II)', especificacao: 'Manual: SAE 75W-85 API GL-4/GL-5 | Auto: ATF SP-III', capacidade: 'Manual: 3,4 L | Auto: 8,7 L (Total)', intervalo: 'Manual: 80.000 km | Auto: 40.000 km' },
+      { sistema: 'Caixa de Transferência (Super Select II)', especificacao: 'SAE 75W-85 API GL-4 ou superior', capacidade: '2,5 L', intervalo: '80.000 km' },
+      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: SAE 80W-90 API GL-5 | Tras: SAE 90 API GL-5 (com LSD se equipado)', capacidade: 'Diant: 1,2 L | Tras: 3,2 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '8,5 L a 8,8 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Versão equipada com o motor 3.2 turbodiesel (4M41), sistema mecânico robusto sem injeção de ARLA 32."
+      1: "Geração clássica produzida em Catalão (GO). O diferencial traseiro pode vir equipado com sistema de deslizamento limitado (LSD), exigindo óleo compatível."
     },
     filtros: {
-      oleo: { original: '1230A186', tecfil: 'PSL55', authomix: 'FOL0128', mann: 'W 940/25', mahle: 'OC988', wega: 'WO-100', fram: 'PH2870', vox: 'LB55' },
-      ar: { original: '1500A593', tecfil: 'ARL8480', authomix: 'FAR8480', mann: 'C 15 300', mahle: 'LX2616', wega: 'FAP-4030', fram: 'CA10427', vox: 'FAR8480' },
-      combustivel: { original: '1770A225', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'W 9069', mahle: 'KX495D', wega: 'FCI-1620', fram: 'PS10038', vox: 'PSD980' },
-      cabine: { original: '7803A004', tecfil: 'ACP301', authomix: 'FCA0301', mann: 'CU 19 192', mahle: 'LA 382', wega: 'AKX-1930', fram: 'CF11175', vox: 'FCA0301' }
+      oleo: { original: '1230A186', tecfil: 'PSL75', authomix: 'FOL0075', mann: 'W 712/83', mahle: 'OC 574', wega: 'WO-130', fram: 'PH4968', vox: 'LB75' },
+      ar: { original: '1500A023', tecfil: 'ARL9602', authomix: 'FAR9602', mann: 'C 27 125', mahle: 'LX 1933', wega: 'FAP-3286', fram: 'CA10345', vox: 'HLP9602' },
+      combustivel: { original: '1770A107', tecfil: 'PSC722', authomix: 'FCO0722', mann: 'WK 829/3', mahle: 'KC 101', wega: 'FCD-0750', fram: 'PS10755', vox: 'FBS722' },
+      cabine: { original: '7803A004', tecfil: 'ACP304', authomix: 'FCA0304', mann: 'CU 22 003', mahle: 'LA 319', wega: 'AKX-3515', fram: 'CF10346', vox: 'FAC304' }
     }
   },
 
-  'Mitsubishi L200 Triton 2.5 (Motores 4D56 HP - 2012 a 2018)': {
+  'Mitsubishi L200 Triton Sport 2.4 (Motor 4N15 MIVEC - 2016 a 2024)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (2.5 16V - 4D56 HP High Power)', especificacao: 'SAE 5W-30 ou 15W-40 API CI-4 / ACEA B4', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km' },
-      { sistema: 'Câmbio Manual / Automático', especificacao: 'Manual: SAE 75W-85 GL-4 | Auto: ATF SP-III', capacidade: 'Manual: 3,4 L | Auto: 8,7 L', intervalo: '40.000 km' },
-      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: 75W-90 GL-5 | Tras: 85W-140 GL-5 (LSD)', capacidade: 'Diant: 1,2 L | Tras: 3,2 L', intervalo: '40.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Mitsubishi Long Life Coolant (50/50)', capacidade: '8,5 L', intervalo: '40.000 km ou 2 anos' }
+      { sistema: 'Motor (4N15 2.4 16V MIVEC Diesel - 190 cv)', especificacao: 'SAE 5W-30 Sintético ou 10W-30 (API CI-4 / CK-4 / ACEA A3/B4) [1]', capacidade: '7,5 L a 8,4 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Câmbio Manual (6 marchas) / Automático (6 marchas)', especificacao: 'Manual: SAE 75W-85 GL-4 | Auto: ATF SP-IV', capacidade: 'Manual: 2,2 L | Auto (Total): ~8,5 L', intervalo: 'Manual: 80.000 km | Auto: 50.000 km' },
+      { sistema: 'Caixa de Transferência (Super Select II)', especificacao: 'SAE 75W-85 API GL-4', capacidade: '2,4 L', intervalo: '80.000 km' },
+      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: SAE 80W-90 GL-5 | Tras: SAE 90 ou 85W-140 GL-5', capacidade: 'Diant: 1,2 L | Tras: 2,8 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '9,0 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Versão equipada com o tradicional motor 2.5 16V (4D56 HP com turbina de geometria variável), exigindo atenção ao volume menor de óleo do motor (7,0 litros) comparado à irmã 3.2."
+      1: "Quinta geração (Triton Sport) com bloco de alumínio e comando variável MIVEC. Direção hidráulica e tração Super Select II com seletor eletrônico."
     },
     filtros: {
-      oleo: { original: 'MD360935', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 712/83', mahle: 'OC237', wega: 'WO-120', fram: 'PH2870', vox: 'LB55' },
-      ar: { original: '1500A593', tecfil: 'ARL8480', authomix: 'FAR8480', mann: 'C 15 300', mahle: 'LX2616', wega: 'FAP-4030', fram: 'CA10427', vox: 'FAR8480' },
-      combustivel: { original: '1770A225', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'W 9069', mahle: 'KX495D', wega: 'FCI-1620', fram: 'PS10038', vox: 'PSD980' },
-      cabine: { original: '7803A004', tecfil: 'ACP301', authomix: 'FCA0301', mann: 'CU 19 192', mahle: 'LA 382', wega: 'AKX-1930', fram: 'CF11175', vox: 'FCA0301' }
+      oleo: { original: '1230A186', tecfil: 'PSL75', authomix: 'FOL0075', mann: 'W 712/83', mahle: 'OC 574', wega: 'WO-130', fram: 'PH4968', vox: 'LB75' },
+      ar: { original: '1500A607', tecfil: 'ARL9605', authomix: 'FAR9605', mann: 'C 27 024', mahle: 'LX 3850', wega: 'FAP-3298', fram: 'CA11840', vox: 'HLP9605' },
+      combustivel: { original: '1770A337', tecfil: 'PSC730', authomix: 'FCO0730', mann: 'WK 829/4', mahle: 'KC 200', wega: 'FCD-0785', fram: 'PS11700', vox: 'FBS730' },
+      cabine: { original: '7803A125', tecfil: 'ACP315', authomix: 'FCA0315', mann: 'CU 24 011', mahle: 'LA 820', wega: 'AKX-3522', fram: 'CF11841', vox: 'FAC315' }
     }
   },
 
-  'Mitsubishi L200 Triton Sport 2.4 (4N15 - Pós 2016)': {
+  'Nova Mitsubishi Triton 2.4 Bi-Turbo (Motor 4N16 - 2025 a 2026+)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (4N15 Diesel 2.4 16V)', especificacao: 'SAE 5W-30 API SN / ACEA C3', capacidade: '8,4 L (com filtro)', intervalo: '10.000 km' },
-      { sistema: 'Câmbio Manual / Automático', especificacao: 'Manual: 75W-85 GL-4 | Auto: ATF SP-III / Eco-J3', capacidade: 'Manual: 2,5 L | Auto: 8,0 L', intervalo: '40.000 km' },
-      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: 75W-90 GL-5 | Tras: 80W-90 API GL-5', capacidade: 'Diant: 1,2 L | Tras: 2,3 L', intervalo: '40.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Coolant Orgânico (50/50)', capacidade: '8,5 L', intervalo: '60.000 km' }
+      { sistema: 'Motor (4N16 2.4 16V Bi-Turbo Diesel - 205 cv)', especificacao: 'SAE 5W-30 Sintético (Norma ACEA C4 / JASO DL-1) [1]', capacidade: '7,3 L a 8,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Câmbio Manual (6 marchas) / Automático (6 marchas)', especificacao: 'Manual: SAE 75W-85 GL-4 | Auto: ATF E-SP IV / SP-IV', capacidade: 'Manual: 2,2 L | Auto (Total): ~8,5 L', intervalo: 'Manual: 80.000 km | Auto: Inspeção periódica' },
+      { sistema: 'Caixa de Transferência (Super Select II)', especificacao: 'SAE 75W-85 API GL-4', capacidade: '2,4 L', intervalo: '80.000 km' },
+      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: SAE 80W-90 GL-5 | Tras: SAE 85W-140 API GL-5', capacidade: 'Diant: 1,2 L | Tras: 2,8 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '9,2 L', intervalo: '5 anos ou 100.000 km' }
     ],
     notas: {
-      1: "Motor MIVEC alumínio 2.4 turbodiesel de nova geração com controle de emissões via DPF."
+      1: "Nova geração global da picape (batizada oficialmente apenas como 'Triton'). Adota novo motor 4N16 Bi-Turbo de 205 cv, direção 100% elétrica, chassi reforçado e exige estritamente óleos Low SAPS norma **ACEA C4** ou **JASO DL-1** para preservação dos sistemas de emissões."
     },
     filtros: {
-      oleo: { original: '1230A186', tecfil: 'PEL106', authomix: 'FOL0106', mann: 'C 24 011', mahle: 'OC1183', wega: 'WOE-610', fram: 'CH9642', vox: 'PEL106' },
-      ar: { original: '1500A593', tecfil: 'ARL8480', authomix: 'FAR8480', mann: 'C 15 300', mahle: 'LX2616', wega: 'FAP-4030', fram: 'CA10427', vox: 'FAR8480' },
-      combustivel: { original: '1770A225', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'W 9069', mahle: 'KX495D', wega: 'FCI-1620', fram: 'PS10038', vox: 'PSD980' },
-      cabine: { original: '-', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: { original: '1230A186', tecfil: 'PSL75', authomix: 'FOL0075', mann: 'W 712/83', mahle: 'OC 574', wega: 'WO-130', fram: 'PH4968', vox: 'LB75' },
+      ar: { original: '1500A607', tecfil: 'ARL9605', authomix: 'FAR9605', mann: 'C 27 024', mahle: 'LX 3850', wega: 'FAP-3298', fram: 'CA11840', vox: 'HLP9605' },
+      combustivel: { original: '1770A380', tecfil: 'PSC740', authomix: 'FCO0740', mann: 'WK 829/5', mahle: 'KC 210', wega: 'FCD-0790', fram: 'PS12000', vox: 'FBS740' },
+      cabine: { original: '7803A125', tecfil: 'ACP315', authomix: 'FCA0315', mann: 'CU 24 011', mahle: 'LA 820', wega: 'AKX-3522', fram: 'CF11841', vox: 'FAC315' }
     }
   }
 };

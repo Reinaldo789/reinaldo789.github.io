@@ -338,7 +338,11 @@ var MONTADORAS = (function(){
   return ordem.map(function(m){ return { nome:m, veiculos:grupos[m] }; });
 })();
 
+/* ---------- ÍCONES (Aqui estão os novos ícones adicionados) ---------- */
 var ICONES = {
+  oleo:   '<path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/>',
+  engrenagem: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+  freio:  '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/>',
   gota:   '<path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/>',
   graxa:  '<circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>',
   pneu:   '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/>',
@@ -400,7 +404,6 @@ var TOPICOS = [
       "Regra de ouro: confira no manual ou na tampa do reservatório qual DOT é exigido. Em dúvida entre 3/4/5.1, use o especificado — não 'suba' de DOT por conta própria, pois pontos de ebulição maiores nem sempre compensam em sistema projetado para outro fluido."
     ]
   },
-  
   {
     id: "pneus",
     titulo: "Pneus: Ler o DOT, o TWI e o Desgaste Como um Diagnóstico",
@@ -415,7 +418,6 @@ var TOPICOS = [
       "Calibragem e rodízio: calibre a frio com a pressão da etiqueta do veículo (não a do pneu) e confira o estepe. Rodízio periódico equaliza o desgaste e prolonga a vida do jogo."
     ]
   },
- 
   {
     id: "baterias",
     titulo: "Bateria e Alternador: Medir, Diagnosticar, Não Chutar",
@@ -643,7 +645,6 @@ function rota(){
   marcarAtivo(rotaAtiva);
   gaveta(false);
   window.scrollTo(0,0);
-
 }
 
 function paginaAssunto(t){

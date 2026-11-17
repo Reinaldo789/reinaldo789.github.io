@@ -28,12 +28,6 @@ a{color:inherit}
 
 /* ---------- Menu lateral ---------- */
 .menu{position:fixed;inset:0 auto 0 0;width:var(--lateral);background:var(--tinta);color:#dbe6ea;display:flex;flex-direction:column;z-index:40;transition:transform .25s ease}
-.menu-topo{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:20px 18px 18px;border-bottom:1px solid rgba(255,255,255,.09)}
-.marca{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
-.marca-sinal{width:42px;height:42px;border-radius:11px;background:var(--ambar);color:var(--tinta);display:grid;place-items:center;flex:none}
-.marca-sinal svg{width:24px;height:24px}
-.marca strong{display:block;font:600 1.3rem/1.05 "Barlow Condensed","Arial Narrow",sans-serif}
-.marca small{display:block;color:#9fb4bd;font-size:.8rem;margin-top:2px}
 .fechar{display:none;width:40px;height:40px;border:0;border-radius:10px;background:rgba(255,255,255,.08);color:#fff;font-size:1.4rem;cursor:pointer}
 .menu-corpo{flex:1;overflow-y:auto;padding:12px 12px 20px;scrollbar-width:thin;scrollbar-color:var(--tinta3) transparent}
 .grupo-titulo{margin:22px 12px 8px;font-size:.82rem;font-weight:500;color:#8fa6b0}
@@ -58,11 +52,9 @@ a{color:inherit}
 .sub a[aria-current="page"]{color:#fff;font-weight:600;border-left:3px solid var(--ambar);padding-left:10px;background:rgba(255,255,255,.06)}
 .menu-rodape{margin:0;padding:14px 18px 18px;border-top:1px solid rgba(255,255,255,.09);color:#8fa6b0;font-size:.8rem;line-height:1.4}
 
-
 /* ---------- Símbolos das montadoras e notas técnicas ---------- */
-.mont-btn .logo{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.08);display:grid;place-items:center;flex:none;color:#dbe6ea;transition:background .2s,color .2s}
-.mont-btn .logo svg{width:20px;height:20px}
-.mont-btn[aria-expanded="true"] .logo{background:var(--ambar);color:var(--tinta)}
+.mont-btn .logo{width:32px;height:32px;display:block;flex:none;background:none}
+.mont-btn .logo svg{width:32px;height:32px;border-radius:9px;display:block}
 .notas-tec{max-width:860px;margin-top:34px;padding:20px 24px;background:#FFF6E0;border:1px solid #F3D277;border-left:6px solid var(--ambar);border-radius:16px}
 .notas-tec h2{font-size:1.5rem;margin-bottom:10px}
 .notas-tec ul{margin:0;padding-left:22px}
@@ -107,13 +99,6 @@ a{color:inherit}
 .card p{margin:0;color:var(--suave);font-size:.97rem}
 .card .mais{margin-top:auto;padding-top:8px;color:var(--ambar-txt);font-weight:600;font-size:.92rem}
 .card:hover .mais{text-decoration:underline}
-.card.destaque{grid-column:span 2;background:var(--tinta);border-color:var(--tinta);color:#fff}
-.card.destaque p{color:#b9cbd2;max-width:52ch}
-.card.destaque .ico{background:var(--ambar)}
-.card.destaque .ico svg{stroke:var(--tinta)}
-.card.destaque .mais{color:var(--ambar)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.chips span{padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.1);font-size:.86rem;color:#dbe6ea}
 .aviso{margin-top:44px;padding-top:18px;border-top:1px solid var(--linha);color:var(--suave);font-size:.9rem}
 
 /* ---------- Páginas internas ---------- */
@@ -126,7 +111,6 @@ a{color:inherit}
 .conferir li{position:relative;padding:14px 16px 14px 46px;background:var(--cartao);border:1px solid var(--linha);border-radius:12px}
 .conferir li::before{content:"";position:absolute;left:16px;top:17px;width:16px;height:9px;border-left:3px solid var(--ambar);border-bottom:3px solid var(--ambar);transform:rotate(-45deg) scale(.9)}
 .nota{max-width:720px;margin-top:22px;padding:16px 18px;border-left:4px solid var(--ambar);background:#FFF6E0;border-radius:0 12px 12px 0}
-
 
 /* ---------- Ficha do veículo ---------- */
 .grade-sis{display:grid;gap:12px;max-width:860px}
@@ -169,19 +153,10 @@ a{color:inherit}
 .legenda-filtros{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin:-4px 0 12px;padding:0;font-size:.9rem;color:var(--suave)}
 .legenda-filtros li{display:flex;align-items:center;gap:8px}
 
-/* ---------- Tela inicial em largura total, com Lubrificação como principal ---------- */
+/* ---------- Tela inicial em largura total ---------- */
 .miolo.inicio{max-width:none}
 .busca{max-width:none}
-.card.lub-topo{flex-direction:row;align-items:center;gap:28px;padding:30px 34px;margin-bottom:22px}
-.card.lub-topo .ico{width:64px;height:64px;border-radius:16px;margin:0;flex:none}
-.card.lub-topo .ico svg{width:34px;height:34px}
-.card.lub-topo .corpo{flex:1;min-width:0}
-.card.lub-topo h1{font-size:clamp(2.2rem,4vw,3.2rem);max-width:none}
-.card.lub-topo p{margin:8px 0 0;max-width:60ch;font-size:1.08rem}
-.card.lub-topo .chips{margin-top:14px}
-.card.lub-topo .mais{margin:0;padding:0;white-space:nowrap}
 .cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-@media (max-width:700px){.card.lub-topo{flex-direction:column;align-items:flex-start;gap:16px;padding:24px}}
 
 /* ---------- Título do veículo em caixa ---------- */
 .ficha-cab{margin:0 0 28px;padding:20px 24px;background:#FFF6E0;border:1px solid #F3D277;border-left:6px solid var(--ambar);border-radius:16px}
@@ -189,7 +164,7 @@ a{color:inherit}
 .detalhe .ficha-cab .lead{margin:6px 0 0}
 
 /* ---------- Celular e tablet ---------- */
-@media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}.card.destaque{grid-column:span 2}}
+@media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:900px){
   .menu{transform:translateX(-100%);box-shadow:none;width:min(88vw,340px)}
   .menu.aberto{transform:none;box-shadow:0 0 40px rgba(0,0,0,.4)}
@@ -198,46 +173,25 @@ a{color:inherit}
   .topo{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:30;height:58px;padding:0 14px;background:var(--tinta);color:#fff}
   .topo button{display:flex;align-items:center;gap:8px;height:42px;padding:0 14px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font:inherit;cursor:pointer}
   .topo button svg{width:20px;height:20px;stroke:#fff}
-  .topo span{font:600 1.2rem "Barlow Condensed","Arial Narrow",sans-serif}
   .veu{display:block;position:fixed;inset:0;background:rgba(10,20,25,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:35}
   .veu.aberto{opacity:1;pointer-events:auto}
   .miolo{padding:32px 18px 32px}
   .busca-campo kbd{display:none}
 }
-@media (max-width:600px){.cards{grid-template-columns:1fr}.card.destaque{grid-column:auto}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 
-  /* Menu lateral: "Início" colado no topo e travado */
-
-#menu .menu-topo{display:none!important;padding:0!important;margin:0!important;height:0!important;border:0!important}
-
-#menu .menu-fixo{
-  flex:none;
-  margin:0;
-  padding:12px 12px 12px;
-  border-bottom:1px solid rgba(255,255,255,.09);
-}
-#menu .menu-fixo .item{margin:0}
-
+/* ---------- Ajustes finais: menu com Início travado e título simples ---------- */
+#menu .menu-topo{display:none!important}
+#menu .menu-fixo{flex:none;margin:0;padding:12px;border-bottom:1px solid rgba(255,255,255,.09)}
 #menu .menu-corpo{padding-top:0}
 #menu .menu-corpo .grupo-titulo:first-child{margin-top:16px}
-
-/* Celular e tablet: o botão × fica sobre o topo, sem ocupar uma faixa própria */
 @media (max-width:900px){
-  #menu .menu-topo{
-    display:block!important;
-    position:absolute;
-    top:10px;
-    right:10px;
-    height:auto!important;
-    z-index:2;
-  }
+  #menu .menu-topo{display:block!important;position:absolute;top:10px;right:10px;z-index:2}
   #menu .menu-fixo{padding:12px 62px 12px 12px}
 }
-
 .hero .titulo-pagina{margin:0 0 22px;padding:26px 34px;background:var(--tinta);color:#fff;border-radius:16px}
 .hero .titulo-pagina h1{max-width:none;margin:0;font-size:clamp(2rem,4vw,3rem)}
-  
 </style>
 </head>
 <body>
@@ -271,7 +225,6 @@ a{color:inherit}
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       Menu
     </button>
-    <span>Guia Técnico</span>
   </header>
 
   <main class="miolo" id="conteudo" tabindex="-1">
@@ -308,11 +261,9 @@ a{color:inherit}
 
 <script type="module">
 /* =====================================================================
-   DADOS: vêm de js/dados/index.js (bancoDeDadosGlobal).
+   DADOS: vêm de js/dados/*.js
    As montadoras do menu são montadas a partir do nome de cada veículo.
    ===================================================================== */
-/* Arquivos de dados carregados pelo guia. Se criar um arquivo novo em js/dados, acrescente aqui.
-   O "?v=" com a hora força o navegador a baixar sempre a versão mais recente (evita menu desatualizado). */
 var ARQUIVOS = [
   ["passeio.js","veiculosPasseio"], ["utilitarios.js","veiculosUtilitarios"],
   ["caminhoes.js","veiculosCaminhoes"], ["vans.js","veiculosVans"]
@@ -338,11 +289,7 @@ var MONTADORAS = (function(){
   return ordem.map(function(m){ return { nome:m, veiculos:grupos[m] }; });
 })();
 
-/* ---------- ÍCONES (Aqui estão os novos ícones adicionados) ---------- */
 var ICONES = {
-  oleo:   '<path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/>',
-  engrenagem: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
-  freio:  '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/>',
   gota:   '<path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/>',
   graxa:  '<circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>',
   pneu:   '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/>',
@@ -355,83 +302,62 @@ function svg(nome, classe){
 }
 
 var TOPICOS = [
-  {
-    id: "oleo-motor",
-    titulo: "Óleo de Motor: Viscosidade, Norma e o Que o Manual Não Te Conta",
-    destaque: true,
-    icone: "oleo",
-    resumo: "Como ler 5W-30, 10W-40, 15W-40; API e ACEA; sintético vs semissintético vs mineral; intervalo e erros que matam o motor.",
-    busca: "oleo motor 5w30 10w40 15w40 0w20 viscosidade api sn sp acea a3 b4 c3 sintetico semissintetico mineral intervalo troca",
-    pontos: [
-      "Viscosidade — leia os dois números: em '5W-30', o '5W' é o comportamento a frio (W = winter). Quanto menor o número, mais fino o óleo a frio e melhor a partida e a proteção nos primeiros segundos. O '30' é a viscosidade a quente (100 °C): quanto maior, mais grosso em alta temperatura. Um 0W-20 é fino e economiza combustível; um 15W-40 é grosso e indicado para motores antigos e diesel pesado. Nunca troque a viscosidade recomendada 'porque é mais barato'.",
-      "Normas API — o padrão americano: a letra 'S' é para motores a gasolina (SN, SP são as mais recentes) e a 'C' para diesel (CI-4, CJ-4, CK-4). A segunda letra avança com o tempo: quanto mais recente, mais proteção contra desgaste, borra e fuligem. Um óleo API SP atende motores modernos com injeção direta e turbo; usar API antigo em motor novo acelera a formação de borra.",
-      "Normas ACEA — o padrão europeu: A3/B4 (gasolina/diesel de alto desempenho), C3 (com baixo teor de cinzas, para motores com DPF/filtro de partículas), E7/E9 (diesel pesado). Óleo fora da norma ACEA exigida pela montadora pode entupir o DPF ou degradar a proteção. Sempre confira a norma no rótulo, não só a viscosidade.",
-      "Sintético vs semissintético vs mineral: mineral é refinado do petróleo, mais barato e menos estável a quente; semissintético é uma mistura; sintético (PAO/éster) tem moléculas mais uniformes, resiste melhor a altas temperaturas e dura mais. Motor turbo, injeção direta e intervalos longos pedem sintético. Usar mineral em motor que pede sintético acelera borra e desgaste.",
-      "Intervalo de troca: siga o manual (km OU tempo, o que vier primeiro). Óleo sintético em uso severo (trânsito, poeira, reboque) pede intervalo menor. Troque o filtro de óleo junto — filtro velho contamina o óleo novo. Anote data e km de cada troca.",
-      "Erros que matam o motor: completar com óleo de viscosidade/norma diferente, rodar com nível baixo, ignorar a luz de pressão de óleo e esticar o intervalo 'porque o óleo é sintético'. Nível deve ser conferido com motor frio e veículo em piso plano."
-    ]
-  },
-  {
-    id: "oleo-cambio-diferencial",
-    titulo: "Óleos de Câmbio e Diferencial: GL-4, GL-5, ATF, CVT e DCT",
-    icone: "engrenagem",
-    resumo: "A diferença que corrói sincronizadores, os tipos de ATF, CVT e DCT, e por que GL-6 não é para todo mundo.",
-    busca: "oleo cambio gl4 gl5 gl6 atf cvt dct dexron mercon sincronizador diferencial lsd",
-    pontos: [
-      "GL-4 vs GL-5 — a confusão mais cara da oficina: câmbios manuais com sincronizadores de latão/bronze exigem API GL-4. O GL-5 tem aditivos de extrema pressão (enxofre/fósforo) que corroem quimicamente esses metais — o câmbio começa a 'raspar' marcha. GL-5 é para diferenciais e eixos rígidos, onde não há sincronizadores.",
-      "GL-6 e além: normas mais recentes (GL-6, MT-1) existem para aplicações específicas de alto deslizamento. Não são 'melhores' universalmente — usar norma errada no câmbio errado causa o mesmo problema do GL-5 em sincronizador.",
-      "Diferenciais com LSD: eixos com blocos ou discos de fricção (Trac-Lok, LSD) pedem GL-5 compatível com LSD ou aditivo modificador de atrito obrigatório. Sem isso, o diferencial estala nas curvas e os discos se desgastam.",
-      "Câmbio automático — ATF: cada montadora tem sua especificação (Dexron, Mercon, ATF+4, ZF Lifeguard). ATF errado causa troca brusca, patinação e desgaste de embreagens internas. Nunca complete com 'qualquer ATF'.",
-      "CVT e DCT: câmbio CVT usa fluido próprio (não é ATF comum) e DCT (dupla embreagem) tem fluido específico para embreagem e engrenagens. Trocar fluido errado em CVT pode destruir a correia metálica. Siga a norma da montadora rigorosamente.",
-      "Intervalo e nível: câmbio e diferencial têm intervalo próprio, muitas vezes maior que o do motor, mas não são 'para sempre'. Verifique nível pelo bujão de inspeção (não pelo bujão de enchimento) e anote a troca."
-    ]
-  },
-  {
-    id: "fluidos-freio",
-    titulo: "Fluido de Freio: DOT 3, DOT 4, DOT 5.1 e a Armadilha do DOT 5",
-    icone: "freio",
-    resumo: "O que cada DOT significa: ponto de ebulição seco e úmido, base química (glicol vs silicone), higroscopicidade, aplicação típica e por que nunca misturar.",
-    busca: "fluido freio dot 3 dot 4 dot 5.1 dot 5 dot 4 lv glicol silicone ponto ebulicao seco umido higroscopico troca",
-    pontos: [
-      "O que é o DOT: é a classificação do Departamento de Transportes dos EUA (FMVSS 116) para fluidos de freio. O número não indica 'qualidade', mas sim a faixa de ponto de ebulição e a base química. Quanto maior o DOT, maior a resistência ao calor — mas isso não significa que todo carro deva usar o maior.",
-      "DOT 3 — base glicol: ponto de ebulição seco ~205 °C e úmido ~140 °C. Fluido tradicional, higroscópico (absorve umidade), usado em carros mais antigos e sistemas simples. Barato, mas perde desempenho rápido com a umidade.",
-      "DOT 4 — base glicol: seco ~230 °C, úmido ~155 °C. É o padrão da maioria dos carros de rua modernos. Misturável com DOT 3 e DOT 5.1. Melhor resistência ao calor que o DOT 3, com custo próximo.",
-      "DOT 5.1 — base glicol: seco acima de 260 °C, úmido ~180 °C. Alta performance, usado em esportivos, veículos com freio a disco de alto desempenho e uso severo. Misturável com DOT 3/4. Atenção: '5.1' é glicol, diferente do '5' puro.",
-      "DOT 5 — base silicone: seco ~260 °C, mas NÃO é higroscópico e NÃO se mistura com glicol. Usado em aplicações específicas (militares, alguns clássicos, sistemas projetados para ele). Colocar DOT 5 em sistema de glicol causa falha de vedações, borrachas inchadas e pedal esponjoso. Nunca misture.",
-      "DOT 4 LV / DOT 5.1 LV (Low Viscosity): variação de baixa viscosidade para sistemas ABS/ESP modernos, que exigem fluido mais fino para resposta rápida das válvulas. Se o manual pede LV, use LV — fluido comum pode atrasar a resposta do ABS em frenagens de emergência.",
-      "Ponto de ebulição seco vs úmido: 'seco' é o fluido novo; 'úmido' é após absorver ~3,7% de água. É por isso que fluido velho ferve e o pedal vai ao fundo em serra ou frenagem severa — mesmo com o nível aparentemente ok.",
-      "Higroscopicidade e troca: todos os fluidos à base de glicol absorvem umidade do ar. Troque a cada 2 anos ou conforme o manual, independentemente da quilometragem. Nunca reutilize fluido aberto há muito tempo e nunca complete com DOT diferente do especificado.",
-      "Regra de ouro: confira no manual ou na tampa do reservatório qual DOT é exigido. Em dúvida entre 3/4/5.1, use o especificado — não 'suba' de DOT por conta própria, pois pontos de ebulição maiores nem sempre compensam em sistema projetado para outro fluido."
-    ]
-  },
-  {
-    id: "pneus",
-    titulo: "Pneus: Ler o DOT, o TWI e o Desgaste Como um Diagnóstico",
-    icone: "pneu",
-    resumo: "Decodificação do DOT (semana/ano), limites de sulco TWI, índices de carga e velocidade, e o que cada tipo de desgaste denuncia.",
-    busca: "pneu dot semana ano twi sulco 1.6mm indice carga velocidade calibragem alinhamento cambagem desgaste",
-    pontos: [
-      "DOT — a certidão de nascimento do pneu: os 4 últimos dígitos indicam semana e ano de fabricação (ex.: '2424' = 24ª semana de 2024). Pneu com mais de 5 anos resseca e endurece mesmo com sulco profundo — a borracha perde aderência molecularmente.",
-      "TWI (Tread Wear Indicator): o limite legal e técnico no Brasil é 1,6 mm de sulco. Os ressaltos no fundo dos sulcos principais mostram quando chegar lá. Abaixo disso, aquaplanagem em piso molhado é quase certa.",
-      "Índices de carga e velocidade: na lateral do pneu, algo como '91V' significa carga máxima (91 = 615 kg por pneu) e velocidade máxima (V = 240 km/h). Trocar por índice inferior ao original é risco, não economia.",
-      "Desgaste como diagnóstico: desgaste nas duas bordas externas = calibragem baixa crônica; desgaste só no centro = excesso de pressão; desgaste em escama (dente de serra) = amortecedor exaurido ou cambagem/cáster fora. Cada padrão aponta para uma causa específica.",
-      "Calibragem e rodízio: calibre a frio com a pressão da etiqueta do veículo (não a do pneu) e confira o estepe. Rodízio periódico equaliza o desgaste e prolonga a vida do jogo."
-    ]
-  },
-  {
-    id: "baterias",
-    titulo: "Bateria e Alternador: Medir, Diagnosticar, Não Chutar",
-    icone: "bateria",
-    resumo: "Tensão de repouso, faixa do alternador (13,8–14,8 V), sulfatação, terminais e data de fabricação.",
-    busca: "bateria tensao repouso 12.6v alternador 13.8 14.8 regulador sulfatacao eletrolito terminais",
-    pontos: [
-      "Tensão de repouso: com o veículo desligado há pelo menos 4 horas e capô aberto, bateria 100% saudável lê 12,6 V a 12,8 V. Abaixo de 12,2 V indica descarga profunda ou sulfatação das placas.",
-      "Alternador e regulador: com motor em rotação intermediária e acessórios ligados, a tensão nos terminais deve ficar estritamente entre 13,8 V e 14,8 V. Abaixo de 13,5 V a bateria descarrega rodando; acima de 15,0 V há sobrecarga e fervura do eletrólito.",
-      "Sulfatação e terminais: corrosão nos bornes aumenta a resistência elétrica, gera queda de tensão e falhas intermitentes no painel ou partida pesada. Mantenha bornes limpos, apertados e o suporte firme.",
-      "Eletrólito (baterias não seladas): verifique o nível e complete só com água destilada. Nunca com ácido.",
-      "Idade e data de fabricação: baterias duram em média 3 a 5 anos. Anote a data de instalação — trocar antes de falhar evita pane em momento ruim."
-    ]
-  },
+  { id:"lubrificacao", titulo:"Lubrificação", icone:"gota", destaque:true,
+    resumo:"Óleo do motor, câmbio, diferencial e arrefecimento, com viscosidade, especificação e intervalo de troca.",
+    chips:["Motor","Câmbio","Diferencial","Arrefecimento"],
+    busca:"oleo motor cambio diferencial arrefecimento filtro de oleo viscosidade fluido",
+    pontos:[
+      "Use a viscosidade e a especificação (API, ACEA) que o manual indica, nunca só a que está na prateleira.",
+      "Confira o nível com o motor frio e o veículo em piso plano.",
+      "Troque o filtro de óleo junto com o óleo.",
+      "Câmbio e diferencial usam óleo próprio, com intervalo de troca diferente do motor.",
+      "Anote data e quilometragem de cada troca para não perder o intervalo." ]},
+  { id:"pontos-de-lubrificacao", titulo:"Pontos de lubrificação", icone:"graxa",
+    resumo:"Graxeiras de cruzetas, pivôs, terminais e buchas: onde engraxar e como.",
+    busca:"graxeira graxa cruzeta pivo terminal bucha cardan engraxar lubrificar",
+    pontos:[
+      "Limpe a graxeira antes de engraxar, para não empurrar sujeira para dentro.",
+      "Engraxe cruzetas e luvas do cardã, pivôs, terminais de direção e buchas que tenham graxeira.",
+      "Pare quando a graxa nova aparecer na vedação; em coifas de borracha, não estufe.",
+      "Use o tipo de graxa que o manual indica para cada ponto.",
+      "Troque a graxeira que não aceita graxa em vez de forçar." ]},
+  { id:"pneus", titulo:"Pneus", icone:"pneu",
+    resumo:"Calibragem, rodízio, desgaste e idade do pneu.",
+    busca:"pneu calibragem pressao rodizio desgaste sulco dot estepe alinhamento balanceamento",
+    pontos:[
+      "Calibre a frio, com a pressão da etiqueta do veículo, e confira o estepe.",
+      "A profundidade mínima dos sulcos é 1,6 mm; o indicador TWI no pneu mostra quando chegou.",
+      "Desgaste irregular aponta alinhamento, balanceamento ou suspensão a revisar.",
+      "Procure cortes, bolhas e deformações nas laterais.",
+      "O código DOT informa semana e ano de fabricação; pneu muito velho ressecca mesmo com sulco." ]},
+  { id:"correias", titulo:"Correias", icone:"correia",
+    resumo:"Correia dentada, correia poli-V, tensor e polias.",
+    busca:"correia dentada poli v tensor polia acessorios alternador",
+    pontos:[
+      "Troque a correia dentada pelo intervalo de km ou tempo do manual, sem esperar romper.",
+      "Na correia poli-V, procure rachaduras, vitrificação e desfiamento.",
+      "Ruído ou folga no tensor e nas polias pede troca junto com a correia.",
+      "Prefira trocar o kit (correia, tensor e polia) de uma vez.",
+      "Confira o alinhamento: correia que sai de lado indica polia desalinhada." ]},
+  { id:"baterias", titulo:"Baterias", icone:"bateria",
+    resumo:"Tensão, carga do alternador, terminais e idade da bateria.",
+    busca:"bateria tensao alternador terminais carga eletrolito 12v",
+    pontos:[
+      "Em repouso, uma bateria carregada fica em torno de 12,6 V.",
+      "Com o motor ligado, o alternador deve carregar entre 13,8 e 14,8 V.",
+      "Mantenha terminais limpos, apertados e sem sulfatação.",
+      "Confira a fixação da bateria no suporte.",
+      "Em baterias não seladas, verifique o nível do eletrólito; veja também a data de fabricação." ]},
+  { id:"inspecoes", titulo:"Inspeções", icone:"lista",
+    resumo:"Checklist rápido de níveis, vazamentos, freios, luzes e filtros.",
+    busca:"inspecao checklist revisao niveis vazamento freio luzes palheta filtro de ar filtro de combustivel suspensao",
+    pontos:[
+      "Níveis: óleo do motor, arrefecimento, freio e direção.",
+      "Procure vazamentos sob o veículo e nas conexões.",
+      "Freios: espessura das pastilhas ou lonas e estado dos discos.",
+      "Luzes, palhetas do limpador e buzina.",
+      "Filtros de ar, de combustível e de cabine, conforme o intervalo.",
+      "Folgas na suspensão e na direção." ]}
 ];
 
 /* =====================================================================
@@ -456,26 +382,31 @@ MONTADORAS.forEach(function(m){
   });
 });
 
-/* Símbolos simplificados (um traço, uma cor) para reconhecer a montadora no menu */
-var F = ' fill="currentColor" stroke="none"';
-var T = ' text-anchor="middle" font-family="Arial,sans-serif" font-weight="800"';
+/* Símbolos coloridos das montadoras (SVG). O nome precisa ser igual ao que aparece no menu.
+   Montadora que não estiver na lista mostra um quadrado cinza com a letra inicial. */
 var LOGOS = {
-  "Chevrolet": '<path'+F+' d="M3 9.2h6.2V6.5h5.6v2.7H21v5.6h-6.2v2.7H9.2v-2.7H3z"/>',
-  "DAF": '<rect x="2" y="6.5" width="20" height="11" rx="2"/><text'+F+T+' x="12" y="14.6" font-size="7">DAF</text>',
-  "Fiat": '<rect x="2" y="7" width="20" height="10" rx="5"/><text'+F+T+' x="12" y="14.2" font-size="6">FIAT</text>',
-  "Ford": '<ellipse cx="12" cy="12" rx="10.5" ry="7"/><text'+F+' x="12" y="14.6" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="7.5">Ford</text>',
-  "Jeep": '<text'+F+T+' x="12" y="15.2" font-size="8">JEEP</text>',
-  "Mercedes-Benz": '<circle cx="12" cy="12" r="9.5"/><path'+F+' d="M12 4.2l1.5 7.3 6 4.2-7.5-2.4-7.5 2.4 6-4.2z"/>',
-  "Mitsubishi": '<g'+F+' transform="translate(12 12)"><path d="M0-9.5 3.4-4 0 1.5-3.4-4z"/><path transform="rotate(120)" d="M0-9.5 3.4-4 0 1.5-3.4-4z"/><path transform="rotate(240)" d="M0-9.5 3.4-4 0 1.5-3.4-4z"/></g>',
-  "Nissan": '<circle cx="12" cy="12" r="8.6"/><rect'+F+' x="1.5" y="10.3" width="21" height="3.4" rx=".6"/>',
-  "Peugeot": '<path d="M5.5 3.5h13v8c0 4.2-3.2 7-6.5 9-3.3-2-6.5-4.8-6.5-9z"/><text'+F+T+' x="12" y="13.2" font-size="8">P</text>',
-  "Renault": '<path d="M12 2.5l7.5 9.5-7.5 9.5L4.5 12z"/><path'+F+' d="M12 8l3 4-3 4-3-4z"/>',
-  "Toyota": '<ellipse cx="12" cy="12" rx="10" ry="7"/><ellipse cx="12" cy="12.6" rx="6" ry="3.3"/><ellipse cx="12" cy="10.2" rx="2.4" ry="4.6"/>',
-  "Volkswagen": '<circle cx="12" cy="12" r="9.5"/><path d="M7.6 6.5L12 15.2l4.4-8.7M6.8 11.2L9.4 17l2.6-4.6 2.6 4.6 2.6-5.8"/>'
+  "Agrale": '<rect width="24" height="24" rx="4" fill="#1b4d3e"/><text x="12" y="16.5" fill="#ffffff" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="11">A</text>',
+  "Chevrolet": '<rect width="24" height="24" rx="4" fill="#cca753"/><path fill="#000000" d="M3 9.2h6.2V6.5h5.6v2.7H21v5.6h-6.2v2.7H9.2v-2.7H3z"/>',
+  "Citroën": '<rect width="24" height="24" rx="4" fill="#e30613"/><path fill="#ffffff" d="M12 3L2 11h4l6-5 6 5h4z"/><path fill="#ffffff" d="M12 8L5 14h4l3-2.5 3 2.5h4z"/><path fill="#ffffff" d="M12 12.5l-3 2.5h6z"/>',
+  "DAF": '<rect width="24" height="24" rx="4" fill="#002b49"/><text x="12" y="14.6" fill="#00a3e0" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="7.5">DAF</text>',
+  "Fiat": '<rect width="24" height="24" rx="4" fill="#8B0000"/><rect x="3" y="7.5" width="18" height="9" rx="4.5" fill="#e50914"/><text x="12" y="14.2" fill="#ffffff" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="6.5">FIAT</text>',
+  "Ford": '<rect width="24" height="24" rx="4" fill="#003478"/><ellipse cx="12" cy="12" rx="10" ry="7" fill="#003478" stroke="#ffffff" stroke-width="1.2"/><text x="12" y="14.8" fill="#ffffff" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="7.5">Ford</text>',
+  "Iveco": '<rect width="24" height="24" rx="4" fill="#002b49"/><text x="12" y="14.8" fill="#ff6600" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="6.5">IVECO</text>',
+  "Mercedes-Benz": '<rect width="24" height="24" rx="4" fill="#1c1c1c"/><circle cx="12" cy="12" r="9.5" fill="none" stroke="#cccccc" stroke-width="1.2"/><path fill="#cccccc" d="M12 4.2l1.5 7.3 6 4.2-7.5-2.4-7.5 2.4 6-4.2z"/>',
+  "Mitsubishi": '<rect width="24" height="24" rx="4" fill="#f0f0f0"/><g transform="translate(12 12)" fill="#e60012"><path d="M0-9.5 3.4-4 0 1.5-3.4-4z"/><path transform="rotate(120)" d="M0-9.5 3.4-4 0 1.5-3.4-4z"/><path transform="rotate(240)" d="M0-9.5 3.4-4 0 1.5-3.4-4z"/></g>',
+  "Nissan": '<rect width="24" height="24" rx="4" fill="#c0c0c0"/><circle cx="12" cy="12" r="8.6" fill="#111111"/><rect x="1.5" y="10.3" width="21" height="3.4" rx=".6" fill="#ffffff"/><text x="12" y="12.7" fill="#111111" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="3.5">NISSAN</text>',
+  "Nova": '<rect width="24" height="24" rx="4" fill="#333333"/><text x="12" y="16" fill="#ffffff" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="11">N</text>',
+  "Peugeot": '<rect width="24" height="24" rx="4" fill="#1c1c1c"/><path fill="#3b82f6" d="M5.5 3.5h13v8c0 4.2-3.2 7-6.5 9-3.3-2-6.5-4.8-6.5-9z"/><text x="12" y="13.5" fill="#ffffff" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="8">P</text>',
+  "Renault": '<rect width="24" height="24" rx="4" fill="#facc15"/><path fill="#111111" d="M12 2.5l7.5 9.5-7.5 9.5L4.5 12z"/><path fill="#facc15" d="M12 7l3.8 5-3.8 5-3.8-5z"/>',
+  "Scania": '<rect width="24" height="24" rx="4" fill="#0284c7"/><path fill="#ffffff" d="M12 2l1.5 4.5h4.5l-3.5 3 1.5 4.5-4-3-4 3 1.5-4.5-3.5-3h4.5z"/><rect x="4" y="17" width="16" height="2" rx="1" fill="#ffffff"/>',
+  "Toyota": '<rect width="24" height="24" rx="4" fill="#eb1c24"/><ellipse cx="12" cy="12" rx="9" ry="6" fill="none" stroke="#ffffff" stroke-width="1.5"/><ellipse cx="12" cy="12.4" rx="5.5" ry="3" fill="none" stroke="#ffffff" stroke-width="1.2"/><ellipse cx="12" cy="10.2" rx="2.2" ry="4" fill="none" stroke="#ffffff" stroke-width="1.2"/>',
+  "Volkswagen": '<rect width="24" height="24" rx="4" fill="#001e50"/><circle cx="12" cy="12" r="9.5" fill="none" stroke="#ffffff" stroke-width="1.2"/><path fill="none" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="M7.6 6.5L12 15.2l4.4-8.7M6.8 11.2L9.4 17l2.6-4.6 2.6 4.6 2.6-5.8"/>',
+  "Volvo": '<rect width="24" height="24" rx="4" fill="#003057"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="#007ac9" stroke-width="1.5"/><path fill="#007ac9" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="2" fill="#007ac9"/>'
 };
+
 function logo(nome){
-  var forma = LOGOS[nome] || '<text'+F+T+' x="12" y="16" font-size="11">'+esc(nome.charAt(0))+'</text>';
-  return '<span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+forma+'</svg></span>';
+  var forma = LOGOS[nome] || '<rect width="24" height="24" rx="4" fill="#555"/><text x="12" y="16.5" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="12">'+esc(nome.charAt(0))+'</text>';
+  return '<span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32">'+forma+'</svg></span>';
 }
 
 /* =====================================================================
@@ -537,11 +468,10 @@ $("veu").addEventListener("click", function(){ gaveta(false); });
 document.addEventListener("keydown", function(e){ if(e.key === "Escape") gaveta(false); });
 
 /* =====================================================================
-   TELA INICIAL: CARDS E BUSCA
+   TELA INICIAL: TÍTULO, CARDS E BUSCA
    ===================================================================== */
 function montarCards(){
   $("principal").innerHTML = '<header class="titulo-pagina"><h1>Pesquisa Lubrificação e Filtros</h1></header>';
-  
   $("cards").innerHTML = TOPICOS.filter(function(t){ return !t.destaque; }).map(function(t){
     return '<a class="card" href="#/assunto/'+t.id+'">'+
       '<span class="ico">'+svg(t.icone)+'</span>'+

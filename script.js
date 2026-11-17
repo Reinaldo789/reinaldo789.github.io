@@ -65,3 +65,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Função para renderizar os cards de todas as montadoras na tela inicial
+function renderizarCardsMontadorasHome() {
+  const containerHome = document.getElementById('grid-montadoras-home');
+  if (!containerHome) return;
+
+  // Lista de montadoras extraída da sua estrutura
+  const montadoras = [
+    { nome: "Agrale", chave: "agrale", qtd: 4, icone: "🚩" },
+    { nome: "Chevrolet", chave: "chevrolet", qtd: 7, icone: "✚" },
+    { nome: "Citroën", chave: "citroen", qtd: 3, icone: "⌃" },
+    { nome: "DAF", chave: "daf", qtd: 1, icone: "D" },
+    { nome: "Fiat", chave: "fiat", qtd: 8, icone: "F" },
+    { nome: "Ford", chave: "ford", qtd: 16, icone: "F" },
+    { nome: "Iveco", chave: "iveco", qtd: 5, icone: "I" },
+    { nome: "Mercedes-Benz", chave: "mercedes", qtd: 5, icone: "✪" },
+    { nome: "Mitsubishi", chave: "mitsubishi", qtd: 4, icone: "▲" },
+    { nome: "Nissan", chave: "nissan", qtd: 2, icone: "⊖" },
+    { nome: "Nova", chave: "nova", qtd: 2, icone: "N" },
+    { nome: "Peugeot", chave: "peugeot", qtd: 1, icone: "P" },
+    { nome: "Renault", chave: "renault", qtd: 4, icone: "◇" },
+    { nome: "Scania", chave: "scania", qtd: 1, icone: "★" },
+    { nome: "Toyota", chave: "toyota", qtd: 4, icone: "◎" },
+    { nome: "Volkswagen", chave: "volkswagen", qtd: 8, icone: "Ⓦ" },
+    { nome: "Volvo", chave: "volvo", qtd: 2, icone: "◷" }
+  ];
+
+  let htmlCards = '';
+  montadoras.forEach(m => {
+    htmlCards += `
+      <div class="modelo-card" onclick="selecionarMontadora('${m.chave}', '${m.nome}')">
+        <div class="card-icon-wrapper">
+          ${m.icone}
+        </div>
+        <h3>${m.nome}</h3>
+        <p>${m.qtd} modelos disponíveis. Ver fluidos e referências de filtros.</p>
+      </div>
+    `;
+  });
+
+  containerHome.innerHTML = htmlCards;
+}
+
+// Executa ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+  renderizarCardsMontadorasHome();
+});
+
+function selecionarMontadora(chave, nome) {
+  console.log("Montadora selecionada:", nome);
+  // Aqui você chama a função que carrega os modelos específicos daquela montadora na tela
+}

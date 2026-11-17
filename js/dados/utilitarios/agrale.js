@@ -2,7 +2,7 @@ export const utilitariosAgrale = {
   'Agrale Marruá AM50 / AM100 (MWM 2.8 Mecânico - 2004 a 2011)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (MWM Sprint 2.8 12V Turbo - 132 cv)', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
+      { sistema: 'Motor (MWM Sprint 2.8 12V Turbo - 132 cv) [3]', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
       { sistema: 'Câmbio Manual (Eaton FSO-2405)', especificacao: 'ATF Dexron III / Mercon [1]', capacidade: '2,6 L', intervalo: '60.000 km' },
       { sistema: 'Caixa de Transferência (BorgWarner 1354)', especificacao: 'ATF Dexron III / Mercon', capacidade: '1,2 L', intervalo: '60.000 km' },
       { sistema: 'Eixos Rígidos Dana (Dianteiro / Traseiro)', especificacao: 'SAE 85W-140 API GL-5 (com aditivo LSD se equipado com bloc. traseiro) [2]', capacidade: 'Tras: 2,6 L | Diant: 1,7 L', intervalo: '40.000 km' },
@@ -10,7 +10,8 @@ export const utilitariosAgrale = {
     ],
     notas: {
       1: "Atenção ao câmbio Eaton FSO-2405: siga rigorosamente a recomendação do fabricante quanto ao uso de ATF Dexron III nesta caixa específica para garantir o funcionamento correto dos sincronizadores.",
-      2: "Eixos rígidos Dana. Caso o diferencial traseiro possua sistema de deslizamento limitado (LSD / Trac-Lok), utilize óleo GL-5 compatível com LSD ou adicione o aditivo modificador de atrito para evitar ruídos e desgaste prematuro."
+      2: "Eixos rígidos Dana. Caso o diferencial traseiro possua sistema de deslizamento limitado (LSD / Trac-Lok), utilize óleo GL-5 compatível com LSD ou adicione o aditivo modificador de atrito para evitar ruídos e desgaste prematuro.",
+      3: "Atenção ao filtro de combustível: utilize estritamente a família com rosca para sensor de água (Tecfil PSC498/4, Vox FBD498/4, Mann WK 940/35). Não compre a versão padrão sem sufixo (ex: Tecfil PSC498, Inpeca SCB-0498, Mann WK842/3), pois a rosca inferior do sensor de presença de água não encaixa."
     },
     filtros: {
       oleo: { original: '6008001204004', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },

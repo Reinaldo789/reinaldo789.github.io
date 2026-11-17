@@ -352,17 +352,52 @@ function svg(nome, classe){
 
 var TOPICOS = [
   {
-    id: "lubrificacao",
-    titulo: "Óleos, Fluidos e Filtros: O Que Realmente Importa",
+    id: "oleo-motor",
+    titulo: "Óleo de Motor: Viscosidade, Norma e o Que o Manual Não Te Conta",
     destaque: true,
-    resumo: "Viscosidade, normas API/ACEA, a guerra GL-4 vs GL-5, fluidos de freio DOT e a lógica dos filtros.",
-    busca: "oleo motor cambio diferencial gl4 gl5 dot 3 dot 4 dot 5.1 viscosidade 5w30 15w40 acea api filtro",
+    icone: "oleo",
+    resumo: "Como ler 5W-30, 10W-40, 15W-40; API e ACEA; sintético vs semissintético vs mineral; intervalo e erros que matam o motor.",
+    busca: "oleo motor 5w30 10w40 15w40 0w20 viscosidade api sn sp acea a3 b4 c3 sintetico semissintetico mineral intervalo troca",
     pontos: [
-      "Viscosidade não é enfeite: 5W-30, 10W-40, 15W-40 — o primeiro número (antes do W) indica o comportamento a frio (quanto menor, mais fino e melhor a partida no frio); o segundo, a viscosidade a quente (quanto maior, mais grosso em alta temperatura). Mas viscosidade sozinha não basta: siga sempre a norma da montadora (API CI-4, CJ-4, CK-4 ou ACEA E7/E9 em diesel pesado; dexos2/dexosD em leves modernos).",
-      "A armadilha do GL-4 e GL-5: câmbios manuais com anéis sincronizadores de latão/bronze exigem API GL-4. Colocar GL-5 nesses câmbios libera aditivos de extrema pressão (enxofre/fósforo) que corroem quimicamente os sincronizadores — o câmbio começa a 'raspar' marcha e o reparo é caro. GL-5 é para diferenciais e eixos rígidos, onde não há sincronizadores.",
-      "Diferenciais com LSD (deslizamento limitado): eixos com blocos mecânicos ou discos de fricção (Trac-Lok, LSD) pedem GL-5 compatível com LSD ou aditivo modificador de atrito obrigatório. Sem isso, o diferencial estala nas curvas e os discos se desgastam prematuramente.",
-      "Fluidos de freio DOT: o que muda é o ponto de ebulição e a base química. DOT 3 ferve ~205 °C (seco), DOT 4 ~230 °C, DOT 5.1 (base glicol, misturável com 3 e 4) passa de 260 °C. DOT 5 é à base de silicone e NÃO deve ser usado em sistemas projetados para DOT 3/4 — causa falha de vedações e borrachas. Regra de ouro: nunca misture silicone com glicol.",
-      "Filtros: óleo, ar, combustível e cabine têm intervalos próprios e não são opcionais. Filtro de óleo entupido desvia a válvula de alívio e o motor roda com óleo sujo; filtro de ar obstruído sufoca a admissão e eleva consumo e temperatura. Troque o filtro de óleo junto com o óleo, sempre."
+      "Viscosidade — leia os dois números: em '5W-30', o '5W' é o comportamento a frio (W = winter). Quanto menor o número, mais fino o óleo a frio e melhor a partida e a proteção nos primeiros segundos. O '30' é a viscosidade a quente (100 °C): quanto maior, mais grosso em alta temperatura. Um 0W-20 é fino e economiza combustível; um 15W-40 é grosso e indicado para motores antigos e diesel pesado. Nunca troque a viscosidade recomendada 'porque é mais barato'.",
+      "Normas API — o padrão americano: a letra 'S' é para motores a gasolina (SN, SP são as mais recentes) e a 'C' para diesel (CI-4, CJ-4, CK-4). A segunda letra avança com o tempo: quanto mais recente, mais proteção contra desgaste, borra e fuligem. Um óleo API SP atende motores modernos com injeção direta e turbo; usar API antigo em motor novo acelera a formação de borra.",
+      "Normas ACEA — o padrão europeu: A3/B4 (gasolina/diesel de alto desempenho), C3 (com baixo teor de cinzas, para motores com DPF/filtro de partículas), E7/E9 (diesel pesado). Óleo fora da norma ACEA exigida pela montadora pode entupir o DPF ou degradar a proteção. Sempre confira a norma no rótulo, não só a viscosidade.",
+      "Sintético vs semissintético vs mineral: mineral é refinado do petróleo, mais barato e menos estável a quente; semissintético é uma mistura; sintético (PAO/éster) tem moléculas mais uniformes, resiste melhor a altas temperaturas e dura mais. Motor turbo, injeção direta e intervalos longos pedem sintético. Usar mineral em motor que pede sintético acelera borra e desgaste.",
+      "Intervalo de troca: siga o manual (km OU tempo, o que vier primeiro). Óleo sintético em uso severo (trânsito, poeira, reboque) pede intervalo menor. Troque o filtro de óleo junto — filtro velho contamina o óleo novo. Anote data e km de cada troca.",
+      "Erros que matam o motor: completar com óleo de viscosidade/norma diferente, rodar com nível baixo, ignorar a luz de pressão de óleo e esticar o intervalo 'porque o óleo é sintético'. Nível deve ser conferido com motor frio e veículo em piso plano."
+    ]
+  },
+  {
+    id: "oleo-cambio-diferencial",
+    titulo: "Óleos de Câmbio e Diferencial: GL-4, GL-5, ATF, CVT e DCT",
+    icone: "engrenagem",
+    resumo: "A diferença que corrói sincronizadores, os tipos de ATF, CVT e DCT, e por que GL-6 não é para todo mundo.",
+    busca: "oleo cambio gl4 gl5 gl6 atf cvt dct dexron mercon sincronizador diferencial lsd",
+    pontos: [
+      "GL-4 vs GL-5 — a confusão mais cara da oficina: câmbios manuais com sincronizadores de latão/bronze exigem API GL-4. O GL-5 tem aditivos de extrema pressão (enxofre/fósforo) que corroem quimicamente esses metais — o câmbio começa a 'raspar' marcha. GL-5 é para diferenciais e eixos rígidos, onde não há sincronizadores.",
+      "GL-6 e além: normas mais recentes (GL-6, MT-1) existem para aplicações específicas de alto deslizamento. Não são 'melhores' universalmente — usar norma errada no câmbio errado causa o mesmo problema do GL-5 em sincronizador.",
+      "Diferenciais com LSD: eixos com blocos ou discos de fricção (Trac-Lok, LSD) pedem GL-5 compatível com LSD ou aditivo modificador de atrito obrigatório. Sem isso, o diferencial estala nas curvas e os discos se desgastam.",
+      "Câmbio automático — ATF: cada montadora tem sua especificação (Dexron, Mercon, ATF+4, ZF Lifeguard). ATF errado causa troca brusca, patinação e desgaste de embreagens internas. Nunca complete com 'qualquer ATF'.",
+      "CVT e DCT: câmbio CVT usa fluido próprio (não é ATF comum) e DCT (dupla embreagem) tem fluido específico para embreagem e engrenagens. Trocar fluido errado em CVT pode destruir a correia metálica. Siga a norma da montadora rigorosamente.",
+      "Intervalo e nível: câmbio e diferencial têm intervalo próprio, muitas vezes maior que o do motor, mas não são 'para sempre'. Verifique nível pelo bujão de inspeção (não pelo bujão de enchimento) e anote a troca."
+    ]
+  },
+  {
+    id: "fluidos-freio",
+    titulo: "Fluido de Freio: DOT 3, DOT 4, DOT 5.1 e a Armadilha do DOT 5",
+    icone: "freio",
+    resumo: "O que cada DOT significa: ponto de ebulição seco e úmido, base química (glicol vs silicone), higroscopicidade, aplicação típica e por que nunca misturar.",
+    busca: "fluido freio dot 3 dot 4 dot 5.1 dot 5 dot 4 lv glicol silicone ponto ebulicao seco umido higroscopico troca",
+    pontos: [
+      "O que é o DOT: é a classificação do Departamento de Transportes dos EUA (FMVSS 116) para fluidos de freio. O número não indica 'qualidade', mas sim a faixa de ponto de ebulição e a base química. Quanto maior o DOT, maior a resistência ao calor — mas isso não significa que todo carro deva usar o maior.",
+      "DOT 3 — base glicol: ponto de ebulição seco ~205 °C e úmido ~140 °C. Fluido tradicional, higroscópico (absorve umidade), usado em carros mais antigos e sistemas simples. Barato, mas perde desempenho rápido com a umidade.",
+      "DOT 4 — base glicol: seco ~230 °C, úmido ~155 °C. É o padrão da maioria dos carros de rua modernos. Misturável com DOT 3 e DOT 5.1. Melhor resistência ao calor que o DOT 3, com custo próximo.",
+      "DOT 5.1 — base glicol: seco acima de 260 °C, úmido ~180 °C. Alta performance, usado em esportivos, veículos com freio a disco de alto desempenho e uso severo. Misturável com DOT 3/4. Atenção: '5.1' é glicol, diferente do '5' puro.",
+      "DOT 5 — base silicone: seco ~260 °C, mas NÃO é higroscópico e NÃO se mistura com glicol. Usado em aplicações específicas (militares, alguns clássicos, sistemas projetados para ele). Colocar DOT 5 em sistema de glicol causa falha de vedações, borrachas inchadas e pedal esponjoso. Nunca misture.",
+      "DOT 4 LV / DOT 5.1 LV (Low Viscosity): variação de baixa viscosidade para sistemas ABS/ESP modernos, que exigem fluido mais fino para resposta rápida das válvulas. Se o manual pede LV, use LV — fluido comum pode atrasar a resposta do ABS em frenagens de emergência.",
+      "Ponto de ebulição seco vs úmido: 'seco' é o fluido novo; 'úmido' é após absorver ~3,7% de água. É por isso que fluido velho ferve e o pedal vai ao fundo em serra ou frenagem severa — mesmo com o nível aparentemente ok.",
+      "Higroscopicidade e troca: todos os fluidos à base de glicol absorvem umidade do ar. Troque a cada 2 anos ou conforme o manual, independentemente da quilometragem. Nunca reutilize fluido aberto há muito tempo e nunca complete com DOT diferente do especificado.",
+      "Regra de ouro: confira no manual ou na tampa do reservatório qual DOT é exigido. Em dúvida entre 3/4/5.1, use o especificado — não 'suba' de DOT por conta própria, pois pontos de ebulição maiores nem sempre compensam em sistema projetado para outro fluido."
     ]
   },
   {

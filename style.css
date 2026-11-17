@@ -1,0 +1,308 @@
+/* --- VARIÁVEIS DE CORES (TEMA CLARO COMO PADRÃO) --- */
+:root {
+  --bg-body: #f1f3f6;
+  --bg-card: #ffffff;
+  --border-card: #d0d7de;
+  --text-main: #1f2328;
+  --text-muted: #57606a;
+  --hover-bg: #f3f4f6;
+  --active-bg: #ebf0ff;
+  --active-text: #2563eb;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --scroll-thumb: #d0d7de;
+}
+
+/* --- VARIÁVEIS DO TEMA ESCURO --- */
+body.dark-theme {
+  --bg-body: #0e0e11;
+  --bg-card: #16171d;
+  --border-card: #262833;
+  --text-main: #f4f4f6;
+  --text-muted: #a1a5b7;
+  --hover-bg: #20222b;
+  --active-bg: #2b2e3d;
+  --active-text: #ffffff;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --scroll-thumb: #2e313d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+  padding: 16px;
+  gap: 24px;
+}
+
+/* --- CARD LATERAL FLUTUANTE --- */
+.sidebar-card {
+  position: relative;
+  width: 240px;
+  height: calc(100vh - 32px);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-card);
+}
+
+.sidebar-card.collapsed {
+  width: 74px;
+  padding: 20px 10px;
+}
+
+/* Botão Circular na Borda */
+.collapse-btn {
+  position: absolute;
+  top: 28px;
+  right: -13px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.3s ease, background-color 0.2s;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.collapse-btn:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+.sidebar-card.collapsed .collapse-btn {
+  transform: rotate(180deg);
+}
+
+/* Cabeçalho do Card */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 6px 18px 6px;
+  border-bottom: 1px solid var(--border-card);
+  margin-bottom: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-card.collapsed .brand-title {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Lista Rolável */
+.menu-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  min-height: 0; /* Essencial para o scroll funcionar corretamente no flexbox */
+}
+
+.menu-list::-webkit-scrollbar {
+  width: 4px;
+}
+.menu-list::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 4px;
+}
+
+/* Itens do Menu (Estilo Pílula) */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 50px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menu-item:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+}
+
+.menu-item.active {
+  background-color: var(--active-bg);
+  color: var(--active-text);
+  font-weight: 600;
+}
+
+.menu-item .icon {
+  width: 22px;
+  text-align: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.sidebar-card.collapsed .menu-item {
+  padding: 11px;
+  justify-content: center;
+}
+
+.sidebar-card.collapsed .menu-item .label {
+  display: none;
+}
+
+/* Rodapé com Botão de Tema */
+.sidebar-footer {
+  padding-top: 12px;
+  margin-top: 10px;
+  border-top: 1px solid var(--border-card);
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-card.collapsed .theme-btn {
+  padding: 11px;
+  justify-content: center;
+}
+
+.sidebar-card.collapsed .theme-btn .label {
+  display: none;
+}
+
+/* Área Principal */
+.main-content {
+  flex: 1;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* --- RESPONSIVIDADE MOBILE --- */
+.mobile-toggle {
+  display: none;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .layout-wrapper {
+    flex-direction: column;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-card);
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+  }
+
+  .collapse-btn {
+    display: none;
+  }
+
+  .sidebar-card {
+    position: fixed;
+    top: 12px;
+    left: -270px;
+    height: calc(100vh - 24px);
+    width: 250px !important;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar-card.mobile-open {
+    left: 12px;
+  }
+
+  .sidebar-card.collapsed .menu-item .label,
+  .sidebar-card.collapsed .brand-title,
+  .sidebar-card.collapsed .theme-btn .label {
+    display: inline;
+    opacity: 1;
+  }
+
+  .overlay.active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}

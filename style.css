@@ -2,6 +2,7 @@
 :root {
   --bg-body: #f1f3f6;
   --bg-card: #ffffff;
+  --bg-subcard: #f8fafc;
   --border-card: #d0d7de;
   --text-main: #1f2328;
   --text-muted: #57606a;
@@ -10,20 +11,27 @@
   --active-text: #2563eb;
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
   --scroll-thumb: #d0d7de;
+  --tag-bg: #eef2ff;
+  --tag-border: #c7d2fe;
+  --tag-text: #1e1b4b;
 }
 
 /* --- VARIÁVEIS DO TEMA ESCURO --- */
 body.dark-theme {
   --bg-body: #0e0e11;
   --bg-card: #16171d;
+  --bg-subcard: #1e2028;
   --border-card: #262833;
   --text-main: #f4f4f6;
   --text-muted: #a1a5b7;
   --hover-bg: #20222b;
   --active-bg: #2b2e3d;
-  --active-text: #ffffff;
-  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --active-text: #60a5fa;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.35);
   --scroll-thumb: #2e313d;
+  --tag-bg: #252836;
+  --tag-border: #3b4054;
+  --tag-text: #e2e8f0;
 }
 
 * {
@@ -49,7 +57,8 @@ body {
 
 /* --- CARD LATERAL FLUTUANTE --- */
 .sidebar-card {
-  position: relative;
+  position: sticky;
+  top: 16px;
   width: 240px;
   height: calc(100vh - 32px);
   background-color: var(--bg-card);
@@ -147,7 +156,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 4px;
-  min-height: 0; /* Essencial para o scroll funcionar corretamente no flexbox */
+  min-height: 0;
 }
 
 .menu-list::-webkit-scrollbar {
@@ -213,32 +222,234 @@ body {
   flex-shrink: 0;
 }
 
-.theme-btn {
-  background: transparent;
-  border: none;
-  width: 100%;
-  cursor: pointer;
-  text-align: left;
-}
-
-.sidebar-card.collapsed .theme-btn {
-  padding: 11px;
-  justify-content: center;
-}
-
-.sidebar-card.collapsed .theme-btn .label {
-  display: none;
-}
-
-/* Área Principal */
+/* --- ÁREA PRINCIPAL --- */
 .main-content {
   flex: 1;
   background-color: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 20px;
-  padding: 28px;
+  padding: 32px;
   box-shadow: var(--shadow-card);
   transition: background-color 0.25s ease, border-color 0.25s ease;
+  min-width: 0;
+}
+
+/* Breadcrumb / Botão Voltar */
+.breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.crumb-btn {
+  padding: 6px 14px;
+  background-color: var(--bg-subcard);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.crumb-btn:hover {
+  border-color: var(--active-text);
+  color: var(--active-text);
+}
+
+.crumb-atual {
+  padding: 6px 14px;
+  background-color: var(--active-bg);
+  color: var(--active-text);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Cabeçalhos de Seção */
+.secao-header {
+  margin-bottom: 24px;
+}
+
+.secao-header h1, .secao-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.secao-header p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Grid de Cards (Tópicos e Modelos) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.item-card {
+  background-color: var(--bg-subcard);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 22px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-card:hover {
+  border-color: var(--active-text);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.card-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--active-bg);
+  color: var(--active-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.item-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.item-card p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Leitura de Tópico (Pontos Técnicos) */
+.pontos-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.pontos-lista li {
+  background-color: var(--bg-subcard);
+  border: 1px solid var(--border-card);
+  border-left: 4px solid var(--active-text);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* Ficha Técnica do Veículo */
+.ficha-sistema {
+  background-color: var(--bg-subcard);
+  border: 1px solid var(--border-card);
+  border-left: 4px solid var(--active-text);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.ficha-sistema-titulo {
+  padding: 12px 16px;
+  background-color: var(--active-bg);
+  color: var(--active-text);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ficha-sistema-dados {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr;
+  padding: 14px 16px;
+  gap: 16px;
+}
+
+.ficha-dado dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.ficha-dado dd {
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.ficha-dado dd.destaque {
+  font-weight: 600;
+}
+
+/* Tabela de Filtros */
+.tabela-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.tabela-filtros {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.tabela-filtros th {
+  padding: 12px 14px;
+  background-color: var(--bg-subcard);
+  border-bottom: 1px solid var(--border-card);
+  color: var(--text-main);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tabela-filtros td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-card);
+  color: var(--text-main);
+}
+
+.tabela-filtros tr:last-child td {
+  border-bottom: none;
+}
+
+.filtro-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border: 1px solid var(--tag-border);
+  border-radius: 6px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
 }
 
 /* --- RESPONSIVIDADE MOBILE --- */
@@ -292,8 +503,7 @@ body {
   }
 
   .sidebar-card.collapsed .menu-item .label,
-  .sidebar-card.collapsed .brand-title,
-  .sidebar-card.collapsed .theme-btn .label {
+  .sidebar-card.collapsed .brand-title {
     display: inline;
     opacity: 1;
   }
@@ -305,56 +515,13 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
   }
-}
 
-.modelos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
+  .main-content {
+    padding: 20px;
+  }
 
-.modelo-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: 16px;
-  padding: 22px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: var(--shadow-card);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.modelo-card:hover {
-  border-color: var(--active-text);
-  transform: translateY(-2px);
-}
-
-.card-icon-wrapper {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background-color: var(--active-bg);
-  color: var(--active-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.modelo-card h3 {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text-main);
-  margin: 0;
-}
-
-.modelo-card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin: 0;
-  line-height: 1.4;
+  .ficha-sistema-dados {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }

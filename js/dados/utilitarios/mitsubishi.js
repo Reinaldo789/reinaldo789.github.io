@@ -58,7 +58,7 @@ export const utilitariosMitsubishi = {
     }
   },
 
-  'Nova Mitsubishi Triton 2.4 Bi-Turbo (Motor 4N16 - 2025 a 2026+)': {
+  'Mitsubishi Triton 2.4 Bi-Turbo (Motor 4N16 - 2025 a 2026+)': {
     usaArla32: false,
     sistemas: [
       { sistema: 'Motor (4N16 2.4 16V Bi-Turbo Diesel - 205 cv)', especificacao: 'SAE 5W-30 Sintético (Norma ACEA C4 / JASO DL-1) [1]', capacidade: '7,3 L a 8,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },

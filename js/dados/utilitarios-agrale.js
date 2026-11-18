@@ -1,5 +1,5 @@
 export const utilitariosAgrale = {
-  'Agrale Marruá AM50 / AM100 (MWM 2.8 Mecânico - 2004 a 2011)': {
+  'Agrale Marruá (MWM 2.8 Mecânico - Eletrônico)': {
     usaArla32: false,
     sistemas: [
       { sistema: 'Motor (MWM Sprint 2.8 12V Turbo - 132 cv) [3]', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
@@ -23,7 +23,7 @@ export const utilitariosAgrale = {
     }
   },
 
-  'Agrale Marruá AM200 / AM300 (Cabine Dupla / Carga - Euro 5)': {
+  'Agrale Marruá Cummins ISF 2.8 - Euro 5)': {
     usaArla32: false,
     sistemas: [
       { sistema: 'Motor (Cummins ISF 2.8 16V - 150 cv)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 (Low SAPS)', capacidade: '7,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },

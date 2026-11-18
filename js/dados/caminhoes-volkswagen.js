@@ -1,4 +1,22 @@
 export const caminhoesVW = {
+  'Volkswagen Worker (Motores MWM 6.10 TCA / Cummins 6BTAA - Bomba Injetora Mecânica 2000 a 2012)': {
+    usaArla32: false,
+    sistemas: [
+      { sistema: 'Motor (MWM 6.10 TCA 6.5L / Cummins 6BTAA 5.9L)', especificacao: 'SAE 15W-40 API CI-4 / CH-4 (Mineral ou Semissintético)', capacidade: 'MWM 6.10: 14,0 L | Cummins 6BTAA: 16,0 L (com filtro)', intervalo: '10.000 km' },
+      { sistema: 'Câmbio Manual (Eaton FS-5306 / ZF 6S)', especificacao: 'SAE 80W-90 API GL-4 / GL-5', capacidade: '6,0 L a 7,5 L', intervalo: '50.000 km' },
+      { sistema: 'Diferencial Traseiro (Meritor / Dana)', especificacao: 'SAE 85W-140 API GL-5', capacidade: '12,0 L a 15,0 L', intervalo: '50.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Corretivo / Orgânico (50/50)', capacidade: '22,0 L a 28,0 L', intervalo: '1 ano ou 40.000 km' }
+    ],
+    notas: {
+      1: "Veículos com sistema de injeção mecânica direta (bomba injetora em linha Bosch). Não utilizam ARLA 32. Atenção à drenagem diária do copo separador de água para proteger os elementos da bomba."
+    },
+    filtros: {
+      oleo: { original: '90520000030 / 2T0115561', tecfil: 'PSL339 (MWM) / PSL280 (Cummins)', authomix: 'FOL339', mann: 'W 962 (MWM) / W 940/25 (Cummins)', mahle: 'OC 60', wega: 'WO-200', fram: 'PH2801B', vox: 'PSL339' },
+      ar: { original: '2T0129620', tecfil: 'ARL8891', authomix: 'FAR8891', mann: 'C 24 650/1', mahle: 'LX 1560', wega: 'FAP-4030', fram: 'CA9920', vox: 'ARL8891' },
+      combustivel: { original: '2U0127177 / BF...', tecfil: 'PSC71 / PSD480', authomix: 'FCO0071', mann: 'WK 842/2', mahle: 'KC 18', wega: 'FCI-1620', fram: 'P926', vox: 'PSC71' },
+      cabine: { original: 'Não aplicável de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  }
   'Volkswagen Worker / Constellation (Motores Cummins ISB 3.9 / 6.7 - Euro III / Euro V)': {
     usaArla32: true,
     sistemas: [

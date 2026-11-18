@@ -233,6 +233,14 @@ body{transition:background-color .25s,color .25s}
 .hero .titulo-pagina{background:var(--titulo-bg)}
 .card:hover,.nav-ficha a:hover{border-color:var(--hover-borda)}
 :root[data-tema="escuro"] .card .ico{background:var(--tinta2)}
+.filtro-link{text-decoration:none;cursor:pointer;transition:border-color .15s,background-color .15s}
+.filtro-link:hover{border-color:var(--ambar);background:var(--aviso-bg)}
+.mais-n{margin-left:7px;padding:0 7px;border-radius:99px;background:var(--ambar);color:#11262F;font:600 .76rem "IBM Plex Sans",sans-serif}
+.lista-app{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.lista-app a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none}
+.lista-app a:hover{background:var(--papel);color:var(--ambar-txt)}
+.cartao-sis dd .filtro-tag{margin:0 4px 4px 0}
+.dica-busca{margin:10px 4px 0;color:var(--suave);font-size:.88rem}
 </style>
 </head>
 <body>
@@ -291,6 +299,7 @@ body{transition:background-color .25s,color .25s}
             <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Hilux, PSL619, correia dentada" aria-controls="resultados">
             <kbd aria-hidden="true">/</kbd>
           </label>
+          <p class="dica-busca">Digite o código de um filtro, de qualquer marca (ex.: PSL340), para ver todos os veículos que usam.</p>
           <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
           <div class="resultados" id="resultados" aria-live="polite" hidden></div>
         </div>
@@ -442,7 +451,9 @@ var TOPICOS = [
    UTILITÁRIOS
    ===================================================================== */
 function compacto(s){ return norm(s).replace(/[^a-z0-9]/g,""); }
-var ROTULO_FILTRO = { oleo:"Filtro de óleo", ar:"Filtro de ar", combustivel:"Filtro de combustível", cabine:"Filtro de cabine" };
+var ROTULO_FILTRO = { oleo:"Filtro de óleo", ar:"Filtro de ar", combustivel:"Filtro de combustível", cabine:"Filtro de cabine",
+  arSecundario:"Filtro de ar secundário", ar_secundario:"Filtro de ar secundário", sedimentador:"Sedimentador de combustível",
+  separador_agua:"Separador de água", preFiltroCombustivel:"Pré-filtro de combustível" };
 function norm(s){ return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
 function slug(s){ return norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
 function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
@@ -457,6 +468,25 @@ MONTADORAS.forEach(function(m){
     usados[id] = 1;
     var o = { marca:m.nome, modelo:v.modelo, id:id, dados:banco[v.chave] };
     VEICULOS.push(o); return o;
+  });
+});
+
+/* Aplicação dos filtros: veículos que usam o mesmo filtro (mesmo tipo + mesmo código Tecfil) */
+function codVazio(c){ return !c || c === "-" || /^n[aã]o possui/i.test(String(c).trim()); }
+var GRUPOS = {};
+VEICULOS.forEach(function(v){
+  var f = (v.dados || {}).filtros || {};
+  Object.keys(f).forEach(function(t){
+    var tec = f[t].tecfil;
+    if(codVazio(tec)) return;
+    var k = t+"|"+compacto(tec), g = GRUPOS[k] || (GRUPOS[k] = { tipo:t, cod:tec, veic:[], codigos:{} });
+    if(g.veic.indexOf(v) < 0) g.veic.push(v);
+    Object.keys(f[t]).forEach(function(m){
+      var c = f[t][m];
+      if(codVazio(c)) return;
+      var a = g.codigos[m] || (g.codigos[m] = []);
+      if(a.indexOf(c) < 0) a.push(c);
+    });
   });
 });
 
@@ -580,6 +610,15 @@ MONTADORAS.forEach(function(m){
   INDICE.push({ titulo:m.nome, tag:m.veiculos.length+" veículos", href:"#/veiculo/"+m.veiculos[0].id, texto:norm(m.nome), compacto:compacto(m.nome) });
 });
 
+Object.keys(GRUPOS).forEach(function(k){
+  var g = GRUPOS[k];
+  if(g.veic.length < 2) return;
+  var todos = [g.cod];
+  Object.keys(g.codigos).forEach(function(m){ todos = todos.concat(g.codigos[m]); });
+  var txt = norm(todos.join(" ")+" "+(ROTULO_FILTRO[g.tipo] || g.tipo));
+  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"Serve em "+g.veic.length+" veículos", href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt) });
+});
+
 function buscar(q){
   var termos = norm(q).split(/\s+/).filter(Boolean);
   if(!termos.length) return null;
@@ -645,6 +684,9 @@ function rota(){
   } else if(tipo === "veiculo"){
     var v = VEICULOS.filter(function(x){ return x.id === id; })[0];
     if(v){ det.innerHTML = paginaVeiculo(v); rotaAtiva = "veiculo/"+id; }
+  } else if(tipo === "filtro"){
+    var pf = id.split("/"), gf = GRUPOS[pf[0]+"|"+pf[1]];
+    if(gf){ det.innerHTML = paginaFiltro(gf); rotaAtiva = "filtro/"+id; }
   }
 
   var interna = rotaAtiva !== "inicio";
@@ -668,8 +710,30 @@ ICONES.bomba = '<path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M4 21h12M8 7h4M
 ICONES.carro = '<path d="M5 17v-5l2-5h10l2 5v5M5 17h14M5 17v2M19 17v2M8 13.5h.01M16 13.5h.01"/>';
 var CHAVE_ICONE = { oleo:"gota", ar:"vento", combustivel:"bomba", cabine:"carro" };
 function nomeFiltro(t){ var n = (ROTULO_FILTRO[t] || t).replace("Filtro de ",""); return n.charAt(0).toUpperCase()+n.slice(1); }
-var ORDEM_FILTROS = ["original","vox","tecfil","authomix","mann","mahle","wega","fram"];
+var ORDEM_FILTROS = ["original","tecfil","vox","authomix","mann","mahle","wega","fram"];
 var NOME_COLUNA = { original:"Original", vox:"Vox", tecfil:"Tecfil", authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram" };
+
+function paginaFiltro(g){
+  var rot = ROTULO_FILTRO[g.tipo] || g.tipo, n = g.veic.length;
+  var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(rot)+'</span><span>/</span><span>'+esc(g.cod)+'</span></nav>'+
+    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil · serve em '+n+(n === 1 ? ' veículo' : ' veículos')+'</p></header>';
+  var marcas = Object.keys(g.codigos).sort(function(a,b){
+    var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  });
+  h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
+    return '<div><dt>'+esc(NOME_COLUNA[m] || m)+'</dt><dd>'+g.codigos[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
+  }).join("")+'</dl></article></div>';
+  var por = {};
+  g.veic.forEach(function(v){ (por[v.marca] = por[v.marca] || []).push(v); });
+  h += '<h2 class="sec-filtros">Veículos que usam este filtro</h2><div class="grade-sis">'+Object.keys(por).sort(function(a,b){ return a.localeCompare(b,"pt-BR"); }).map(function(m){
+    return '<article class="cartao-sis"><h3>'+esc(m)+'</h3><ul class="lista-app">'+por[m].map(function(v){
+      return '<li><a href="#/veiculo/'+v.id+'">'+esc(v.modelo)+'</a></li>';
+    }).join("")+'</ul></article>';
+  }).join("")+'</div>';
+  h += '<p class="nota">Veja na ficha de cada veículo a especificação completa. Confirme sempre o código com o manual ou o catálogo do fabricante.</p>';
+  return h;
+}
 
 function paginaVeiculo(v){
   var d = v.dados || {}, k = VEICULOS.indexOf(v);
@@ -698,8 +762,12 @@ function paginaVeiculo(v){
       cols.map(function(c){ return '<th>'+esc(NOME_COLUNA[c] || c)+'</th>'; }).join("")+'</tr></thead><tbody>'+
       tipos.map(function(t){
         return '<tr><th scope="row" title="'+esc(nomeFiltro(t))+'"><span class="ico-filtro" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span class="sr">'+esc(nomeFiltro(t))+'</span></th>'+cols.map(function(c){
-          var cod = d.filtros[t][c];
-          return '<td>'+(cod && cod !== "-" ? '<span class="filtro-tag">'+esc(cod)+'</span>' : '<span class="sem">-</span>')+'</td>';
+          var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
+          if(c === "tecfil" && !codVazio(cod)){
+            var g = GRUPOS[t+"|"+compacto(cod)], n = g ? g.veic.length-1 : 0;
+            if(n > 0) tag = '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(cod)+'" title="Ver os veículos que usam este filtro" aria-label="'+esc(cod)+', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos')+'">'+esc(cod)+'<span class="mais-n">+'+n+'</span></a>';
+          }
+          return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
         }).join("")+'</tr>';
       }).join("")+'</tbody></table></div>';
   }

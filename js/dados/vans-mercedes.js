@@ -30,7 +30,7 @@ export const vansMercedes = {
       1: "Exige uso contínuo de ARLA 32 no sistema SCR e óleos de motor com tecnologia Low SAPS para evitar a saturação prévia do DPF e danos aos bicos injetores de alta pressão."
     },
     filtros: {
-      oleo: { original: 'A6511800109', tecfil: 'PEL110', authomix: 'FOL0110', mann: 'HU 718/5 x', mahle: 'OX 382D', wega: 'WOE-310', fram: 'CH11495', vox: 'PEL110' },
+      oleo: { original: 'A6511800109', tecfil: 'PEL676', authomix: 'FOL0676', mann: 'HU 7010 z', mahle: 'OX 1167 D', wega: 'WOE-455', fram: 'CH11277ECO', vox: 'LE676' },
       ar: { original: 'A0000902651', tecfil: 'ARL9005', authomix: 'FAR9005', mann: 'C 32 003', mahle: 'LX 2795', wega: 'FAP-9005', fram: 'CA11130', vox: 'FAR9005' },
       combustivel: { original: 'A6510901652', tecfil: 'PSD990', authomix: 'FCO0990', mann: 'PU 7009 z', mahle: 'KX 380D', wega: 'FCI-1650', fram: 'PS11700', vox: 'PSD990' },
       cabine: { original: 'A9068300318', tecfil: 'ACP901', authomix: 'FCA0901', mann: 'CU 28 003', mahle: 'LA 306', wega: 'AKX-1450', fram: 'CF10729', vox: 'FCA0901' }
@@ -49,7 +49,7 @@ export const vansMercedes = {
       1: "Motorização de alta eficiência com bloco em alumínio. Obrigatoriedade absoluta de fluidos com homologação MB atualizada para preservação do sistema de pós-tratamento de gases."
     },
     filtros: {
-      oleo: { original: 'A6541801100', tecfil: 'PEL119', authomix: 'FOL0119', mann: 'HU 6014 z', mahle: 'OX 1143D', wega: 'WOE-520', fram: 'CH12311', vox: 'PEL119' },
+      oleo: { original: 'A6541801100', tecfil: 'PEL654', authomix: 'FOL0654', mann: 'HU 6014 z', mahle: 'OX 1143D', wega: 'WOE-520', fram: 'CH12311', vox: 'LE654' },
       ar: { original: 'A9100940000', tecfil: 'ARL9020', authomix: 'FAR9020', mann: 'C 27 036', mahle: 'LX 4520', wega: 'FAP-9020', fram: 'CA12400', vox: 'ARL9020' },
       combustivel: { original: 'A6540920000', tecfil: 'PSD995', authomix: 'FCO0995', mann: 'PU 6011 z', mahle: 'KX 570D', wega: 'FCI-1655', fram: 'PS12300', vox: 'PSD995' },
       cabine: { original: 'A9108300100', tecfil: 'ACP905', authomix: 'FCA0905', mann: 'FP 28 003', mahle: 'LAK 306', wega: 'AKX-1455', fram: 'CF11780', vox: 'ACP905' }
@@ -68,8 +68,8 @@ export const vansMercedes = {
       1: "Emprega motorização OM 924 LA de 4 cilindros com injeção eletrônica PLD. Realizar a purga e sangria do sistema de combustível sempre após a substituição dos elementos filtrantes."
     },
     filtros: {
-      oleo: { original: 'A0001802609', tecfil: 'PSL900', authomix: 'FOL0900', mann: 'W 11 102/2', mahle: 'OC 396', wega: 'WO-210', fram: 'PH9333', vox: 'PSL900' },
-      ar: { original: 'A0040943504 / A0030942504', tecfil: 'ARL9015', authomix: 'FAR9015', mann: 'C 30 850/2', mahle: 'LX 1680', wega: 'FAP-5015', fram: 'CA10291', vox: 'ARL9015' },
+      oleo: { original: 'A0001802609', tecfil: 'PEL2003', authomix: 'FOL2003', mann: 'HU 945/2 x', mahle: 'OX 174D', wega: 'WOE-440', fram: 'CH9389ECO', vox: 'LE2003' },
+      ar: { original: 'A0040943504 / A0030942504', tecfil: 'ARL9015', authomix: 'FAR9015', mann: 'C 30 850/2', mahle: 'LX 1680', wega: 'FAP-5015', fram: 'CA10291', vox: 'FAR9015' },
       combustivel: { original: 'A0000903651', tecfil: 'PSD990', authomix: 'FCO0990', mann: 'WK 1060/3x', mahle: 'KC 100', wega: 'FCI-1650', fram: 'PS11700', vox: 'PSD990' },
       cabine: { original: 'A9738350047', tecfil: 'ACP300', authomix: 'FCA0300', mann: 'CU 28 82', mahle: 'LA 200', wega: 'AKX-1120', fram: 'CF1100', vox: 'ACP300' }
     }

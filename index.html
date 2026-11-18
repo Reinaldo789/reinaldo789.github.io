@@ -236,6 +236,7 @@ body{transition:background-color .25s,color .25s}
 .filtro-link{text-decoration:none;cursor:pointer;transition:border-color .15s,background-color .15s}
 .filtro-link:hover{border-color:var(--ambar);background:var(--aviso-bg)}
 .mais-n{margin-left:7px;padding:0 7px;border-radius:99px;background:var(--ambar);color:#11262F;font:600 .76rem "IBM Plex Sans",sans-serif}
+.mais-n.info{padding:0 8px;font-family:Georgia,serif;font-style:italic}
 .lista-app{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .lista-app a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none}
 .lista-app a:hover{background:var(--papel);color:var(--ambar-txt)}
@@ -626,13 +627,13 @@ MONTADORAS.forEach(function(m){
 
 Object.keys(GRUPOS).forEach(function(k){
   var g = GRUPOS[k];
-  if(g.veic.length < 2) return;
+  if(g.veic.length < 2 && !CATALOGO[compacto(g.cod)]) return;
   var todos = [g.cod];
   Object.keys(g.codigos).forEach(function(m){ todos = todos.concat(g.codigos[m]); });
   var cc = CATALOGO[compacto(g.cod)];
   if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ todos = todos.concat(cc.conversoes[m]); });
   var txt = norm(todos.join(" ")+" "+(ROTULO_FILTRO[g.tipo] || g.tipo));
-  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"Serve em "+g.veic.length+" veículos", href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt) });
+  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt) });
 });
 
 function buscar(q){
@@ -808,8 +809,8 @@ function paginaVeiculo(v){
         return '<tr><th scope="row" title="'+esc(nomeFiltro(t))+'"><span class="ico-filtro" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span class="sr">'+esc(nomeFiltro(t))+'</span></th>'+cols.map(function(c){
           var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
           if(c === "tecfil" && !codVazio(cod)){
-            var g = GRUPOS[t+"|"+compacto(cod)], n = g ? g.veic.length-1 : 0;
-            if(n > 0) tag = '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(cod)+'" title="Ver os veículos que usam este filtro" aria-label="'+esc(cod)+', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos')+'">'+esc(cod)+'<span class="mais-n">+'+n+'</span></a>';
+            var g = GRUPOS[t+"|"+compacto(cod)], n = g ? g.veic.length-1 : 0, temCat = !!CATALOGO[compacto(cod)];
+            if(n > 0 || temCat) tag = '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver especificações')+'">'+esc(cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>';
           }
           return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
         }).join("")+'</tr>';

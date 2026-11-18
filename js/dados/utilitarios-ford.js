@@ -80,7 +80,7 @@ export const utilitariosFord = {
     }
   },
 
-  'Nova Ford Ranger 2.0 EcoBlue / 3.0 V6 Lion (2024 a 2026)': {
+  'Ford Ranger 2.0 EcoBlue / 3.0 V6 Lion (2024 a 2026)': {
     usaArla32: true,
     sistemas: [
       { sistema: 'Motor (2.0 Turbo 170cv / 3.0 V6 250cv)', especificacao: '2.0: SAE 0W-30 (WSS-M2C950-A) | 3.0 V6: SAE 5W-30 (WSS-M2C913-D / ACEA C2/C3) [1]', capacidade: '2.0: 7,5 L | 3.0 V6: 9,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },

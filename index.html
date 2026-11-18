@@ -769,17 +769,6 @@ function paginaFiltro(g){
     }
     if(cat.url) h += '<p><a class="botao-cat" href="'+esc(cat.url)+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
   }
-  /* Com a lista de aplicações do catálogo, não repete os veículos do guia. */
-  if(!(cat && cat.aplicacoes)){
-    var por = {};
-    g.veic.forEach(function(v){ (por[v.marca] = por[v.marca] || []).push(v); });
-    h += '<h2 class="sec-filtros">Veículos que usam este filtro</h2><div class="grade-sis">'+Object.keys(por).sort(function(a,b){ return a.localeCompare(b,"pt-BR"); }).map(function(m){
-      return '<article class="cartao-sis"><h3>'+esc(m)+'</h3><ul class="lista-app">'+por[m].map(function(v){
-        return '<li><a href="#/veiculo/'+v.id+'">'+esc(v.modelo)+'</a></li>';
-      }).join("")+'</ul></article>';
-    }).join("")+'</div>';
-    h += '<p class="nota">Veja na ficha de cada veículo a especificação completa. Confirme sempre o código com o manual ou o catálogo do fabricante.</p>';
-  }
   return h;
 }
 

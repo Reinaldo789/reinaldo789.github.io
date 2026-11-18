@@ -16,7 +16,7 @@ export const caminhoesVW = {
       combustivel: { original: '2U0127177 / BF...', tecfil: 'PSC71 / PSD480', authomix: 'FCO0071', mann: 'WK 842/2', mahle: 'KC 18', wega: 'FCI-1620', fram: 'P926', vox: 'PSC71' },
       cabine: { original: 'Não aplicável de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
     }
-  }
+  },
   'Volkswagen Worker / Constellation (Motores Cummins ISB 3.9 / 6.7 - Euro III / Euro V)': {
     usaArla32: true,
     sistemas: [

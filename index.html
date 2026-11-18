@@ -757,8 +757,8 @@ function paginaFiltro(g){
       return '<div><dt>'+esc(m)+'</dt><dd>'+cv[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
     }).join("")+'</dl></article></div></details>';
     if(cat.aplicacoes){
-      var ma = Object.keys(cat.aplicacoes), tot = ma.reduce(function(a,m){ return a+cat.aplicacoes[m].length; }, 0);
-      h += '<h2 class="sec-filtros">Aplicações no catálogo Tecfil</h2><p class="nota">'+tot+' aplicações listadas. Nem todas fazem parte do guia.</p><div class="rolagem"><table class="tabela-app"><thead><tr><th>Veículo</th><th>Motor</th><th>Ano</th></tr></thead><tbody>'+
+      var ma = Object.keys(cat.aplicacoes);
+      h += '<h2 class="sec-filtros">Aplicações no catálogo Tecfil</h2><div class="rolagem"><table class="tabela-app"><thead><tr><th>Veículo</th><th>Motor</th><th>Ano</th></tr></thead><tbody>'+
         ma.map(function(m){
           return '<tr class="linha-marca"><th colspan="3">'+esc(m)+'</th></tr>'+cat.aplicacoes[m].map(function(a){
             return '<tr><td>'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>';

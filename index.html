@@ -329,15 +329,29 @@ body{transition:background-color .25s,color .25s}
    As montadoras do menu são montadas a partir do nome de cada veículo.
    ===================================================================== */
 var ARQUIVOS = [
-  ["passeio.js","veiculosPasseio"], ["utilitarios.js","veiculosUtilitarios"],
-  ["caminhoes.js","veiculosCaminhoes"], ["vans.js","veiculosVans"]
+  "caminhoes-daf.js","caminhoes-ford.js","caminhoes-iveco.js","caminhoes-mercedes.js",
+  "caminhoes-scania.js","caminhoes-volkswagen.js","caminhoes-volvo.js",
+  "passeio-chevrolet.js","passeio-fiat.js","passeio-ford.js","passeio-outras-marcas.js","passeio-volkswagen.js",
+  "utilitarios-agrale.js","utilitarios-chevrolet.js","utilitarios-ford.js","utilitarios-mitsubishi.js","utilitarios-toyota.js",
+  "vans-fiat.js","vans-ford.js","vans-iveco.js","vans-mercedes.js","vans-psa.js","vans-renault.js","vans-volkswagen-agrale.js"
 ];
 var banco = {}, falhas = [];
-var res = await Promise.allSettled(ARQUIVOS.map(function(a){ return import("./js/dados/"+a[0]+"?v="+Date.now()); }));
+var res = await Promise.allSettled(ARQUIVOS.map(function(a){ return import("./js/dados/"+a+"?v="+Date.now()); }));
+/* Junta qualquer objeto exportado por cada arquivo: o nome do export não importa. */
 res.forEach(function(r,i){
   var a = ARQUIVOS[i];
-  if(r.status === "fulfilled" && r.value[a[1]]) Object.assign(banco, r.value[a[1]]);
-  else { falhas.push(a[0]+": "+(r.status === "fulfilled" ? "não exporta "+a[1] : r.reason.message)); console.error(a[0], r); }
+  if(r.status !== "fulfilled"){ falhas.push(a+": "+r.reason.message); console.error(a, r.reason); return; }
+  var achou = false;
+  Object.keys(r.value).forEach(function(nome){
+    var obj = r.value[nome];
+    if(!obj || typeof obj !== "object" || Array.isArray(obj)) return;
+    achou = true;
+    Object.keys(obj).forEach(function(chave){
+      if(banco[chave]) console.warn("Veículo repetido (vale o último):", chave, "em", a);
+      banco[chave] = obj[chave];
+    });
+  });
+  if(!achou) falhas.push(a+": não exporta nenhum objeto de veículos");
 });
 var erroDados = falhas.length > 0;
 

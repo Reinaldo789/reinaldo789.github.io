@@ -1,8 +1,8 @@
 export const utilitariosAgrale = {
-  'Agrale Marruá (MWM 2.8 Mecânico - Eletrônico)': {
+  'Agrale Marruá AM50 / AM100 / AM150 / AM200 / AM1 / AM2 / AM10 / AM20 (MWM Sprint 4.07 TCA 2.8 Mecânico - Euro II)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (MWM Sprint 2.8 12V Turbo - 132 cv) [3]', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
+      { sistema: 'Motor (MWM Sprint 4.07 TCA 2.8 12V Turbo Mecânico - 132 cv) [3]', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
       { sistema: 'Câmbio Manual (Eaton FSO-2405)', especificacao: 'ATF Dexron III / Mercon [1]', capacidade: '2,6 L', intervalo: '60.000 km' },
       { sistema: 'Caixa de Transferência (BorgWarner 1354)', especificacao: 'ATF Dexron III / Mercon', capacidade: '1,2 L', intervalo: '60.000 km' },
       { sistema: 'Eixos Rígidos Dana (Dianteiro / Traseiro)', especificacao: 'SAE 85W-140 API GL-5 (com aditivo LSD se equipado com bloc. traseiro) [2]', capacidade: 'Tras: 2,6 L | Diant: 1,7 L', intervalo: '40.000 km' },
@@ -23,11 +23,35 @@ export const utilitariosAgrale = {
     }
   },
 
-  'Agrale Marruá Cummins ISF 2.8 - Euro 5)': {
+  'Agrale Marruá G1 / AM11 / AM20 / AM21 / AM23 (MWM Sprint 4.07 TCE 2.8 Eletrônico - Euro III)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (Cummins ISF 2.8 16V - 150 cv)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 (Low SAPS)', capacidade: '7,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
-      { sistema: 'Câmbio Manual (Eaton FSO-4505)', especificacao: 'SAE 75W-90 API GL-4 [1]', capacidade: '3,2 L', intervalo: '60.000 km' },
+      { sistema: 'Motor (MWM Sprint 4.07 TCE 2.8 12V Turbo Eletrônico - 140 cv) [3]', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
+      { sistema: 'Câmbio Manual (Eaton FSO-2405)', especificacao: 'ATF Dexron III / Mercon [1]', capacidade: '2,6 L', intervalo: '60.000 km' },
+      { sistema: 'Caixa de Transferência (BorgWarner 1354)', especificacao: 'ATF Dexron III / Mercon', capacidade: '1,2 L', intervalo: '60.000 km' },
+      { sistema: 'Eixos Rígidos Dana (Dianteiro / Traseiro)', especificacao: 'SAE 85W-140 API GL-5 (com aditivo LSD se equipado com bloc. traseiro) [2]', capacidade: 'Tras: 2,6 L | Diant: 1,7 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '11,0 L', intervalo: '2 anos' }
+    ],
+    notas: {
+      1: "Atenção ao câmbio Eaton FSO-2405: siga rigorosamente a recomendação do fabricante quanto ao uso de ATF Dexron III nesta caixa específica para garantir o funcionamento correto dos sincronizadores.",
+      2: "Eixos rígidos Dana. Caso o diferencial traseiro possua sistema de deslizamento limitado (LSD / Trac-Lok), utilize óleo GL-5 compatível com LSD ou adicione o aditivo modificador de atrito para evitar ruídos e desgaste prematuro.",
+      3: "Motorização MWM Sprint 4.07 TCE eletrônica (Euro III) aplicada nas versões finais da G1 e modelos militares (AM11, AM20, AM21, AM23). Confirme sempre a rosca do sensor de água no filtro de combustível antes da compra."
+    },
+    filtros: {
+      oleo: { original: '6008001204004', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },
+      ar: { original: '6015001014002', tecfil: 'ARS8234', authomix: 'FAR8234', mann: 'C 18 450/1', mahle: 'LX 2532', wega: 'WR-200/8', fram: 'CA10221', vox: 'HD8234' },
+      arSecundario: { original: '6015001015009', tecfil: 'ASR234', authomix: 'FAS0234', mann: 'CF 1150', mahle: 'LXS 370', wega: 'WR-200/8S', fram: '-', vox: 'HDS234' },
+      combustivel: { original: '905411510035', tecfil: 'PSC498/4', authomix: 'FCO4984', mann: 'WK 940/35', mahle: 'KL 747', wega: 'FCD-2066/1', fram: 'P4836A', vox: 'FBD498/4' },
+      sedimentador: { original: '905411510019', tecfil: 'PSD450/1', authomix: 'FSE4501', mann: 'WK 1030', mahle: 'KC 121/1', wega: 'FCD-2212', fram: 'PS9029', vox: 'FBS450/1' },
+      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+    }
+  },
+
+  'Agrale Marruá AM100 G2 / AM150 G2 / AM200 G2 / AM300 G2 / AM21 / AM23 / AM31 (Cummins ISF 2.8 - Euro V / Euro III Militar)': {
+    usaArla32: false,
+    sistemas: [
+      { sistema: 'Motor (Cummins ISF 2.8 16V Eletrônico - 150 cv)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 (Low SAPS)', capacidade: '7,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Câmbio Manual (Eaton FSO-4505 - 5 marchas)', especificacao: 'SAE 75W-90 API GL-4 [1]', capacidade: '3,2 L', intervalo: '60.000 km' },
       { sistema: 'Caixa de Transferência (BorgWarner)', especificacao: 'ATF Dexron III', capacidade: '1,2 L', intervalo: '60.000 km' },
       { sistema: 'Eixos Rígidos Dana (Diant. / Tras. com Bloqueio)', especificacao: 'SAE 85W-140 API GL-5 [2]', capacidade: 'Tras: 2,8 L | Diant: 1,8 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '12,5 L', intervalo: '2 anos' }
@@ -46,25 +70,26 @@ export const utilitariosAgrale = {
     }
   },
 
-  'Agrale Marruá AM23 / AM31 (Evolução Moderna / Tático)': {
-    usaArla32: false,
+  'Agrale Marruá AM250 / AM200 MO / Escolar ORE Zero (Cummins F3.8 - Euro VI / Proconve P8)': {
+    usaArla32: true,
     sistemas: [
-      { sistema: 'Motor (Cummins ISF 2.8 Eletrônico - Euro 5)', especificacao: 'SAE 15W-40 API CI-4 / CJ-4 (Low SAPS)', capacidade: '7,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
-      { sistema: 'Câmbio Manual (Eaton FSO-4505 - 5 marchas)', especificacao: 'SAE 75W-90 API GL-4 [1]', capacidade: '3,2 L', intervalo: '60.000 km' },
-      { sistema: 'Caixa de Transferência', especificacao: 'ATF Dexron III', capacidade: '1,2 L', intervalo: '60.000 km' },
-      { sistema: 'Eixos Rígidos Reforçados Dana', especificacao: 'SAE 85W-140 API GL-5 [2]', capacidade: 'Tras: 2,8 L | Diant: 1,8 L', intervalo: '40.000 km' },
-      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '12,5 L', intervalo: '2 anos' }
+      { sistema: 'Motor (Cummins F3.8 16V Turbo Eletrônico - Euro VI / P8) [3]', especificacao: 'SAE 15W-40 ou 10W-40 Sintético/Semissintético API CK-4 / ACEA E9 (Low SAPS)', capacidade: '11,0 L a 13,0 L (com filtro - confirmar vareta)', intervalo: '15.000 km (Normal) / 7.500 km (Severo)' },
+      { sistema: 'Câmbio Manual (Eaton FSO-4505 / FS-5406)', especificacao: 'SAE 75W-90 ou SAE 40/50 Sintético API GL-4 (Eaton PS-386) [1]', capacidade: '3,2 L a 4,5 L', intervalo: '60.000 km' },
+      { sistema: 'Caixa de Transferência (BorgWarner / Agrale)', especificacao: 'ATF Dexron III / Mercon', capacidade: '1,2 L a 1,8 L', intervalo: '60.000 km' },
+      { sistema: 'Eixos Rígidos Reforçados Dana (Diant. / Tras.)', especificacao: 'SAE 85W-140 API GL-5 [2]', capacidade: 'Tras: 2,8 L a 3,4 L | Diant: 1,8 L', intervalo: '40.000 km' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life OAT (50/50)', capacidade: '14,0 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Utilizar estritamente lubrificante **API GL-4** na transmissão manual para preservar os componentes internos e garantir engates macios.",
-      2: "Eixos Dana com tratamento para uso severo e opcional de bloqueio eletrônico no eixo dianteiro. Nos diferenciais, empregar óleo **API GL-5** de alta performance para cargas severas."
+      1: "Utilizar estritamente lubrificante **API GL-4** (ou fluido homologado Eaton PS-386 conforme plaqueta da caixa) para preservar os sincronizadores de latão/bronze.",
+      2: "Eixos Dana reforçados para aplicações severas (AM250 CS/CD, AM200 Micro-ônibus / Escolar ORE Zero e versões militares atuais). Utilizar óleo **API GL-5**.",
+      3: "Motorização Cummins F3.8 Proconve P8 (Euro VI) equipada com sistema de pós-tratamento SCR (exige uso contínuo de **Arla 32**) e filtro de partículas (DPF), tornando obrigatório o óleo de baixo teor de cinzas (**API CK-4 / ACEA E9**). Confirme os códigos exatos dos filtros pelo número de série do motor Cummins, pois podem variar conforme a configuração de chassi."
     },
     filtros: {
-      oleo: { original: '5266731', tecfil: 'PSL356', authomix: 'FOL0356', mann: 'W 1035', mahle: 'OC 1794', wega: 'WOP-1002', fram: 'PH12437', vox: 'LB356' },
+      oleo: { original: '5266731 / 4897898', tecfil: 'PSL356 / PSL283', authomix: 'FOL0356 / FOL0283', mann: 'W 1035 / W 950/26', mahle: 'OC 1794 / OC 505', wega: 'WOP-1002 / WO-612', fram: 'PH12437', vox: 'LB356 / LB283' },
       ar: { original: '6015001014002', tecfil: 'ARS8234', authomix: 'FAR8234', mann: 'C 18 450/1', mahle: 'LX 2532', wega: 'WR-200/8', fram: 'CA10221', vox: 'HD8234' },
       arSecundario: { original: '6015001015009', tecfil: 'ASR234', authomix: 'FAS0234', mann: 'CF 1150', mahle: 'LXS 370', wega: 'WR-200/8S', fram: '-', vox: 'HDS234' },
-      combustivel: { original: '5262311', tecfil: 'PSC706', authomix: 'FCO0706', mann: 'WK 10002/1', mahle: 'KC 511D', wega: 'FCD-4000', fram: 'P11474', vox: 'FBD706' },
-      sedimentador: { original: '5264870', tecfil: 'PSD925', authomix: '-', mann: 'WK 9046', mahle: 'KC 624D', wega: 'FCD-0960', fram: 'P11036', vox: '-' },
+      combustivel: { original: '5262311 / 5303743', tecfil: 'PSC706', authomix: 'FCO0706', mann: 'WK 10002/1', mahle: 'KC 511D', wega: 'FCD-4000', fram: 'P11474', vox: 'FBD706' },
+      sedimentador: { original: '5264870 / 5304214', tecfil: 'PSD925', authomix: '-', mann: 'WK 9046', mahle: 'KC 624D', wega: 'FCD-0960', fram: 'P11036', vox: '-' },
       cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
     }
   }

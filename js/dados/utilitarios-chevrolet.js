@@ -13,7 +13,7 @@ export const utilitariosChevrolet = {
       2: "Diferencial traseiro Dana 44. Versões 4x4 topo de linha costumavam vir com sistema de deslizamento limitado (Positracker / LSD), exigindo óleo GL-5 compatível com LSD."
     },
     filtros: {
-      oleo: { original: '93297151', tecfil: 'PSL902', authomix: 'FOL0902', mann: 'W 923/1', mahle: 'OC 142', wega: 'WO-320', fram: 'PH2856', vox: 'LB902' },
+      oleo: { original: '93342367', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },
       ar: { original: '93308332', tecfil: 'ARS7101', authomix: 'FAR7101', mann: 'C 16 140', mahle: 'LX 1621', wega: 'JFA-0318', fram: 'CA9387', vox: 'HD7101' },
       combustivel: { original: '93316104', tecfil: 'PSC494', authomix: 'FCO0494', mann: 'WK 842/19', mahle: 'KL 761', wega: 'FCD-2065', fram: 'PS9448', vox: 'FBS494' },
       cabine: { original: 'Não aplicável nesta geração', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }

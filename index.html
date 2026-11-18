@@ -237,6 +237,8 @@ body{transition:background-color .25s,color .25s}
 .filtro-link:hover{border-color:var(--ambar);background:var(--aviso-bg)}
 .mais-n{margin-left:7px;padding:0 7px;border-radius:99px;background:var(--ambar);color:#11262F;font:600 .76rem "IBM Plex Sans",sans-serif}
 .mais-n.info{padding:0 8px;font-family:Georgia,serif;font-style:italic}
+.busca-cat{margin:10px 4px 0;font-size:.9rem}
+.busca-cat a{color:var(--ambar-txt);font-weight:600}
 .lista-app{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .lista-app a{display:block;padding:8px 10px;border-radius:8px;text-decoration:none}
 .lista-app a:hover{background:var(--papel);color:var(--ambar-txt)}
@@ -308,7 +310,7 @@ body{transition:background-color .25s,color .25s}
             <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Hilux, PSL619, correia dentada" aria-controls="resultados">
             <kbd aria-hidden="true">/</kbd>
           </label>
-          <p class="dica-busca">Digite o código de um filtro, de qualquer marca (ex.: PSL340), para ver todos os veículos que usam.</p>
+          <p class="dica-busca">Digite o código de um filtro, de qualquer marca (ex.: PSL340), para ver as especificações e as aplicações do filtro.</p>
           <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
           <div class="resultados" id="resultados" aria-live="polite" hidden></div>
         </div>
@@ -627,7 +629,6 @@ MONTADORAS.forEach(function(m){
 
 Object.keys(GRUPOS).forEach(function(k){
   var g = GRUPOS[k];
-  if(g.veic.length < 2 && !CATALOGO[compacto(g.cod)]) return;
   var todos = [g.cod];
   Object.keys(g.codigos).forEach(function(m){ todos = todos.concat(g.codigos[m]); });
   var cc = CATALOGO[compacto(g.cod)];
@@ -661,13 +662,14 @@ function mostrarResultados(){
   var q = $("busca").value, box = $("resultados"), lista = buscar(q);
   if(lista === null){ box.hidden = true; box.innerHTML = ""; return; }
   box.hidden = false;
+  var ext = /\d/.test(q) ? '<p class="busca-cat"><a href="'+esc(urlCatalogo(q.trim()))+'" target="_blank" rel="noopener">Procurar “'+esc(q.trim())+'” no catálogo Tecfil ↗</a></p>' : "";
   if(!lista.length){
-    box.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> Tente só o modelo (ex.: Strada), um código de filtro ou um assunto (ex.: pneu, bateria).</p>';
+    box.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> Tente só o modelo (ex.: Strada), um código de filtro ou um assunto (ex.: pneu, bateria).</p>'+ext;
     return;
   }
   box.innerHTML = '<ul>'+lista.map(function(i){
     return '<li><a href="'+i.href+'"><span class="t">'+esc(i.titulo)+'</span><span class="tag">'+esc(i.tag)+'</span></a></li>';
-  }).join("")+'</ul>';
+  }).join("")+'</ul>'+ext;
 }
 $("busca").addEventListener("input", mostrarResultados);
 $("busca").addEventListener("keydown", function(e){
@@ -730,6 +732,11 @@ function nomeFiltro(t){ var n = (ROTULO_FILTRO[t] || t).replace("Filtro de ","")
 var ORDEM_FILTROS = ["original","tecfil","vox","authomix","mann","mahle","wega","fram"];
 var NOME_COLUNA = { original:"Original", vox:"Vox", tecfil:"Tecfil", authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram" };
 
+function urlCatalogo(cod){
+  var m = String(cod).match(/[A-Za-z]+\d+[\w\/.\-]*/);
+  return "https://catalogo.tecfil.com.br/search/"+encodeURIComponent(m ? m[0] : String(cod).trim());
+}
+
 function paginaFiltro(g){
   var rot = ROTULO_FILTRO[g.tipo] || g.tipo, n = g.veic.length;
   var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(rot)+'</span><span>/</span><span>'+esc(g.cod)+'</span></nav>'+
@@ -767,7 +774,9 @@ function paginaFiltro(g){
     } else if(cat.url){
       h += '<p class="nota">A lista completa de aplicações está no catálogo da Tecfil.</p>';
     }
-    if(cat.url) h += '<p><a class="botao-cat" href="'+esc(cat.url)+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
+    h += '<p><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
+  } else {
+    h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
   }
   return h;
 }
@@ -802,7 +811,7 @@ function paginaVeiculo(v){
           var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
           if(c === "tecfil" && !codVazio(cod)){
             var g = GRUPOS[t+"|"+compacto(cod)], n = g ? g.veic.length-1 : 0, temCat = !!CATALOGO[compacto(cod)];
-            if(n > 0 || temCat) tag = '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver especificações')+'">'+esc(cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>';
+            if(g) tag = '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>';
           }
           return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
         }).join("")+'</tr>';

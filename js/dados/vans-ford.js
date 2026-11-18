@@ -38,7 +38,7 @@ export const vansFord = {
     }
   },
 
-  'Nova Ford Transit 2.0 EcoBlue (Proconve L7/L8 - 2022 a 2026)': {
+  'Ford Transit 2.0 EcoBlue (Proconve L7/L8 - 2022 a 2026)': {
     usaArla32: true,
     sistemas: [
       { sistema: 'Motor (2.0 EcoBlue Turbo - 165/170 cv)', especificacao: 'SAE 0W-30 Sintético Low SAPS (Ford WSS-M2C950-A) [1]', capacidade: '12,0 L (com filtro)', intervalo: '20.000 km (Normal) / 10.000 km (Severo)' },

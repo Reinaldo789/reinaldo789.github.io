@@ -13,9 +13,9 @@ export const utilitariosChevrolet = {
       2: "Diferencial traseiro Dana 44. Versões 4x4 topo de linha costumavam vir com sistema de deslizamento limitado (Positracker / LSD), exigindo óleo GL-5 compatível com LSD."
     },
     filtros: {
-      oleo: { original: '93342367', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },
-      ar: { original: '93308332', tecfil: 'ARS7101', authomix: 'FAR7101', mann: 'C 16 140', mahle: 'LX 1621', wega: 'JFA-0318', fram: 'CA9387', vox: 'HD7101' },
-      combustivel: { original: '93316104', tecfil: 'PSC494', authomix: 'FCO0494', mann: 'WK 842/19', mahle: 'KL 761', wega: 'FCD-2065', fram: 'PS9448', vox: 'FBS494' },
+      oleo: { original: '905411880018 / 93342367', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },
+      ar: { original: '93276069', tecfil: 'ARS2868', authomix: 'FAR2868', mann: 'C 14 200', mahle: 'LX 960', wega: 'WR-200/3', fram: 'CA5961PU', vox: 'HD2868' },
+      combustivel: { original: '905411510035', tecfil: 'PSC498 (Mec) / PSC498/4 (Elet)', authomix: 'FCO0498', mann: 'WK 940/35', mahle: 'TB 1208', wega: 'FCD-2066/1', fram: 'P10688RV', vox: 'FBD4984' },
       cabine: { original: 'Não aplicável nesta geração', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
     }
   },
@@ -32,10 +32,10 @@ export const utilitariosChevrolet = {
       1: "Início da 2ª Geração global (projeto Colorado/S10). Motor Duramax 2.8 com 180 cv. Exige óleo sintético homologado GM dexos2 ou ACEA C3 para proteção de emissões."
     },
     filtros: {
-      oleo: { original: '94748028', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'HU 6007 x', mahle: 'OX 385D', wega: 'WOE-610', fram: 'CH11086', vox: 'LE158' },
-      ar: { original: '52046261', tecfil: 'ARS9955', authomix: 'FAR9955', mann: 'C 27 035', mahle: 'LX 3045', wega: 'JFA-0052', fram: 'CA11235', vox: 'HD9955' },
-      combustivel: { original: '52046262', tecfil: 'PSC715', authomix: 'FCO0715', mann: 'PU 823 x', mahle: 'KX 388D', wega: 'FCD-0761', fram: 'C11330', vox: 'CE715' },
-      cabine: { original: '52046263', tecfil: 'ACP922', authomix: 'FCA0922', mann: 'CUK 24 005', mahle: 'LAK 824', wega: 'AKX-3511', fram: 'CF11236', vox: 'FAC922' }
+      oleo: { original: '12636838', tecfil: 'PEL726', authomix: 'FOL0726', mann: 'HU 6007 x', mahle: 'OX 1016D', wega: 'WOE-314', fram: 'CH11724', vox: 'LE726' },
+      ar: { original: '94771925', tecfil: 'ARS2870', authomix: 'FAR2870', mann: 'C 16 010/1', mahle: 'LX 3679', wega: 'WR-295', fram: 'CA11077', vox: 'HD2870' },
+      combustivel: { original: '94771044 (Kit 2 un.)', tecfil: 'PEC3029', authomix: 'FCO3029', mann: 'PU 7020 z', mahle: 'KX 444', wega: 'FCD-0777', fram: 'C11723', vox: 'CE3029' },
+      cabine: { original: '98139428', tecfil: 'ACP843', authomix: 'FCA0843', mann: 'CU 2141', mahle: 'LA 909', wega: 'AKX-1993', fram: 'CF11725', vox: 'FAC843' }
     }
   },
 
@@ -51,10 +51,10 @@ export const utilitariosChevrolet = {
       1: "Evolução do motor Duramax para 200 cv e 51 kgfm de torque (nas versões automáticas), com melhorias em coxins, isolamento acústico e calibração de suspensão."
     },
     filtros: {
-      oleo: { original: '94748028', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'HU 6007 x', mahle: 'OX 385D', wega: 'WOE-610', fram: 'CH11086', vox: 'LE158' },
-      ar: { original: '52046261', tecfil: 'ARS9955', authomix: 'FAR9955', mann: 'C 27 035', mahle: 'LX 3045', wega: 'JFA-0052', fram: 'CA11235', vox: 'HD9955' },
-      combustivel: { original: '52046262', tecfil: 'PSC715', authomix: 'FCO0715', mann: 'PU 823 x', mahle: 'KX 388D', wega: 'FCD-0761', fram: 'C11330', vox: 'CE715' },
-      cabine: { original: '52046263', tecfil: 'ACP922', authomix: 'FCA0922', mann: 'CUK 24 005', mahle: 'LAK 824', wega: 'AKX-3511', fram: 'CF11236', vox: 'FAC922' }
+      oleo: { original: '12636838', tecfil: 'PEL726', authomix: 'FOL0726', mann: 'HU 6007 x', mahle: 'OX 1016D', wega: 'WOE-314', fram: 'CH11724', vox: 'LE726' },
+      ar: { original: '94771925', tecfil: 'ARS2870', authomix: 'FAR2870', mann: 'C 16 010/1', mahle: 'LX 3679', wega: 'WR-295', fram: 'CA11077', vox: 'HD2870' },
+      combustivel: { original: '94771044 (Kit 2 un.)', tecfil: 'PEC3029', authomix: 'FCO3029', mann: 'PU 7020 z', mahle: 'KX 444', wega: 'FCD-0777', fram: 'C11723', vox: 'CE3029' },
+      cabine: { original: '98139428', tecfil: 'ACP843', authomix: 'FCA0843', mann: 'CU 2141', mahle: 'LA 909', wega: 'AKX-1993', fram: 'CF11725', vox: 'FAC843' }
     }
   },
 
@@ -70,10 +70,10 @@ export const utilitariosChevrolet = {
       1: "Fase mais recente com adequação rigorosa às normas de emissões Proconve L7/L8. Adota óleos de baixíssima viscosidade (0W-20 / dexosD) para ganho de eficiência energética, além da nova transmissão automática de 8 marchas nas versões topo de linha."
     },
     filtros: {
-      oleo: { original: '94748028', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'HU 6007 x', mahle: 'OX 385D', wega: 'WOE-610', fram: 'CH11086', vox: 'LE158' },
-      ar: { original: '52140685', tecfil: 'ARS9955', authomix: 'FAR9955', mann: 'C 27 035', mahle: 'LX 3045', wega: 'JFA-0052', fram: 'CA11235', vox: 'HD9955' },
-      combustivel: { original: '52140686', tecfil: 'PSC715', authomix: 'FCO0715', mann: 'PU 823 x', mahle: 'KX 388D', wega: 'FCD-0761', fram: 'C11330', vox: 'CE715' },
-      cabine: { original: '52046263', tecfil: 'ACP922', authomix: 'FCA0922', mann: 'CUK 24 005', mahle: 'LAK 824', wega: 'AKX-3511', fram: 'CF11236', vox: 'FAC922' }
+      oleo: { original: '12636838', tecfil: 'PEL726', authomix: 'FOL0726', mann: 'HU 6007 x', mahle: 'OX 1016D', wega: 'WOE-314', fram: 'CH11724', vox: 'LE726' },
+      ar: { original: '52143382 / 94771925', tecfil: 'ARS2870', authomix: 'FAR2870', mann: 'C 16 010/1', mahle: 'LX 3679', wega: 'WR-295', fram: 'CA11077', vox: 'HD2870' },
+      combustivel: { original: '52100212 / 94771044', tecfil: 'PEC3029', authomix: 'FCO3029', mann: 'PU 7020 z', mahle: 'KX 444', wega: 'FCD-0777', fram: 'C11723', vox: 'CE3029' },
+      cabine: { original: '98139428', tecfil: 'ACP843', authomix: 'FCA0843', mann: 'CU 2141', mahle: 'LA 909', wega: 'AKX-1993', fram: 'CF11725', vox: 'FAC843' }
     }
   }
 };

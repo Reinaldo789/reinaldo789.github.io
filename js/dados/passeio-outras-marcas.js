@@ -195,5 +195,111 @@ export const passeioOutrasMarcas = {
       combustivel: { original: '6001548810', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1025', vox: 'FC00047' },
       cabine: { original: '272773229R', tecfil: 'ACP928', authomix: 'FCA0928', mann: 'CU 22 019/2', mahle: 'LA 182', wega: 'AKX-1120', fram: 'CF10366', vox: 'FCA928' }
     }
-  }
+  },
+  ARL5047: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5047",
+    especificacoes: {
+      altura: null,
+      diametroExterno: null,
+      diametroInterno: null,
+      rosca: "Não possui",
+      elemento: "Papel",
+      valvulaAntiRetorno: false,
+      valvulaAlivio: false,
+      pesoLiquido: null,
+      pesoBruto: null,
+      caixa: null,
+      observacao: ""
+    },
+    conversoes: {
+      "Tecfil": ["ARL5047"],
+      "Authomix": ["FAR5047"],
+      "Fram": ["CA11050"],
+      "Mahle": ["LX2681"],
+      "Mann": ["C42010"],
+      "Peugeot/Citroën": ["1444RJ"],
+      "Vox": ["HLP5047"],
+      "Wega": ["FAP6013", "FAP9295"]
+    },
+    aplicacoes: {
+      "Citroën": [
+        ["C4 Cactus", "1.6 16V THP Turbo Flex", "2018 - 2024"],
+        ["C4 Lounge", "1.6 16V THP Flex / Gasolina", "2013 - 2022"],
+        ["C4 Lounge", "2.0 16V Flex", "2014 - 2019"]
+      ]
+    }
+  },
+
+  ARL5053: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5053",
+    especificacoes: {
+      altura: 77,
+      diametroExterno: 332,
+      diametroInterno: 102,
+      rosca: "Não possui",
+      elemento: "Papel e espuma",
+      valvulaAntiRetorno: false,
+      valvulaAlivio: false,
+      pesoLiquido: null,
+      pesoBruto: 0.26,
+      caixa: null,
+      observacao: "Dimensões: 332 mm (comprimento) x 102 mm (largura) x 77 mm (altura)"
+    },
+    conversoes: {
+      "Tecfil": ["ARL5053"],
+      "Authomix": ["FAR5053"],
+      "Fram": ["CA9315"],
+      "Mahle": ["LX1287"],
+      "Mann": ["C3485/1"],
+      "Peugeot/Citroën": ["1444.X1"],
+      "Vox": ["HLP5053"],
+      "Wega": ["FAP4873"]
+    },
+    aplicacoes: {
+      "Citroën": [
+        ["C4 Cactus", "1.6 16V EC5 Flex", "2019 - 2021"],
+        ["C4 GLX Hatch", "1.6 16V TU5JP4 Flex", "2009 - 2013"]
+      ]
+    }
+  },
+
+  PEL108: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PEL108",
+    especificacoes: {
+      altura: 69.5,
+      diametroExterno: 71.6,
+      diametroInterno: 24.5,
+      rosca: "Não possui",
+      elemento: "Papel",
+      valvulaAntiRetorno: false,
+      valvulaAlivio: false,
+      pesoLiquido: 0.051,
+      pesoBruto: 0.068,
+      caixa: null,
+      observacao: "LINHA ECOLÓGICA"
+    },
+    conversoes: {
+      "ACDelco": ["19347726"],
+      "Citroën": ["1109AJ", "1109X4", "1109Z2"],
+      "Ford": ["6C1Q6744AA"],
+      "Fram": ["CH9973ECO"],
+      "Hengst": ["E44HD110"],
+      "Mahle": ["OX339/2D"],
+      "Mann": ["HU711/51X"],
+      "Peugeot": ["1109AJ", "1109X3", "1109Z1"],
+      "Tecfil": ["PEL108"],
+      "Vox": ["LE108", "LE2033"],
+      "Wega": ["WOE710"]
+    },
+    aplicacoes: {
+      "Citroën": [
+        ["C4 Cactus", "1.6 16V Turbo Flex", "2018 - >"],
+        ["C4 Lounge", "1.6 16V THP Gasolina", "2014 - >"],
+        ["C4 / C4 Pallas / VTR", "1.6 / 2.0 16V / THP", "01/2007 - >"]
+      ]
+    }
+  },
 };

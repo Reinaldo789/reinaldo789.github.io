@@ -388,11 +388,16 @@ res.forEach(function(r,i){
   if(!achou) falhas.push(a+": não exporta nenhum objeto de veículos");
 });
 /* Catálogo de filtros (opcional): especificações, conversões e aplicações por código Tecfil */
-var CATALOGO = {};
-try {
-  var cm = await import("./js/dados/catalogo-filtros.js?v="+Date.now());
-  Object.keys(cm.catalogoFiltros || {}).forEach(function(k){ CATALOGO[compacto(k)] = cm.catalogoFiltros[k]; });
-} catch(e){ console.warn("catalogo-filtros.js não carregado:", e.message); }
+var CATALOGO = {}, ARQ_CATALOGO = ["filtros-de-oleo.js","filtros-de-ar.js"];
+var rcat = await Promise.allSettled(ARQ_CATALOGO.map(function(a){ return import("./js/dados/"+a+"?v="+Date.now()); }));
+rcat.forEach(function(r,i){
+  if(r.status !== "fulfilled"){ console.warn(ARQ_CATALOGO[i]+" não carregado:", r.reason && r.reason.message); return; }
+  Object.keys(r.value).forEach(function(nome){
+    var o = r.value[nome];
+    if(!o || typeof o !== "object" || Array.isArray(o)) return;
+    Object.keys(o).forEach(function(cod){ var e = o[cod]; e.cod = cod; CATALOGO[compacto(cod)] = e; });
+  });
+});
 var erroDados = falhas.length > 0;
 
 var NOMES_MARCA = { "VW": "Volkswagen" };
@@ -620,6 +625,12 @@ function montarCards(){
   }).join("");
 }
 
+/* Filtros só do catálogo (nenhum veículo do guia usa): ganham página e busca mesmo assim */
+Object.keys(CATALOGO).forEach(function(k){
+  var e = CATALOGO[k], t = e.tipo || "oleo";
+  if(!GRUPOS[t+"|"+k]) GRUPOS[t+"|"+k] = { tipo:t, cod:e.cod, veic:[], codigos:{} };
+});
+
 var INDICE = [];
 TOPICOS.forEach(function(t){
   INDICE.push({ titulo:t.titulo, tag:"Assunto", href:"#/assunto/"+t.id, texto:norm(t.titulo+" "+t.busca), compacto:compacto(t.titulo+" "+t.busca) });
@@ -648,7 +659,7 @@ Object.keys(GRUPOS).forEach(function(k){
   var cc = CATALOGO[compacto(g.cod)];
   if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ todos = todos.concat(cc.conversoes[m]); });
   var txt = norm(todos.join(" ")+" "+(ROTULO_FILTRO[g.tipo] || g.tipo));
-  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", lista:todos.map(compacto), n:g.veic.length });
+  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:(g.veic.length ? "Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos") : "Catálogo Tecfil"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", lista:todos.map(compacto), n:g.veic.length });
 });
 
 function buscar(q, grupo){
@@ -769,23 +780,23 @@ function urlCatalogo(cod){
 function paginaFiltro(g){
   var rot = ROTULO_FILTRO[g.tipo] || g.tipo, n = g.veic.length;
   var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(rot)+'</span><span>/</span><span>'+esc(g.cod)+'</span></nav>'+
-    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil · serve em '+n+(n === 1 ? ' veículo' : ' veículos')+'</p></header>';
+    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil'+(n ? ' · serve em '+n+(n === 1 ? ' veículo' : ' veículos') : '')+'</p></header>';
   var marcas = Object.keys(g.codigos).sort(function(a,b){
     var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
   });
-  h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
+  if(marcas.length) h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
     return '<div><dt>'+esc(NOME_COLUNA[m] || m)+'</dt><dd>'+g.codigos[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
   }).join("")+'</dl></article></div>';
   var cat = CATALOGO[compacto(g.cod)];
-  if(cat){
+  if(cat && (cat.especificacoes || cat.conversoes || cat.aplicacoes)){
     var e = cat.especificacoes || {};
     var fmt = function(v, un){ if(v === null || v === undefined || v === "") return null; if(v === true) return "Sim"; if(v === false) return "Não"; return String(v)+(un && typeof v === "number" ? " "+un : ""); };
     var linhas = [["Altura", fmt(e.altura,"mm")], ["Ø externo / comprimento", fmt(e.diametroExterno,"mm")], ["Ø interno / largura", fmt(e.diametroInterno,"mm")],
       ["Rosca", fmt(e.rosca)], ["Elemento", fmt(e.elemento)], ["Válvula anti-retorno", fmt(e.valvulaAntiRetorno)], ["Válvula de alívio", fmt(e.valvulaAlivio)],
       ["Peso líquido", fmt(e.pesoLiquido,"kg")], ["Peso bruto", fmt(e.pesoBruto,"kg")], ["Caixa (un.)", fmt(e.caixa)], ["Observação", fmt(e.observacao)]]
       .filter(function(l){ return l[1] !== null; });
-    h += '<h2>Especificações técnicas</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+linhas.map(function(l){
+    if(linhas.length) h += '<h2>Especificações técnicas</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+linhas.map(function(l){
       return '<div><dt>'+esc(l[0])+'</dt><dd>'+esc(l[1])+'</dd></div>';
     }).join("")+'</dl></article></div>';
     var cv = cat.conversoes || {}, mc = Object.keys(cv);

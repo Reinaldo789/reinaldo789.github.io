@@ -237,6 +237,10 @@ body{transition:background-color .25s,color .25s}
 .filtro-link:hover{border-color:var(--ambar);background:var(--aviso-bg)}
 .mais-n{margin-left:7px;padding:0 7px;border-radius:99px;background:var(--ambar);color:#11262F;font:600 .76rem "IBM Plex Sans",sans-serif}
 .mais-n.info{padding:0 8px;font-family:Georgia,serif;font-style:italic}
+.buscas{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.busca-rotulo{display:block;margin:0 0 8px 4px;font-size:.84rem;font-weight:600;letter-spacing:.02em;color:var(--suave)}
+.buscas .busca-campo{height:56px}
+@media(max-width:900px){.buscas{grid-template-columns:1fr}}
 .busca-cat{margin:10px 4px 0;font-size:.9rem}
 .busca-cat a{color:var(--ambar-txt);font-weight:600}
 .lista-app{list-style:none;margin:0;padding:0;display:grid;gap:4px}
@@ -303,17 +307,27 @@ body{transition:background-color .25s,color .25s}
     <div id="vista-inicio">
       <section class="hero">
         <div id="principal"></div>
-        <div class="busca" role="search">
-          <label class="busca-campo" for="busca">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <span class="sr">Buscar no guia</span>
-            <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Hilux, PSL619, correia dentada" aria-controls="resultados">
-            <kbd aria-hidden="true">/</kbd>
-          </label>
-          <p class="dica-busca">Digite o código de um filtro, de qualquer marca (ex.: PSL340), para ver as especificações e as aplicações do filtro.</p>
-          <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
-          <div class="resultados" id="resultados" aria-live="polite" hidden></div>
+        <div class="buscas" role="search">
+          <div class="busca">
+            <label class="busca-rotulo" for="busca">Buscar veículo ou assunto</label>
+            <div class="busca-campo">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Hilux, Strada, correia dentada" aria-controls="resultados">
+              <kbd aria-hidden="true">/</kbd>
+            </div>
+            <div class="resultados" id="resultados" aria-live="polite" hidden></div>
+          </div>
+          <div class="busca">
+            <label class="busca-rotulo" for="busca-filtro">Buscar filtro</label>
+            <div class="busca-campo">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg>
+              <input id="busca-filtro" type="search" autocomplete="off" placeholder="Ex.: PSL340, W 1323, LF701" aria-controls="resultados-filtro">
+            </div>
+            <p class="dica-busca">Código de qualquer marca. Abre as especificações e as aplicações do filtro.</p>
+            <div class="resultados" id="resultados-filtro" aria-live="polite" hidden></div>
+          </div>
         </div>
+        <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
       </section>
 
       <section class="secao" aria-labelledby="t-assuntos">
@@ -634,19 +648,29 @@ Object.keys(GRUPOS).forEach(function(k){
   var cc = CATALOGO[compacto(g.cod)];
   if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ todos = todos.concat(cc.conversoes[m]); });
   var txt = norm(todos.join(" ")+" "+(ROTULO_FILTRO[g.tipo] || g.tipo));
-  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt) });
+  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", lista:todos.map(compacto), n:g.veic.length });
 });
 
-function buscar(q){
+function buscar(q, grupo){
+  if(grupo === "filtro"){
+    /* filtros: compara o código inteiro (ex.: "W 1323" = "W1323"), um código de cada vez */
+    var qc = compacto(q);
+    if(!qc) return null;
+    return INDICE.filter(function(it){ return it.grupo === "filtro" && it.lista.some(function(c){ return c.indexOf(qc) > -1; }); })
+      .map(function(it){
+        var pts = it.lista.some(function(c){ return c === qc; }) ? 3 : it.lista.some(function(c){ return c.indexOf(qc) === 0; }) ? 2 : 1;
+        return { it:it, pts:pts };
+      })
+      .sort(function(a,b){ return b.pts - a.pts || b.it.n - a.it.n; })
+      .slice(0,8).map(function(r){ return { titulo:r.it.titulo, href:r.it.href, tag:r.it.tag }; });
+  }
   var termos = norm(q).split(/\s+/).filter(Boolean);
   if(!termos.length) return null;
-  return INDICE.map(function(item){
+  return INDICE.filter(function(it){ return grupo === "filtro" ? it.grupo === "filtro" : it.grupo !== "filtro"; }).map(function(item){
     var motivo = "";
     var ok = termos.every(function(t){
       var tc = t.replace(/[^a-z0-9]/g,"");
       if(item.texto.indexOf(t) > -1 || (tc && item.compacto.indexOf(tc) > -1)) return true;
-      var achou = (item.codigos || []).filter(function(c){ return tc && c.compacto.indexOf(tc) > -1; })[0];
-      if(achou){ motivo = achou.rotulo; return true; }
       return false;
     });
     if(!ok) return null;
@@ -658,30 +682,35 @@ function buscar(q){
   });
 }
 
-function mostrarResultados(){
-  var q = $("busca").value, box = $("resultados"), lista = buscar(q);
-  if(lista === null){ box.hidden = true; box.innerHTML = ""; return; }
-  box.hidden = false;
-  var ext = /\d/.test(q) ? '<p class="busca-cat"><a href="'+esc(urlCatalogo(q.trim()))+'" target="_blank" rel="noopener">Procurar “'+esc(q.trim())+'” no catálogo Tecfil ↗</a></p>' : "";
-  if(!lista.length){
-    box.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> Tente só o modelo (ex.: Strada), um código de filtro ou um assunto (ex.: pneu, bateria).</p>'+ext;
-    return;
+function ligarBusca(idCampo, idCaixa, grupo){
+  var campo = $(idCampo), caixa = $(idCaixa);
+  function mostrar(){
+    var q = campo.value, lista = buscar(q, grupo);
+    if(lista === null){ caixa.hidden = true; caixa.innerHTML = ""; return; }
+    caixa.hidden = false;
+    var ext = (grupo === "filtro" && /\d/.test(q)) ? '<p class="busca-cat"><a href="'+esc(urlCatalogo(q.trim()))+'" target="_blank" rel="noopener">Procurar “'+esc(q.trim())+'” no catálogo Tecfil ↗</a></p>' : "";
+    if(!lista.length){
+      caixa.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> '+(grupo === "filtro" ? 'Confira o código ou tente o de outra marca (ex.: Mann, Mahle, Wega).' : 'Tente só o modelo (ex.: Strada) ou um assunto (ex.: pneu, bateria).')+'</p>'+ext;
+      return;
+    }
+    caixa.innerHTML = '<ul>'+lista.map(function(i){
+      return '<li><a href="'+i.href+'"><span class="t">'+esc(i.titulo)+'</span><span class="tag">'+esc(i.tag)+'</span></a></li>';
+    }).join("")+'</ul>'+ext;
   }
-  box.innerHTML = '<ul>'+lista.map(function(i){
-    return '<li><a href="'+i.href+'"><span class="t">'+esc(i.titulo)+'</span><span class="tag">'+esc(i.tag)+'</span></a></li>';
-  }).join("")+'</ul>'+ext;
+  campo.addEventListener("input", mostrar);
+  campo.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){ var a = caixa.querySelector("a"); if(a){ e.preventDefault(); if(a.target === "_blank"){ window.open(a.href, "_blank", "noopener"); } else { location.hash = a.getAttribute("href"); } } }
+    if(e.key === "ArrowDown"){ var p = caixa.querySelector("a"); if(p){ e.preventDefault(); p.focus(); } }
+    if(e.key === "Escape"){ this.value = ""; mostrar(); }
+  });
+  caixa.addEventListener("keydown", function(e){
+    var links = Array.prototype.slice.call(this.querySelectorAll("a")), i = links.indexOf(document.activeElement);
+    if(e.key === "ArrowDown" && i < links.length-1){ e.preventDefault(); links[i+1].focus(); }
+    if(e.key === "ArrowUp"){ e.preventDefault(); (i > 0 ? links[i-1] : campo).focus(); }
+  });
 }
-$("busca").addEventListener("input", mostrarResultados);
-$("busca").addEventListener("keydown", function(e){
-  if(e.key === "Enter"){ var a = $("resultados").querySelector("a"); if(a){ e.preventDefault(); location.hash = a.getAttribute("href"); } }
-  if(e.key === "ArrowDown"){ var p = $("resultados").querySelector("a"); if(p){ e.preventDefault(); p.focus(); } }
-  if(e.key === "Escape"){ this.value = ""; mostrarResultados(); }
-});
-$("resultados").addEventListener("keydown", function(e){
-  var links = Array.prototype.slice.call(this.querySelectorAll("a")), i = links.indexOf(document.activeElement);
-  if(e.key === "ArrowDown" && i < links.length-1){ e.preventDefault(); links[i+1].focus(); }
-  if(e.key === "ArrowUp"){ e.preventDefault(); (i > 0 ? links[i-1] : $("busca")).focus(); }
-});
+ligarBusca("busca", "resultados", "veiculo");
+ligarBusca("busca-filtro", "resultados-filtro", "filtro");
 
 document.addEventListener("keydown", function(e){
   var el = document.activeElement, digitando = el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");

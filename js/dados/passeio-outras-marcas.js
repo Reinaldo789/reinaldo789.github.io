@@ -196,110 +196,95 @@ export const passeioOutrasMarcas = {
       cabine: { original: '272773229R', tecfil: 'ACP928', authomix: 'FCA0928', mann: 'CU 22 019/2', mahle: 'LA 182', wega: 'AKX-1120', fram: 'CF10366', vox: 'FCA928' }
     }
   },
-  ARL5047: {
-    tipo: "ar",
-    url: "https://catalogo.tecfil.com.br/search/ARL5047",
-    especificacoes: {
-      altura: null,
-      diametroExterno: null,
-      diametroInterno: null,
-      rosca: "Não possui",
-      elemento: "Papel",
-      valvulaAntiRetorno: false,
-      valvulaAlivio: false,
-      pesoLiquido: null,
-      pesoBruto: null,
-      caixa: null,
-      observacao: ""
+  export const passeioOutrasMarcas = {
+  'Citroën C4 Lounge 1.6 THP Flex / Gasolina (2013 a 2022)': {
+    sistemas: [
+      { sistema: 'Motor (1.6 16V THP Turbo Injeção Direta)', especificacao: 'SAE 0W-30 ou 5W-30 Sintético (Norma PSA B71 2312 / B71 2297) [1]', capacidade: '4,25 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Automático (AT6)', especificacao: 'ATF AW-1', capacidade: '7,0 L', intervalo: '60.000 km (Inspeção)' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico PSA (50/50)', capacidade: '6,5 L', intervalo: '60.000 km ou 3 anos' }
+    ],
+    notas: {
+      1: "Motor THP com injeção direta e turbocompressor exige óleo sintético de baixa viscosidade com homologação PSA B71 2312 ou B71 2297 para controle de borra e LSPI.",
+      2: "Uso normal: 10.000 km ou 1 ano. Uso severo (trânsito urbano pesado / trajetos curtos): 5.000 km ou 6 meses."
     },
-    conversoes: {
-      "Tecfil": ["ARL5047"],
-      "Authomix": ["FAR5047"],
-      "Fram": ["CA11050"],
-      "Mahle": ["LX2681"],
-      "Mann": ["C42010"],
-      "Peugeot/Citroën": ["1444RJ"],
-      "Vox": ["HLP5047"],
-      "Wega": ["FAP6013", "FAP9295"]
-    },
-    aplicacoes: {
-      "Citroën": [
-        ["C4 Cactus", "1.6 16V THP Turbo Flex", "2018 - 2024"],
-        ["C4 Lounge", "1.6 16V THP Flex / Gasolina", "2013 - 2022"],
-        ["C4 Lounge", "2.0 16V Flex", "2014 - 2019"]
-      ]
+    filtros: {
+      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
+      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 42 010', mahle: 'LX2681', wega: 'FAP-6013', fram: 'CA11050', vox: 'FAR5047' },
+      combustivel: { original: '156794', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
+      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1446', fram: 'CF10549', vox: 'FCA0305' }
     }
   },
 
-  ARL5053: {
-    tipo: "ar",
-    url: "https://catalogo.tecfil.com.br/search/ARL5053",
-    especificacoes: {
-      altura: 77,
-      diametroExterno: 332,
-      diametroInterno: 102,
-      rosca: "Não possui",
-      elemento: "Papel e espuma",
-      valvulaAntiRetorno: false,
-      valvulaAlivio: false,
-      pesoLiquido: null,
-      pesoBruto: 0.26,
-      caixa: null,
-      observacao: "Dimensões: 332 mm (comprimento) x 102 mm (largura) x 77 mm (altura)"
+  'Citroën C4 Lounge 2.0 16V Flex (2014 a 2019)': {
+    sistemas: [
+      { sistema: 'Motor (2.0 16V EW10A Aspirado)', especificacao: 'SAE 5W-30 Sintético (Norma PSA B71 2296 / API SN) [1]', capacidade: '4,5 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (5 marchas) ou Automático (AT6)', especificacao: 'SAE 75W-80 API GL-4 (Manual) / ATF AW-1 (AT6)', capacidade: '2,0 L (Manual) / 7,0 L (AT6)', intervalo: '60.000 km (Inspeção / Troca)' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico PSA (50/50)', capacidade: '6,5 L', intervalo: '60.000 km ou 3 anos' }
+    ],
+    notas: {
+      1: "Utilizar óleo sintético 5W-30 conforme norma PSA B71 2296.",
+      2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
-    conversoes: {
-      "Tecfil": ["ARL5053"],
-      "Authomix": ["FAR5053"],
-      "Fram": ["CA9315"],
-      "Mahle": ["LX1287"],
-      "Mann": ["C3485/1"],
-      "Peugeot/Citroën": ["1444.X1"],
-      "Vox": ["HLP5053"],
-      "Wega": ["FAP4873"]
-    },
-    aplicacoes: {
-      "Citroën": [
-        ["C4 Cactus", "1.6 16V EC5 Flex", "2019 - 2021"],
-        ["C4 GLX Hatch", "1.6 16V TU5JP4 Flex", "2009 - 2013"]
-      ]
+    filtros: {
+      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
+      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 25 118/1', mahle: 'LX2681', wega: 'FAP-3286', fram: 'CA11050', vox: 'FAR5047' },
+      combustivel: { original: '156794', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
+      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1446', fram: 'CF10549', vox: 'FCA0305' }
     }
   },
 
-  PEL108: {
-    tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/PEL108",
-    especificacoes: {
-      altura: 69.5,
-      diametroExterno: 71.6,
-      diametroInterno: 24.5,
-      rosca: "Não possui",
-      elemento: "Papel",
-      valvulaAntiRetorno: false,
-      valvulaAlivio: false,
-      pesoLiquido: 0.051,
-      pesoBruto: 0.068,
-      caixa: null,
-      observacao: "LINHA ECOLÓGICA"
+  'Citroën C4 Cactus 1.6 16V EC5 Aspirado (2018 a 2024)': {
+    sistemas: [
+      { sistema: 'Motor (1.6 16V EC5 Flex 115 / 118 cv)', especificacao: 'SAE 0W-30 ou 5W-30 Sintético (Norma PSA B71 2312 / API SP) [1]', capacidade: '3,25 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (5 marchas) ou Automático (AT6)', especificacao: 'SAE 75W-80 API GL-4 (Manual) / ATF AW-1 (AT6)', capacidade: '2,0 L (Manual) / 7,0 L (AT6)', intervalo: '60.000 km (Inspeção / Troca)' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico PSA (50/50)', capacidade: '6,0 L', intervalo: '60.000 km ou 3 anos' }
+    ],
+    notas: {
+      1: "Motor EC5 16V na linha C4 Cactus utiliza óleo sintético de baixa viscosidade conforme especificação PSA vigente.",
+      2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
-    conversoes: {
-      "ACDelco": ["19347726"],
-      "Citroën": ["1109AJ", "1109X4", "1109Z2"],
-      "Ford": ["6C1Q6744AA"],
-      "Fram": ["CH9973ECO"],
-      "Hengst": ["E44HD110"],
-      "Mahle": ["OX339/2D"],
-      "Mann": ["HU711/51X"],
-      "Peugeot": ["1109AJ", "1109X3", "1109Z1"],
-      "Tecfil": ["PEL108"],
-      "Vox": ["LE108", "LE2033"],
-      "Wega": ["WOE710"]
-    },
-    aplicacoes: {
-      "Citroën": [
-        ["C4 Cactus", "1.6 16V Turbo Flex", "2018 - >"],
-        ["C4 Lounge", "1.6 16V THP Gasolina", "2014 - >"],
-        ["C4 / C4 Pallas / VTR", "1.6 / 2.0 16V / THP", "01/2007 - >"]
-      ]
+    filtros: {
+      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
+      ar: { original: '1444.X1', tecfil: 'ARL5053', authomix: 'FAR5053', mann: 'C 3485/1', mahle: 'LX1287', wega: 'FAP-4873', fram: 'CA9315', vox: 'HLP5053' },
+      combustivel: { original: '1567.C6', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G10230F', vox: 'FS04/7' },
+      cabine: { original: '6447.NT', tecfil: 'ACP796', authomix: 'FCA0796', mann: 'CU 2245', mahle: 'LA 139', wega: 'AKX-35345-2', fram: 'CF9466', vox: 'FAC796' }
     }
   },
+
+  'Citroën C4 Cactus 1.6 THP Turbo Flex (2018 a 2024)': {
+    sistemas: [
+      { sistema: 'Motor (1.6 16V THP Turbo Flex 166 / 173 cv)', especificacao: 'SAE 0W-30 ou 5W-30 Sintético (Norma PSA B71 2312 / B71 2297) [1]', capacidade: '4,25 L (com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Automático (AT6)', especificacao: 'ATF AW-1', capacidade: '7,0 L', intervalo: '60.000 km (Inspeção)' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico PSA (50/50)', capacidade: '6,5 L', intervalo: '60.000 km ou 3 anos' }
+    ],
+    notas: {
+      1: "Motor 1.6 THP Flex com injeção direta e turbo exige óleo sintético homologado PSA B71 2312 / B71 2297.",
+      2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
+    },
+    filtros: {
+      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
+      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 42 010', mahle: 'LX2681', wega: 'FAP-6013', fram: 'CA11050', vox: 'FAR5047' },
+      combustivel: { original: '156794', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
+      cabine: { original: '6447.NT', tecfil: 'ACP796', authomix: 'FCA0796', mann: 'CU 2245', mahle: 'LA 139', wega: 'AKX-35345-2', fram: 'CF9466', vox: 'FAC796' }
+    }
+  },
+
+  'Citroën C4 Hatch / Pallas 1.6 e 2.0 Flex (2011 a 2014)': {
+    sistemas: [
+      { sistema: 'Motor (1.6 16V TU5JP4 / 2.0 16V EW10A)', especificacao: 'SAE 5W-30 ou 5W-40 Sintético (Norma PSA B71 2296) [1]', capacidade: '3,25 L (1.6) / 4,5 L (2.0 com filtro)', intervalo: 'Ver nota [2]' },
+      { sistema: 'Câmbio Manual (5 marchas) ou Automático (AL4 / AT6)', especificacao: 'SAE 75W-80 API GL-4 (Manual) / ATF LT 71141 ou AW-1 (AT)', capacidade: '2,0 L (Manual) / ~6,0 a 7,0 L (AT)', intervalo: '60.000 km (Inspeção / Troca)' },
+      { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico PSA (50/50)', capacidade: '6,5 L', intervalo: '60.000 km ou 3 anos' }
+    ],
+    notas: {
+      1: "Utilizar óleo sintético conforme norma PSA B71 2296 / API SN.",
+      2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
+    },
+    filtros: {
+      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
+      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 4292/2 (1.6) / C 25 118/1 (2.0)', mahle: 'LX2681', wega: 'FAP-9013', fram: 'CA11050', vox: 'FAR5047' },
+      combustivel: { original: '1567.C6', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G10230F', vox: 'FS04/7' },
+      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1446', fram: 'CF10549', vox: 'FCA0305' }
+    }
+  }
+};
 };

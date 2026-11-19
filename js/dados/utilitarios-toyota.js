@@ -60,7 +60,7 @@ export const utilitariosToyota = {
       4: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava da bomba de alta pressão e quebra da corrente de comando."
     },
     filtros: {
-      oleo: { original: '90915-20003', tecfil: 'PSL145', authomix: 'FOL0145', mann: 'W 7283', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB129' },
+      oleo: { original: '90915-20003', tecfil: '-', authomix: 'FOL0145', mann: 'W 7283', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB129' },
       ar: { original: '17801-0L040', tecfil: 'ARL2204', authomix: 'FAR2204', mann: 'C 33 017/1', mahle: 'LX 4377', wega: 'JFA-0299', fram: 'CA11947', vox: 'HLP2204' },
       combustivel: { original: '23390-0L070', tecfil: 'PC953', authomix: 'FCO0953', mann: 'PU 8028', mahle: 'KX 531D', wega: 'JFC-216', fram: 'C11919', vox: 'CE953' },
       preFiltroCombustivel: { original: '23390-0E011', tecfil: 'PC954', authomix: '-', mann: '-', mahle: '-', wega: 'JFC217', fram: '-', vox: '-' },

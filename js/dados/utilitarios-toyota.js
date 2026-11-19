@@ -33,7 +33,7 @@ export const utilitariosToyota = {
     notas: {
       1: "Geração equipada com motor 2.8 16V que utiliza DPF e EGR, dispensando o uso de ARLA 32 nesta faixa de anos.",
       2: "Sistema de alimentação conta com dois filtros de diesel: filtro principal do motor (23390-0E020) e filtro pressurizado de combustível (23390-0E011).",
-      3: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava a bomba de alta pressão e quebra da corrente de comando."
+      3: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava da bomba de alta pressão e quebra da corrente de comando."
     },
     filtros: {
       oleo: { original: '04152-YZZA8', tecfil: 'PEL106', authomix: 'FOL0127', mann: 'HU 6008 z', mahle: 'OX 415D', wega: 'WOE-473', fram: 'CH9642', vox: 'PEL106' },
@@ -57,7 +57,7 @@ export const utilitariosToyota = {
       1: "Motor atualizado para o Proconve L8 (2025+), exigindo óleo de baixo teor de cinzas (Low SAPS - ACEA C2/C3 ou JASO DL-1) para proteção do filtro de partículas (DPF) e do catalisador SCR.",
       2: "Reservatório de ARLA 32 localizado sob o capô. Se o nível zerar ou for detectado fluido fora da norma ISO 22241, o sistema bloqueia uma nova partida do motor.",
       3: "Possui dois estágios de filtragem de combustível: filtro principal (23390-0L070) e filtro pressurizado (23390-0E011 / 23390-0E010).",
-      4: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava a bomba de alta pressão e quebra da corrente de comando."
+      4: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava da bomba de alta pressão e quebra da corrente de comando."
     },
     filtros: {
       oleo: { original: '90915-20003', tecfil: 'PSL145', authomix: 'FOL0145', mann: 'W 7283', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB129' },

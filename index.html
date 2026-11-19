@@ -388,7 +388,7 @@ res.forEach(function(r,i){
   if(!achou) falhas.push(a+": não exporta nenhum objeto de veículos");
 });
 /* Catálogo de filtros (opcional): especificações, conversões e aplicações por código Tecfil */
-var CATALOGO = {}, ARQ_CATALOGO = ["filtros-de-oleo.js","filtros-de-ar.js"];
+var CATALOGO = {}, ARQ_CATALOGO = ["filtros-de-oleo.js","filtros-de-ar.js","filtros-de-combustivel.js","filtros-de-cabine.js"];
 var rcat = await Promise.allSettled(ARQ_CATALOGO.map(function(a){ return import("./js/dados/"+a+"?v="+Date.now()); }));
 rcat.forEach(function(r,i){
   if(r.status !== "fulfilled"){ console.warn(ARQ_CATALOGO[i]+" não carregado:", r.reason && r.reason.message); return; }
@@ -818,8 +818,8 @@ function paginaFiltro(g){
   } else {
     h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
   }
-  /* Sem lista de aplicações do catálogo: mostra os veículos do guia que usam o filtro */
-  if(!(cat && cat.aplicacoes) && g.veic.length){
+  /* Veículos do guia que usam o filtro (sempre, com ou sem catálogo) */
+  if(g.veic.length){
     var por = {};
     g.veic.forEach(function(v){ (por[v.marca] = por[v.marca] || []).push(v); });
     h += '<h2 class="sec-filtros">Veículos do guia que usam este filtro</h2><div class="grade-sis">'+Object.keys(por).sort(function(a,b){ return a.localeCompare(b,"pt-BR"); }).map(function(m){

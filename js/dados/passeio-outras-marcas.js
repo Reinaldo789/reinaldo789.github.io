@@ -196,7 +196,7 @@ export const passeioOutrasMarcas = {
       cabine: { original: '272773229R', tecfil: 'ACP928', authomix: 'FCA0928', mann: 'CU 22 019/2', mahle: 'LA 182', wega: 'AKX-1120', fram: 'CF10366', vox: 'FCA928' }
     }
   },
-  export const passeioOutrasMarcas = {
+  
   'Citroën C4 Lounge 1.6 THP Flex / Gasolina (2013 a 2022)': {
     sistemas: [
       { sistema: 'Motor (1.6 16V THP Turbo Injeção Direta)', especificacao: 'SAE 0W-30 ou 5W-30 Sintético (Norma PSA B71 2312 / B71 2297) [1]', capacidade: '4,25 L (com filtro)', intervalo: 'Ver nota [2]' },
@@ -287,4 +287,4 @@ export const passeioOutrasMarcas = {
     }
   }
 };
-};
+

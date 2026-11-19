@@ -241,6 +241,7 @@ body{transition:background-color .25s,color .25s}
 .busca-rotulo{display:block;margin:0 0 8px 4px;font-size:.84rem;font-weight:600;letter-spacing:.02em;color:var(--suave)}
 .buscas .busca-campo{height:56px}
 @media(max-width:900px){.buscas{grid-template-columns:1fr}}
+.resultados .m{display:block;margin-top:2px;font-size:.84rem;font-weight:400;color:var(--suave)}
 .busca-cat{margin:10px 4px 0;font-size:.9rem}
 .busca-cat a{color:var(--ambar-txt);font-weight:600}
 .lista-app{list-style:none;margin:0;padding:0;display:grid;gap:4px}
@@ -656,24 +657,35 @@ Object.keys(GRUPOS).forEach(function(k){
   var g = GRUPOS[k];
   var todos = [g.cod];
   Object.keys(g.codigos).forEach(function(m){ todos = todos.concat(g.codigos[m]); });
+  var NM = { original:"Original", tecfil:"Tecfil", vox:"Vox", authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram" };
+  var pares = [{ m:"Tecfil", c:g.cod, k:compacto(g.cod) }];
+  Object.keys(g.codigos).forEach(function(m){ g.codigos[m].forEach(function(c){ pares.push({ m:NM[m] || m, c:c, k:compacto(c) }); }); });
   var cc = CATALOGO[compacto(g.cod)];
+  if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ cc.conversoes[m].forEach(function(c){ pares.push({ m:m, c:c, k:compacto(c) }); }); });
   if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ todos = todos.concat(cc.conversoes[m]); });
   var txt = norm(todos.join(" ")+" "+(ROTULO_FILTRO[g.tipo] || g.tipo));
-  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:(g.veic.length ? "Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos") : "Catálogo Tecfil"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", lista:todos.map(compacto), n:g.veic.length });
+  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:(g.veic.length ? "Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos") : "Catálogo Tecfil"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", pares:pares, n:g.veic.length });
 });
 
 function buscar(q, grupo){
   if(grupo === "filtro"){
-    /* filtros: compara o código inteiro (ex.: "W 1323" = "W1323"), um código de cada vez */
+    /* filtros: compara o código inteiro (ex.: "W 1323" = "W1323") e mostra qual código casou */
     var qc = compacto(q);
     if(!qc) return null;
-    return INDICE.filter(function(it){ return it.grupo === "filtro" && it.lista.some(function(c){ return c.indexOf(qc) > -1; }); })
-      .map(function(it){
-        var pts = it.lista.some(function(c){ return c === qc; }) ? 3 : it.lista.some(function(c){ return c.indexOf(qc) === 0; }) ? 2 : 1;
-        return { it:it, pts:pts };
-      })
-      .sort(function(a,b){ return b.pts - a.pts || b.it.n - a.it.n; })
-      .slice(0,8).map(function(r){ return { titulo:r.it.titulo, href:r.it.href, tag:r.it.tag }; });
+    var achados = [];
+    INDICE.forEach(function(it){
+      if(it.grupo !== "filtro") return;
+      var melhor = null, mp = 0;
+      it.pares.forEach(function(p){
+        if(p.k.indexOf(qc) < 0) return;
+        var pts = p.k === qc ? 4 : p.k.indexOf(qc) === 0 ? 3 : p.k.slice(-qc.length) === qc ? 2 : 1;
+        if(pts > mp){ mp = pts; melhor = p; }
+      });
+      if(melhor) achados.push({ it:it, pts:mp, p:melhor });
+    });
+    return achados.sort(function(a,b){ return b.pts - a.pts || b.it.n - a.it.n; }).slice(0,8).map(function(r){
+      return { titulo:r.it.titulo, href:r.it.href, tag:r.it.tag, motivo:(r.p.m === "Tecfil" ? "" : r.p.m+" "+r.p.c) };
+    });
   }
   var termos = norm(q).split(/\s+/).filter(Boolean);
   if(!termos.length) return null;
@@ -705,7 +717,7 @@ function ligarBusca(idCampo, idCaixa, grupo){
       return;
     }
     caixa.innerHTML = '<ul>'+lista.map(function(i){
-      return '<li><a href="'+i.href+'"><span class="t">'+esc(i.titulo)+'</span><span class="tag">'+esc(i.tag)+'</span></a></li>';
+      return '<li><a href="'+i.href+'"><span class="t">'+esc(i.titulo)+(i.motivo ? '<small class="m">'+esc(i.motivo)+'</small>' : '')+'</span><span class="tag">'+esc(i.tag)+'</span></a></li>';
     }).join("")+'</ul>'+ext;
   }
   campo.addEventListener("input", mostrar);

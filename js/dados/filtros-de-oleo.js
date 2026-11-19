@@ -12,8 +12,7 @@ export const filtrosOleo = {
   PSL340: {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/6008001204004/produto/1?tr=REFERENCIA",
-    especificacoes: { altura: 93, diametroExterno: 138, diametroInterno: null, rosca: '1" 1/2 - 16 UN', elemento: "Papel",
-      valvulaAntiRetorno: true, valvulaAlivio: true, pesoLiquido: 1.16, pesoBruto: 1.209, caixa: "06", observacao: "COM RETAVADO" },
+    especificacoes: { altura: 93, diametroExterno: 138, diametroInterno: null, rosca: '1" 1/2 - 16 UN'},
     conversoes: {
       "Agrale": ["6008001204004"], "ACDelco": ["01FBO041","19347731"], "Alliance": ["A40018001090097"], "Authomix": ["FOL0340"],
       "Bosch": ["0986B01016"], "Delkraft": ["DL237"], "Delphi": ["EFL737"], "Donaldson": ["P550893"], "FAM": ["FL325"],

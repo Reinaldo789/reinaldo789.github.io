@@ -103,7 +103,11 @@ pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;pad
       <button type="button" data-baixar="cabine">Baixar filtros-de-cabine.js</button>
     </div>
     <div class="status" id="st-baixar" role="status"></div>
-    <details style="margin-top:10px"><summary>Ver o código da entrada atual</summary><pre id="previa">Preencha o formulário e clique em “Adicionar ao arquivo”.</pre></details>
+    <details style="margin-top:10px">
+      <summary>Ver o código da entrada atual</summary>
+      <div class="acoes" style="margin-top:8px"><button type="button" class="sec pq" id="btn-copiar-previa">Copiar prévia</button></div>
+      <pre id="previa">Preencha o formulário e clique em “Adicionar ao arquivo”.</pre>
+    </details>
   </section>
 
   <section class="cartao">
@@ -236,6 +240,9 @@ function preencher(cod, e){
 }
 
 /* ---------- ler o texto colado da página do catálogo ---------- */
+function ehCabecalhoAplicacao(txt){
+  return /^(ve[ií]culo|montadora|modelo|motor|ano|combust[ií]vel)$/i.test(String(txt || "").trim());
+}
 function interpretarTexto(t){
   t = t.replace(/\r/g, "");
   var campo = function(rot){ var m = t.match(new RegExp("^[ \\t]*"+rot.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"[ \\t]*:[ \\t]*(.+)$","mi")); return m ? m[1].trim() : null; };
@@ -257,17 +264,36 @@ function interpretarTexto(t){
   });
   var conv = {}, marca = null;
   if(ic >= 0) linhas.slice(ic+1, ia >= 0 ? ia : fim).forEach(function(l){
-    var v = l.split("\t")[0].trim(); if(!v) return;
-    if(!/\d/.test(v)){ marca = nomeMarca(v); conv[marca] = conv[marca] || []; }
-    else if(marca && conv[marca].indexOf(v) < 0) conv[marca].push(v);
+    var raw = l.trim(); if(!raw) return;
+    if(raw.indexOf("\t") > -1){
+      var v = raw.split("\t")[0].trim(); if(!v) return;
+      if(!/\d/.test(v)){ marca = nomeMarca(v); conv[marca] = conv[marca] || []; }
+      else if(marca && conv[marca].indexOf(v) < 0) conv[marca].push(v);
+      return;
+    }
+    var mCol = raw.match(/^([A-Za-zÀ-ÿ\s\-\/]+?)\s{2,}(.+)$/);
+    if(mCol){
+      var mk = nomeMarca(mCol[1]), cd = mCol[2].trim();
+      if(mk && cd){ conv[mk] = conv[mk] || []; if(conv[mk].indexOf(cd) < 0) conv[mk].push(cd); marca = mk; return; }
+    }
+    if(!/\d/.test(raw)){ marca = nomeMarca(raw); conv[marca] = conv[marca] || []; }
+    else if(marca && conv[marca].indexOf(raw) < 0) conv[marca].push(raw);
   });
   out.conv = conv;
   var apl = [], mont = null;
   if(ia >= 0) linhas.slice(ia+1, fim).forEach(function(l){
     if(!l.trim()) return;
-    var c = l.split("\t").map(function(x){ return x.trim(); });
-    if(c.length === 1 || c.slice(1).every(function(x){ return !x; })){ mont = nomeMarca(c[0]); return; }
-    apl.push([mont || "Outros", ((c[0]||"")+" "+(c[1]||"")).trim(), c[2] || "-", c[3] || "-"].join(" | "));
+    var c = l.split("\t").map(function(x){ return x.trim(); }).filter(function(x, idx, arr){ return !(idx === arr.length - 1 && x === ""); });
+    if(c.length === 1 || c.slice(1).every(function(x){ return !x; })){
+      if(!ehCabecalhoAplicacao(c[0])) mont = nomeMarca(c[0]);
+      return;
+    }
+    if(c.every(ehCabecalhoAplicacao)) return;
+    if(c.length >= 5){
+      apl.push([nomeMarca(c[0]) || mont || "Outros", c[1] || "-", c[2] || "-", c[3] || "-"].join(" | "));
+    } else {
+      apl.push([mont || "Outros", ((c[0]||"")+" "+(c[1]||"")).trim(), c[2] || "-", c[3] || "-"].join(" | "));
+    }
   });
   out.apl = apl;
   return out;
@@ -346,6 +372,14 @@ $("btn-add").onclick = function(){
   st.className = "status"; st.textContent = (ja ? "Atualizado: " : "Adicionado: ")+cod+" em "+TIPOS[t].nome+". Baixe o arquivo na etapa 3.";
   $("st-baixar").textContent = "Alterações não baixadas: baixe o arquivo para guardar.";
   desenharTudo();
+};
+$("btn-copiar-previa").onclick = function(){
+  var txt = $("previa").textContent;
+  if(!txt || txt.indexOf("Preencha o formulário") === 0) return;
+  navigator.clipboard.writeText(txt).then(function(){
+    $("st-add").className = "status";
+    $("st-add").textContent = "Prévia copiada para a área de transferência.";
+  }).catch(function(){});
 };
 document.querySelectorAll("[data-baixar]").forEach(function(b){ b.onclick = function(){
   var t = b.dataset.baixar, blob = new Blob([textoArquivo(t)], { type:"text/javascript;charset=utf-8" }), a = document.createElement("a");

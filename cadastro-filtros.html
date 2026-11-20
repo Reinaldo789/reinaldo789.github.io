@@ -24,6 +24,7 @@ h2{font-size:1.4rem;margin:0 0 10px}
 .nota{color:var(--suave);font-size:.9rem;margin:6px 0 0}
 label{display:block;font-size:.82rem;font-weight:600;color:var(--suave);margin:0 0 4px}
 input,select,textarea{width:100%;padding:9px 11px;border:1px solid var(--linha);border-radius:9px;background:var(--campo);color:var(--texto);font:inherit}
+input[type="file"]{padding:7px 9px;font-size:.9rem}
 textarea{min-height:120px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--ambar);outline-offset:1px}
 .grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
@@ -45,6 +46,7 @@ button.pq{padding:5px 11px;font-size:.82rem}
 .abas button[aria-pressed="true"]{background:var(--aviso);color:var(--ambar-txt);border-color:var(--ambar)}
 details summary{cursor:pointer;font-weight:600}
 pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;padding:12px;overflow:auto;max-height:300px;font-size:12.5px}
+@media(max-width:600px){.col2{grid-column:span 1}}
 </style>
 </head>
 <body>
@@ -55,16 +57,22 @@ pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;pad
   </div>
 
   <section class="cartao">
-    <h2>1. Buscar código e colar da página do catálogo</h2>
-    <p class="nota">Digite o código Tecfil para abrir direto no catálogo (preenche o link automaticamente). Na página aberta, selecione tudo (Ctrl+A), copie (Ctrl+C) e cole na caixa abaixo.</p>
+    <h2>1. Buscar código, carregar HTML salvo ou colar da página</h2>
+    <p class="nota">Você pode abrir o catálogo pelo código, enviar um arquivo <strong>.html</strong> salvo da página do produto (recomendado) ou selecionar tudo (Ctrl+A), copiar (Ctrl+C) e colar abaixo.</p>
     <div class="busca-linha">
       <div>
-        <label for="busca-tecfil">Código Tecfil (ex.: PSL127, PC953, ARL2206)</label>
+        <label for="busca-tecfil">Código Tecfil (ex.: PSL127, PC953, ARL2206, ARS8234)</label>
         <input id="busca-tecfil" placeholder="Digite o código…" autocomplete="off">
       </div>
       <button type="button" id="btn-abrir-cat">Abrir no Catálogo Tecfil ↗</button>
     </div>
-    <textarea id="colar" placeholder="Cole aqui o texto copiado da página do produto (Ctrl+A, Ctrl+C)…" style="margin-top:12px"></textarea>
+    <div class="busca-linha">
+      <div>
+        <label for="arq-html">Arquivo .html / .htm salvo do catálogo</label>
+        <input type="file" id="arq-html" accept=".html,.htm,text/html">
+      </div>
+    </div>
+    <textarea id="colar" placeholder="Cole aqui o texto copiado da página do produto (Ctrl+A, Ctrl+C) ou código HTML…" style="margin-top:12px"></textarea>
     <div class="acoes">
       <button type="button" id="btn-ler">Preencher os campos</button>
       <button type="button" class="sec" id="btn-limpar-colar">Limpar</button>
@@ -160,7 +168,8 @@ function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&
 function urlCatalogo(cod){ var m = String(cod).match(/[A-Za-z]+\d+[\w\/.\-]*/); return "https://catalogo.tecfil.com.br/search/"+encodeURIComponent(m ? m[0] : String(cod).trim()); }
 var SIGLAS = ["GM","KSPG","WIX","ZF","KS","VME","CAV","CBT","MWM","FAM","CVRD","AGCO","JAC","BMW","TAC","VW","MAN","IVECO","DAF"];
 function nomeMarca(v){
-  v = String(v).trim();
+  v = String(v || "").trim();
+  if(!v) return "";
   if(v === "ACDELCO") return "ACDelco";
   if(v === v.toUpperCase() && /[A-Z]/.test(v) && SIGLAS.indexOf(v) < 0) return v.toLowerCase().replace(/(^|[\s\-\/])(\p{L})/gu, function(m,a,b){ return a+b.toUpperCase(); });
   return v;
@@ -259,12 +268,146 @@ function preencher(cod, e){
   $("f-apl").value = linhas.join("\n");
 }
 
+/* ---------- extrair dados de arquivo HTML / payload Next.js / DOM ---------- */
+function extrairPayloadNext(html){
+  var out = { cod:"", funcao:null, s:{}, conv:{}, apl:[] };
+  var rePush = /self\.__next_f\.push\(\[\s*1\s*,\s*"((?:\\.|[^"\\])*)"\s*\]\)/g;
+  var chunks = [], m;
+  while((m = rePush.exec(html)) !== null){
+    try { chunks.push(JSON.parse('"' + m[1] + '"')); } catch(e){}
+  }
+  var blob = chunks.join("\n");
+  if(!blob) return null;
+
+  var codM = blob.match(/"NumeroProduto"\s*:\s*"([^"]+)"/);
+  if(codM) out.cod = codM[1].trim().toUpperCase();
+
+  var pickStr = function(key){
+    var r = new RegExp('"' + key + '"\\s*:\\s*("[^"]*"|null)');
+    var mm = blob.match(r);
+    if(!mm || mm[1] === "null") return "";
+    try { return JSON.parse(mm[1]).trim(); } catch(e){ return mm[1].replace(/^"|"$/g,"").trim(); }
+  };
+
+  var func = pickStr("CpoAuxProd10");
+  if(func) out.funcao = func;
+
+  var roscaRaw = pickStr("CpoAuxProd35");
+  var obsRaw = pickStr("Observacao");
+  var limparTraço = function(x){ return (!x || x === "-") ? "" : x; };
+  var limparSimNao = function(x){
+    if(!x || x === "-") return "";
+    if(/^sim/i.test(x)) return "Sim";
+    if(/^n[aã]o/i.test(x)) return "Não";
+    return x;
+  };
+
+  out.s = {
+    altura: limparTraço(pickStr("CpoAuxProd28")),
+    diametroExterno: limparTraço(pickStr("CpoAuxProd30")),
+    diametroInterno: limparTraço(pickStr("CpoAuxProd29")),
+    rosca: (!roscaRaw || roscaRaw === "-" || /^n[aã]o$/i.test(roscaRaw)) ? (roscaRaw === "-" ? "" : "Não possui") : roscaRaw,
+    elemento: limparTraço(pickStr("CpoAuxProd19")),
+    valvulaAntiRetorno: limparSimNao(pickStr("CpoAuxProd24")),
+    valvulaAlivio: limparSimNao(pickStr("CpoAuxProd25")),
+    pesoLiquido: limparTraço(pickStr("CpoAuxProd43")),
+    pesoBruto: limparTraço(pickStr("CpoAuxProd42")),
+    caixa: limparTraço(pickStr("CpoAuxProd47")),
+    observacao: obsRaw ? obsRaw.replace(/^\*\s*/,"").replace(/\.$/,"").trim() : ""
+  };
+
+  // Extrai aplicações embutidas no payload se existirem
+  var reAplObj = /"DescricaoFabricante"\s*:\s*"([^"]*)"[\s\S]*?"ComplementoAplicacao3_1"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_2"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_3"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_4"\s*:\s*("[^"]*"|null)/g;
+  var am, aplSet = {};
+  while((am = reAplObj.exec(blob)) !== null){
+    var parseVal = function(v){ if(!v || v === "null") return ""; try{ return JSON.parse(v).trim(); }catch(e){ return v.replace(/^"|"$/g,"").trim(); } };
+    var mont = nomeMarca(am[1]);
+    var mod = parseVal(am[2]);
+    var mot = parseVal(am[3]) || "-";
+    var aIni = parseVal(am[4]);
+    var aFim = parseVal(am[5]);
+    var ano = (aIni || aFim) ? ((aIni || "?") + " - " + (aFim || "->")) : "-";
+    if(mont || mod){
+      var linha = [mont || "Outros", mod || "-", mot, ano].join(" | ");
+      if(!aplSet[linha]){ aplSet[linha] = 1; out.apl.push(linha); }
+    }
+  }
+
+  return (out.cod || Object.values(out.s).some(Boolean) || out.apl.length) ? out : null;
+}
+
+function interpretarHTML(html){
+  var payload = extrairPayloadNext(html) || { cod:"", funcao:null, s:{}, conv:{}, apl:[] };
+  var doc = new DOMParser().parseFromString(html, "text/html");
+  var textoVisivel = doc.body ? (doc.body.innerText || doc.body.textContent || "") : "";
+  var fallback = interpretarTexto(textoVisivel);
+
+  // Conversões pela tabela DOM quando disponível
+  var convDom = {};
+  doc.querySelectorAll("table").forEach(function(tbl){
+    var headers = Array.from(tbl.querySelectorAll("th")).map(function(th){ return (th.textContent || "").trim(); });
+    var eConversao = headers.some(function(h){ return /mann|mahle|fram|wega|acdelco|agrale|vox|wix/i.test(h); }) || tbl.className.indexOf("numeros-referencia") > -1;
+    if(!eConversao) return;
+    var marcaAtual = null;
+    tbl.querySelectorAll("tr").forEach(function(tr){
+      var th = tr.querySelector("th");
+      if(th){
+        var mTxt = (th.textContent || "").trim();
+        if(mTxt){ marcaAtual = nomeMarca(mTxt); convDom[marcaAtual] = convDom[marcaAtual] || []; }
+      }
+      tr.querySelectorAll("td").forEach(function(td){
+        var cTxt = (td.textContent || "").trim();
+        if(marcaAtual && cTxt && convDom[marcaAtual].indexOf(cTxt) < 0){
+          convDom[marcaAtual].push(cTxt);
+        }
+      });
+    });
+  });
+
+  // Aplicações pela tabela DOM quando disponível
+  var aplDom = [];
+  doc.querySelectorAll("table").forEach(function(tbl){
+    var ths = Array.from(tbl.querySelectorAll("thead th")).map(function(x){ return (x.textContent || "").trim().toLowerCase(); });
+    if(!ths.some(function(h){ return h.indexOf("veículo") > -1 || h.indexOf("veiculo") > -1; })) return;
+    var montAtual = "Outros";
+    tbl.querySelectorAll("tbody").forEach(function(tb){
+      tb.querySelectorAll("tr").forEach(function(tr){
+        var tdUnico = tr.querySelector("td[colspan]");
+        if(tdUnico){
+          var mNome = (tdUnico.textContent || "").trim();
+          if(mNome) montAtual = nomeMarca(mNome);
+          return;
+        }
+        var tds = Array.from(tr.querySelectorAll("td")).map(function(td){ return (td.textContent || "").replace(/\s+/g, " ").trim(); });
+        if(tds.length >= 4){
+          var veic = tds[0] || "";
+          var mod = tds[1] || "";
+          var mot = tds[2] || "-";
+          var ano = tds[3] || "-";
+          var veicMod = (veic + " " + mod).trim() || "-";
+          aplDom.push([montAtual, veicMod, mot, ano].join(" | "));
+        }
+      });
+    });
+  });
+
+  var sMerged = {};
+  Object.keys(fallback.s || {}).forEach(function(k){ sMerged[k] = payload.s[k] || fallback.s[k] || ""; });
+
+  return {
+    cod: payload.cod || fallback.cod || "",
+    funcao: payload.funcao || fallback.funcao || null,
+    s: sMerged,
+    conv: Object.keys(convDom).length ? convDom : fallback.conv,
+    apl: aplDom.length ? aplDom : (payload.apl.length ? payload.apl : fallback.apl)
+  };
+}
+
 /* ---------- ler o texto colado da página do catálogo (aceita quebra de linha entre rótulo e valor) ---------- */
 function interpretarTexto(t){
-  t = t.replace(/\r/g, "");
+  t = String(t || "").replace(/\r/g, "");
   var linhas = t.split("\n").map(function(l){ return l.trim(); });
 
-  // Busca valor na mesma linha após ":" OU na próxima linha não-vazia
   var campo = function(rot){
     var re = new RegExp("^"+rot.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*:?\\s*(.*)$", "i");
     for(var i = 0; i < linhas.length; i++){
@@ -300,7 +443,6 @@ function interpretarTexto(t){
     observacao: obs ? obs.replace(/^\*\s*/,"").replace(/\.$/,"").trim() : ""
   };
 
-  // Localiza seções
   var ic = -1, ia = -1, fim = linhas.length;
   for(var i = 0; i < linhas.length; i++){
     if(ic < 0 && /^N[ºo°]\s*Convers[ãa]o$/i.test(linhas[i])) ic = i;
@@ -309,7 +451,6 @@ function interpretarTexto(t){
     if(/^Filtros relacionados/i.test(linhas[i]) && i > Math.max(ic, ia)) fim = Math.min(fim, i);
   }
 
-  // Conversões
   var conv = {}, marca = null;
   if(ic >= 0){
     var limiteConv = ia >= 0 ? ia : fim;
@@ -336,7 +477,6 @@ function interpretarTexto(t){
   }
   out.conv = conv;
 
-  // Aplicações (suporta tanto linhas tabuladas quanto blocos quebrados linha a linha)
   var apl = [], mont = null;
   if(ia >= 0){
     var blocoApl = linhas.slice(ia, fim).filter(Boolean);
@@ -353,16 +493,13 @@ function interpretarTexto(t){
         apl.push([mont || "Outros", ((c[0]||"")+" "+(c[1]||"")).trim(), c[2] || "-", c[3] || "-"].join(" | "));
       });
     } else {
-      // Pula cabeçalhos soltos: VEÍCULO, MODELO, MOTOR, ANO, COMBUSTÍVEL
       var idx = 0;
       while(idx < blocoApl.length && /^(ve[ií]culo|modelo|motor|ano|combust[ií]vel)$/i.test(blocoApl[idx])) idx++;
       var dadosApl = blocoApl.slice(idx);
       var j = 0;
       while(j < dadosApl.length){
         var item = dadosApl[j];
-        // Se for nome de montadora em caixa alta isolado (ex: TOYOTA, JETOUR, SUZUKI)
         if(item === item.toUpperCase() && !/\d/.test(item) && item.length <= 25 && (j + 1 >= dadosApl.length || !/^\d{2}\/\d{4}|^\d{4}\s*-/.test(dadosApl[j+1]))){
-          // Confirma se não é apenas o nome do veículo (ex: HILUX seguido de modelo/motor/ano)
           if(j + 4 < dadosApl.length && /(\d{4}|->)/.test(dadosApl[j+4])){
             mont = nomeMarca(item);
             j += 1;
@@ -386,6 +523,27 @@ function interpretarTexto(t){
   }
   out.apl = apl;
   return out;
+}
+
+function pareceHTML(str){
+  return /<!doctype\s+html|<html[\s>]|<body[\s>]|<table[\s>]|self\.__next_f\.push/i.test(str);
+}
+
+function aplicarResultadoLeitura(r, origemRotulo){
+  var tipo = tipoDaFuncao(r.funcao) || inferirTipoPeloCodigo(r.cod);
+  var codFinal = r.cod || $("f-cod").value || $("busca-tecfil").value.trim().toUpperCase();
+  var urlFinal = $("f-url").value || (codFinal ? urlCatalogo(codFinal) : "");
+  var e = { tipo: tipo || $("f-tipo").value, url: urlFinal, especificacoes: {}, conversoes: r.conv || {}, aplicacoes: null };
+  preencher(codFinal, e);
+  var s = r.s || {};
+  $("s-altura").value = s.altura || ""; $("s-ext").value = s.diametroExterno || ""; $("s-int").value = s.diametroInterno || ""; $("s-rosca").value = s.rosca || ""; $("s-elem").value = s.elemento || "";
+  $("s-vant").value = s.valvulaAntiRetorno || ""; $("s-valv").value = s.valvulaAlivio || ""; $("s-pl").value = s.pesoLiquido || ""; $("s-pb").value = s.pesoBruto || ""; $("s-caixa").value = s.caixa || ""; $("s-obs").value = s.observacao || "";
+  $("f-apl").value = (r.apl || []).join("\n");
+  var nm = Object.keys(r.conv || {}).length;
+  $("st-ler").className = "status" + (codFinal && nm ? "" : " erro");
+  $("st-ler").textContent = codFinal
+    ? ((origemRotulo ? origemRotulo + " · " : "") + "Código " + codFinal + ": " + nm + " marcas, " + (r.apl || []).length + " aplicações lidas. Confira os campos abaixo.")
+    : "Não achei o código na página. Preencha os campos à mão.";
 }
 
 /* ---------- gerar o arquivo .js ---------- */
@@ -451,24 +609,31 @@ $("btn-abrir-cat").onclick = function(){
 };
 $("busca-tecfil").addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); $("btn-abrir-cat").click(); } });
 
+$("arq-html").addEventListener("change", function(e){
+  var arq = e.target.files && e.target.files[0];
+  if(!arq) return;
+  var leitor = new FileReader();
+  leitor.onload = function(){
+    var conteudo = String(leitor.result || "");
+    $("colar").value = conteudo;
+    var r = interpretarHTML(conteudo);
+    aplicarResultadoLeitura(r, "Arquivo " + arq.name);
+  };
+  leitor.onerror = function(){
+    $("st-ler").className = "status erro";
+    $("st-ler").textContent = "Não foi possível ler o arquivo HTML selecionado.";
+  };
+  leitor.readAsText(arq, "utf-8");
+});
+
 $("busca-cad").oninput = desenharCad;
 $("btn-ler").onclick = function(){
   var txt = $("colar").value;
-  if(!txt.trim()){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Cole o texto da página primeiro."; return; }
-  var r = interpretarTexto(txt), tipo = tipoDaFuncao(r.funcao) || inferirTipoPeloCodigo(r.cod);
-  var codFinal = r.cod || $("f-cod").value || $("busca-tecfil").value.trim().toUpperCase();
-  var urlFinal = $("f-url").value || (codFinal ? urlCatalogo(codFinal) : "");
-  var e = { tipo: tipo || $("f-tipo").value, url: urlFinal, especificacoes: {}, conversoes: r.conv, aplicacoes: null };
-  preencher(codFinal, e);
-  var s = r.s;
-  $("s-altura").value = s.altura; $("s-ext").value = s.diametroExterno; $("s-int").value = s.diametroInterno; $("s-rosca").value = s.rosca; $("s-elem").value = s.elemento;
-  $("s-vant").value = s.valvulaAntiRetorno; $("s-valv").value = s.valvulaAlivio; $("s-pl").value = s.pesoLiquido; $("s-pb").value = s.pesoBruto; $("s-caixa").value = s.caixa; $("s-obs").value = s.observacao;
-  $("f-apl").value = r.apl.join("\n");
-  var nm = Object.keys(r.conv).length;
-  $("st-ler").className = "status" + (codFinal && nm ? "" : " erro");
-  $("st-ler").textContent = codFinal ? ("Código "+codFinal+": "+nm+" marcas, "+r.apl.length+" aplicações lidas. Confira os campos abaixo.") : "Não achei o código na página. Preencha os campos à mão.";
+  if(!txt.trim()){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Selecione um arquivo .html ou cole o texto da página primeiro."; return; }
+  var r = pareceHTML(txt) ? interpretarHTML(txt) : interpretarTexto(txt);
+  aplicarResultadoLeitura(r, pareceHTML(txt) ? "HTML" : "Texto");
 };
-$("btn-limpar-colar").onclick = function(){ $("colar").value = ""; $("st-ler").textContent = ""; };
+$("btn-limpar-colar").onclick = function(){ $("colar").value = ""; $("arq-html").value = ""; $("st-ler").textContent = ""; };
 $("btn-novo").onclick = function(){ preencher("", { tipo:$("f-tipo").value }); $("st-add").textContent = ""; };
 $("btn-add").onclick = function(){
   var cod = $("f-cod").value.trim().toUpperCase(), st = $("st-add");

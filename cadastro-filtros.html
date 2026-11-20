@@ -31,6 +31,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ambar);outline-o
 .col2{grid-column:span 2}
 .busca-linha{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:10px}
 .busca-linha > div{flex:1;min-width:200px}
+.campo-link{display:flex;gap:8px;align-items:center}
+.campo-link input{flex:1}
 .acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 button,.botao{border:0;border-radius:10px;padding:10px 16px;font:600 .95rem "IBM Plex Sans",sans-serif;cursor:pointer;background:var(--ambar);color:#11262F;text-decoration:none;display:inline-block}
 button.sec,.botao.sec{background:transparent;color:var(--texto);border:1px solid var(--linha)}
@@ -57,12 +59,12 @@ pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;pad
   </div>
 
   <section class="cartao">
-    <h2>1. Buscar código, carregar HTML salvo ou colar da página</h2>
-    <p class="nota">Você pode abrir o catálogo pelo código, enviar um arquivo <strong>.html</strong> salvo da página do produto (recomendado) ou selecionar tudo (Ctrl+A), copiar (Ctrl+C) e colar abaixo.</p>
+    <h2>1. Informar link, carregar HTML salvo ou colar da página</h2>
+    <p class="nota">Cole o link direto do produto (ex.: <code>https://catalogo.tecfil.com.br/tecfil/produto/545</code>), envie um arquivo <strong>.html</strong> salvo da página ou cole o texto/HTML copiado (Ctrl+A, Ctrl+C).</p>
     <div class="busca-linha">
       <div>
-        <label for="busca-tecfil">Código Tecfil (ex.: PSL127, PC953, ARL2206, ARS8234)</label>
-        <input id="busca-tecfil" placeholder="Digite o código…" autocomplete="off">
+        <label for="busca-tecfil">Link do produto ou código Tecfil (ex.: https://catalogo.tecfil.com.br/tecfil/produto/545 ou PSL127)</label>
+        <input id="busca-tecfil" placeholder="Cole o link ou digite o código…" autocomplete="off">
       </div>
       <button type="button" id="btn-abrir-cat">Abrir no Catálogo Tecfil ↗</button>
     </div>
@@ -72,7 +74,7 @@ pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;pad
         <input type="file" id="arq-html" accept=".html,.htm,text/html">
       </div>
     </div>
-    <textarea id="colar" placeholder="Cole aqui o texto copiado da página do produto (Ctrl+A, Ctrl+C) ou código HTML…" style="margin-top:12px"></textarea>
+    <textarea id="colar" placeholder="Cole aqui o link, o texto copiado da página (Ctrl+A, Ctrl+C) ou o código HTML…" style="margin-top:12px"></textarea>
     <div class="acoes">
       <button type="button" id="btn-ler">Preencher os campos</button>
       <button type="button" class="sec" id="btn-limpar-colar">Limpar</button>
@@ -85,7 +87,13 @@ pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;pad
     <div class="grade">
       <div><label for="f-tipo">Tipo</label><select id="f-tipo"><option value="oleo">Óleo</option><option value="ar">Ar</option><option value="combustivel">Combustível</option><option value="cabine">Cabine</option></select></div>
       <div><label for="f-cod">Código Tecfil</label><input id="f-cod" placeholder="Ex.: PSL340" autocomplete="off"></div>
-      <div class="col2"><label for="f-url">Link do produto no catálogo</label><input id="f-url" placeholder="https://catalogo.tecfil.com.br/…/produto/…" autocomplete="off"></div>
+      <div class="col2">
+        <label for="f-url">Link do produto no catálogo</label>
+        <div class="campo-link">
+          <input id="f-url" placeholder="https://catalogo.tecfil.com.br/tecfil/produto/545" autocomplete="off">
+          <button type="button" class="sec pq" id="btn-abrir-url">Abrir link ↗</button>
+        </div>
+      </div>
       <div><label for="s-altura">Altura (mm)</label><input id="s-altura" inputmode="decimal"></div>
       <div><label for="s-ext">Ø externo / comprimento (mm)</label><input id="s-ext" inputmode="decimal"></div>
       <div><label for="s-int">Ø interno / largura (mm)</label><input id="s-int" inputmode="decimal"></div>
@@ -165,7 +173,24 @@ var abaCad = "oleo", abaFalta = "oleo", faltam = { oleo:[], ar:[], combustivel:[
 
 function norm(s){ return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
 function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function normalizarUrl(valor){
+  var s = String(valor || "").trim();
+  if(!s) return "";
+  var m = s.match(/https?:\/\/[^\s"'<>]+/i);
+  if(m) return m[0].replace(/[),.;]+$/, "");
+  if(/^\/?(tecfil\/produto\/\d+|search\/[^\s"'<>]+)/i.test(s)){
+    return "https://catalogo.tecfil.com.br/" + s.replace(/^\/+/, "");
+  }
+  return "";
+}
 function urlCatalogo(cod){ var m = String(cod).match(/[A-Za-z]+\d+[\w\/.\-]*/); return "https://catalogo.tecfil.com.br/search/"+encodeURIComponent(m ? m[0] : String(cod).trim()); }
+function resolverUrl(cod, candidatos){
+  for(var i = 0; i < candidatos.length; i++){
+    var u = normalizarUrl(candidatos[i]);
+    if(u) return u;
+  }
+  return cod ? urlCatalogo(cod) : "";
+}
 var SIGLAS = ["GM","KSPG","WIX","ZF","KS","VME","CAV","CBT","MWM","FAM","CVRD","AGCO","JAC","BMW","TAC","VW","MAN","IVECO","DAF"];
 function nomeMarca(v){
   v = String(v || "").trim();
@@ -270,7 +295,7 @@ function preencher(cod, e){
 
 /* ---------- extrair dados de arquivo HTML / payload Next.js / DOM ---------- */
 function extrairPayloadNext(html){
-  var out = { cod:"", funcao:null, s:{}, conv:{}, apl:[] };
+  var out = { cod:"", funcao:null, url:"", s:{}, conv:{}, apl:[] };
   var rePush = /self\.__next_f\.push\(\[\s*1\s*,\s*"((?:\\.|[^"\\])*)"\s*\]\)/g;
   var chunks = [], m;
   while((m = rePush.exec(html)) !== null){
@@ -316,7 +341,6 @@ function extrairPayloadNext(html){
     observacao: obsRaw ? obsRaw.replace(/^\*\s*/,"").replace(/\.$/,"").trim() : ""
   };
 
-  // Extrai aplicações embutidas no payload se existirem
   var reAplObj = /"DescricaoFabricante"\s*:\s*"([^"]*)"[\s\S]*?"ComplementoAplicacao3_1"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_2"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_3"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_4"\s*:\s*("[^"]*"|null)/g;
   var am, aplSet = {};
   while((am = reAplObj.exec(blob)) !== null){
@@ -337,12 +361,19 @@ function extrairPayloadNext(html){
 }
 
 function interpretarHTML(html){
-  var payload = extrairPayloadNext(html) || { cod:"", funcao:null, s:{}, conv:{}, apl:[] };
+  var payload = extrairPayloadNext(html) || { cod:"", funcao:null, url:"", s:{}, conv:{}, apl:[] };
   var doc = new DOMParser().parseFromString(html, "text/html");
   var textoVisivel = doc.body ? (doc.body.innerText || doc.body.textContent || "") : "";
   var fallback = interpretarTexto(textoVisivel);
 
-  // Conversões pela tabela DOM quando disponível
+  var canonLink = doc.querySelector('link[rel="canonical"]');
+  var ogUrl = doc.querySelector('meta[property="og:url"]');
+  var urlExtraida = normalizarUrl(
+    (canonLink && canonLink.getAttribute("href")) ||
+    (ogUrl && ogUrl.getAttribute("content")) ||
+    ""
+  );
+
   var convDom = {};
   doc.querySelectorAll("table").forEach(function(tbl){
     var headers = Array.from(tbl.querySelectorAll("th")).map(function(th){ return (th.textContent || "").trim(); });
@@ -364,7 +395,6 @@ function interpretarHTML(html){
     });
   });
 
-  // Aplicações pela tabela DOM quando disponível
   var aplDom = [];
   doc.querySelectorAll("table").forEach(function(tbl){
     var ths = Array.from(tbl.querySelectorAll("thead th")).map(function(x){ return (x.textContent || "").trim().toLowerCase(); });
@@ -397,6 +427,7 @@ function interpretarHTML(html){
   return {
     cod: payload.cod || fallback.cod || "",
     funcao: payload.funcao || fallback.funcao || null,
+    url: urlExtraida || fallback.url || "",
     s: sMerged,
     conv: Object.keys(convDom).length ? convDom : fallback.conv,
     apl: aplDom.length ? aplDom : (payload.apl.length ? payload.apl : fallback.apl)
@@ -406,6 +437,7 @@ function interpretarHTML(html){
 /* ---------- ler o texto colado da página do catálogo (aceita quebra de linha entre rótulo e valor) ---------- */
 function interpretarTexto(t){
   t = String(t || "").replace(/\r/g, "");
+  var urlAchada = normalizarUrl(t);
   var linhas = t.split("\n").map(function(l){ return l.trim(); });
 
   var campo = function(rot){
@@ -425,6 +457,7 @@ function interpretarTexto(t){
   var codMatch = t.match(/C[óo]digo\s*:?\s*([A-Z]{2,4}\d{2,5}(?:\/\d+)?)/i);
   var out = {
     cod: codMatch ? codMatch[1].toUpperCase() : "",
+    url: urlAchada,
     funcao: campo("Função") || (/\bLUBRIFICANTE\b/i.test(t) ? "Lubrificante" : /\bCOMBUST[ÍI]VEL\b/i.test(t) ? "Combustível" : /\bCABINE\b/i.test(t) ? "Cabine" : /\bAR\b/.test(t) ? "Ar" : null)
   };
 
@@ -532,7 +565,7 @@ function pareceHTML(str){
 function aplicarResultadoLeitura(r, origemRotulo){
   var tipo = tipoDaFuncao(r.funcao) || inferirTipoPeloCodigo(r.cod);
   var codFinal = r.cod || $("f-cod").value || $("busca-tecfil").value.trim().toUpperCase();
-  var urlFinal = $("f-url").value || (codFinal ? urlCatalogo(codFinal) : "");
+  var urlFinal = resolverUrl(codFinal, [r.url, $("f-url").value, $("busca-tecfil").value]);
   var e = { tipo: tipo || $("f-tipo").value, url: urlFinal, especificacoes: {}, conversoes: r.conv || {}, aplicacoes: null };
   preencher(codFinal, e);
   var s = r.s || {};
@@ -540,10 +573,15 @@ function aplicarResultadoLeitura(r, origemRotulo){
   $("s-vant").value = s.valvulaAntiRetorno || ""; $("s-valv").value = s.valvulaAlivio || ""; $("s-pl").value = s.pesoLiquido || ""; $("s-pb").value = s.pesoBruto || ""; $("s-caixa").value = s.caixa || ""; $("s-obs").value = s.observacao || "";
   $("f-apl").value = (r.apl || []).join("\n");
   var nm = Object.keys(r.conv || {}).length;
-  $("st-ler").className = "status" + (codFinal && nm ? "" : " erro");
-  $("st-ler").textContent = codFinal
-    ? ((origemRotulo ? origemRotulo + " · " : "") + "Código " + codFinal + ": " + nm + " marcas, " + (r.apl || []).length + " aplicações lidas. Confira os campos abaixo.")
-    : "Não achei o código na página. Preencha os campos à mão.";
+  var temDados = Boolean(codFinal || nm || (r.apl && r.apl.length) || urlFinal);
+  $("st-ler").className = "status" + (temDados ? "" : " erro");
+  if(codFinal){
+    $("st-ler").textContent = (origemRotulo ? origemRotulo + " · " : "") + "Código " + codFinal + ": " + nm + " marcas, " + (r.apl || []).length + " aplicações lidas. Confira os campos abaixo.";
+  } else if(urlFinal){
+    $("st-ler").textContent = "Link preenchido (" + urlFinal + "). Informe o código Tecfil ou carregue o HTML/texto para preencher os demais campos.";
+  } else {
+    $("st-ler").textContent = "Não achei o código na página. Preencha os campos à mão.";
+  }
 }
 
 /* ---------- gerar o arquivo .js ---------- */
@@ -597,17 +635,27 @@ function desenharTudo(){ atualizarFaltam(); desenharCad(); desenharFalta(); }
 
 /* ---------- eventos ---------- */
 $("btn-abrir-cat").onclick = function(){
-  var cod = $("busca-tecfil").value.trim().toUpperCase();
-  if(!cod){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Digite um código Tecfil para abrir no catálogo."; return; }
-  var link = urlCatalogo(cod);
+  var raw = $("busca-tecfil").value.trim();
+  if(!raw){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Informe um link ou código Tecfil para abrir no catálogo."; return; }
+  var urlDireta = normalizarUrl(raw);
+  var cod = raw.toUpperCase();
   var tipoInf = inferirTipoPeloCodigo(cod);
   if(tipoInf) $("f-tipo").value = tipoInf;
-  $("f-cod").value = cod;
+  if(!urlDireta && /^[A-Z]{2,4}\d{2,5}(?:\/\d+)?$/i.test(raw)){
+    $("f-cod").value = cod;
+  }
+  var link = urlDireta || urlCatalogo(raw);
   $("f-url").value = link;
   window.open(link, "_blank", "noopener");
   $("colar").focus();
 };
 $("busca-tecfil").addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); $("btn-abrir-cat").click(); } });
+$("btn-abrir-url").onclick = function(){
+  var link = normalizarUrl($("f-url").value);
+  if(!link){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Informe um link válido do produto no catálogo."; return; }
+  $("f-url").value = link;
+  window.open(link, "_blank", "noopener");
+};
 
 $("arq-html").addEventListener("change", function(e){
   var arq = e.target.files && e.target.files[0];
@@ -629,7 +677,19 @@ $("arq-html").addEventListener("change", function(e){
 $("busca-cad").oninput = desenharCad;
 $("btn-ler").onclick = function(){
   var txt = $("colar").value;
-  if(!txt.trim()){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Selecione um arquivo .html ou cole o texto da página primeiro."; return; }
+  var linkBusca = normalizarUrl($("busca-tecfil").value);
+  var linkCampo = normalizarUrl($("f-url").value);
+  if(!txt.trim()){
+    if(linkBusca || linkCampo){
+      $("f-url").value = linkBusca || linkCampo;
+      $("st-ler").className = "status";
+      $("st-ler").textContent = "Link preenchido (" + $("f-url").value + "). Carregue o HTML ou cole os dados da página para preencher os campos.";
+      return;
+    }
+    $("st-ler").className = "status erro";
+    $("st-ler").textContent = "Selecione um arquivo .html, informe um link ou cole o texto da página primeiro.";
+    return;
+  }
   var r = pareceHTML(txt) ? interpretarHTML(txt) : interpretarTexto(txt);
   aplicarResultadoLeitura(r, pareceHTML(txt) ? "HTML" : "Texto");
 };

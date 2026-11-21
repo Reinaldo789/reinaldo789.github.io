@@ -389,7 +389,7 @@ res.forEach(function(r,i){
   if(!achou) falhas.push(a+": não exporta nenhum objeto de veículos");
 });
 /* Catálogo de filtros (opcional): especificações, conversões e aplicações por código Tecfil */
-var CATALOGO = {}, ARQ_CATALOGO = ["filtros-de-oleo.js","filtros-de-ar.js","filtros-de-combustivel.js","filtros-de-cabine.js"];
+var CATALOGO = {}, ARQ_CATALOGO = ["filtros-de-oleo.js","filtros-de-ar.js","filtros-de-combustivel.js"];
 var rcat = await Promise.allSettled(ARQ_CATALOGO.map(function(a){ return import("./js/dados/"+a+"?v="+Date.now()); }));
 rcat.forEach(function(r,i){
   if(r.status !== "fulfilled"){ console.warn(ARQ_CATALOGO[i]+" não carregado:", r.reason && r.reason.message); return; }
@@ -853,24 +853,23 @@ function paginaFiltro(g){
     var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
   });
-  if(marcas.length) h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
+  var cat = CATALOGO[compacto(g.cod)];
+  var cv = (cat && cat.conversoes) || {}, mc = Object.keys(cv);
+  /* Códigos equivalentes: com ficha no catálogo, todas as conversões do catálogo; sem ficha, os códigos do guia */
+  if(mc.length) h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+mc.map(function(m){
+    return '<div><dt>'+esc(m)+'</dt><dd>'+cv[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
+  }).join("")+'</dl></article></div>';
+  else if(marcas.length) h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
     return '<div><dt>'+esc(NOME_COLUNA[m] || m)+'</dt><dd>'+g.codigos[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
   }).join("")+'</dl></article></div>';
-  var cat = CATALOGO[compacto(g.cod)];
   if(cat && (cat.especificacoes || cat.conversoes || cat.aplicacoes)){
     var e = cat.especificacoes || {};
     var fmt = function(v, un){ if(v === null || v === undefined || v === "") return null; if(v === true) return "Sim"; if(v === false) return "Não"; return String(v)+(un && typeof v === "number" ? " "+un : ""); };
-    var linhas = [["Altura", fmt(e.altura,"mm")], ["Ø externo / comprimento", fmt(e.diametroExterno,"mm")], ["Ø interno / largura", fmt(e.diametroInterno,"mm")],
-      ["Rosca", fmt(e.rosca)], ["Elemento", fmt(e.elemento)], ["Válvula anti-retorno", fmt(e.valvulaAntiRetorno)], ["Válvula de alívio", fmt(e.valvulaAlivio)],
-      ["Peso líquido", fmt(e.pesoLiquido,"kg")], ["Peso bruto", fmt(e.pesoBruto,"kg")], ["Caixa (un.)", fmt(e.caixa)], ["Observação", fmt(e.observacao)]]
+    var linhas = [["Elemento", fmt(e.elemento)], ["Altura", fmt(e.altura,"mm")], ["Ø int. / largura", fmt(e.diametroInterno,"mm")], ["Ø ext. / comprimento", fmt(e.diametroExterno,"mm")], ["Ø rosca", fmt(e.rosca)]]
       .filter(function(l){ return l[1] !== null; });
     if(linhas.length) h += '<h2>Especificações técnicas</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+linhas.map(function(l){
       return '<div><dt>'+esc(l[0])+'</dt><dd>'+esc(l[1])+'</dd></div>';
     }).join("")+'</dl></article></div>';
-    var cv = cat.conversoes || {}, mc = Object.keys(cv);
-    if(mc.length) h += '<details class="detalhes-cat"><summary>Todas as conversões do catálogo ('+mc.length+' marcas)</summary><div class="grade-sis"><article class="cartao-sis"><dl>'+mc.map(function(m){
-      return '<div><dt>'+esc(m)+'</dt><dd>'+cv[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
-    }).join("")+'</dl></article></div></details>';
     if(cat.aplicacoes){
       var ma = Object.keys(cat.aplicacoes);
       h += '<h2 class="sec-filtros">Aplicações no catálogo Tecfil</h2><div class="rolagem"><table class="tabela-app"><thead><tr><th>Veículo</th><th>Motor</th><th>Ano</th></tr></thead><tbody>'+
@@ -885,16 +884,6 @@ function paginaFiltro(g){
     h += '<p><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
   } else {
     h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
-  }
-  /* Veículos do guia que usam o filtro (sempre, com ou sem catálogo) */
-  if(g.veic.length){
-    var por = {};
-    g.veic.forEach(function(v){ (por[v.marca] = por[v.marca] || []).push(v); });
-    h += '<h2 class="sec-filtros">Veículos do guia que usam este filtro</h2><div class="grade-sis">'+Object.keys(por).sort(function(a,b){ return a.localeCompare(b,"pt-BR"); }).map(function(m){
-      return '<article class="cartao-sis"><h3>'+esc(m)+'</h3><ul class="lista-app">'+por[m].map(function(v){
-        return '<li><a href="#/veiculo/'+v.id+'">'+esc(v.modelo)+'</a></li>';
-      }).join("")+'</ul></article>';
-    }).join("")+'</div>';
   }
   return h;
 }

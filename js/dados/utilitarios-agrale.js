@@ -13,13 +13,14 @@ export const utilitariosAgrale = {
       2: "Eixos rígidos Dana. Caso o diferencial traseiro possua sistema de deslizamento limitado (LSD / Trac-Lok), utilize óleo GL-5 compatível com LSD ou adicione o aditivo modificador de atrito para evitar ruídos e desgaste prematuro.",
       3: "Atenção ao filtro de combustível: utilize estritamente a família com rosca para sensor de água (Tecfil PSC498/4, Vox FBD498/4, Mann WK 940/35). Não compre a versão padrão sem sufixo (ex: Tecfil PSC498, Inpeca SCB-0498, Mann WK842/3), pois a rosca inferior do sensor de presença de água não encaixa."
     },
+    // Só o código Tecfil: as demais marcas vêm do catálogo (js/dados/filtros-de-*.js)
     filtros: {
-      oleo: { original: '6008001204004', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },
-      ar: { original: '6015001014002', tecfil: 'ARS8234', authomix: 'FAR8234', mann: 'C 18 450/1', mahle: 'LX 2532', wega: 'WR-200/8', fram: 'CA10221', vox: 'HD8234' },
-      arSecundario: { original: '6015001015009', tecfil: 'ASR234', authomix: 'FAS0234', mann: 'CF 1150', mahle: 'LXS 370', wega: 'WR-200/8S', fram: '-', vox: 'HDS234' },
-      combustivel: { original: '905411510035', tecfil: 'PSC498/4', authomix: 'FCO4984', mann: 'WK 940/35', mahle: 'KL 747', wega: 'FCD-2066/1', fram: 'P4836A', vox: 'FBD498/4' },
-      sedimentador: { original: '905411510019', tecfil: 'PSD450/1', authomix: 'FSE4501', mann: 'WK 1030', mahle: 'KC 121/1', wega: 'FCD-2212', fram: 'PS9029', vox: 'FBS450/1' },
-      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL340',
+      ar: 'ARS8234',
+      arSecundario: 'ASR234',
+      combustivel: 'PSC498/4',
+      sedimentador: 'PSD450/1',
+      cabine: null
     }
   },
 
@@ -37,13 +38,14 @@ export const utilitariosAgrale = {
       2: "Eixos rígidos Dana. Caso o diferencial traseiro possua sistema de deslizamento limitado (LSD / Trac-Lok), utilize óleo GL-5 compatível com LSD ou adicione o aditivo modificador de atrito para evitar ruídos e desgaste prematuro.",
       3: "Motorização MWM Sprint 4.07 TCE eletrônica (Euro III) aplicada nas versões finais da G1 e modelos militares (AM11, AM20, AM21, AM23). Confirme sempre a rosca do sensor de água no filtro de combustível antes da compra."
     },
+    // Só o código Tecfil: as demais marcas vêm do catálogo (js/dados/filtros-de-*.js)
     filtros: {
-      oleo: { original: '6008001204004', tecfil: 'PSL340', authomix: 'FOL0340', mann: 'W 1323', mahle: 'OC 404', wega: 'WO-540', fram: 'PH9503', vox: 'LB340' },
-      ar: { original: '6015001014002', tecfil: 'ARS8234', authomix: 'FAR8234', mann: 'C 18 450/1', mahle: 'LX 2532', wega: 'WR-200/8', fram: 'CA10221', vox: 'HD8234' },
-      arSecundario: { original: '6015001015009', tecfil: 'ASR234', authomix: 'FAS0234', mann: 'CF 1150', mahle: 'LXS 370', wega: 'WR-200/8S', fram: '-', vox: 'HDS234' },
-      combustivel: { original: '905411510035', tecfil: 'PSC498/4', authomix: 'FCO4984', mann: 'WK 940/35', mahle: 'KL 747', wega: 'FCD-2066/1', fram: 'P4836A', vox: 'FBD498/4' },
-      sedimentador: { original: '905411510019', tecfil: 'PSD450/1', authomix: 'FSE4501', mann: 'WK 1030', mahle: 'KC 121/1', wega: 'FCD-2212', fram: 'PS9029', vox: 'FBS450/1' },
-      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL340',
+      ar: 'ARS8234',
+      arSecundario: 'ASR234',
+      combustivel: 'PSC498/4',
+      sedimentador: 'PSD450/1',
+      cabine: null
     }
   },
 
@@ -60,13 +62,14 @@ export const utilitariosAgrale = {
       1: "O câmbio Eaton FSO-4505 exige obrigatoriamente óleo com especificação **API GL-4**. Nunca utilize óleo GL-5 em caixas manuais com sincronizadores de latão/bronze para evitar corrosão química.",
       2: "Eixos rígidos Dana de alta resistência. Algumas versões táticas e institucionais contam com opção de bloqueio eletrônico no eixo dianteiro (como o sistema Eaton E-Locker) para tração 100% integral em terreno crítico."
     },
+    // Só o código Tecfil: as demais marcas vêm do catálogo (js/dados/filtros-de-*.js)
     filtros: {
-      oleo: { original: '5266731', tecfil: 'PSL356', authomix: 'FOL0356', mann: 'W 1035', mahle: 'OC 1794', wega: 'WOP-1002', fram: 'PH12437', vox: 'LB356' },
-      ar: { original: '6015001014002', tecfil: 'ARS8234', authomix: 'FAR8234', mann: 'C 18 450/1', mahle: 'LX 2532', wega: 'WR-200/8', fram: 'CA10221', vox: 'HD8234' },
-      arSecundario: { original: '6015001015009', tecfil: 'ASR234', authomix: 'FAS0234', mann: 'CF 1150', mahle: 'LXS 370', wega: 'WR-200/8S', fram: '-', vox: 'HDS234' },
-      combustivel: { original: '5262311', tecfil: 'PSC706', authomix: 'FCO0706', mann: 'WK 10002/1', mahle: 'KC 511D', wega: 'FCD-4000', fram: 'P11474', vox: 'FBD706' },
-      sedimentador: { original: '5264870', tecfil: 'PSD925', authomix: '-', mann: 'WK 9046', mahle: 'KC 624D', wega: 'FCD-0960', fram: 'P11036', vox: '-' },
-      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL356',
+      ar: 'ARS8234',
+      arSecundario: 'ASR234',
+      combustivel: 'PSC706',
+      sedimentador: 'PSD925',
+      cabine: null
     }
   },
 
@@ -84,13 +87,14 @@ export const utilitariosAgrale = {
       2: "Eixos Dana reforçados para aplicações severas (AM250 CS/CD, AM200 Micro-ônibus / Escolar ORE Zero e versões militares atuais). Utilizar óleo **API GL-5**.",
       3: "Motorização Cummins F3.8 Proconve P8 (Euro VI) equipada com sistema de pós-tratamento SCR (exige uso contínuo de **Arla 32**) e filtro de partículas (DPF), tornando obrigatório o óleo de baixo teor de cinzas (**API CK-4 / ACEA E9**). Confirme os códigos exatos dos filtros pelo número de série do motor Cummins, pois podem variar conforme a configuração de chassi."
     },
+    // Só o código Tecfil: as demais marcas vêm do catálogo (js/dados/filtros-de-*.js)
     filtros: {
-      oleo: { original: '5266731 / 4897898', tecfil: 'PSL356 / PSL283', authomix: 'FOL0356 / FOL0283', mann: 'W 1035 / W 950/26', mahle: 'OC 1794 / OC 505', wega: 'WOP-1002 / WO-612', fram: 'PH12437', vox: 'LB356 / LB283' },
-      ar: { original: '6015001014002', tecfil: 'ARS8234', authomix: 'FAR8234', mann: 'C 18 450/1', mahle: 'LX 2532', wega: 'WR-200/8', fram: 'CA10221', vox: 'HD8234' },
-      arSecundario: { original: '6015001015009', tecfil: 'ASR234', authomix: 'FAS0234', mann: 'CF 1150', mahle: 'LXS 370', wega: 'WR-200/8S', fram: '-', vox: 'HDS234' },
-      combustivel: { original: '5262311 / 5303743', tecfil: 'PSC706', authomix: 'FCO0706', mann: 'WK 10002/1', mahle: 'KC 511D', wega: 'FCD-4000', fram: 'P11474', vox: 'FBD706' },
-      sedimentador: { original: '5264870 / 5304214', tecfil: 'PSD925', authomix: '-', mann: 'WK 9046', mahle: 'KC 624D', wega: 'FCD-0960', fram: 'P11036', vox: '-' },
-      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL356 / PSL283',
+      ar: 'ARS8234',
+      arSecundario: 'ASR234',
+      combustivel: 'PSC706',
+      sedimentador: 'PSD925',
+      cabine: null
     }
   }
 };

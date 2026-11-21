@@ -364,8 +364,8 @@ body{transition:background-color .25s,color .25s}
    As montadoras do menu são montadas a partir do nome de cada veículo.
    ===================================================================== */
 var ARQUIVOS = [
-  "caminhoes-ford.js","caminhoes-iveco.js","caminhoes-mercedes.js",
-  "caminhoes-volkswagen.js",
+  "caminhoes-daf.js","caminhoes-ford.js","caminhoes-iveco.js","caminhoes-mercedes.js",
+  "caminhoes-scania.js","caminhoes-volkswagen.js","caminhoes-volvo.js",
   "passeio-chevrolet.js","passeio-fiat.js","passeio-ford.js","passeio-outras-marcas.js","passeio-volkswagen.js",
   "utilitarios-agrale.js","utilitarios-chevrolet.js","utilitarios-ford.js","utilitarios-mitsubishi.js","utilitarios-toyota.js",
   "vans-fiat.js","vans-ford.js","vans-iveco.js","vans-mercedes.js","vans-psa.js","vans-renault.js","vans-volkswagen-agrale.js"
@@ -399,6 +399,57 @@ rcat.forEach(function(r,i){
     Object.keys(o).forEach(function(cod){ var e = o[cod]; e.cod = cod; CATALOGO[compacto(cod)] = e; });
   });
 });
+/*RESOLVER-INICIO*/
+/* Filtros do veículo só por código Tecfil ('oleo: "PSL340"'): as demais marcas vêm do catálogo; não existe coluna Original.
+   null = sem filtro daquele tipo. Objetos completos (formato antigo) continuam valendo. */
+var MARCAS_FILTRO = { authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram", vox:"Vox" };
+function expandirFiltro(cods){
+  var lista = String(cods).split(/\s+\/\s+/).map(function(s){ return s.trim(); }).filter(Boolean);
+  var r = { tecfil:lista.slice() };
+  Object.keys(MARCAS_FILTRO).forEach(function(k){ r[k] = []; });
+  lista.forEach(function(cod){
+    var e = CATALOGO[compacto(cod)], cv = (e && e.conversoes) || {};
+    Object.keys(MARCAS_FILTRO).forEach(function(k){
+      (cv[MARCAS_FILTRO[k]] || []).forEach(function(c){ if(r[k].indexOf(c) < 0) r[k].push(c); });
+    });
+  });
+  var saida = {};
+  Object.keys(r).forEach(function(k){ saida[k] = r[k].length ? r[k].join(" / ") : "-"; });
+  return saida;
+}
+var RENOMEAR_TIPO = { ar_secundario:"arSecundario", separador_agua:"sedimentador" };
+Object.keys(banco).forEach(function(chave){
+  var f = banco[chave] && banco[chave].filtros; if(!f) return;
+  var nf = {};
+  Object.keys(f).forEach(function(t0){
+    if(t0 === "cabine") return; /* filtro de cabine não é usado no guia */
+    var t = RENOMEAR_TIPO[t0] || t0, v = f[t0];
+    if(v === null){ v = { tecfil:"Não possui", authomix:"-", mann:"-", mahle:"-", wega:"-", fram:"-", vox:"-" }; }
+    else if(typeof v === "string"){ v = expandirFiltro(v); }
+    else if(v && typeof v === "object"){
+      /* formato antigo: a coluna Original não é mais usada ("Não possui" passa para a coluna Tecfil) */
+      if(/^n[aã]o possui/i.test(String(v.original || "")) && (!v.tecfil || v.tecfil === "-")) v.tecfil = v.original;
+      delete v.original;
+    }
+    nf[t] = v;
+  });
+  /* Célula dupla "combustível / sedimentador" (ex.: "PEC3023 / PSD920/1") vira duas linhas */
+  var c = nf.combustivel;
+  if(c && !nf.sedimentador && c.tecfil && /\s\/\s/.test(c.tecfil)){
+    var ps = c.tecfil.split(/\s+\/\s+/), ix = -1;
+    ps.forEach(function(x, n){ if(/^PSD/i.test(x)) ix = n; });
+    if(ix > -1 && ps.length === 2){
+      var sed = {}, resto = {};
+      Object.keys(c).forEach(function(m){
+        var pt = String(c[m]).split(/\s+\/\s+/);
+        if(pt.length === 2){ sed[m] = pt[ix]; resto[m] = pt[1-ix]; } else { sed[m] = "-"; resto[m] = c[m]; }
+      });
+      nf.combustivel = resto; nf.sedimentador = sed;
+    }
+  }
+  banco[chave].filtros = nf;
+});
+/*RESOLVER-FIM*/
 var erroDados = falhas.length > 0;
 
 var NOMES_MARCA = { "VW": "Volkswagen" };
@@ -510,19 +561,24 @@ MONTADORAS.forEach(function(m){
 
 /* Aplicação dos filtros: veículos que usam o mesmo filtro (mesmo tipo + mesmo código Tecfil) */
 function codVazio(c){ return !c || c === "-" || /^n[aã]o possui/i.test(String(c).trim()); }
+/* "PSL356 / PSL283" = dois filtros; "PSC498 (Mec) / PSC498/4 (Elet)" = código + rótulo entre parênteses */
+function partirCod(s){ return String(s).split(/\s+\/\s+/).map(function(x){ var m = x.match(/^(.*?)\s*\((.+)\)\s*$/); return m ? { cod:m[1].trim(), rot:m[2] } : { cod:x.trim(), rot:"" }; }).filter(function(p){ return p.cod; }); }
 var GRUPOS = {};
 VEICULOS.forEach(function(v){
   var f = (v.dados || {}).filtros || {};
   Object.keys(f).forEach(function(t){
-    var tec = f[t].tecfil;
-    if(codVazio(tec)) return;
-    var k = t+"|"+compacto(tec), g = GRUPOS[k] || (GRUPOS[k] = { tipo:t, cod:tec, veic:[], codigos:{} });
-    if(g.veic.indexOf(v) < 0) g.veic.push(v);
-    Object.keys(f[t]).forEach(function(m){
-      var c = f[t][m];
-      if(codVazio(c)) return;
-      var a = g.codigos[m] || (g.codigos[m] = []);
-      if(a.indexOf(c) < 0) a.push(c);
+    if(codVazio(f[t].tecfil)) return;
+    var ps = partirCod(f[t].tecfil);
+    ps.forEach(function(p, i){
+      var k = t+"|"+compacto(p.cod), g = GRUPOS[k] || (GRUPOS[k] = { tipo:t, cod:p.cod, veic:[], codigos:{} });
+      if(g.veic.indexOf(v) < 0) g.veic.push(v);
+      Object.keys(f[t]).forEach(function(mc){
+        var c = f[t][mc]; if(codVazio(c)) return;
+        var pt = String(c).split(/\s+\/\s+/), uso = ps.length === 1 ? String(c) : (pt.length === ps.length ? pt[i].replace(/\s*\(.+\)\s*$/, "") : null);
+        if(uso === null) return;
+        var a = g.codigos[mc] || (g.codigos[mc] = []);
+        if(!a.some(function(x){ return compacto(x) === compacto(uso); })) a.push(uso);
+      });
     });
   });
 });
@@ -872,8 +928,11 @@ function paginaVeiculo(v){
         return '<tr><th scope="row" title="'+esc(nomeFiltro(t))+'"><span class="ico-filtro" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span class="sr">'+esc(nomeFiltro(t))+'</span></th>'+cols.map(function(c){
           var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
           if(c === "tecfil" && !codVazio(cod)){
-            var g = GRUPOS[t+"|"+compacto(cod)], n = g ? g.veic.length-1 : 0, temCat = !!CATALOGO[compacto(cod)];
-            if(g) tag = '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>';
+            tag = partirCod(cod).map(function(p){
+              var g = GRUPOS[t+"|"+compacto(p.cod)], n = g ? g.veic.length-1 : 0, rot = p.rot ? ' <small>('+esc(p.rot)+')</small>' : '';
+              if(!g) return '<span class="filtro-tag">'+esc(p.cod)+'</span>'+rot;
+              return '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(p.cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(p.cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(p.cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>'+rot;
+            }).join(" ");
           }
           return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
         }).join("")+'</tr>';

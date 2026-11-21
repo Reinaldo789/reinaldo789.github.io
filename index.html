@@ -848,7 +848,7 @@ function urlCatalogo(cod){
 function paginaFiltro(g){
   var rot = ROTULO_FILTRO[g.tipo] || g.tipo, n = g.veic.length;
   var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(rot)+'</span><span>/</span><span>'+esc(g.cod)+'</span></nav>'+
-    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil'+(n ? ' · serve em '+n+(n === 1 ? ' veículo' : ' veículos') : '')+'</p></header>';
+    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil</p></header>';
   var marcas = Object.keys(g.codigos).sort(function(a,b){
     var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);

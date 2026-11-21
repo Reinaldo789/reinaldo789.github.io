@@ -9,10 +9,9 @@ export const passeioFiat = {
       2: "Uso normal: 10.000 km ou 1 ano. Uso severo (trânsito diário pesado / anda e para): 5.000 km ou 6 meses."
     },
     filtros: {
-      oleo: { original: '7085786', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 713/16', mahle: 'OC506', wega: 'WO-130', fram: 'CH9642', vox: 'LB55' },
-      ar: { original: '51775324', tecfil: 'ARL4150', authomix: 'FAR4150', mann: 'C 2585', mahle: 'LX1791', wega: 'FAP-4022', fram: 'CA9566', vox: 'FAR4150' },
-      combustivel: { original: '51778945', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58', mahle: 'KL582', wega: 'FCI-1660', fram: 'G9193', vox: 'FC00047' },
-      cabine: { original: '7088921', tecfil: 'ACP304', authomix: 'FCA0304', mann: 'CU 2629/1', mahle: 'LA 67', wega: 'AKX-3520', fram: 'CF9481', vox: 'FCA0304' }
+      oleo: 'PSL55',
+      ar: 'ARL4150',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -27,10 +26,9 @@ export const passeioFiat = {
       2: "10.000 km (Normal) / 5.000 km (Severo)."
     },
     filtros: {
-      oleo: { original: '7085786', tecfil: 'PSL619', authomix: 'FOL0619', mann: 'W 713/16', mahle: 'OC506', wega: 'WO-130', fram: 'CH9642', vox: 'LB619' },
-      ar: { original: '51794712', tecfil: 'ARL4148', authomix: 'FAR4148', mann: 'C 2585', mahle: 'LX1791', wega: 'FAP-4025', fram: 'CA10222', vox: 'FAR4148' },
-      combustivel: { original: '51778945', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58', mahle: 'KL582', wega: 'FCI-1660', fram: 'G9193', vox: 'FC00047' },
-      cabine: { original: '46723321', tecfil: 'ACP302', authomix: 'FCA0302', mann: 'CU 2629/1', mahle: 'LA 67', wega: 'AKX-1100', fram: 'CF1028', vox: 'FCA0302' }
+      oleo: 'PSL619',
+      ar: 'ARL4148',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -45,10 +43,9 @@ export const passeioFiat = {
       2: "10.000 km (Normal) / 5.000 km (Severo)."
     },
     filtros: {
-      oleo: { original: '7085786', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 713/16', mahle: 'OC506', wega: 'WO-130', fram: 'CH9642', vox: 'LB55' },
-      ar: { original: '51775324', tecfil: 'ARL4148', authomix: 'FAR4148', mann: 'C 2585', mahle: 'LX1791', wega: 'FAP-4022', fram: 'CA9566', vox: 'FAR4148' },
-      combustivel: { original: '51778945', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58', mahle: 'KL582', wega: 'FCI-1660', fram: 'G9193', vox: 'FC00047' },
-      cabine: { original: '46723321', tecfil: 'ACP302', authomix: 'FCA0302', mann: 'CU 2629/1', mahle: 'LA 67', wega: 'AKX-1100', fram: 'CF1028', vox: 'FCA0302' }
+      oleo: 'PSL55',
+      ar: 'ARL4148',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -63,10 +60,9 @@ export const passeioFiat = {
       2: "10.000 km (Normal) / 5.000 km (Severo / Trabalho rural ou urbano pesado)."
     },
     filtros: {
-      oleo: { original: '7085786', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 713/16', mahle: 'OC506', wega: 'WO-130', fram: 'CH9642', vox: 'LB55' },
-      ar: { original: '51775324', tecfil: 'ARL4150', authomix: 'FAR4150', mann: 'C 2585', mahle: 'LX1791', wega: 'FAP-4022', fram: 'CA9566', vox: 'FAR4150' },
-      combustivel: { original: '51778945', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58', mahle: 'KL582', wega: 'FCI-1660', fram: 'G9193', vox: 'FC00047' },
-      cabine: { original: '7088921', tecfil: 'ACP304', authomix: 'FCA0304', mann: 'CU 2629/1', mahle: 'LA 67', wega: 'AKX-3520', fram: 'CF9481', vox: 'FCA0304' }
+      oleo: 'PSL55',
+      ar: 'ARL4150',
+      combustivel: 'GI04/7'
     }
   }
 };

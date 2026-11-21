@@ -11,10 +11,10 @@ export const caminhoesVW = {
       1: "Veículos com sistema de injeção mecânica direta (bomba injetora em linha Bosch). Não utilizam ARLA 32. Atenção à drenagem diária do copo separador de água para proteger os elementos da bomba."
     },
     filtros: {
-      oleo: { original: '90520000030 / 2T0115561', tecfil: 'PSL339 (MWM) / PSL280 (Cummins)', authomix: 'FOL339', mann: 'W 962 (MWM) / W 940/25 (Cummins)', mahle: 'OC 60', wega: 'WO-200', fram: 'PH2801B', vox: 'PSL339' },
-      ar: { original: '2T0129620', tecfil: 'ARL8891', authomix: 'FAR8891', mann: 'C 24 650/1', mahle: 'LX 1560', wega: 'FAP-4030', fram: 'CA9920', vox: 'ARL8891' },
-      combustivel: { original: '2U0127177 / BF...', tecfil: 'PSC71 / PSD480', authomix: 'FCO0071', mann: 'WK 842/2', mahle: 'KC 18', wega: 'FCI-1620', fram: 'P926', vox: 'PSC71' },
-      cabine: { original: 'Não aplicável de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL339 (MWM) / PSL280 (Cummins)',
+      ar: 'ARL8891',
+      combustivel: 'PSC71',
+      sedimentador: 'PSD480'
     }
   },
   'Volkswagen Worker / Constellation (Motores Cummins ISB 3.9 / 6.7 - Euro III / Euro V)': {
@@ -29,10 +29,9 @@ export const caminhoesVW = {
       1: "Aplicações equipadas com sistema SCR exigem abastecimento contínuo de ARLA 32. Verificar o torque das abraçadeiras do intercooler periodicamente."
     },
     filtros: {
-      oleo: { original: '2R0115561 / BF4M...', tecfil: 'PSL283', authomix: 'FOL283', mann: 'W 950/26', mahle: 'OC 281', wega: 'WO-150', fram: 'PH3593A', vox: 'LB283' },
-      ar: { original: '2T0129620', tecfil: 'ARL8891', authomix: 'FAR8891', mann: 'C 24 650/1', mahle: 'LX 1560', wega: 'FAP-4030', fram: 'CA9920', vox: 'ARL8891' },
-      combustivel: { original: '2R0127177', tecfil: 'PSC75', authomix: 'FCO0075', mann: 'WK 940/33', mahle: 'KC 18', wega: 'FCI-1620', fram: 'PS9962', vox: 'PSC75' },
-      cabine: { original: '2U0819653', tecfil: 'ACP300', authomix: 'FCA0300', mann: 'CU 28 82', mahle: 'LA 200', wega: 'AKX-1120', fram: 'CF1100', vox: 'ACP300' }
+      oleo: 'PSL283',
+      ar: 'ARL8891',
+      combustivel: 'PSC75'
     }
   },
 
@@ -48,10 +47,9 @@ export const caminhoesVW = {
       1: "Linha pesada rodoviária e fora de estrada. Atenção redobrada à purga do sistema separador de água e troca do elemento coalescente."
     },
     filtros: {
-      oleo: { original: '2R0115561B', tecfil: 'PSL909', authomix: 'FOL0909', mann: 'WP 12121', mahle: 'OC 1176', wega: 'WO-240', fram: 'PH1000', vox: 'PSL909' },
-      ar: { original: '2V0129620', tecfil: 'ARL8895', authomix: 'FAR8895', mann: 'C 30 1500', mahle: 'LX 2150', wega: 'FAP-4080', fram: 'CA10420', vox: 'ARL8895' },
-      combustivel: { original: '2R0127177A', tecfil: 'PSC76', authomix: 'FCO0076', mann: 'WK 954/1 x', mahle: 'KC 28', wega: 'FCI-1630', fram: 'PS10700', vox: 'PSC76' },
-      cabine: { original: '2U0819653', tecfil: 'ACP300', authomix: 'FCA0300', mann: 'CU 28 82', mahle: 'LA 200', wega: 'AKX-1120', fram: 'CF1100', vox: 'ACP300' }
+      oleo: 'PSL909',
+      ar: 'ARL8895',
+      combustivel: 'PSC76'
     }
   },
 
@@ -67,10 +65,9 @@ export const caminhoesVW = {
       1: "Motores MAN D08 utilizam sistema EGR refrigerado ou SCR dependendo do ano/modelo, exigindo rigorosamente o uso de óleos com especificação Low SAPS para evitar obstrução do sistema de escape."
     },
     filtros: {
-      oleo: { original: '2R0115562 / MAN...', tecfil: 'PEL1998', authomix: 'FOL1998', mann: 'HU 932/2 n', mahle: 'OX 387D', wega: 'WOE-490', fram: 'CH11082', vox: 'LE1998' },
-      ar: { original: '2T0129620A', tecfil: 'ARL8892', authomix: 'FAR8892', mann: 'C 27 1250', mahle: 'LX 2450', wega: 'FAP-4050', fram: 'CA11150', vox: 'ARL8892' },
-      combustivel: { original: '2R0127177B', tecfil: 'PSD960', authomix: 'FCO0960', mann: 'PU 9003 x', mahle: 'KX 335D', wega: 'FCI-1640', fram: 'PS11600', vox: 'PSD960' },
-      cabine: { original: '2U0819653', tecfil: 'ACP300', authomix: 'FCA0300', mann: 'CU 28 82', mahle: 'LA 200', wega: 'AKX-1120', fram: 'CF1100', vox: 'ACP300' }
+      oleo: 'PEL1998',
+      ar: 'ARL8892',
+      combustivel: 'PSD960'
     }
   }
 };

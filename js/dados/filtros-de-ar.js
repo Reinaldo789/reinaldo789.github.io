@@ -102,7 +102,8 @@ export const filtrosAr = {
       "Hengst": ["E235L"], "Japanparts": ["FA108S"], "Mann": ["C2964"],
       "Millard": ["MK4309"], "Nissan": ["165460Z000", "165460Z00J", "1654670J10"], "Seineca": ["SAF8027"],
       "Seineca Antigo": ["SEI0553"], "Subaru": ["16546AA020", "16546AA080"], "Tecfil": ["ARL1656"],
-      "Vox": ["HLP1656"], "Wega": ["FAP2812", "JFA0108", "JFA108"]
+      "Vox": ["HLP1656"], "Wega": ["FAP2812", "JFA0108", "JFA108"],
+      "Mahle": ["LX3549"]
     },
     aplicacoes: {
       "Nissan": [
@@ -173,7 +174,9 @@ export const filtrosAr = {
     conversoes: {
       "Authomix": ["FAR2207"], "Japanparts": ["FA514S"], "Mann": ["C26135"],
       "Millard": ["MK82465"], "Tecfil": ["ARL2207"], "Toyota": ["178010Y040"],
-      "Turbo Filtros": ["TRL0040"], "Vox": ["HLP2207"], "Wega": ["FAP4041"]
+      "Turbo Filtros": ["TRL0040"], "Vox": ["HLP2207"], "Wega": ["FAP4041"],
+      "Mahle": ["LX 4163"],
+      "Fram": ["CA12312"]
     },
     aplicacoes: {
       "Toyota": [
@@ -200,7 +203,9 @@ export const filtrosAr = {
       "Authomix": ["FAR4148"], "Fil Filter": ["HP5052"], "Fram": ["CA10699"],
       "Hyundai": ["281131J000"], "Japanparts": ["FAK22S"], "Kia Motors": ["281132K000"],
       "Mann": ["C26014"], "Millard": ["MK92429"], "Sakura": ["A28620"],
-      "Seineca": ["SAF8201"], "Tecfil": ["ARL4148"], "Wega": ["JFA0K22", "JFAK22"]
+      "Seineca": ["SAF8201"], "Tecfil": ["ARL4148"], "Wega": ["JFA0K22", "JFAK22"],
+      "Mahle": ["LX1791"],
+      "Vox": ["FAR4148"]
     },
     aplicacoes: {
       "Kia Motors": [
@@ -330,7 +335,9 @@ export const filtrosAr = {
     conversoes: {
       "Citroen": ["9802348680"], "Fram": ["CA12034"], "Hengst": ["E1289L"],
       "Js Asakashi": ["A0666"], "Mann": ["C24017"], "Tecfil": ["ARL5073"],
-      "Turbo Filtros": ["TRL5073"], "Vox": ["HLP5073"], "Wega": ["FAP4058"]
+      "Turbo Filtros": ["TRL5073"], "Vox": ["HLP5073"], "Wega": ["FAP4058"],
+      "Authomix": ["FAR5073"],
+      "Mahle": ["LX 3525"]
     },
     aplicacoes: {
       "Citroen": [
@@ -350,7 +357,8 @@ export const filtrosAr = {
     conversoes: {
       "Authomix": ["FAR5135"], "Fram": ["CA12097"], "Mann": ["C24700"],
       "Renault": ["165468558R", "165469905R"], "Tecfil": ["ARL5135"], "Vox": ["HLP5135"],
-      "Wega": ["FAP5218"]
+      "Wega": ["FAP5218"],
+      "Mahle": ["LX 3156"]
     },
     aplicacoes: {
       "Renault": [
@@ -399,7 +407,8 @@ export const filtrosAr = {
       "Master Parts": ["MM100573"], "Millard": ["MK8919"], "Nissan": ["16545EB300", "16546EB300", "BRPRT10420"],
       "Recer Filtros": ["AL2500RC"], "Sakura": ["A1952"], "Seineca": ["SAF8126", "SAF8153"],
       "Tecfil": ["ARL9600"], "Turbo Filtros": ["TR5960"], "Vox": ["HLP9600"],
-      "Wega": ["FAP4867", "JFA0129", "JFA129"], "WIX": ["WA48100"]
+      "Wega": ["FAP4867", "JFA0129", "JFA129"], "WIX": ["WA48100"],
+      "Fram": ["CA10343"]
     },
     aplicacoes: {
       "Ford": [
@@ -646,7 +655,8 @@ export const filtrosAr = {
       "Ford": ["BH1X9601AA"], "Fram": ["CA10894"], "Hengst": ["E1250L"],
       "Japanparts": ["FABR148S"], "Mann": ["C27109"], "Tecfil": ["ARS5376"],
       "Turbo Filtros": ["TR30182"], "Vox": ["HD5376"], "Wega": ["WAP131"],
-      "WIX": ["WA10470"]
+      "WIX": ["WA10470"],
+      "Mahle": ["LX 1791"]
     },
     aplicacoes: {
       "Ford": [
@@ -912,7 +922,9 @@ export const filtrosAr = {
       "Donaldson": ["P782936"], "Fil Filter": ["HP2592"], "Fleetguard": ["AF25894"],
       "Hengst": ["E428L01"], "Japanparts": ["FABR161S"], "MAN": ["81084050021"],
       "Mann": ["C271250/1"], "Sakura": ["A68380"], "Tecfil": ["ars9842", "ARS9842"],
-      "Turbo Filtros": ["TR30185"], "Vox": ["HD9842"], "Wega": ["WAP120"]
+      "Turbo Filtros": ["TR30185"], "Vox": ["HD9842"], "Wega": ["WAP120"],
+      "Mahle": ["LX 1819"],
+      "Fram": ["CA10667"]
     },
     aplicacoes: {
       "MAN": [
@@ -961,7 +973,13 @@ export const filtrosAr = {
     url: "https://catalogo.tecfil.com.br/search/ars9845/produto/2479",
     especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
-      "Tecfil": ["ARS9845"], "Volkswagen": ["2V3129620"]
+      "Tecfil": ["ARS9845"], "Volkswagen": ["2V3129620"],
+      "Authomix": ["FAR9845"],
+      "Mann": ["C 30 1540","C 31 1254","C 25 125/2"],
+      "Mahle": ["LX 2000","LX 2845","LX 1582"],
+      "Wega": ["WAP-190","WAP-188","WAP-295"],
+      "Fram": ["CA11500","CA11234","CA10332"],
+      "Vox": ["ARS9845","HD9845","HS9845"]
     },
     aplicacoes: {
       "Volkswagen": [
@@ -1023,7 +1041,8 @@ export const filtrosAr = {
     conversoes: {
       "Authomix": ["FAR0376"], "Ford": ["BH1X9E673AA"], "Fram": ["CA10894SY"],
       "Japanparts": ["FABR147S"], "Mahle": ["LXS362"], "Tecfil": ["ASR376"],
-      "Turbo Filtros": ["TR30183"], "Vox": ["HDS376"], "Wega": ["WAP131/S", "WAP131K"]
+      "Turbo Filtros": ["TR30183"], "Vox": ["HDS376"], "Wega": ["WAP131/S", "WAP131K"],
+      "Mann": ["CF 1640"]
     },
     aplicacoes: {
       "Ford": [
@@ -1241,6 +1260,235 @@ export const filtrosAr = {
         ]
       ]
     }
+  },
+
+  ASR834: {
+    tipo: "arSecundario",
+    url: "https://catalogo.tecfil.com.br/search/ASR834",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ASR834"],"Authomix":["FAS0834"],"Mann":["CF 1600"],"Mahle":["LXS 273"],"Wega":["WAP-180/S"],"Fram":["CA5626SY"],"Vox":["HS834"],
+      "Authomix": ["FAR4103"],
+      "Authomix": ["FAR4125"],
+      "Authomix": ["FAR4130"],
+      "Authomix": ["FAR3280","FAR6080"]
+    },
+    aplicacoes: null
+  },
+
+  ASR842: {
+    tipo: "arSecundario",
+    url: "https://catalogo.tecfil.com.br/search/ASR842",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ASR842"],"Authomix":["FAS0842"],"Mann":["CF 1830"],"Mahle":["LXS 339"],"Wega":["WAP-185/S"],"Fram":["CA10667SY"],"Vox":["HS842"]},
+    aplicacoes: null
+  },
+
+  ASR845: {
+    tipo: "arSecundario",
+    url: "https://catalogo.tecfil.com.br/search/ASR845",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ASR845"],"Authomix":["FAS0845"],"Mann":["CF 1940"],"Mahle":["LXS 350"],"Wega":["WAP-188/S"],"Fram":["CA11234SY"],"Vox":["HS845"]},
+    aplicacoes: null
+  },
+
+  ARS9870: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS9870",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS9870"],"Authomix":["FAR9870"],"Mann":["C 27 1250"],"Mahle":["LX 1900"],"Wega":["WAP-192"],"Fram":["CA11200"],"Vox":["ARS9870"]},
+    aplicacoes: null
+  },
+
+  ARS9875: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS9875",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS9875"],"Authomix":["FAR9875"],"Mann":["C 32 1500"],"Mahle":["LX 1905"],"Wega":["WAP-198"],"Fram":["CA11201"],"Vox":["ARS9875"]},
+    aplicacoes: null
+  },
+
+  ARS9860: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS9860",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS9860"],"Authomix":["FAR9860"],"Mann":["C 34 1500"],"Mahle":["LX 2010"],"Wega":["WAP-200"],"Fram":["CA11601"],"Vox":["ARS9860"]},
+    aplicacoes: null
+  },
+
+  ARL8891: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL8891",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL8891"],"Authomix":["FAR8891"],"Mann":["C 24 650/1"],"Mahle":["LX 1560"],"Wega":["FAP-4030"],"Fram":["CA9920"],"Vox":["ARL8891"]},
+    aplicacoes: null
+  },
+
+  ARL8895: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL8895",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL8895"],"Authomix":["FAR8895"],"Mann":["C 30 1500"],"Mahle":["LX 2150"],"Wega":["FAP-4080"],"Fram":["CA10420"],"Vox":["ARL8895"]},
+    aplicacoes: null
+  },
+
+  ARL8892: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL8892",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL8892"],"Authomix":["FAR8892"],"Mann":["C 27 1250"],"Mahle":["LX 2450"],"Wega":["FAP-4050"],"Fram":["CA11150"],"Vox":["ARL8892"]},
+    aplicacoes: null
+  },
+
+  ARS9850: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS9850",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS9850"],"Authomix":["FAR9850"],"Mann":["C 31 1275"],"Mahle":["LX 2001"],"Wega":["WAP-195"],"Fram":["CA11501"],"Vox":["ARS9850"]},
+    aplicacoes: null
+  },
+
+  ARL8480: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL8480",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL8480"],"Authomix":["FAR8480"],"Mann":["C 27 024","C 32 011"],"Mahle":["LX 3911","LX 4377"],"Wega":["FAP-3280"],"Fram":["CA12055","CA11250"],"Vox":["FAR8480"]},
+    aplicacoes: null
+  },
+
+  ARL5047: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5047",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL5047"],"Authomix":["FAR5047"],"Mann":["C 42 010","C 25 118/1","C 4292/2 (1.6)","C 25 118/1 (2.0)"],"Mahle":["LX2681"],"Wega":["FAP-9295","FAP-6013","FAP-3286","FAP-9013"],"Fram":["CA11050"],"Vox":["FAR5047"]},
+    aplicacoes: null
+  },
+
+  ARL9010: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL9010",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL9010"],"Authomix":["FAR9010"],"Mann":["C 27 030"],"Mahle":["LX1066"],"Wega":["FAP-9010"],"Fram":["CA11036"],"Vox":["FAR9010"]},
+    aplicacoes: null
+  },
+
+  ARS7101: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS7101",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS7101"],"Authomix":["FAR7101"],"Mann":["C 16 140"],"Mahle":["LX 1621"],"Wega":["JFA-0318"],"Fram":["CA9387"],"Vox":["HD7101"]},
+    aplicacoes: null
+  },
+
+  ARS5133: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS5133",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS5133"],"Authomix":["FAR5133"],"Mann":["C 22 024"],"Mahle":["LX 3503"],"Wega":["JFA-0327"],"Fram":["CA11402"],"Vox":["HD5133"]},
+    aplicacoes: null
+  },
+
+  ARL5156: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5156",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL5156"],"Authomix":["FAR5156"],"Mann":["C 24 045","C 24 038"],"Mahle":["LX 4890","LX 4437"],"Wega":["FAP-7021","FAP-4064"],"Fram":["CA12890","CA12321"],"Vox":["HLP5156"]},
+    aplicacoes: null
+  },
+
+  ARL7001: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL7001",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL7001"],"Authomix":["FAR7001"],"Mann":["C 24 120"],"Mahle":["LX 824"],"Wega":["FAP-7001"],"Fram":["CA7164"],"Vox":["FAR7001"]},
+    aplicacoes: null
+  },
+
+  ARL5147: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5147",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL5147"],"Authomix":["FAR5147"],"Mann":["C 18 004"],"Mahle":["LX 3504"],"Wega":["WR-315/1"],"Fram":["CA11663"],"Vox":["HLP5147"]},
+    aplicacoes: null
+  },
+
+  ARL5155: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5155",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL5155"],"Authomix":["FAR5155"],"Mann":["C 28 035"],"Mahle":["LX 3508"],"Wega":["FAP-3305"],"Fram":["CA11725"],"Vox":["HLP5155"]},
+    aplicacoes: null
+  },
+
+  ARS7107: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS7107",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS7107"],"Authomix":["FAR7107"],"Mann":["C 16 190"],"Mahle":["LX 1916"],"Wega":["JFA-0989"],"Fram":["CA10548"],"Vox":["HD7107"]},
+    aplicacoes: null
+  },
+
+  ARS5139: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS5139",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS5139"],"Authomix":["FAR5139"],"Mann":["C 16 190/2"],"Mahle":["LX 3505"],"Wega":["JFA-0995"],"Fram":["CA11470"],"Vox":["HD5139"]},
+    aplicacoes: null
+  },
+
+  ARS5148: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARS5148",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARS5148"],"Authomix":["FAR5148"],"Mann":["C 18 005"],"Mahle":["LX 4412"],"Wega":["JFA-0998"],"Fram":["CA12345"],"Vox":["HD5148"]},
+    aplicacoes: null
+  },
+
+  ARL9002: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL9002",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL9002"],"Authomix":["FAR9002"],"Mann":["C 32 131"],"Mahle":["LX 824"],"Wega":["FAP-9002"],"Fram":["CA9918"],"Vox":["ARL9002"]},
+    aplicacoes: null
+  },
+
+  ARL9005: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL9005",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL9005"],"Authomix":["FAR9005"],"Mann":["C 32 003"],"Mahle":["LX 2795"],"Wega":["FAP-9005"],"Fram":["CA11130"],"Vox":["FAR9005"]},
+    aplicacoes: null
+  },
+
+  ARL9020: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL9020",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL9020"],"Authomix":["FAR9020"],"Mann":["C 27 036"],"Mahle":["LX 4520"],"Wega":["FAP-9020"],"Fram":["CA12400"],"Vox":["ARL9020"]},
+    aplicacoes: null
+  },
+
+  ARL9015: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL9015",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL9015"],"Authomix":["FAR9015"],"Mann":["C 30 850/2"],"Mahle":["LX 1680"],"Wega":["FAP-5015"],"Fram":["CA10291"],"Vox":["FAR9015"]},
+    aplicacoes: null
+  },
+
+  ARL5152: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL5152",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL5152"],"Authomix":["FAR5152"],"Mann":["C 33 018"],"Mahle":["LX 4510"],"Wega":["FAP-9065"],"Fram":["CA12450"],"Vox":["HLP5152"]},
+    aplicacoes: null
+  },
+
+  ARL9012: {
+    tipo: "ar",
+    url: "https://catalogo.tecfil.com.br/search/ARL9012",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["ARL9012"],"Authomix":["FAR9012"],"Mann":["C 25 140"],"Mahle":["LX 2020"],"Wega":["FAP-5012"],"Fram":["CA10291"],"Vox":["ARL9012"]},
+    aplicacoes: null
   }
 
 };

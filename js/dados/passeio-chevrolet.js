@@ -10,10 +10,9 @@ export const passeioChevrolet = {
       2: "Intervalo de troca: 10.000 km ou 1 ano para uso normal; Reduzir para 5.000 km ou 6 meses se o veículo operar predominantemente em regime de uso severo."
     },
     filtros: {
-      oleo: { original: '24588463', tecfil: 'PSL619', authomix: 'FOL0619', mann: 'W 712/22', mahle: 'OC90', wega: 'WO-150', fram: 'PH10907', vox: 'LB619' },
-      ar: { original: '98550812', tecfil: 'ARL8829', authomix: 'FAR8829', mann: 'C 29 030', mahle: 'LX3547', wega: 'FAP-9267', fram: 'CA10330', vox: 'FAR8829' },
-      combustivel: { original: '93316245', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58/3', mahle: 'KL582', wega: 'FCI-1660', fram: 'G1041', vox: 'FC00047' },
-      cabine: { original: '94747799', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 2433', mahle: 'LA 90', wega: 'AKX-1999', fram: 'CF11175', vox: 'FCA0309' }
+      oleo: 'PSL619',
+      ar: 'ARL8829',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -28,10 +27,9 @@ export const passeioChevrolet = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '93742512', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 712/22', mahle: 'OC90', wega: 'WO-120', fram: 'PH5949', vox: 'LB55' },
-      ar: { original: '93396172', tecfil: 'ARL4103', authomix: 'FAR4103', mann: 'C 23 015', mahle: 'LX3026', wega: 'FAP-9003', fram: 'CA10015', vox: 'FAR4103' },
-      combustivel: { original: '93297745', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58/3', mahle: 'KL582', wega: 'FCI-1630', fram: 'G1025', vox: 'FC00047' },
-      cabine: { original: '93396173', tecfil: 'ACP308', authomix: 'FCA0308', mann: 'CU 2433', mahle: 'LA 90', wega: 'AKX-3510', fram: 'CF11175', vox: 'FCA0308' }
+      oleo: 'PSL55',
+      ar: 'ARL4103',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -46,10 +44,9 @@ export const passeioChevrolet = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo / Trabalho)."
     },
     filtros: {
-      oleo: { original: '93742512', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 712/22', mahle: 'OC90', wega: 'WO-120', fram: 'PH5949', vox: 'LB55' },
-      ar: { original: '93396172', tecfil: 'ARL4103', authomix: 'FAR4103', mann: 'C 23 015', mahle: 'LX3026', wega: 'FAP-9003', fram: 'CA10015', vox: 'FAR4103' },
-      combustivel: { original: '93297745', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58/3', mahle: 'KL582', wega: 'FCI-1630', fram: 'G1025', vox: 'FC00047' },
-      cabine: { original: '93396173', tecfil: 'ACP308', authomix: 'FCA0308', mann: 'CU 2433', mahle: 'LA 90', wega: 'AKX-3510', fram: 'CF11175', vox: 'FCA0308' }
+      oleo: 'PSL55',
+      ar: 'ARL4103',
+      combustivel: 'GI04/7'
     }
   }
 };

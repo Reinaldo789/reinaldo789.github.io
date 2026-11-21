@@ -13,10 +13,9 @@ export const utilitariosFord = {
       2: "Para versões equipadas com diferencial traseiro blocante (Trac-Lok / LSD), é obrigatório adicionar modificador de atrito ou usar óleo específico LS."
     },
     filtros: {
-      oleo: { original: 'G3MJ-6731-DA', tecfil: 'PSL902', authomix: 'FOL0902', mann: 'W 923/1', mahle: 'OC 142', wega: 'WO-320', fram: 'PH2856', vox: 'LB902' },
-      ar: { original: 'BG1T-9601-AA', tecfil: 'ARS7101', authomix: 'FAR7101', mann: 'C 16 140', mahle: 'LX 1621', wega: 'JFA-0318', fram: 'CA9387', vox: 'HD7101' },
-      combustivel: { original: 'BG3T-9155-AA', tecfil: 'PSC494', authomix: 'FCO0494', mann: 'WK 842/19', mahle: 'KL 761', wega: 'FCD-2065', fram: 'PS9448', vox: 'FBS494' },
-      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL902',
+      ar: 'ARS7101',
+      combustivel: 'PSC494'
     }
   },
 
@@ -33,10 +32,9 @@ export const utilitariosFord = {
       1: "Atenção na compra do filtro de óleo: modelos de 2005 a 2007 utilizam elemento refil ecológico (Tecfil PEL108 / Mahle OX 414D), enquanto modelos de 2008 a 2012 passaram a usar filtro blindado (Tecfil PSL541 / Mann W 719/50)."
     },
     filtros: {
-      oleo: { original: 'BG8T-6731-AA', tecfil: 'PSL541', authomix: 'FOL0541', mann: 'W 719/50', mahle: 'OC 1055', wega: 'WO-541', fram: 'PH10757', vox: 'LB541' },
-      ar: { original: 'BG5T-9601-AA', tecfil: 'ARS7101', authomix: 'FAR7101', mann: 'C 16 140', mahle: 'LX 1621', wega: 'JFA-0318', fram: 'CA9387', vox: 'HD7101' },
-      combustivel: { original: 'BG5T-9155-AA', tecfil: 'PSC706', authomix: 'FCO0706', mann: 'WK 842/22', mahle: 'KL 432', wega: 'FCD-2067', fram: 'PS9801', vox: 'FBS706' },
-      cabine: { original: 'Não possui', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL541',
+      ar: 'ARS7101',
+      combustivel: 'PSC706'
     }
   },
 
@@ -53,10 +51,9 @@ export const utilitariosFord = {
       1: "Primeira fase da carroceria T6 (2013-2016). Atenção: o elemento do filtro de óleo e o refil de combustível mudam a partir do modelo 2017."
     },
     filtros: {
-      oleo: { original: 'BB3Q-6744-BA', tecfil: 'PEL310', authomix: 'FOL0310', mann: 'HU 711/51 x', mahle: 'OX 440D', wega: 'WOE-131', fram: 'CH11299', vox: 'LE310' },
-      ar: { original: 'AB39-9601-AB', tecfil: 'ARS5133', authomix: 'FAR5133', mann: 'C 22 024', mahle: 'LX 3503', wega: 'JFA-0327', fram: 'CA11402', vox: 'HD5133' },
-      combustivel: { original: 'AB39-9176-AC', tecfil: 'PEC3037', authomix: 'FCO03037', mann: 'PU 8007', mahle: 'KX 338/28D', wega: 'FCD-0783', fram: 'C11403', vox: 'CE3037' },
-      cabine: { original: 'AB39-19N619-AA', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 872', wega: 'AKX-3518', fram: 'CF11404', vox: 'FAC312' }
+      oleo: 'PEL310',
+      ar: 'ARS5133',
+      combustivel: 'PEC3037'
     }
   },
 
@@ -73,10 +70,9 @@ export const utilitariosFord = {
       1: "Fase reestilizada (facelift) com inclusão de DPF e EGR refrigerada. Exige obrigatoriamente óleo 5W-30 de baixo teor de cinzas (Low SAPS) para proteger o DPF."
     },
     filtros: {
-      oleo: { original: 'JU2J-6744-AB', tecfil: 'PEL311', authomix: 'FOL0311', mann: 'HU 7002 z', mahle: 'OX 440D', wega: 'WOE-131', fram: 'CH11299', vox: 'LE311' },
-      ar: { original: 'AB39-9601-AB', tecfil: 'ARS5133', authomix: 'FAR5133', mann: 'C 22 024', mahle: 'LX 3503', wega: 'JFA-0327', fram: 'CA11402', vox: 'HD5133' },
-      combustivel: { original: 'U2Y0-13-ZA5', tecfil: 'PEC3046', authomix: 'FCO03046', mann: 'PU 8021', mahle: 'KX 338/29D', wega: 'FCD-0792', fram: 'C11850', vox: 'CE3046' },
-      cabine: { original: 'AB39-19N619-AA', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 872', wega: 'AKX-3518', fram: 'CF11404', vox: 'FAC312' }
+      oleo: 'PEL311',
+      ar: 'ARS5133',
+      combustivel: 'PEC3046'
     }
   },
 
@@ -95,10 +91,9 @@ export const utilitariosFord = {
       2: "Reservatório de ARLA 32 com bocal dedicado ao lado do bocal de diesel."
     },
     filtros: {
-      oleo: { original: 'JL3Z-6731-A', tecfil: 'PEL325', authomix: 'FOL0325', mann: 'HU 6029 z', mahle: 'OX 1280D', wega: 'WOE-245', fram: 'CH12280', vox: 'LE325' },
-      ar: { original: 'N1WZ-9601-A', tecfil: 'ARL5156', authomix: 'FAR5156', mann: 'C 24 045', mahle: 'LX 4890', wega: 'FAP-7021', fram: 'CA12890', vox: 'HLP5156' },
-      combustivel: { original: 'N1WZ-9155-A', tecfil: 'PEC3055', authomix: 'FCO3055', mann: 'PU 9022 z', mahle: 'KX 580D', wega: 'FCD-2174', fram: 'C12895', vox: 'CE3055' },
-      cabine: { original: 'N1WZ-19N619-A', tecfil: 'ACP330', authomix: 'FCA0330', mann: 'CU 23 025', mahle: 'LA 1450', wega: 'AKX-35183', fram: 'CF12899', vox: 'FAC330' }
+      oleo: 'PEL325',
+      ar: 'ARL5156',
+      combustivel: 'PEC3055'
     }
   }
 };

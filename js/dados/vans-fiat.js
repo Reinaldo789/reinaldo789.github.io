@@ -11,10 +11,9 @@ export const vansFiat = {
       1: "Primeira geração do motor 2.3 Multijet no Brasil (norma Euro 3, sem DPF). Também equipou Citroën Jumper e Peugeot Boxer 2.3 nesse período."
     },
     filtros: {
-      oleo: { original: '8094872', tecfil: 'PSL657', authomix: 'FOL0657', mann: 'W 719/27', mahle: 'OC 613', wega: 'WO-420', fram: 'PH966B', vox: 'LB657' },
-      ar: { original: '1365070080', tecfil: 'ARS1013', authomix: 'FAR1013', mann: 'C 17 278', mahle: 'LX 1612', wega: 'JFA-0991', fram: 'CA9888', vox: 'HD1013' },
-      combustivel: { original: '77362340', tecfil: 'PEC3023', authomix: 'FCO3023', mann: 'PU 723 x', mahle: 'KX 208D', wega: 'FCD-0771', fram: 'C10026', vox: 'CE3023' },
-      cabine: { original: '1312764080', tecfil: 'ACP105', authomix: 'FCA0105', mann: 'CU 4442', mahle: 'LA 123', wega: 'AKX-3548', fram: 'CF8890', vox: 'FAC105' }
+      oleo: 'PSL657',
+      ar: 'ARS1013',
+      combustivel: 'PEC3023'
     }
   },
 
@@ -30,10 +29,9 @@ export const vansFiat = {
       1: "Evolução para atender ao Proconve P7 (Euro 5) com válvula EGR e catalisador oxidante, dispensando ARLA 32. Exige óleo 5W-30 norma Fiat 9.55535-S1 (ACEA C2) para evitar carbonização no sistema de recirculação."
     },
     filtros: {
-      oleo: { original: '8094872', tecfil: 'PSL657', authomix: 'FOL0657', mann: 'W 719/27', mahle: 'OC 613', wega: 'WO-420', fram: 'PH966B', vox: 'LB657' },
-      ar: { original: '1365070080', tecfil: 'ARS1013', authomix: 'FAR1013', mann: 'C 17 278', mahle: 'LX 1612', wega: 'JFA-0991', fram: 'CA9888', vox: 'HD1013' },
-      combustivel: { original: '77362340', tecfil: 'PEC3023', authomix: 'FCO3023', mann: 'PU 723 x', mahle: 'KX 208D', wega: 'FCD-0771', fram: 'C10026', vox: 'CE3023' },
-      cabine: { original: '1312764080', tecfil: 'ACP105', authomix: 'FCA0105', mann: 'CU 4442', mahle: 'LA 123', wega: 'AKX-3548', fram: 'CF8890', vox: 'FAC105' }
+      oleo: 'PSL657',
+      ar: 'ARS1013',
+      combustivel: 'PEC3023'
     }
   },
 
@@ -50,10 +48,9 @@ export const vansFiat = {
       2: "Atenção ao volume do cárter: reduziu de 5,9 L (geração antiga) para 5,5 L nesta versão."
     },
     filtros: {
-      oleo: { original: '5801985959', tecfil: 'PSL167', authomix: 'FOL0167', mann: 'W 719/48', mahle: 'OC 1296', wega: 'WO-421', fram: 'PH11457', vox: 'LB167' },
-      ar: { original: '7094559', tecfil: 'ARL5147', authomix: 'FAR5147', mann: 'C 18 004', mahle: 'LX 3504', wega: 'WR-315/1', fram: 'CA11663', vox: 'HLP5147' },
-      combustivel: { original: '77366607', tecfil: 'PEC3043', authomix: 'FCO3043', mann: 'PU 9007 z', mahle: 'KX 338/26D', wega: 'FCD-0793', fram: 'C11666', vox: 'CE3043' },
-      cabine: { original: '68169308AA', tecfil: 'ACP319', authomix: 'FCA0319', mann: 'CU 25 014', mahle: 'LA 926', wega: 'AKX-3550', fram: 'CF11662', vox: 'FAC319' }
+      oleo: 'PSL167',
+      ar: 'ARL5147',
+      combustivel: 'PEC3043'
     }
   },
 
@@ -71,10 +68,9 @@ export const vansFiat = {
       2: "Bocal de abastecimento do ARLA 32 localizado junto ao bocal do tanque de diesel."
     },
     filtros: {
-      oleo: { original: '9809532380', tecfil: 'PSL161', authomix: 'FOL0161', mann: 'W 7058', mahle: 'OC 1300', wega: 'WO-161', fram: 'PH11819', vox: 'LB161' },
-      ar: { original: '1611157980', tecfil: 'ARL5147', authomix: 'FAR5147', mann: 'C 18 004', mahle: 'LX 3504', wega: 'WR-315/1', fram: 'CA11663', vox: 'HLP5147' },
-      combustivel: { original: '1614111980', tecfil: 'PEC3044', authomix: 'FCO3044', mann: 'PU 9012 z', mahle: 'KX 505D', wega: 'FCD-0794', fram: 'C11950', vox: 'CE3044' },
-      cabine: { original: '1611280380', tecfil: 'ACP319', authomix: 'FCA0319', mann: 'CU 25 014', mahle: 'LA 926', wega: 'AKX-3549', fram: 'CF11662', vox: 'FAC319' }
+      oleo: 'PSL161',
+      ar: 'ARL5147',
+      combustivel: 'PEC3044'
     }
   }
 };

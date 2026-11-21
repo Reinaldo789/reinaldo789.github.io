@@ -11,10 +11,9 @@ export const caminhoesDaf = {
       2: "Rodoviário de longa distância (com óleo sintético homologado): até 50.000 km a 60.000 km. Operação mista/severa: reduzir para 20.000 km ou 400 horas."
     },
     filtros: {
-      oleo: { original: '1848520 / 1686772', tecfil: 'PSL910', authomix: 'FOL0910', mann: 'W 11 010', mahle: 'OX 439 D', wega: 'WO-630', fram: 'PH11350', vox: 'LB910' },
-      ar: { original: '1839182', tecfil: 'ARS9845', authomix: 'FAR9845', mann: 'C 30 1540', mahle: 'LX 2000', wega: 'WAP-190', fram: 'CA11500', vox: 'ARS9845' },
-      combustivel: { original: '1853123', tecfil: 'PSD990', authomix: 'FCO0990', mann: 'WK 1060/3 X', mahle: 'KC 110', wega: 'FCD-0950', fram: 'PS11800', vox: 'PSD990' },
-      cabine: { original: '1689333', tecfil: 'ACP930', authomix: 'FCA0309', mann: 'CU 3200', mahle: 'LA 250', wega: 'AKX-1320', fram: 'CF11800', vox: 'ACP930' }
+      oleo: 'PSL910',
+      ar: 'ARS9845',
+      combustivel: 'PSD990'
     }
   }
 };

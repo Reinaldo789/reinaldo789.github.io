@@ -374,7 +374,10 @@ export const filtrosCombustivel = {
     conversoes: {
       "Eurorepar": ["1643096080"], "Hengst": ["E460KP"], "Mann": ["PU7015"],
       "Peugeot": ["1614111980"], "Tecfil": ["PEC3043"], "Vox": ["CE3043"],
-      "Wega": ["FCD0794"]
+      "Wega": ["FCD0794"],
+      "Authomix": ["FCO3043"],
+      "Mahle": ["KX 338/26D"],
+      "Fram": ["C11666"]
     },
     aplicacoes: {
       "Citroen": [
@@ -393,7 +396,10 @@ export const filtrosCombustivel = {
     especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Hengst": ["E480KPD430"], "IVECO": ["5802050393"], "Mann": ["PU7017Z"],
-      "Tecfil": ["PEC3048"], "Vox": ["PEC3048"], "Wega": ["FCD0806"]
+      "Tecfil": ["PEC3048"], "Vox": ["PEC3048"], "Wega": ["FCD0806"],
+      "Authomix": ["FCO3048"],
+      "Mahle": ["KX 540D"],
+      "Fram": ["C12100"]
     },
     aplicacoes: {
       "IVECO": [
@@ -418,7 +424,10 @@ export const filtrosCombustivel = {
     conversoes: {
       "Citroen": ["9801366680"], "Fram": ["C11781ECO"], "Hengst": ["E444KPD308"],
       "Japanparts": ["FCBR216S"], "Mahle": ["KX420D"], "Sakura": ["EF11010"],
-      "Tecfil": ["PEC3050"], "Turbo Filtros": ["TBC0727"], "Wega": ["FCD0727"]
+      "Tecfil": ["PEC3050"], "Turbo Filtros": ["TBC0727"], "Wega": ["FCD0727"],
+      "Authomix": ["FCO3050"],
+      "Mann": ["PU 7010 z"],
+      "Vox": ["CE3050"]
     },
     aplicacoes: {
       "Citroen": [
@@ -446,7 +455,13 @@ export const filtrosCombustivel = {
       "Partmo": ["PP28970", "Ao continuar navegando no Catálogo, você concorda com a nossa"], "Peso Bruto:": ["0,2203"], "Peso Líquido:": ["0,1817"],
       "Política de Privacidade": [], "Sakura": ["EF1509", "PEC3055"], "Tecfil": ["PEC3055"],
       "Válvula Alívio:": [], "Válvula Anti-retorno:": [], "Ø Ext. Comp.:": ["95.5"],
-      "Ø Int. Larg.:": [], "Ø Rosca:": [], "​": ["PEC3055"]
+      "Ø Int. Larg.:": [], "Ø Rosca:": [], "​": ["PEC3055"],
+      "Authomix": ["FCO3055"],
+      "Mann": ["PU 9022 z","PU 8028"],
+      "Mahle": ["KX 580D","KX 595D"],
+      "Wega": ["FCD-2174","FCD-0798"],
+      "Fram": ["C12895","C12450"],
+      "Vox": ["CE3055"]
     },
     aplicacoes: null
   },
@@ -458,7 +473,12 @@ export const filtrosCombustivel = {
     conversoes: {
       "Baldwin": ["BF7965"], "Donaldson": ["P765325"], "Fleetguard": ["FF5794"],
       "Hengst": ["H245WK"], "Jcb": ["32007057", "32007155", "32007394"], "Tecfil": ["PSC71"],
-      "Turbo Filtros": ["TBC7155i"], "Wega": ["FCD2087"]
+      "Turbo Filtros": ["TBC7155i"], "Wega": ["FCD2087"],
+      "Authomix": ["FCO0071"],
+      "Mann": ["WK 842/2"],
+      "Mahle": ["KC 18"],
+      "Fram": ["P926"],
+      "Vox": ["PSC71"]
     },
     aplicacoes: {
       "Jcb": [
@@ -807,7 +827,9 @@ export const filtrosCombustivel = {
     conversoes: {
       "Agrale": ["6013006009002"], "Authomix": ["FCO4985"], "Mann": ["WK940/34"],
       "MWM": ["955410500115"], "Tecfil": ["PSC498/5", "PSC498"], "Turbo Filtros": ["TBC9403"],
-      "Vox": ["FBD498/5"], "Wega": ["FCD2202"], "WIX": ["WF10274"]
+      "Vox": ["FBD498/5"], "Wega": ["FCD2202"], "WIX": ["WF10274"],
+      "Mahle": ["KC 196"],
+      "Fram": ["P9815"]
     },
     aplicacoes: {
       "Agrale": [
@@ -853,7 +875,10 @@ export const filtrosCombustivel = {
       "Donaldson": ["P555706", "P555776"], "Fleetguard": ["FF5706", "FF5776"], "Japanparts": ["FCBR58S"],
       "Js Asakashi": ["FS4001"], "Parker": ["RC828"], "Tecfil": ["PSC706"],
       "Turbo Filtros": ["TBC5706"], "Volkswagen": ["2P0127177"], "Vox": ["FBD706"],
-      "Wega": ["FCD4000"]
+      "Wega": ["FCD4000"],
+      "Mann": ["WK 842/22"],
+      "Mahle": ["KL 432"],
+      "Fram": ["PS9801"]
     },
     aplicacoes: {
       "Volare": [
@@ -888,7 +913,8 @@ export const filtrosCombustivel = {
       "Hengst": ["H196WK"], "John Deere": ["RE62418"], "Luberfiner": ["LFF8215"],
       "Mann": ["WK8100"], "Purolator": ["F55110"], "Stanadyne": ["31732"],
       "Tecfil": ["PSC880"], "Turbo Filtros": ["TBS880"], "Vox": ["FBD880"],
-      "Wega": ["FCD0195"], "WIX": ["W33531"]
+      "Wega": ["FCD0195"], "WIX": ["W33531"],
+      "Mahle": ["KC 502D"]
     },
     aplicacoes: {
       "Ingersoll Rand": [
@@ -929,7 +955,8 @@ export const filtrosCombustivel = {
     conversoes: {
       "Authomix": ["FCO0883"], "Fil Filter": ["ZP3804F"], "Ford": ["3C119176BB", "3C119176BC", "4537952", "4669224"],
       "Fram": ["PS10156"], "Japanparts": ["FCBR9S"], "Mann": ["WK815/4"],
-      "Tecfil": ["PSC883"], "Vox": ["FBD883"], "Wega": ["FCD0185"]
+      "Tecfil": ["PSC883"], "Vox": ["FBD883"], "Wega": ["FCD0185"],
+      "Mahle": ["KC 519"]
     },
     aplicacoes: {
       "Ford": [
@@ -1234,7 +1261,9 @@ export const filtrosCombustivel = {
       "Racor": ["R120L10M", "S3015"], "Sakura": ["SFC190510"], "Tecfil": ["PSD960/1", "PSD960"],
       "Trp": ["915024"], "Turbo Filtros": ["TBC1015"], "Unifilter": ["RS1242"],
       "Volkswagen": ["2R0127177D", "2TD127491A"], "Vox Antigo": ["FBS960/1"], "Wega": ["FCD2052F"],
-      "WIX": ["W33242", "W36240BR", "WF36240"]
+      "WIX": ["W33242", "W36240BR", "WF36240"],
+      "Mahle": ["KX 335D"],
+      "Vox": ["PSD960"]
     },
     aplicacoes: {
       "Agrale": [
@@ -1348,7 +1377,9 @@ export const filtrosCombustivel = {
       "Japanparts": ["FCBR35S"], "Mann": ["WK10002"], "Parker": ["R120L10MAQII", "R120L10MAQll"],
       "Tecfil": ["CSD02", "PSD980"], "Turbo Filtros": ["TBS177"], "Volkswagen": ["2R0127177C"],
       "Volvo": ["20741196"], "Vox": ["FBS980"], "Vox Antigo": ["FBS3619"],
-      "Wega": ["FCD30125"], "WIX": ["WF10259"]
+      "Wega": ["FCD30125"], "WIX": ["WF10259"],
+      "Mahle": ["KC 192","KX 531D","KX 220D"],
+      "Fram": ["PS10452","PS10038","PS11650"]
     },
     aplicacoes: {
       "Adams": [
@@ -1404,7 +1435,10 @@ export const filtrosCombustivel = {
     conversoes: {
       "Japanparts": ["FCBR143S"], "Mahle": ["KC572", "KC654/1"], "Mann": ["WK10002/2X"],
       "Mercedes Benz": ["A6884770015", "A6884770015KZ"], "Parker": ["R120L4MCJAQIII"], "Tecfil": ["PSD985"],
-      "Wega": ["FCD30126"]
+      "Wega": ["FCD30126"],
+      "Authomix": ["FCO0985"],
+      "Fram": ["PS11045"],
+      "Vox": ["FBS985"]
     },
     aplicacoes: {
       "Mercedes Benz": [
@@ -1423,7 +1457,10 @@ export const filtrosCombustivel = {
       "Fram": ["PS6830"], "Gonher": ["S 3202"], "Luberfiner": ["LFF902"],
       "Mann": ["WK932/1"], "Racor": ["S3202"], "Sakura": ["FC2703", "SFC65020"],
       "Tecfil": ["PSD990/1", "PSD990"], "Vox": ["FBS990/1"], "Vox Antigo": ["FBS2440"],
-      "WIX": ["33442"]
+      "WIX": ["33442"],
+      "Authomix": ["FCO0990"],
+      "Mahle": ["KC 110","KX 380D","KC 100"],
+      "Wega": ["FCD-0950","FCI-1650"]
     },
     aplicacoes: null
   },
@@ -1454,6 +1491,126 @@ export const filtrosCombustivel = {
       ]
     },
     "aplicacoes": null
+  },
+
+  PSC355: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSC355",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSC355"],"Authomix":["FCO0355"],"Mann":["WK 950/19"],"Mahle":["KC 197"],"Wega":["FCD-0945"],"Fram":["P11040"],"Vox":["FBD355"]},
+    aplicacoes: null
+  },
+
+  PSD994: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSD994",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSD994"],"Authomix":["FCO0994"],"Mann":["WK 1060/2 X"],"Mahle":["KC 125"],"Wega":["FCD-0980"],"Fram":["PS11950"],"Vox":["PSD994"]},
+    aplicacoes: null
+  },
+
+  PSD996: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSD996",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSD996"],"Authomix":["FCO0996"],"Mann":["WK 1060/7 X"],"Mahle":["KC 130"],"Wega":["FCD-0985"],"Fram":["PS11955"],"Vox":["PSD996"]},
+    aplicacoes: null
+  },
+
+  "PSD920/1": {
+    tipo: "sedimentador",
+    url: "https://catalogo.tecfil.com.br/search/PSD920%2F1",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSD920/1"],"Authomix":["FCO0920"],"Mann":["WK 1060/4"],"Mahle":["KC 489"],"Wega":["FCD-30124F"],"Vox":["FBS920/1"]},
+    aplicacoes: null
+  },
+
+  PSD992: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSD992",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSD992"],"Authomix":["FCO0992"],"Mann":["PU 1067 X"],"Mahle":["KC 120"],"Wega":["FCD-0970"],"Fram":["PS11900"],"Vox":["PSD992"]},
+    aplicacoes: null
+  },
+
+  PSD995: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSD995",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSD995"],"Authomix":["FCO0995"],"Mann":["WK 1060/6 X","PU 6011 z"],"Mahle":["KC 115","KX 570D"],"Wega":["FCD-0960","FCI-1655"],"Fram":["PS11801","PS12300"],"Vox":["PSD995"]},
+    aplicacoes: null
+  },
+
+  PEC3037: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PEC3037",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEC3037"],"Authomix":["FCO03037"],"Mann":["PU 8007"],"Mahle":["KX 338/28D"],"Wega":["FCD-0783"],"Fram":["C11403"],"Vox":["CE3037"]},
+    aplicacoes: null
+  },
+
+  PEC3046: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PEC3046",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEC3046"],"Authomix":["FCO03046"],"Mann":["PU 8021"],"Mahle":["KX 338/29D"],"Wega":["FCD-0792"],"Fram":["C11850"],"Vox":["CE3046"]},
+    aplicacoes: null
+  },
+
+  PSD380: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSD380",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSD380"],"Authomix":["FCO0380"],"Mann":["WK 842/2"],"Mahle":["KC 19"],"Wega":["FCD-0740"],"Fram":["P4102"],"Vox":["PCD33"]},
+    aplicacoes: null
+  },
+
+  PSC722: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSC722",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSC722"],"Authomix":["FCO0722"],"Mann":["WK 829/3"],"Mahle":["KC 101"],"Wega":["FCD-0750"],"Fram":["PS10755"],"Vox":["FBS722"]},
+    aplicacoes: null
+  },
+
+  PSC730: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSC730",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSC730"],"Authomix":["FCO0730"],"Mann":["WK 829/4"],"Mahle":["KC 200"],"Wega":["FCD-0785"],"Fram":["PS11700"],"Vox":["FBS730"]},
+    aplicacoes: null
+  },
+
+  PSC740: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PSC740",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSC740"],"Authomix":["FCO0740"],"Mann":["WK 829/5"],"Mahle":["KC 210"],"Wega":["FCD-0790"],"Fram":["PS12000"],"Vox":["FBS740"]},
+    aplicacoes: null
+  },
+
+  PEC3044: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PEC3044",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEC3044"],"Authomix":["FCO3044"],"Mann":["PU 9012 z"],"Mahle":["KX 505D"],"Wega":["FCD-0794"],"Fram":["C11950"],"Vox":["CE3044"]},
+    aplicacoes: null
+  },
+
+  PEC3054: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PEC3054",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEC3054"],"Authomix":["FCO3054"],"Mann":["PU 9021 z"],"Mahle":["KX 575D"],"Wega":["FCD-0802"],"Fram":["C12850"],"Vox":["CE3054"]},
+    aplicacoes: null
+  },
+
+  PEC3035: {
+    tipo: "combustivel",
+    url: "https://catalogo.tecfil.com.br/search/PEC3035",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEC3035"],"Authomix":["FCO3035"],"Mann":["PU 9005 x"],"Mahle":["KX 338/22D"],"Wega":["FCD-0785"],"Fram":["C11258"],"Vox":["CE3035"]},
+    aplicacoes: null
   }
 
 };

@@ -10,10 +10,9 @@ export const caminhoesScania = {
       1: "Com óleo Scania LDF-4 em serviço rodoviário de longa distância: intervalos de até 90.000 km ou 12 meses. Operação severa/mista: 30.000 km a 45.000 km."
     },
     filtros: {
-      oleo: { original: '2045524 / 2397946', tecfil: 'PEL920', authomix: 'FEL0920', mann: 'HU 12 100 x', mahle: 'OX 440 D', wega: 'WOE-550', fram: 'CH11400', vox: 'LE920' },
-      ar: { original: '1869399', tecfil: 'ARS9860', authomix: 'FAR9860', mann: 'C 34 1500', mahle: 'LX 2010', wega: 'WAP-200', fram: 'CA11601', vox: 'ARS9860' },
-      combustivel: { original: '2241036 / 2192770', tecfil: 'PSD992', authomix: 'FCO0992', mann: 'PU 1067 X', mahle: 'KC 120', wega: 'FCD-0970', fram: 'PS11900', vox: 'PSD992' },
-      cabine: { original: '2126233', tecfil: 'ACP960', authomix: 'FCA0960', mann: 'CU 3400', mahle: 'LA 270', wega: 'AKX-1360', fram: 'CF11900', vox: 'ACP960' }
+      oleo: 'PEL920',
+      ar: 'ARS9860',
+      combustivel: 'PSD992'
     }
   }
 };

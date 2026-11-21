@@ -14,11 +14,10 @@ export const utilitariosToyota = {
       4: "Sistema de alimentação (2012 a 2015) possui dois filtros: o elemento principal no copo (23390-0L041 / KX 268D) e o pré-filtro auxiliar blindado em linha (23300-30450 / Mahle KL 1061)."
     },
     filtros: {
-      oleo: { original: '90915-YZZD2', tecfil: 'PSL127', authomix: 'FOL0127', mann: 'W 712/83', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB127' },
-      ar: { original: '17801-0C010', tecfil: 'ARS7065', authomix: 'FAR7065', mann: 'C 23 107', mahle: 'LX 2125', wega: 'JFA-0292/2', fram: 'CA10112', vox: 'HD7065' },
-      combustivel: { original: '23390-0L041', tecfil: 'PC949', authomix: 'FCO0949', mann: 'PU 835 x', mahle: 'KX 268D', wega: 'JFC-207/2', fram: 'C10256', vox: 'CE949' },
-      preFiltroCombustivel: { original: '23300-30450', tecfil: 'FCI778', authomix: 'FCO0778', mann: '-', mahle: 'KL 1061', wega: 'JFC-283', fram: '-', vox: 'FBI778' },
-      cabine: { original: '87139-0K010', tecfil: 'ACP887', authomix: 'FCA0887', mann: 'CU 1919', mahle: 'LA 655', wega: 'AKX-1965', fram: 'CF10285', vox: 'FAC887' }
+      oleo: 'PSL127',
+      ar: 'ARS7065',
+      combustivel: 'PC949',
+      preFiltroCombustivel: 'FCI778'
     }
   },
 
@@ -36,11 +35,10 @@ export const utilitariosToyota = {
       3: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava da bomba de alta pressão e quebra da corrente de comando."
     },
     filtros: {
-      oleo: { original: '04152-YZZA8', tecfil: 'PEL106', authomix: 'FOL0127', mann: 'HU 6008 z', mahle: 'OX 415D', wega: 'WOE-473', fram: 'CH9642', vox: 'PEL106' },
-      ar: { original: '17801-11130', tecfil: 'ARL8480', authomix: 'FAR8480', mann: 'C 32 011', mahle: 'LX 4377', wega: 'FAP-3280', fram: 'CA11250', vox: 'FAR8480' },
-      combustivel: { original: '23390-0E020', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 8028', mahle: 'KX 531D', wega: 'FCI-1620', fram: 'PS10038', vox: 'PSD980' },
-      preFiltroCombustivel: { original: '23390-0E011', tecfil: 'PC954', authomix: '-', mann: '-', mahle: '-', wega: 'JFC217', fram: '-', vox: '-' },
-      cabine: { original: '87139-YZZ20', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'FP 1919', mahle: 'LA 250', wega: 'AKX-1999', fram: 'CF10729', vox: 'FCA0309' }
+      oleo: 'PEL106',
+      ar: 'ARL8480',
+      combustivel: 'PSD980',
+      preFiltroCombustivel: 'PC954'
     }
   },
 
@@ -60,11 +58,10 @@ export const utilitariosToyota = {
       4: "ATENÇÃO — Filtro pressurizado (23390-0E011): Oficialmente, a Toyota não o inclui como item de troca periódica no plano de manutenção (o gerenciamento do motor monitora o sistema, indicando substituição via diagnóstico ou falha de funcionamento). Na prática de manutenção preventiva, oficinas costumam recomendar a troca entre 40.000 e 50.000 km para prevenir saturação e trava da bomba de alta pressão e quebra da corrente de comando."
     },
     filtros: {
-      oleo: { original: '90915-20003', tecfil: '-', authomix: 'FOL0145', mann: 'W 7283', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB129' },
-      ar: { original: '17801-0L040', tecfil: 'ARL2204', authomix: 'FAR2204', mann: 'C 33 017/1', mahle: 'LX 4377', wega: 'JFA-0299', fram: 'CA11947', vox: 'HLP2204' },
-      combustivel: { original: '23390-0L070', tecfil: 'PC953', authomix: 'FCO0953', mann: 'PU 8028', mahle: 'KX 531D', wega: 'JFC-216', fram: 'C11919', vox: 'CE953' },
-      preFiltroCombustivel: { original: '23390-0E011', tecfil: 'PC954', authomix: '-', mann: '-', mahle: '-', wega: 'JFC217', fram: '-', vox: '-' },
-      cabine: { original: '87139-0K060', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'CU 22 032', mahle: 'LA 1255', wega: 'AKX-1999', fram: 'CF12157', vox: 'FAC309' }
+      oleo: { tecfil: '-', authomix: 'FOL0145', mann: 'W 7283', mahle: 'OC 988', wega: 'JFO-0211', fram: 'PH2870', vox: 'LB129' },
+      ar: 'ARL2204',
+      combustivel: 'PC953',
+      preFiltroCombustivel: 'PC954'
     }
   }
 };

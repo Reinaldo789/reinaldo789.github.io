@@ -39,7 +39,8 @@ export const filtrosOleo = {
       "Japanparts": ["FOECO041"], "Mahle": ["OX179"], "Mann": ["HU721/2X"],
       "Mercedes Benz": ["3740907101", "6131800009"], "Parker": ["RP804"], "Seineca": ["SEF7606"],
       "Tecfil": ["PEL107"], "Turbo Filtros": ["TL0009ECO"], "Vox": ["LE107"],
-      "Wega": ["WOE242"]
+      "Wega": ["WOE242"],
+      "Fram": ["CH11080"]
     },
     aplicacoes: {
       "Mercedes Benz": [
@@ -193,7 +194,9 @@ export const filtrosOleo = {
     conversoes: {
       "Hengst": ["E866HD367"], "Mahle": ["OX823/6"], "Mann": ["HU6020z"],
       "Mercedes Benz": ["A6541801100", "A6541840025"], "Tecfil": ["PEL654"], "Vox": ["LE654"],
-      "Wega": ["WOE462"]
+      "Wega": ["WOE462"],
+      "Authomix": ["FOL0654"],
+      "Fram": ["CH12311"]
     },
     aplicacoes: {
       "Mercedes Benz": [
@@ -250,7 +253,8 @@ export const filtrosOleo = {
       "Mahle": ["OX1019D"], "Millard": ["ML35162"], "Nissan": ["1520900Q0A"],
       "Opel": ["4431215"], "Renault": ["8200362442"], "Seineca": ["SEF7621"],
       "Tecfil": ["PEL675"], "Turbo Filtros": ["TL30218ECO"], "Vox": ["LE675"],
-      "Wega": ["WOE505"]
+      "Wega": ["WOE505"],
+      "Mann": ["HU 718/1 k"]
     },
     aplicacoes: {
       "Renault": [
@@ -387,7 +391,9 @@ export const filtrosOleo = {
       "Citroen / Peugeot": ["1610693780"], "Fram": ["CH9657"], "Hengst": ["E40HD323"],
       "Japanparts": ["FOBR162S"], "Mahle": ["OX171/2D1"], "Mann": ["HU7033Z", "HU716/2X"],
       "Sakura": ["EO32010"], "Tecfil": ["PEL780"], "Turbo Filtros": ["TB701"],
-      "Wega": ["WOE701"]
+      "Wega": ["WOE701"],
+      "Authomix": ["FOL0780"],
+      "Vox": ["LE780"]
     },
     aplicacoes: {
       "Citroen": [
@@ -410,7 +416,8 @@ export const filtrosOleo = {
       "Luberfiner": ["LP8993"], "Mahle": ["OX123/1"], "Mann": ["HU951x"],
       "Parker": ["REL815"], "Sakura": ["EO68020"], "Tecfil": ["PEL1998"],
       "Turbo Filtros": ["TL30205ECO"], "Volkswagen": ["07W115436A"], "Vox": ["LE1998"],
-      "Wega": ["WOE475"], "WIX": ["57711"]
+      "Wega": ["WOE475"], "WIX": ["57711"],
+      "Fram": ["CH11082"]
     },
     aplicacoes: {
       "MAN": [
@@ -451,7 +458,8 @@ export const filtrosOleo = {
       "Mercedes Benz": ["0001801609", "9061840225", "A9061800109"], "Parker": ["REL803"], "Partmo": ["PP7199"],
       "Sakura": ["EO2626"], "Tecfil": ["PEL2003"], "Turbo Filtros": ["TL30217ECO"],
       "Unifilter": ["UEL931"], "Vox": ["LE2003"], "Vox Antigo": ["LE3043"],
-      "Wega": ["WOE440"], "WIX": ["WL57214"]
+      "Wega": ["WOE440"], "WIX": ["WL57214"],
+      "Mahle": ["OX 174D"]
     },
     aplicacoes: {
       "Atlas-Copco": [
@@ -535,7 +543,8 @@ export const filtrosOleo = {
     conversoes: {
       "Fram": ["PH10757"], "Japanparts": ["FOBR48S"], "Mahle": ["OC593/4"],
       "Mann": ["W712/94"], "Tecfil": ["PSL55"], "Volkswagen": ["03C115561C", "03C115561D", "03C115561H"],
-      "Vox": ["LB556"], "Wega": ["WO342"]
+      "Vox": ["LB556"], "Wega": ["WO342"],
+      "Authomix": ["FOL0055"]
     },
     aplicacoes: {
       "Audi": [
@@ -559,7 +568,9 @@ export const filtrosOleo = {
       "Partmo": ["A14302PLUS"], "Sakura": ["C1123"], "Seineca": ["SOF7023"],
       "Seineca Antigo": ["SEI2674"], "Tecfil": ["PSL127"], "Toyota": ["9091520003"],
       "Turbo Filtros": ["TB211"], "Vox": ["LB127"], "Wega": ["JFO0211"],
-      "WIX": ["WL10165"]
+      "WIX": ["WL10165"],
+      "Mahle": ["OC 696","OC 988"],
+      "Fram": ["PH4967","PH2870"]
     },
     aplicacoes: {
       "Jetour": [
@@ -659,7 +670,10 @@ export const filtrosOleo = {
       "Baldwin": ["B1447"], "Fil Filter": ["ZP62B"], "Fram": ["PH8830"],
       "GM": ["93156863"], "Hengst": ["H90W29"], "Land Rover": ["LPW100230"],
       "Sakura": ["C49150"], "Seineca": ["SOF8212"], "Tecfil": ["PSL161"],
-      "Vox": ["LB161"], "Wega": ["WO550"]
+      "Vox": ["LB161"], "Wega": ["WO550"],
+      "Authomix": ["FOL0161"],
+      "Mann": ["W 7058"],
+      "Mahle": ["OC 1300"]
     },
     aplicacoes: {
       "Land Rover": [
@@ -694,7 +708,11 @@ export const filtrosOleo = {
       "Sim": [], "Tecfil": ["PSL167"], "Unifilter": ["UST6337", "PSL167"],
       "Vox Antigo": ["HIB2818", "PSL167"], "Válvula Alívio:": [], "Válvula Anti-retorno:": [],
       "WIX": ["57220", "PSL167"], "Ø Ext. Comp.:": ["92.7"], "Ø Int. Larg.:": [],
-      "Ø Rosca:": ["13/16\" - 16 UN"], "​": ["PSL167"]
+      "Ø Rosca:": ["13/16\" - 16 UN"], "​": ["PSL167"],
+      "Authomix": ["FOL0167"],
+      "Mahle": ["OC 1296"],
+      "Wega": ["WO-421"],
+      "Vox": ["LB167"]
     },
     aplicacoes: null
   },
@@ -713,7 +731,12 @@ export const filtrosOleo = {
       "Peso Bruto:": ["0,233"], "Peso Líquido:": ["0,226"], "Política de Privacidade": [],
       "Sakura": ["C65410", "PSL168"], "Sim": [], "Tecfil": ["PSL168"],
       "Válvula Alívio:": [], "Válvula Anti-retorno:": [], "Ø Ext. Comp.:": ["68"],
-      "Ø Int. Larg.:": [], "Ø Rosca:": ["M18 x 1,5"], "​": ["PSL168"]
+      "Ø Int. Larg.:": [], "Ø Rosca:": ["M18 x 1,5"], "​": ["PSL168"],
+      "Authomix": ["FOL0168"],
+      "Mahle": ["OC 1302"],
+      "Wega": ["WO-151"],
+      "Fram": ["PH12105"],
+      "Vox": ["LB168"]
     },
     aplicacoes: null
   },
@@ -1059,7 +1082,8 @@ export const filtrosOleo = {
       "Ford": ["71185", "BG8T6731AA"], "Japanparts": ["FOBR18S"], "Mahle": ["OC1055"],
       "Mann": ["W719/50"], "Seineca": ["SOF7037"], "Seineca Antigo": ["SEI2710"],
       "Tecfil": ["PSL541"], "Turbo Filtros": ["TB541"], "Vox": ["LB541"],
-      "Wega": ["WO541"], "WIX": ["WL10159"]
+      "Wega": ["WO541"], "WIX": ["WL10159"],
+      "Fram": ["PH10757"]
     },
     aplicacoes: {
       "Ford": [
@@ -1216,7 +1240,10 @@ export const filtrosOleo = {
     conversoes: {
       "Citroen": ["9809532380"], "Hengst": ["H388W"], "Mann": ["W7063"],
       "Tecfil": ["PSL630"], "Ufi": ["2375200"], "Vox": ["LB630"],
-      "Wega": ["WO161"]
+      "Wega": ["WO161"],
+      "Authomix": ["FOL0161"],
+      "Mahle": ["OC 1300"],
+      "Fram": ["PH11819"]
     },
     aplicacoes: {
       "Citroen": [
@@ -1624,6 +1651,70 @@ export const filtrosOleo = {
         ]
       ]
     }
+  },
+
+  PSL910: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PSL910",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSL910"],"Authomix":["FOL0910"],"Mann":["W 11 010"],"Mahle":["OX 439 D"],"Wega":["WO-630"],"Fram":["PH11350"],"Vox":["LB910"]},
+    aplicacoes: null
+  },
+
+  PSL928: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PSL928",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSL928"],"Authomix":["FOL0928"],"Mann":["W 11 102"],"Mahle":["OC 575"],"Wega":["WO-620"],"Fram":["PH10000"],"Vox":["LB928"]},
+    aplicacoes: null
+  },
+
+  PSL930: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PSL930",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSL930"],"Authomix":["FOL0930"],"Mann":["W 11 010/2"],"Mahle":["OX 580 D"],"Wega":["WO-635"],"Fram":["PH11450"],"Vox":["LB930"]},
+    aplicacoes: null
+  },
+
+  PEL920: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PEL920",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEL920"],"Authomix":["FEL0920"],"Mann":["HU 12 100 x"],"Mahle":["OX 440 D"],"Wega":["WOE-550"],"Fram":["CH11400"],"Vox":["LE920"]},
+    aplicacoes: null
+  },
+
+  PSL985: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PSL985",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSL985"],"Authomix":["FOL0985"],"Mann":["W 11 010"],"Mahle":["OX 439 D"],"Wega":["WO-630"],"Fram":["PH11350"],"Vox":["LB985"]},
+    aplicacoes: null
+  },
+
+  PEL325: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PEL325",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEL325"],"Authomix":["FOL0325"],"Mann":["HU 6029 z"],"Mahle":["OX 1280D"],"Wega":["WOE-245"],"Fram":["CH12280"],"Vox":["LE325"]},
+    aplicacoes: null
+  },
+
+  PSL75: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PSL75",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PSL75"],"Authomix":["FOL0075"],"Mann":["W 712/83"],"Mahle":["OC 574"],"Wega":["WO-130"],"Fram":["PH4968"],"Vox":["LB75"]},
+    aplicacoes: null
+  },
+
+  PEL785: {
+    tipo: "oleo",
+    url: "https://catalogo.tecfil.com.br/search/PEL785",
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
+    conversoes: {"Tecfil":["PEL785"],"Authomix":["FOL0785"],"Mann":["HU 7033 z"],"Mahle":["OX 1255D"],"Wega":["WOE-705"],"Fram":["CH12282"],"Vox":["LE785"]},
+    aplicacoes: null
   }
 
 };

@@ -10,10 +10,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1520865F0A', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'W 67/3', mahle: 'OC1052', wega: 'WO-150', fram: 'PH4967', vox: 'LB158' },
-      ar: { original: '16546ED000', tecfil: 'ARL1655', authomix: 'FAR1655', mann: 'C 2329', mahle: 'LX1983', wega: 'FAP-9030', fram: 'CA10226', vox: 'FAR1655' },
-      combustivel: { original: 'Tanque', tecfil: '-', authomix: null, mann: 'WK 58/3', mahle: 'KL583', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '272773DF0A', tecfil: 'ACP310', authomix: 'FCA0310', mann: 'CU 22 011', mahle: 'LA 452', wega: 'AKX-1958', fram: 'CF11177', vox: 'FCA0310' }
+      oleo: 'PSL158',
+      ar: 'ARL1655',
+      combustivel: { tecfil: '-', mann: 'WK 58/3', mahle: 'KL583' }
     }
   },
 
@@ -28,10 +27,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1520865F0A', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'W 67/3', mahle: 'OC1052', wega: 'WO-150', fram: 'PH4967', vox: 'LB158' },
-      ar: { original: '16546ED000', tecfil: 'ARL1655', authomix: 'FAR1655', mann: 'C 2329', mahle: 'LX1983', wega: 'FAP-9030', fram: 'CA10226', vox: 'FAR1655' },
-      combustivel: { original: 'Tanque', tecfil: '-', authomix: null, mann: 'WK 58/3', mahle: 'KL583', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '272771665R', tecfil: 'ACP310', authomix: 'FCA0310', mann: 'CU 22 011', mahle: 'LA 452', wega: 'AKX-1958', fram: 'CF10786', vox: 'FCA0310' }
+      oleo: 'PSL158',
+      ar: 'ARL1655',
+      combustivel: { tecfil: '-', mann: 'WK 58/3', mahle: 'KL583' }
     }
   },
 
@@ -46,10 +44,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1520865F0A', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'W 66/1', mahle: 'OC1052', wega: 'WO-150', fram: 'PH4967', vox: 'LB158' },
-      ar: { original: '165461KA0A', tecfil: 'ARL1656', authomix: 'FAR1656', mann: 'C 2329', mahle: 'LX3549', wega: 'FAP-9030', fram: 'CA11123', vox: 'FAR1656' },
-      combustivel: { original: 'Tanque', tecfil: '-', authomix: null, mann: 'WK 58/3', mahle: 'KL583', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '272771KA0A', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 452', wega: 'AKX-1925', fram: 'CF11784', vox: 'FCA0312' }
+      oleo: 'PSL158',
+      ar: 'ARL1656',
+      combustivel: { tecfil: '-', mann: 'WK 58/3', mahle: 'KL583' }
     }
   },
 
@@ -64,10 +61,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1520865F0A', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'W 66/1', mahle: 'OC1052', wega: 'WO-150', fram: 'PH4967', vox: 'LB158' },
-      ar: { original: '165461KA0A', tecfil: 'ARL1656', authomix: 'FAR1656', mann: 'C 2329', mahle: 'LX3549', wega: 'FAP-9030', fram: 'CA11123', vox: 'FAR1656' },
-      combustivel: { original: 'Tanque', tecfil: '-', authomix: null, mann: 'WK 58/3', mahle: 'KL583', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '272771665R', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 452', wega: 'AKX-1925', fram: 'CF11784', vox: 'FCA0312' }
+      oleo: 'PSL158',
+      ar: 'ARL1656',
+      combustivel: { tecfil: '-', mann: 'WK 58/3', mahle: 'KL583' }
     }
   },
 
@@ -82,10 +78,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1520865F0A', tecfil: 'PSL158', authomix: 'FOL0158', mann: 'W 66/1', mahle: 'OC1052', wega: 'WO-150', fram: 'PH4967', vox: 'LB158' },
-      ar: { original: '165461KA0A', tecfil: 'ARL1656', authomix: 'FAR1656', mann: 'C 2329', mahle: 'LX3549', wega: 'FAP-9030', fram: 'CA11123', vox: 'FAR1656' },
-      combustivel: { original: 'Tanque', tecfil: '-', authomix: null, mann: 'WK 58/3', mahle: 'KL583', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '272771665R', tecfil: 'ACP312', authomix: 'FCA0312', mann: 'CU 22 011', mahle: 'LA 452', wega: 'AKX-1925', fram: 'CF11784', vox: 'FCA0312' }
+      oleo: 'PSL158',
+      ar: 'ARL1656',
+      combustivel: { tecfil: '-', mann: 'WK 58/3', mahle: 'KL583' }
     }
   },
 
@@ -100,10 +95,8 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '04152-YZZA6', tecfil: 'PEL106', authomix: 'FOL0106', mann: 'HU 6008 z', mahle: 'OX 415D', wega: 'WOE-610', fram: 'CH10955', vox: 'PEL106' },
-      ar: { original: '17801-0V030', tecfil: 'ARL8480', authomix: 'FAR8480', mann: 'C 27 024', mahle: 'LX 3911', wega: 'FAP-3280', fram: 'CA12055', vox: 'FAR8480' },
-      combustivel: { original: 'Tanque / Elemento interno', tecfil: '-', authomix: null, mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '87139-YZZ20', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'FP 1919', mahle: 'LA 250', wega: 'AKX-1999', fram: 'CF10729', vox: 'FCA0309' }
+      oleo: 'PEL106',
+      ar: 'ARL8480'
     }
   },
 
@@ -118,10 +111,8 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '04152-YZZA6', tecfil: 'PEL106', authomix: 'FOL0106', mann: 'HU 6008 z', mahle: 'OX 415D', wega: 'WOE-610', fram: 'CH10955', vox: 'PEL106' },
-      ar: { original: '17801-0V030', tecfil: 'ARL8480', authomix: 'FAR8480', mann: 'C 27 024', mahle: 'LX 3911', wega: 'FAP-3280', fram: 'CA12055', vox: 'FAR8480' },
-      combustivel: { original: 'Tanque / Elemento interno', tecfil: '-', authomix: null, mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '87139-YZZ20', tecfil: 'ACP309', authomix: 'FCA0309', mann: 'FP 1919', mahle: 'LA 250', wega: 'AKX-1999', fram: 'CF10729', vox: 'FCA0309' }
+      oleo: 'PEL106',
+      ar: 'ARL8480'
     }
   },
 
@@ -136,10 +127,8 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '90915-YZZF2', tecfil: 'PSL127', authomix: 'FOL0127', mann: 'W 68/3', mahle: 'OC 696', wega: 'JFO-0211', fram: 'PH4967', vox: 'LB127' },
-      ar: { original: '17801-0Y040', tecfil: 'ARL2204', authomix: 'FAR2204', mann: 'C 34 007/1', mahle: 'LX 4163', wega: 'FAP-4043', fram: 'CA11461', vox: 'FAR2204' },
-      combustivel: { original: 'Tanque / Elemento interno', tecfil: '-', authomix: null, mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '87139-0D080', tecfil: 'ACP888', authomix: 'FCA0888', mann: 'CU 19 005', mahle: 'LA 684', wega: 'AKX-2161', fram: 'CF11442', vox: 'FCA0888' }
+      oleo: 'PSL127',
+      ar: 'ARL2204'
     }
   },
 
@@ -154,10 +143,8 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '90915-YZZF2', tecfil: 'PSL127', authomix: 'FOL0127', mann: 'W 68/3', mahle: 'OC 696', wega: 'JFO-0211', fram: 'PH4967', vox: 'LB127' },
-      ar: { original: '17801-0Y050', tecfil: 'ARL2207', authomix: 'FAR2207', mann: 'C 24 034', mahle: 'LX 4163', wega: 'FAP-4043', fram: 'CA12312', vox: 'FAR2207' },
-      combustivel: { original: 'Tanque / Elemento interno', tecfil: '-', authomix: null, mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' },
-      cabine: { original: '87139-0D080', tecfil: 'ACP888', authomix: 'FCA0888', mann: 'CU 19 005', mahle: 'LA 684', wega: 'AKX-2161', fram: 'CF11442', vox: 'FCA0888' }
+      oleo: 'PSL127',
+      ar: 'ARL2207'
     }
   },
 
@@ -172,10 +159,9 @@ export const passeioOutrasMarcas = {
       2: "Uso normal (rodovia): 10.000 km ou 1 ano. Uso severo (trânsito urbano pesado / percursos curtos frequentes): Reduzir estritamente para 5.000 km ou 6 meses."
     },
     filtros: {
-      oleo: { original: '1109AY', tecfil: 'PEL674', authomix: 'FOL0674', mann: 'HU 711/51 x', mahle: 'OX339/2D', wega: 'WOE-710', fram: 'CH9641', vox: 'PEL674' },
-      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 42 010', mahle: 'LX2681', wega: 'FAP-9295', fram: 'CA11050', vox: 'FAR5047' },
-      combustivel: { original: '156794', tecfil: 'GI50/7', authomix: 'FCO0507', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
-      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1991', fram: 'CF10549', vox: 'FCA0305' }
+      oleo: 'PEL674',
+      ar: 'ARL5047',
+      combustivel: 'GI50/7'
     }
   },
 
@@ -190,10 +176,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km (Normal) / 5.000 km (Severo)."
     },
     filtros: {
-      oleo: { original: '8200768913', tecfil: 'PSL51', authomix: 'FOL0051', mann: 'W 75/2', mahle: 'OC467', wega: 'WO-120', fram: 'PH5796', vox: 'LB51' },
-      ar: { original: '165467674R', tecfil: 'ARL9010', authomix: 'FAR9010', mann: 'C 27 030', mahle: 'LX1066', wega: 'FAP-9010', fram: 'CA11036', vox: 'FAR9010' },
-      combustivel: { original: '6001548810', tecfil: 'GI04/7', authomix: 'FCO0047', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1025', vox: 'FC00047' },
-      cabine: { original: '272773229R', tecfil: 'ACP928', authomix: 'FCA0928', mann: 'CU 22 019/2', mahle: 'LA 182', wega: 'AKX-1120', fram: 'CF10366', vox: 'FCA928' }
+      oleo: 'PSL51',
+      ar: 'ARL9010',
+      combustivel: 'GI04/7'
     }
   },
   
@@ -208,10 +193,9 @@ export const passeioOutrasMarcas = {
       2: "Uso normal: 10.000 km ou 1 ano. Uso severo (trânsito urbano pesado / trajetos curtos): 5.000 km ou 6 meses."
     },
     filtros: {
-      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
-      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 42 010', mahle: 'LX2681', wega: 'FAP-6013', fram: 'CA11050', vox: 'FAR5047' },
-      combustivel: { original: '156794', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
-      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1446', fram: 'CF10549', vox: 'FCA0305' }
+      oleo: 'PEL108',
+      ar: 'ARL5047',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -226,10 +210,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
-      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 25 118/1', mahle: 'LX2681', wega: 'FAP-3286', fram: 'CA11050', vox: 'FAR5047' },
-      combustivel: { original: '156794', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
-      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1446', fram: 'CF10549', vox: 'FCA0305' }
+      oleo: 'PEL108',
+      ar: 'ARL5047',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -244,10 +227,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
-      ar: { original: '1444.X1', tecfil: 'ARL5053', authomix: 'FAR5053', mann: 'C 3485/1', mahle: 'LX1287', wega: 'FAP-4873', fram: 'CA9315', vox: 'HLP5053' },
-      combustivel: { original: '1567.C6', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G10230F', vox: 'FS04/7' },
-      cabine: { original: '6447.NT', tecfil: 'ACP796', authomix: 'FCA0796', mann: 'CU 2245', mahle: 'LA 139', wega: 'AKX-35345-2', fram: 'CF9466', vox: 'FAC796' }
+      oleo: 'PEL108',
+      ar: 'ARL5053',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -262,10 +244,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
-      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 42 010', mahle: 'LX2681', wega: 'FAP-6013', fram: 'CA11050', vox: 'FAR5047' },
-      combustivel: { original: '156794', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G1030', vox: 'FC00047' },
-      cabine: { original: '6447.NT', tecfil: 'ACP796', authomix: 'FCA0796', mann: 'CU 2245', mahle: 'LA 139', wega: 'AKX-35345-2', fram: 'CF9466', vox: 'FAC796' }
+      oleo: 'PEL108',
+      ar: 'ARL5047',
+      combustivel: 'GI04/7'
     }
   },
 
@@ -280,10 +261,9 @@ export const passeioOutrasMarcas = {
       2: "10.000 km ou 1 ano (Normal) / 5.000 km ou 6 meses (Severo)."
     },
     filtros: {
-      oleo: { original: '1109AY', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-710', fram: 'CH9973ECO', vox: 'LE108' },
-      ar: { original: '1444RJ', tecfil: 'ARL5047', authomix: 'FAR5047', mann: 'C 4292/2 (1.6) / C 25 118/1 (2.0)', mahle: 'LX2681', wega: 'FAP-9013', fram: 'CA11050', vox: 'FAR5047' },
-      combustivel: { original: '1567.C6', tecfil: 'GI04/7', authomix: 'FCI1630', mann: 'WK 58/3', mahle: 'KL583', wega: 'FCI-1630', fram: 'G10230F', vox: 'FS04/7' },
-      cabine: { original: '6447XF', tecfil: 'ACP305', authomix: 'FCA0305', mann: 'CU 2940', mahle: 'LA 56', wega: 'AKX-1446', fram: 'CF10549', vox: 'FCA0305' }
+      oleo: 'PEL108',
+      ar: 'ARL5047',
+      combustivel: 'GI04/7'
     }
   }
 };

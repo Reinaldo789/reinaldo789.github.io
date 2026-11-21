@@ -11,10 +11,9 @@ export const vansRenault = {
       1: "Primeira geração nacional com motor 2.5 dCi (correia dentada) e norma Euro 3, sem filtro DPF."
     },
     filtros: {
-      oleo: { original: '8200362442', tecfil: 'PEL675', authomix: 'FOL0675', mann: 'HU 718/1 k', mahle: 'OX 153/7D', wega: 'WOE-450', fram: 'CH9463', vox: 'LE675' },
-      ar: { original: '8200457286', tecfil: 'ARS2869', authomix: 'FAR2869', mann: 'C 32 154', mahle: 'LX 1291', wega: 'JFA-0595', fram: 'CA9491', vox: 'HD2869' },
-      combustivel: { original: '7701475229', tecfil: 'PEC3022', authomix: 'FCO3022', mann: 'PU 822 x', mahle: 'KX 204D', wega: 'FCD-0768', fram: 'C9818', vox: 'CE3022' },
-      cabine: { original: '7701048749', tecfil: 'ACP901', authomix: 'FCA0901', mann: 'CU 2336', mahle: 'LA 134', wega: 'AKX-1440', fram: 'CF9399', vox: 'FAC901' }
+      oleo: 'PEL675',
+      ar: 'ARS2869',
+      combustivel: 'PEC3022'
     }
   },
 
@@ -31,10 +30,9 @@ export const vansRenault = {
       2: "Capacidade pode variar entre 8,0 L e 8,9 L dependendo do ano/cárter — conferir sempre na vareta após abastecer 8,0 L."
     },
     filtros: {
-      oleo: { original: '152095084R', tecfil: 'PEL678', authomix: 'FOL0678', mann: 'HU 6006 z', mahle: 'OX 968D', wega: 'WOE-461', fram: 'CH11442', vox: 'LE678' },
-      ar: { original: '8200795348', tecfil: 'ARL5135', authomix: 'FAR5135', mann: 'C 33 006', mahle: 'LX 3156', wega: 'FAP-9053', fram: 'CA11104', vox: 'HLP5135' },
-      combustivel: { original: '164037803R', tecfil: 'PEC3035', authomix: 'FCO3035', mann: 'PU 9005 x', mahle: 'KX 338/22D', wega: 'FCD-0785', fram: 'C11258', vox: 'CE3035' },
-      cabine: { original: '272770055R', tecfil: 'ACP915', authomix: 'FCA0915', mann: 'CU 24 004', mahle: 'LA 688', wega: 'AKX-1445', fram: 'CF11200', vox: 'FAC915' }
+      oleo: 'PEL678',
+      ar: 'ARL5135',
+      combustivel: 'PEC3035'
     }
   },
 
@@ -52,10 +50,9 @@ export const vansRenault = {
       2: "Reservatório de ARLA 32 com capacidade de 22 litros (abastecimento na lateral esquerda, próximo à porta do motorista)."
     },
     filtros: {
-      oleo: { original: '152095084R', tecfil: 'PEL678', authomix: 'FOL0678', mann: 'HU 6006 z', mahle: 'OX 968D', wega: 'WOE-461', fram: 'CH11442', vox: 'LE678' },
-      ar: { original: '165467674R', tecfil: 'ARL5152', authomix: 'FAR5152', mann: 'C 33 018', mahle: 'LX 4510', wega: 'FAP-9065', fram: 'CA12450', vox: 'HLP5152' },
-      combustivel: { original: '164039594R', tecfil: 'PEC3048', authomix: 'FCO3048', mann: 'PU 9015 x', mahle: 'KX 540D', wega: 'FCD-0798', fram: 'C12100', vox: 'CE3048' },
-      cabine: { original: '272770055R', tecfil: 'ACP915', authomix: 'FCA0915', mann: 'CU 24 004', mahle: 'LA 688', wega: 'AKX-1445', fram: 'CF11200', vox: 'FAC915' }
+      oleo: 'PEL678',
+      ar: 'ARL5152',
+      combustivel: 'PEC3048'
     }
   }
 };

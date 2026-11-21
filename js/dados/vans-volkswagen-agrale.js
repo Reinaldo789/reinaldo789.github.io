@@ -11,10 +11,9 @@ export const vansVwAgrale = {
       1: "Chassi rodoviário equipado com motor Cummins ISC de 6 cilindros e sistema de injeção de alta pressão Common Rail. Não utiliza ARLA 32 nas versões Euro III (EOT clássico). Atenção redobrada à troca dos elementos do filtro de combustível separador de água."
     },
     filtros: {
-      oleo: { original: '2R0115561B', tecfil: 'PSL909', authomix: 'FOL0909', mann: 'WP 12121', mahle: 'OC 1176', wega: 'WO-240', fram: 'PH1000', vox: 'PSL909' },
-      ar: { original: '2T0129620', tecfil: 'ARL8895', authomix: 'FAR8895', mann: 'C 30 1500', mahle: 'LX 2150', wega: 'FAP-4080', fram: 'CA10420', vox: 'ARL8895' },
-      combustivel: { original: '2R0127177A', tecfil: 'PSC76', authomix: 'FCO0076', mann: 'WK 954/1 x', mahle: 'KC 28', wega: 'FCI-1630', fram: 'PS10700', vox: 'PSC76' },
-      cabine: { original: 'Não aplicável de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL909',
+      ar: 'ARL8895',
+      combustivel: 'PSC76'
     }
   },
 
@@ -30,10 +29,9 @@ export const vansVwAgrale = {
       1: "Chassi equipado com o consagrado motor MWM da linha X10 eletrônica (4.12 TCE). Possui excelente torque em baixas rotações e alta durabilidade em frotas urbanas e rurais. Não utiliza ARLA 32."
     },
     filtros: {
-      oleo: { original: '90520000030', tecfil: 'PSL339', authomix: 'FOL339', mann: 'W 962', mahle: 'OC 60', wega: 'WO-200', fram: 'PH2801B', vox: 'PSL339' },
-      ar: { original: '2T0129620', tecfil: 'ARL8891', authomix: 'FAR8891', mann: 'C 24 650/1', mahle: 'LX 1560', wega: 'FAP-4030', fram: 'CA9920', vox: 'ARL8891' },
-      combustivel: { original: '2U0127177', tecfil: 'PSC71', authomix: 'FCO0071', mann: 'WK 842/2', mahle: 'KC 18', wega: 'FCI-1620', fram: 'P926', vox: 'PSC71' },
-      cabine: { original: 'Não aplicável de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL339',
+      ar: 'ARL8891',
+      combustivel: 'PSC71'
     }
   },
 
@@ -50,10 +48,9 @@ export const vansVwAgrale = {
       1: "Chassi com tração nas quatro rodas 4x4, indicado para terrenos severos e rotas rurais ou escolares de difícil acesso. Exige verificação periódica dos diferenciais e caixa de transferência."
     },
     filtros: {
-      oleo: { original: 'BG5X6714AA', tecfil: 'PEL107', authomix: 'FOL0107', mann: 'HU 719/2 x', mahle: 'OX 373D', wega: 'WOE-320', fram: 'CH11080', vox: 'PEL107' },
-      ar: { original: '6006005012003', tecfil: 'ARL9012', authomix: 'FAR9012', mann: 'C 25 140', mahle: 'LX 2020', wega: 'FAP-5012', fram: 'CA10291', vox: 'ARL9012' },
-      combustivel: { original: 'BG5X9155AA', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 823 x', mahle: 'KX 220D', wega: 'FCI-1610', fram: 'PS11650', vox: 'PSD980' },
-      cabine: { original: 'Não aplicável', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PEL107',
+      ar: 'ARL9012',
+      combustivel: 'PSD980'
     }
   },
 
@@ -69,10 +66,9 @@ export const vansVwAgrale = {
       1: "Modelo versátil para transporte urbano, fretamento e escolar, combinando chassi reforçado e motorização Cummins de alta eficiência com sistema SCR (Arla 32)."
     },
     filtros: {
-      oleo: { original: 'BG5X6714AA', tecfil: 'PEL107', authomix: 'FOL0107', mann: 'HU 719/2 x', mahle: 'OX 373D', wega: 'WOE-320', fram: 'CH11080', vox: 'PEL107' },
-      ar: { original: '6006005012003', tecfil: 'ARL9012', authomix: 'FAR9012', mann: 'C 25 140', mahle: 'LX 2020', wega: 'FAP-5012', fram: 'CA10291', vox: 'ARL9012' },
-      combustivel: { original: 'BG5X9155AA', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 823 x', mahle: 'KX 220D', wega: 'FCI-1610', fram: 'PS11650', vox: 'PSD980' },
-      cabine: { original: 'Não aplicável', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PEL107',
+      ar: 'ARL9012',
+      combustivel: 'PSD980'
     }
   },
 
@@ -88,10 +84,9 @@ export const vansVwAgrale = {
       1: "Destacado por sua força, economia e conforto para aplicações de fretamento, turismo e urbano. Plataforma robusta com grande capacidade de carga e encarroçamento."
     },
     filtros: {
-      oleo: { original: '4897834', tecfil: 'PEL107', authomix: 'FOL0107', mann: 'HU 719/2 x', mahle: 'OX 373D', wega: 'WOE-320', fram: 'CH11080', vox: 'PEL107' },
-      ar: { original: '6006005012003', tecfil: 'ARL9012', authomix: 'FAR9012', mann: 'C 25 140', mahle: 'LX 2020', wega: 'FAP-5012', fram: 'CA10291', vox: 'ARL9012' },
-      combustivel: { original: '5265411', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 823 x', mahle: 'KX 220D', wega: 'FCI-1610', fram: 'PS11650', vox: 'PSD980' },
-      cabine: { original: 'Não aplicável', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PEL107',
+      ar: 'ARL9012',
+      combustivel: 'PSD980'
     }
   },
 
@@ -107,10 +102,9 @@ export const vansVwAgrale = {
       1: "Oferece excelente dirigibilidade, flexibilidade de encarroçamento e baixo custo operacional. Indicado para operações de média e alta demanda em centros urbanos e rotas rodoviárias de curta distância."
     },
     filtros: {
-      oleo: { original: '4897834', tecfil: 'PEL107', authomix: 'FOL0107', mann: 'HU 719/2 x', mahle: 'OX 373D', wega: 'WOE-320', fram: 'CH11080', vox: 'PEL107' },
-      ar: { original: '6006005012003', tecfil: 'ARL9012', authomix: 'FAR9012', mann: 'C 25 140', mahle: 'LX 2020', wega: 'FAP-5012', fram: 'CA10291', vox: 'ARL9012' },
-      combustivel: { original: '5265411', tecfil: 'PSD980', authomix: 'FCO0980', mann: 'PU 823 x', mahle: 'KX 220D', wega: 'FCI-1610', fram: 'PS11650', vox: 'PSD980' },
-      cabine: { original: 'Não aplicável', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PEL107',
+      ar: 'ARL9012',
+      combustivel: 'PSD980'
     }
   }
 };

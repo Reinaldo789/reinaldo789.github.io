@@ -11,10 +11,9 @@ export const vansIveco = {
       1: "Linha Daily mecânica/eletrônica Euro 3 (sem EGR e sem DPF). Utiliza filtro de óleo blindado."
     },
     filtros: {
-      oleo: { original: '2995811', tecfil: 'PSL280', authomix: 'FOL0280', mann: 'W 950/26', mahle: 'OC 504', wega: 'WO-480', fram: 'PH9503', vox: 'LB280' },
-      ar: { original: '2996155', tecfil: 'ARS7107', authomix: 'FAR7107', mann: 'C 16 190', mahle: 'LX 1916', wega: 'JFA-0989', fram: 'CA10548', vox: 'HD7107' },
-      combustivel: { original: '2997305', tecfil: 'PSC498', authomix: 'FCO0498', mann: 'WK 854/6', mahle: 'KC 196', wega: 'FCD-0790', fram: 'P9815', vox: 'FBS498' },
-      cabine: { original: '504024890', tecfil: 'ACP903', authomix: 'FCA0903', mann: 'CU 2337', mahle: 'LA 215', wega: 'AKX-3513', fram: 'CF10212', vox: 'FAC903' }
+      oleo: 'PSL280',
+      ar: 'ARS7107',
+      combustivel: 'PSC498'
     }
   },
 
@@ -30,10 +29,9 @@ export const vansIveco = {
       1: "Geração Euro 5 (Proconve P7) com sistema EGR (dispensa ARLA 32). O filtro de óleo mudou para elemento refil ecológico e exige óleo 5W-30 de baixo teor de cinzas."
     },
     filtros: {
-      oleo: { original: '5801415504', tecfil: 'PEL720', authomix: 'FOL0720', mann: 'HU 7017 z', mahle: 'OX 1018D', wega: 'WOE-408', fram: 'CH11469', vox: 'PEL720' },
-      ar: { original: '5801317096', tecfil: 'ARS5139', authomix: 'FAR5139', mann: 'C 16 190/2', mahle: 'LX 3505', wega: 'JFA-0995', fram: 'CA11470', vox: 'HD5139' },
-      combustivel: { original: '5801592277', tecfil: 'PSC880', authomix: 'FCO0880', mann: 'WK 11 024', mahle: 'KC 502D', wega: 'FCD-0794', fram: 'PS11471', vox: 'FBS880' },
-      cabine: { original: '504024890', tecfil: 'ACP903', authomix: 'FCA0903', mann: 'CU 2337', mahle: 'LA 215', wega: 'AKX-3513', fram: 'CF10212', vox: 'FAC903' }
+      oleo: 'PEL720',
+      ar: 'ARS5139',
+      combustivel: 'PSC880'
     }
   },
 
@@ -51,10 +49,9 @@ export const vansIveco = {
       2: "Aplicável exclusivamente nas versões Euro 6 (2023 em diante)."
     },
     filtros: {
-      oleo: { original: '5801415504', tecfil: 'PEL720', authomix: 'FOL0720', mann: 'HU 7017 z', mahle: 'OX 1018D', wega: 'WOE-408', fram: 'CH11469', vox: 'PEL720' },
-      ar: { original: '5802006944', tecfil: 'ARS5148', authomix: 'FAR5148', mann: 'C 18 005', mahle: 'LX 4412', wega: 'JFA-0998', fram: 'CA12345', vox: 'HD5148' },
-      combustivel: { original: '5801592277', tecfil: 'PSC880', authomix: 'FCO0880', mann: 'WK 11 024', mahle: 'KC 502D', wega: 'FCD-0794', fram: 'PS11471', vox: 'FBS880' },
-      cabine: { original: '5802224812', tecfil: 'ACP325', authomix: 'FCA0325', mann: 'CU 24 015', mahle: 'LA 1140', wega: 'AKX-3555', fram: 'CF12100', vox: 'FAC325' }
+      oleo: 'PEL720',
+      ar: 'ARS5148',
+      combustivel: 'PSC880'
     }
   }
 };

@@ -11,10 +11,9 @@ export const vansFord = {
       1: "Primeira geração comercializada no Brasil (norma Euro 3, sem filtro DPF e sem ARLA 32)."
     },
     filtros: {
-      oleo: { original: '3C1Q-6744-BA', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-120', fram: 'CH9973', vox: 'LE108' },
-      ar: { original: '6C11-9601-CB', tecfil: 'ARL9600', authomix: 'FAR9600', mann: 'C 28 100', mahle: 'LX 1958', wega: 'FAP-3292', fram: 'CA10343', vox: 'HLP9600' },
-      combustivel: { original: '3C11-9176-BB', tecfil: 'PSC883', authomix: 'FCO0883', mann: 'WK 8154', mahle: 'KC 519', wega: 'FCD-0185', fram: 'PS10156', vox: 'FBD883' },
-      cabine: { original: '6C11-19G244-AA', tecfil: 'ACP208', authomix: 'FCA0208', mann: 'CU 3567', mahle: 'LA 318', wega: 'AKX-3517', fram: 'CF10344', vox: 'FAC208' }
+      oleo: 'PEL108',
+      ar: 'ARL9600',
+      combustivel: 'PSC883'
     }
   },
 
@@ -31,10 +30,9 @@ export const vansFord = {
       2: "Atenção ao cárter: a capacidade aumentou de 6,5 L (motor 2.4) para 9,5 L nesta versão 2.2."
     },
     filtros: {
-      oleo: { original: '3C1Q-6744-BA', tecfil: 'PEL108', authomix: 'FOL0108', mann: 'HU 711/51 x', mahle: 'OX 339/2D', wega: 'WOE-120', fram: 'CH9973', vox: 'LE108' },
-      ar: { original: '6C11-9601-CB', tecfil: 'ARL9600', authomix: 'FAR9600', mann: 'C 28 100', mahle: 'LX 1958', wega: 'FAP-3292', fram: 'CA10343', vox: 'HLP9600' },
-      combustivel: { original: '3C11-9176-BB', tecfil: 'PSC883', authomix: 'FCO0883', mann: 'WK 8154', mahle: 'KC 519', wega: 'FCD-0185', fram: 'PS10156', vox: 'FBD883' },
-      cabine: { original: '6C11-19G244-AA', tecfil: 'ACP208', authomix: 'FCA0208', mann: 'CU 3567', mahle: 'LA 318', wega: 'AKX-3517', fram: 'CF10344', vox: 'FAC208' }
+      oleo: 'PEL108',
+      ar: 'ARL9600',
+      combustivel: 'PSC883'
     }
   },
 
@@ -52,10 +50,9 @@ export const vansFord = {
       2: "Reservatório de ARLA 32 de 24 litros com bocal de abastecimento localizado na coluna da porta do motorista."
     },
     filtros: {
-      oleo: { original: 'GK2Q-6714-AA', tecfil: 'PSL168', authomix: 'FOL0168', mann: 'W 7053', mahle: 'OC 1302', wega: 'WO-151', fram: 'PH12105', vox: 'LB168' },
-      ar: { original: 'BK21-9601-AA', tecfil: 'ARL5155', authomix: 'FAR5155', mann: 'C 28 035', mahle: 'LX 3508', wega: 'FAP-3305', fram: 'CA11725', vox: 'HLP5155' },
-      combustivel: { original: 'KK3Q-9176-AA', tecfil: 'PEC3054', authomix: 'FCO3054', mann: 'PU 9021 z', mahle: 'KX 575D', wega: 'FCD-0802', fram: 'C12850', vox: 'CE3054' },
-      cabine: { original: 'BK21-19G244-AA', tecfil: 'ACP328', authomix: 'FCA0328', mann: 'CU 26 022', mahle: 'LA 1045', wega: 'AKX-35190', fram: 'CF11726', vox: 'FAC328' }
+      oleo: 'PSL168',
+      ar: 'ARL5155',
+      combustivel: 'PEC3054'
     }
   }
 };

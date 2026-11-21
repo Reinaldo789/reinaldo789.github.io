@@ -11,10 +11,9 @@ export const utilitariosMitsubishi = {
       1: "Linha clássica L200 Sport, Outdoor e Savana com motor 2.5 de 8 válvulas, focada em robustez mecânica e sem eletrônica complexa."
     },
     filtros: {
-      oleo: { original: 'MD050318', tecfil: 'PSL55', authomix: 'FOL0055', mann: 'W 940/25', mahle: 'OC 237', wega: 'WO-120', fram: 'PH8A', vox: 'LB55' },
-      ar: { original: 'MR239618', tecfil: 'ARL7001', authomix: 'FAR7001', mann: 'C 24 120', mahle: 'LX 824', wega: 'FAP-7001', fram: 'CA7164', vox: 'FAR7001' },
-      combustivel: { original: 'MB220900', tecfil: 'PSD380', authomix: 'FCO0380', mann: 'WK 842/2', mahle: 'KC 19', wega: 'FCD-0740', fram: 'P4102', vox: 'PCD33' },
-      cabine: { original: 'Não possui de fábrica', tecfil: '-', authomix: '-', mann: '-', mahle: '-', wega: '-', fram: '-', vox: '-' }
+      oleo: 'PSL55',
+      ar: 'ARL7001',
+      combustivel: 'PSD380'
     }
   },
   
@@ -31,10 +30,9 @@ export const utilitariosMitsubishi = {
       1: "Geração clássica produzida em Catalão (GO). O diferencial traseiro pode vir equipado com sistema de deslizamento limitado (LSD), exigindo óleo compatível."
     },
     filtros: {
-      oleo: { original: '1230A186', tecfil: 'PSL75', authomix: 'FOL0075', mann: 'W 712/83', mahle: 'OC 574', wega: 'WO-130', fram: 'PH4968', vox: 'LB75' },
-      ar: { original: '1500A023', tecfil: 'ARL9602', authomix: 'FAR9602', mann: 'C 27 125', mahle: 'LX 1933', wega: 'FAP-3286', fram: 'CA10345', vox: 'HLP9602' },
-      combustivel: { original: '1770A107', tecfil: 'PSC722', authomix: 'FCO0722', mann: 'WK 829/3', mahle: 'KC 101', wega: 'FCD-0750', fram: 'PS10755', vox: 'FBS722' },
-      cabine: { original: '7803A004', tecfil: 'ACP304', authomix: 'FCA0304', mann: 'CU 22 003', mahle: 'LA 319', wega: 'AKX-3515', fram: 'CF10346', vox: 'FAC304' }
+      oleo: 'PSL75',
+      ar: 'ARL9602',
+      combustivel: 'PSC722'
     }
   },
 
@@ -51,10 +49,9 @@ export const utilitariosMitsubishi = {
       1: "Quinta geração (Triton Sport) com bloco de alumínio e comando variável MIVEC. Direção hidráulica e tração Super Select II com seletor eletrônico."
     },
     filtros: {
-      oleo: { original: '1230A186', tecfil: 'PSL75', authomix: 'FOL0075', mann: 'W 712/83', mahle: 'OC 574', wega: 'WO-130', fram: 'PH4968', vox: 'LB75' },
-      ar: { original: '1500A607', tecfil: 'ARL9605', authomix: 'FAR9605', mann: 'C 27 024', mahle: 'LX 3850', wega: 'FAP-3298', fram: 'CA11840', vox: 'HLP9605' },
-      combustivel: { original: '1770A337', tecfil: 'PSC730', authomix: 'FCO0730', mann: 'WK 829/4', mahle: 'KC 200', wega: 'FCD-0785', fram: 'PS11700', vox: 'FBS730' },
-      cabine: { original: '7803A125', tecfil: 'ACP315', authomix: 'FCA0315', mann: 'CU 24 011', mahle: 'LA 820', wega: 'AKX-3522', fram: 'CF11841', vox: 'FAC315' }
+      oleo: 'PSL75',
+      ar: 'ARL9605',
+      combustivel: 'PSC730'
     }
   },
 
@@ -71,10 +68,9 @@ export const utilitariosMitsubishi = {
       1: "Nova geração global da picape (batizada oficialmente apenas como 'Triton'). Adota novo motor 4N16 Bi-Turbo de 205 cv, direção 100% elétrica, chassi reforçado e exige estritamente óleos Low SAPS norma **ACEA C4** ou **JASO DL-1** para preservação dos sistemas de emissões."
     },
     filtros: {
-      oleo: { original: '1230A186', tecfil: 'PSL75', authomix: 'FOL0075', mann: 'W 712/83', mahle: 'OC 574', wega: 'WO-130', fram: 'PH4968', vox: 'LB75' },
-      ar: { original: '1500A607', tecfil: 'ARL9605', authomix: 'FAR9605', mann: 'C 27 024', mahle: 'LX 3850', wega: 'FAP-3298', fram: 'CA11840', vox: 'HLP9605' },
-      combustivel: { original: '1770A380', tecfil: 'PSC740', authomix: 'FCO0740', mann: 'WK 829/5', mahle: 'KC 210', wega: 'FCD-0790', fram: 'PS12000', vox: 'FBS740' },
-      cabine: { original: '7803A125', tecfil: 'ACP315', authomix: 'FCA0315', mann: 'CU 24 011', mahle: 'LA 820', wega: 'AKX-3522', fram: 'CF11841', vox: 'FAC315' }
+      oleo: 'PSL75',
+      ar: 'ARL9605',
+      combustivel: 'PSC740'
     }
   }
 };

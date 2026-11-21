@@ -19,8 +19,7 @@ export const utilitariosAgrale = {
       ar: 'ARS8234',
       arSecundario: 'ASR234',
       combustivel: 'PSC498/4',
-      sedimentador: 'PSD450/1',
-      cabine: null
+      sedimentador: 'PSD450/1'
     }
   },
 
@@ -44,8 +43,7 @@ export const utilitariosAgrale = {
       ar: 'ARS8234',
       arSecundario: 'ASR234',
       combustivel: 'PSC498/4',
-      sedimentador: 'PSD450/1',
-      cabine: null
+      sedimentador: 'PSD450/1'
     }
   },
 
@@ -68,8 +66,7 @@ export const utilitariosAgrale = {
       ar: 'ARS8234',
       arSecundario: 'ASR234',
       combustivel: 'PSC706',
-      sedimentador: 'PSD925',
-      cabine: null
+      sedimentador: 'PSD925'
     }
   },
 
@@ -93,8 +90,7 @@ export const utilitariosAgrale = {
       ar: 'ARS8234',
       arSecundario: 'ASR234',
       combustivel: 'PSC706',
-      sedimentador: 'PSD925',
-      cabine: null
+      sedimentador: 'PSD925'
     }
   }
 };

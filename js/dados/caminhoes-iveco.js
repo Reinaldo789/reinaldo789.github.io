@@ -10,10 +10,9 @@ export const caminhoesIveco = {
       1: "Rodoviário: 30.000 km. Distribuição urbana: 15.000 km. Severo (obra/basculante): 10.000 km ou 250 horas. Máximo: 12 meses."
     },
     filtros: {
-      oleo: { original: '5801394783', tecfil: 'PSL928', authomix: 'FOL0928', mann: 'W 11 102', mahle: 'OC 575', wega: 'WO-620', fram: 'PH10000', vox: 'LB928' },
-      ar: { original: '5801456789', tecfil: 'ARS9870', authomix: 'FAR9870', mann: 'C 27 1250', mahle: 'LX 1900', wega: 'WAP-192', fram: 'CA11200', vox: 'ARS9870' },
-      combustivel: { original: '5801597843', tecfil: 'PSD994', authomix: 'FCO0994', mann: 'WK 1060/2 X', mahle: 'KC 125', wega: 'FCD-0980', fram: 'PS11950', vox: 'PSD994' },
-      cabine: { original: '5801356781', tecfil: 'ACP970', authomix: 'FCA0309', mann: 'CU 3000', mahle: 'LA 280', wega: 'AKX-1370', fram: 'CF11950', vox: 'FCA0309' }
+      oleo: 'PSL928',
+      ar: 'ARS9870',
+      combustivel: 'PSD994'
     }
   },
 
@@ -28,10 +27,9 @@ export const caminhoesIveco = {
       1: "Rodoviário de longa distância: até 40.000 km a 50.000 km (conforme óleo homologado). Operação severa ou mista: 20.000 km a 25.000 km."
     },
     filtros: {
-      oleo: { original: '2992241', tecfil: 'PSL930', authomix: 'FOL0930', mann: 'W 11 010/2', mahle: 'OX 580 D', wega: 'WO-635', fram: 'PH11450', vox: 'LB930' },
-      ar: { original: '5801456790', tecfil: 'ARS9875', authomix: 'FAR9875', mann: 'C 32 1500', mahle: 'LX 1905', wega: 'WAP-198', fram: 'CA11201', vox: 'ARS9875' },
-      combustivel: { original: '5801597845', tecfil: 'PSD996', authomix: 'FCO0996', mann: 'WK 1060/7 X', mahle: 'KC 130', wega: 'FCD-0985', fram: 'PS11955', vox: 'PSD996' },
-      cabine: { original: '5801356785', tecfil: 'ACP975', authomix: 'FCA0975', mann: 'CU 3050', mahle: 'LA 285', wega: 'AKX-1375', fram: 'CF11955', vox: 'ACP975' }
+      oleo: 'PSL930',
+      ar: 'ARS9875',
+      combustivel: 'PSD996'
     }
   }
 };

@@ -404,11 +404,11 @@ rcat.forEach(function(r,i){
    null = sem filtro daquele tipo. Objetos completos (formato antigo) continuam valendo. */
 var MARCAS_FILTRO = { authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram", vox:"Vox" };
 function expandirFiltro(cods){
-  var lista = String(cods).split(/\s+\/\s+/).map(function(s){ return s.trim(); }).filter(Boolean);
-  var r = { tecfil:lista.slice() };
+  var lista = partirCod(cods); /* aceita "PSL356 / PSL283" e "PSC498 (Mec) / PSC498/4 (Elet)" */
+  var r = { tecfil:lista.map(function(p){ return p.cod + (p.rot ? " ("+p.rot+")" : ""); }) };
   Object.keys(MARCAS_FILTRO).forEach(function(k){ r[k] = []; });
-  lista.forEach(function(cod){
-    var e = CATALOGO[compacto(cod)], cv = (e && e.conversoes) || {};
+  lista.forEach(function(p){
+    var e = CATALOGO[compacto(p.cod)], cv = (e && e.conversoes) || {};
     Object.keys(MARCAS_FILTRO).forEach(function(k){
       (cv[MARCAS_FILTRO[k]] || []).forEach(function(c){ if(r[k].indexOf(c) < 0) r[k].push(c); });
     });

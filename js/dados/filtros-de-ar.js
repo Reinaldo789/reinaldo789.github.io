@@ -6,7 +6,7 @@ export const filtrosAr = {
   "AP9834": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ap9834/produto/339",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Agrale": ["8009101116005", "905411510017"], "Atlas-Copco": ["1619270200", "16192847", "1619284700"], "Authomix": ["FAR9834"],
       "Baldwin": ["PA2405"], "Bosch": ["0986B03535", "1457429950", "1987430001", "9451160001", "9455087003"], "Case": ["145215A1", "E155526"],
@@ -76,7 +76,7 @@ export const filtrosAr = {
   "ARL1655": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl1655/produto/786",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR1655"], "Bosch": ["0986B02532"], "Fram": ["CA11215", "CA11769"],
       "Gonher": ["GA306"], "Interfil": ["F16AK0"], "Japanparts": ["FABR65S"],
@@ -96,7 +96,7 @@ export const filtrosAr = {
   "ARL1656": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl1656/produto/826",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR1656"], "Filtran": ["2054309"], "Fram": ["CA4309"],
       "Hengst": ["E235L"], "Japanparts": ["FA108S"], "Mann": ["C2964"],
@@ -146,7 +146,7 @@ export const filtrosAr = {
   "ARL2204": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl2204/produto/793",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR2204"], "Fram": ["CA11493"], "Japanparts": ["FABR83S"],
       "Mahle": ["LX4163"], "Mann": ["C34007/1"], "Sakura": ["A33720"],
@@ -169,7 +169,7 @@ export const filtrosAr = {
   "ARL2207": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl2207/produto/1481",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR2207"], "Japanparts": ["FA514S"], "Mann": ["C26135"],
       "Millard": ["MK82465"], "Tecfil": ["ARL2207"], "Toyota": ["178010Y040"],
@@ -195,7 +195,7 @@ export const filtrosAr = {
   "ARL4148": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl4148/produto/1007",
-    especificacoes: { elemento: "Sintética" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Sintética" },
     conversoes: {
       "Authomix": ["FAR4148"], "Fil Filter": ["HP5052"], "Fram": ["CA10699"],
       "Hyundai": ["281131J000"], "Japanparts": ["FAK22S"], "Kia Motors": ["281132K000"],
@@ -214,7 +214,7 @@ export const filtrosAr = {
   "ARL4150": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl4150/produto/90",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01EFA048", "19347741"], "Authomix": ["FAR4150"], "Bosch": ["0986B02306"],
       "Controil": ["CLFA00002"], "Cross": ["FE926"], "Delphi": ["EFA988"],
@@ -282,7 +282,7 @@ export const filtrosAr = {
   "ARL5053": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl5053/produto/53",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["19347761"], "Authomix": ["FAR5053"], "Citroen": ["1444EC", "1444EF", "1444V5", "1444X1"],
       "Delphi": ["EFA975"], "Filtran": ["2059315"], "Fram": ["CA9315"],
@@ -326,7 +326,7 @@ export const filtrosAr = {
   "ARL5073": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl5073/produto/1894",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Citroen": ["9802348680"], "Fram": ["CA12034"], "Hengst": ["E1289L"],
       "Js Asakashi": ["A0666"], "Mann": ["C24017"], "Tecfil": ["ARL5073"],
@@ -346,7 +346,7 @@ export const filtrosAr = {
   "ARL5135": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl5135/produto/1510",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR5135"], "Fram": ["CA12097"], "Mann": ["C24700"],
       "Renault": ["165468558R", "165469905R"], "Tecfil": ["ARL5135"], "Vox": ["HLP5135"],
@@ -362,7 +362,7 @@ export const filtrosAr = {
   "ARL8829": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl8829/produto/714",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["96950990"], "Authomix": ["FAR8829"], "Filtran": ["2058829"],
       "Fram": ["CA11222"], "GM": ["96950990"], "Gonher": ["GA344"],
@@ -391,7 +391,7 @@ export const filtrosAr = {
   "ARL9600": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl9600/produto/664",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR9600"], "Delphi": ["EFA983"], "Filtran": ["2059600"],
       "Fleetguard": ["AF25841"], "Ford": ["1496814", "1C159601AE", "1C159601AF"], "Hengst": ["E470L", "E760L"],
@@ -422,7 +422,7 @@ export const filtrosAr = {
   "ARL9602": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl9602/produto/147",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR9602"], "Ford": ["6E5Z9601EA"], "Fram": ["CA10094"],
       "Inpeca": ["SAL9301"], "Japanparts": ["FA8621S"], "Mahle": ["LX2642"],
@@ -446,7 +446,7 @@ export const filtrosAr = {
   "ARL9605": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/arl9605/produto/110",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01EFA132", "19347763"], "Authomix": ["FAR9605"], "Bosch": ["0986B02322"],
       "Cross": ["FE925/1"], "Delphi": ["EFA931"], "FAM": ["FA9605"],
@@ -471,7 +471,7 @@ export const filtrosAr = {
   "ARS1013": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars1013/produto/63",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR1013"], "Bosch": ["1457432282"], "Cross": ["FE940/2"],
       "Delkraft": ["DR1387"], "Delphi": ["EFA933"], "FAM": ["FI1006"],
@@ -522,7 +522,7 @@ export const filtrosAr = {
   "ARS2868": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars2868/produto/175",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01EFA015", "19347766"], "Authomix": ["FAR2868"], "Baldwin": ["RS3942"],
       "Bosch": ["1457432286"], "Cross": ["FE880/1"], "Delkraft": ["DR1360"],
@@ -588,7 +588,7 @@ export const filtrosAr = {
   "ARS2869": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars2869/produto/174",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR2869"], "Bosch": ["0986B03005"], "Delkraft": ["DR1442"],
       "Delphi": ["EFA951"], "FAM": ["FA2869"], "Filtran": ["2052869"],
@@ -612,7 +612,7 @@ export const filtrosAr = {
   "ARS2870": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars2870/produto/717",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["94771925"], "Authomix": ["FAR2870"], "Bosch": ["0986B03014"],
       "Filtran": ["2052870"], "Fram": ["CA11077", "CA8852B"], "General Motors": ["52046262", "52160963"],
@@ -640,7 +640,7 @@ export const filtrosAr = {
   "ARS5376": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars5376/produto/946",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR5376"], "Donaldson": ["P630368"], "Fleetguard": ["AF27977"],
       "Ford": ["BH1X9601AA"], "Fram": ["CA10894"], "Hengst": ["E1250L"],
@@ -671,7 +671,7 @@ export const filtrosAr = {
   "ARS7065": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars7065/produto/297",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR7065"], "Baldwin": ["RS10035"], "Delkraft": ["DR1511"],
       "Delphi": ["EDA114"], "Filtran": ["2051008/4"], "Fleetguard": ["AF26501"],
@@ -712,7 +712,7 @@ export const filtrosAr = {
   "ARS8234": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars8234/produto/2",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 414, diametroExterno: 174.5, diametroInterno: 106, rosca: null, elemento: "Papel" },
     conversoes: {
       "AGCO": ["6223614M1", "87370414"], "Agrale": ["6015001014002"], "Authomix": ["FAR8234"],
       "Delkraft": ["DR1411/1"], "Delphi": ["EDA115"], "FAM": ["FA9319"],
@@ -775,7 +775,7 @@ export const filtrosAr = {
   "ARS9839": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars9839/produto/403",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Alliance": ["A63452803060097"], "Authomix": ["FAR9839"], "Baldwin": ["RS5627"],
       "Bosch": ["0986B03003"], "Controil": ["CHFA00002"], "Cummins": ["2S0129620"],
@@ -840,7 +840,7 @@ export const filtrosAr = {
   "ARS9840": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars9840/produto/385",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "AGCO": ["6213198M1"], "Alliance": ["A99952003060097"], "Atlas-Copco": ["1028810505"],
       "Authomix": ["FAR9840"], "Baldwin": ["RS5358"], "DAF": ["0915521"],
@@ -906,7 +906,7 @@ export const filtrosAr = {
   "ARS9842": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars9842/produto/834",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FAR9842"], "Automotiv": ["AE1160EP"], "Baldwin": ["RS4971"],
       "Donaldson": ["P782936"], "Fil Filter": ["HP2592"], "Fleetguard": ["AF25894"],
@@ -959,7 +959,7 @@ export const filtrosAr = {
   "ARS9845": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/ars9845/produto/2479",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Tecfil": ["ARS9845"], "Volkswagen": ["2V3129620"]
     },
@@ -986,7 +986,7 @@ export const filtrosAr = {
   "ASR234": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/asr234/produto/704",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "AGCO": ["6223615M1"], "Agrale": ["6015001015009"], "Authomix": ["FAR0234"],
       "Case": ["87370415"], "Donaldson": ["P628399"], "Mahle": ["LXS370"],
@@ -1019,7 +1019,7 @@ export const filtrosAr = {
   "ASR376": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/asr376/produto/833",
-    especificacoes: { elemento: "Feltro" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Feltro" },
     conversoes: {
       "Authomix": ["FAR0376"], "Ford": ["BH1X9E673AA"], "Fram": ["CA10894SY"],
       "Japanparts": ["FABR147S"], "Mahle": ["LXS362"], "Tecfil": ["ASR376"],
@@ -1044,7 +1044,7 @@ export const filtrosAr = {
   "ASR839": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/asr839/produto/404",
-    especificacoes: { elemento: "Feltro" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Feltro" },
     conversoes: {
       "Alliance": ["A63452802060097"], "Authomix": ["FAR0839"], "Baldwin": ["RS5628"],
       "Bosch": ["0986B03406"], "Delkraft": ["DRI040"], "Delphi": ["EFA964"],
@@ -1106,7 +1106,7 @@ export const filtrosAr = {
   "ARL3280": {
     "tipo": "ar",
     "url": "https://catalogo.tecfil.com.br/search/ARL3280",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     "conversoes": {
       "Tecfil": [
         "ARL3280"
@@ -1141,7 +1141,7 @@ export const filtrosAr = {
   "ARL4103": {
     "tipo": "ar",
     "url": "https://catalogo.tecfil.com.br/search/ARL4103",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     "conversoes": {
       "Tecfil": [
         "ARL4103"
@@ -1176,7 +1176,7 @@ export const filtrosAr = {
   "ARL4125": {
     "tipo": "ar",
     "url": "https://catalogo.tecfil.com.br/search/ARL4125",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     "conversoes": {
       "Tecfil": [
         "ARL4125"
@@ -1211,7 +1211,7 @@ export const filtrosAr = {
   "ARL4130": {
     "tipo": "ar",
     "url": "https://catalogo.tecfil.com.br/search/ARL4130",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     "conversoes": {
       "Tecfil": [
         "ARL4130"

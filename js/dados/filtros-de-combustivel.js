@@ -6,7 +6,7 @@ export const filtrosCombustivel = {
   "FCI778": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/fci778/produto/1022",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0778"], "Japanparts": ["FCBR75S"], "Mahle": ["KL1061"],
       "Tecfil": ["FCI778"], "Toyota": ["2330030450"], "Turbo Filtros": ["TBC778"],
@@ -25,7 +25,7 @@ export const filtrosCombustivel = {
   "GI04/7": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/gi04/7/produto/8",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["19347706", "25FC0225"], "Alfa Romeo": ["46523087", "60811822", "60811904", "60812738", "60813871"], "Audi": ["6X0201511", "6X0201511B"],
       "Authomix": ["FCO0047"], "Blue Print": ["ADV182321"], "Bosch": ["0986BF0018", "F5273"],
@@ -96,7 +96,7 @@ export const filtrosCombustivel = {
   "GI50/7": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/gi50/7/produto/46",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["19347708", "FS9002E"], "Authomix": ["FCO0507"], "Blue Print": ["ADN12324"],
       "Bosch": ["0986BF0024"], "Chery": ["S111117110N"], "Citroen": ["156785", "156793", "1567A5", "1567C1", "1567C6", "1635P5", "9625342280", "9673849", "E145003", "E145055"],
@@ -174,7 +174,7 @@ export const filtrosCombustivel = {
   "PC949": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pc949/produto/302",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0949"], "Donaldson": ["P505973"], "Fleetguard": ["FF5764"],
       "Fram": ["C10353", "C10353ECO"], "GM": ["19266444", "5876150170"], "Gonher": ["GG2341"],
@@ -213,7 +213,7 @@ export const filtrosCombustivel = {
   "PC953": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pc953/produto/1377",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0953"], "Fram": ["CS12054"], "Japanparts": ["FCBR109S"],
       "Mahle": ["KX570", "KX570D"], "Mann": ["PU9023z"], "Millard": ["MF26255"],
@@ -237,7 +237,7 @@ export const filtrosCombustivel = {
   "PC954": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pc954/produto/2318",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Japanparts": ["FCBR256S"], "Tecfil": ["PC954"], "Toyota": ["233900E011"],
       "Turbo Filtros": ["TBC954"], "Wega": ["JFC217"]
@@ -258,7 +258,7 @@ export const filtrosCombustivel = {
   "PEC3022": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3022/produto/367",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO3022"], "Baldwin": ["PF7735"], "Bosch": ["0986BF0201"],
       "Controil": ["CHFO00001"], "DAF": ["0915010"], "Delkraft": ["DC117"],
@@ -319,7 +319,7 @@ export const filtrosCombustivel = {
   "PEC3023": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3023/produto/67",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO3023"], "Bosch": ["0986BF0239"], "Citroen": ["190698"],
       "Delkraft": ["DC136"], "Fiat": ["0077362340", "77363600", "77365902"], "Fil Filter": ["KFE1460", "KFE1460V"],
@@ -350,7 +350,7 @@ export const filtrosCombustivel = {
   "PEC3029": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3029/produto/874",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO3029"], "Fram": ["C11723"], "General Motors": ["52100212"],
       "GM": ["94771044"], "Japanparts": ["FCBR39S", "FCBR72/2S"], "Mahle": ["KX444", "KX444D"],
@@ -370,7 +370,7 @@ export const filtrosCombustivel = {
   "PEC3043": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3043/produto/2271",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Eurorepar": ["1643096080"], "Hengst": ["E460KP"], "Mann": ["PU7015"],
       "Peugeot": ["1614111980"], "Tecfil": ["PEC3043"], "Vox": ["CE3043"],
@@ -390,7 +390,7 @@ export const filtrosCombustivel = {
   "PEC3048": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3048/produto/2279",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Hengst": ["E480KPD430"], "IVECO": ["5802050393"], "Mann": ["PU7017Z"],
       "Tecfil": ["PEC3048"], "Vox": ["PEC3048"], "Wega": ["FCD0806"]
@@ -414,7 +414,7 @@ export const filtrosCombustivel = {
   "PEC3050": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3050/produto/1978",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Citroen": ["9801366680"], "Fram": ["C11781ECO"], "Hengst": ["E444KPD308"],
       "Japanparts": ["FCBR216S"], "Mahle": ["KX420D"], "Sakura": ["EF11010"],
@@ -434,7 +434,7 @@ export const filtrosCombustivel = {
   "PEC3055": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/pec3055/produto/1576",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "* Exclusivo Exportação.": [], "-": [], ".": [],
       "Altura:": ["118"], "Baldwin": ["PF9919", "PEC3055"], "Caixa:": ["06"],
@@ -454,7 +454,7 @@ export const filtrosCombustivel = {
   "PSC71": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc71/produto/1381",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Baldwin": ["BF7965"], "Donaldson": ["P765325"], "Fleetguard": ["FF5794"],
       "Hengst": ["H245WK"], "Jcb": ["32007057", "32007155", "32007394"], "Tecfil": ["PSC71"],
@@ -477,7 +477,7 @@ export const filtrosCombustivel = {
   "PSC72": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc72/produto/143",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Abg": ["1160243"], "ACDelco": ["01FBD004", "TP961", "XD25"], "AGCO": ["1174423", "312795397", "835331343V", "CM3931063"],
       "Agrale": ["6005001063000", "7006001098001", "7006011810001", "9451080065"], "Ahlmann": ["Q1H4117"], "Akerman": ["16496", "23121"],
@@ -558,7 +558,7 @@ export const filtrosCombustivel = {
   "PSC75": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc75/produto/529",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Alliance": ["A99909002510097"], "Authomix": ["FCO0075"], "Baldwin": ["BF7813"],
       "Bosch": ["0986BF0243"], "Controil": ["CHFF00007"], "Cummins": ["3978040", "4897897"],
@@ -622,7 +622,7 @@ export const filtrosCombustivel = {
   "PSC76": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc76/produto/559",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0076"], "Baldwin": ["BF7815", "BF7917"], "Case": ["84477358"],
       "Cummins": ["3959612"], "Delkraft": ["DSC743"], "Delphi": ["HDF618"],
@@ -688,7 +688,7 @@ export const filtrosCombustivel = {
   "PSC410": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc410/produto/407",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Atlas-Copco": ["71029"], "Authomix": ["FCO0410"], "Baldwin": ["BF1280"],
       "Bomag": ["31780219"], "Bosch": ["0986450713", "9455080008"], "Case": ["84476807", "A77470S1", "E156170", "J390942", "J925274", "J930942"],
@@ -742,7 +742,7 @@ export const filtrosCombustivel = {
   "PSC494": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc494/produto/221",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Alliance": ["A20047001150097"], "Authomix": ["FCO0494"], "Baldwin": ["BF1217"],
       "Bosch": ["0986BF0312", "1457434402"], "Delkraft": ["DSC730"], "Delphi": ["HDF814"],
@@ -803,7 +803,7 @@ export const filtrosCombustivel = {
   "PSC498": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc498/produto/338",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Agrale": ["6013006009002"], "Authomix": ["FCO4985"], "Mann": ["WK940/34"],
       "MWM": ["955410500115"], "Tecfil": ["PSC498/5", "PSC498"], "Turbo Filtros": ["TBC9403"],
@@ -824,7 +824,7 @@ export const filtrosCombustivel = {
   "PSC498/4": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc498/4/produto/177",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO4984"], "Delphi": ["HDF842"], "Fram": ["P4836A"],
       "GM": ["94707151"], "Hengst": ["H334WK"], "Japanparts": ["FCBR77S"],
@@ -847,7 +847,7 @@ export const filtrosCombustivel = {
   "PSC706": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc706/produto/1039",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0706"], "Baldwin": ["BF9885"], "Cummins": ["5262311"],
       "Donaldson": ["P555706", "P555776"], "Fleetguard": ["FF5706", "FF5776"], "Japanparts": ["FCBR58S"],
@@ -881,7 +881,7 @@ export const filtrosCombustivel = {
   "PSC880": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc880/produto/498",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0880"], "Baldwin": ["BF7673D"], "Donaldson": ["P550351", "P551423"],
       "Fil Filter": ["ZP8039F"], "Fleetguard": ["FS19516"], "Fram": ["PS7407", "PS7407A"],
@@ -925,7 +925,7 @@ export const filtrosCombustivel = {
   "PSC883": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psc883/produto/159",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO0883"], "Fil Filter": ["ZP3804F"], "Ford": ["3C119176BB", "3C119176BC", "4537952", "4669224"],
       "Fram": ["PS10156"], "Japanparts": ["FCBR9S"], "Mann": ["WK815/4"],
@@ -944,7 +944,7 @@ export const filtrosCombustivel = {
   "PSD420": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd420/produto/2020",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Baldwin": ["BF46109O"], "Donaldson": ["P551086", "P551875"], "Fleetguard": ["FS20041"],
       "Hyundai": ["11E170140"], "Mann": ["WK1060"], "Mercedes Benz": ["A3844777015"],
@@ -969,7 +969,7 @@ export const filtrosCombustivel = {
   "PSD450/1": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd450/1/produto/138",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01FBD020"], "Authomix": ["FSE4501"], "Bosch": ["0986450710"],
       "Delkraft": ["DSA511/1"], "Delphi": ["EFS101"], "Donaldson": ["P551853"],
@@ -1025,7 +1025,7 @@ export const filtrosCombustivel = {
   "PSD470/1": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd470/1/produto/388",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FSE4701"], "Baldwin": ["BF1329", "BF1329SP"], "Bosch": ["0986450734", "0986BF0222"],
       "DAF": ["0915472"], "Delkraft": ["DSA508/1"], "Delphi": ["EFS103"],
@@ -1094,7 +1094,7 @@ export const filtrosCombustivel = {
   "PSD480": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd480/produto/368",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Alliance": ["A38447770150097"], "Authomix": ["FSE4801"], "Bosch": ["0986450727", "0986BF0214"],
       "Delkraft": ["DSA514/1"], "Delphi": ["EFS108"], "Donaldson": ["P502461"],
@@ -1163,7 +1163,7 @@ export const filtrosCombustivel = {
   "PSD490": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd490/produto/2042",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Donaldson": ["P551855"], "Fleetguard": ["FS19551"], "Mann": ["WK1060/2"],
       "Parker": ["SB12010M"], "Scania": ["1518512"], "Tecfil": ["PSD490"],
@@ -1221,7 +1221,7 @@ export const filtrosCombustivel = {
   "PSD960": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd960/produto/335",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Agrale": ["6112777018003"], "Authomix": ["FSE9601"], "Baldwin": ["BF1393SP"],
       "Bosch": ["0986450726", "0986BF0224", "0986BF0462"], "Cummins": ["3355903"], "Delkraft": ["DSA515/1"],
@@ -1281,7 +1281,7 @@ export const filtrosCombustivel = {
   "PSD960/1": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd960/1/produto/335",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Agrale": ["6112777018003"], "Authomix": ["FSE9601"], "Baldwin": ["BF1393SP"],
       "Bosch": ["0986450726", "0986BF0224", "0986BF0462"], "Cummins": ["3355903"], "Delkraft": ["DSA515/1"],
@@ -1341,7 +1341,7 @@ export const filtrosCombustivel = {
   "PSD980": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd980/produto/405",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FSE0980"], "Bosch": ["0986450735"], "Caterpillar": ["3913764"],
       "Delkraft": ["DSA539"], "Donaldson": ["P502456"], "IVECO": ["5801403243"],
@@ -1400,7 +1400,7 @@ export const filtrosCombustivel = {
   "PSD985": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd985/produto/2243",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Japanparts": ["FCBR143S"], "Mahle": ["KC572", "KC654/1"], "Mann": ["WK10002/2X"],
       "Mercedes Benz": ["A6884770015", "A6884770015KZ"], "Parker": ["R120L4MCJAQIII"], "Tecfil": ["PSD985"],
@@ -1416,7 +1416,7 @@ export const filtrosCombustivel = {
   "PSD990": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/psd990/produto/537",
-    especificacoes: { elemento: "Altura" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Altura" },
     conversoes: {
       "Baldwin": ["BF1212"], "Bosch": ["0986BF0461"], "Cummins": ["15618921"],
       "Delkraft": ["DSA521/1"], "Donaldson": ["P170212", "P555020"], "Fleetguard": ["FF232", "FS19520"],
@@ -1431,7 +1431,7 @@ export const filtrosCombustivel = {
   "PSD925": {
     "tipo": "sedimentador",
     "url": "https://catalogo.tecfil.com.br/search/PSD925",
-    especificacoes: {},
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: null },
     "conversoes": {
       "Tecfil": [
         "PSD925"

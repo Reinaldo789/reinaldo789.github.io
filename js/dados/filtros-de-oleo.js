@@ -6,7 +6,7 @@ export const filtrosOleo = {
   "PEL106": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel106/produto/114",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 73, diametroExterno: 62, diametroInterno: 28, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
       "ACDelco": ["19347805"], "Authomix": ["FOL0106"], "Bosch": ["0986B00704"],
       "Delphi": ["EFL760"], "Ford": ["1343102", "1S7J6744BA", "4S7J6744AA"], "Fram": ["CH10502"],
@@ -33,7 +33,7 @@ export const filtrosOleo = {
   "PEL107": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel107/produto/545",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 135, diametroExterno: 64.3, diametroInterno: null, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0107"], "Delkraft": ["DO439"], "Hengst": ["E17HD57"],
       "Japanparts": ["FOECO041"], "Mahle": ["OX179"], "Mann": ["HU721/2X"],
@@ -53,7 +53,7 @@ export const filtrosOleo = {
   "PEL108": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel108/produto/54",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 71, diametroExterno: 65.6, diametroInterno: 24.5, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
       "ACDelco": ["19347726"], "Authomix": ["FOL0108"], "Baldwin": ["P7450"],
       "Citroen": ["1109AJ", "1109X4", "1109Z2"], "Controil": ["CLFO00001"], "Delphi": ["EFL252"],
@@ -124,7 +124,7 @@ export const filtrosOleo = {
   "PEL310": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel310/produto/152",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["19347737"], "Authomix": ["FOL0310"], "Bosch": ["0986B01576"],
       "Delkraft": ["DO444"], "Delphi": ["EFL754"], "Ford": ["71180"],
@@ -150,7 +150,7 @@ export const filtrosOleo = {
   "PEL311": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel311/produto/248",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Alliance": ["A61118000090097"], "Authomix": ["FOL0311"], "Baldwin": ["P1443"],
       "Bosch": ["1457429116"], "Delkraft": ["DO433"], "Delphi": ["EFL257"],
@@ -189,7 +189,7 @@ export const filtrosOleo = {
   "PEL654": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel654/produto/2415",
-    especificacoes: { elemento: "Celulose" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Celulose" },
     conversoes: {
       "Hengst": ["E866HD367"], "Mahle": ["OX823/6"], "Mann": ["HU6020z"],
       "Mercedes Benz": ["A6541801100", "A6541840025"], "Tecfil": ["PEL654"], "Vox": ["LE654"],
@@ -219,7 +219,7 @@ export const filtrosOleo = {
   "PEL674": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel674/produto/715",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0674"], "Fram": ["CH10246ECO"], "GM": ["93185674"],
       "Interfil": ["OF10246"], "Japanparts": ["FOECO073"], "Js Asakashi": ["OE0144"],
@@ -243,7 +243,7 @@ export const filtrosOleo = {
   "PEL675": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel675/produto/789",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0675"], "Fil Filter": ["MLE1552"], "Fram": ["CH11208ECO"],
       "GM": ["93161665"], "Hengst": ["E112HD180"], "Japanparts": ["FOECO068"],
@@ -265,7 +265,7 @@ export const filtrosOleo = {
   "PEL676": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel676/produto/891",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0676"], "Baldwin": ["P1443"], "Fleetguard": ["LF3997"],
       "Fram": ["CH11277ECO", "CH8481"], "Gonher": ["G180"], "Hengst": ["E11HD204"],
@@ -297,7 +297,7 @@ export const filtrosOleo = {
   "PEL678": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel678/produto/1014",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0678"], "Fleetguard": ["LF17523"], "Fram": ["CH11163"],
       "Hengst": ["E212HD231"], "Japanparts": ["FOECO119"], "Js Asakashi": ["OE0074"],
@@ -331,7 +331,7 @@ export const filtrosOleo = {
   "PEL720": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel720/produto/777",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0720"], "Fram": ["CH10054ECO"], "Hengst": ["E146HD108"],
       "Japanparts": ["FOECO050", "FOECO074"], "Mahle": ["OX382D"], "Mann": ["HU612/1x"],
@@ -361,7 +361,7 @@ export const filtrosOleo = {
   "PEL726": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel726/produto/873",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0726"], "Fleetguard": ["LF16372"], "Fram": ["CH11724"],
       "GM": ["12636838"], "Japanparts": ["FOBR45S"], "Mahle": ["OX1016D"],
@@ -382,7 +382,7 @@ export const filtrosOleo = {
   "PEL780": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel780/produto/2212",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Citroen / Peugeot": ["1610693780"], "Fram": ["CH9657"], "Hengst": ["E40HD323"],
       "Japanparts": ["FOBR162S"], "Mahle": ["OX171/2D1"], "Mann": ["HU7033Z", "HU716/2X"],
@@ -403,7 +403,7 @@ export const filtrosOleo = {
   "PEL1998": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel1998/produto/1040",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL1998"], "Baldwin": ["P7145", "P7196"], "Donaldson": ["P550451"],
       "Fleetguard": ["LF3769"], "Gonher": ["G3754"], "Js Asakashi": ["OE0016"],
@@ -439,7 +439,7 @@ export const filtrosOleo = {
   "PEL2003": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/pel2003/produto/366",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL2003"], "Baldwin": ["P7199"], "Bosch": ["0986B01557"],
       "Delkraft": ["DO429"], "Delphi": ["EFL997"], "Donaldson": ["P550768", "P576662"],
@@ -499,7 +499,7 @@ export const filtrosOleo = {
   "PSL51": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl51/produto/285",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0051"], "Fram": ["PH5511"], "Mahle": ["OC704"],
       "Mann": ["W79"], "Monza": ["AL49"], "Renault": ["7702217250"],
@@ -531,7 +531,7 @@ export const filtrosOleo = {
   "PSL55": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl55/produto/1558",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Fram": ["PH10757"], "Japanparts": ["FOBR48S"], "Mahle": ["OC593/4"],
       "Mann": ["W712/94"], "Tecfil": ["PSL55"], "Volkswagen": ["03C115561C", "03C115561D", "03C115561H"],
@@ -551,7 +551,7 @@ export const filtrosOleo = {
   "PSL127": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl127/produto/697",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 86.5, diametroExterno: 76.2, diametroInterno: null, rosca: "3/4\" - 16 UN", elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0127"], "Bosch": ["0986B00066"], "Delphi": ["EDL113"],
       "Fleetguard": ["LF3335"], "Japanparts": ["FO279S"], "Js Asakashi": ["C110J"],
@@ -609,7 +609,7 @@ export const filtrosOleo = {
   "PSL158": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl158/produto/255",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0158"], "Baldwin": ["BD7028"], "Bosch": ["0986B00060"],
       "Delkraft": ["DLL89"], "Delphi": ["EFL253"], "Donaldson": ["P502008"],
@@ -654,7 +654,7 @@ export const filtrosOleo = {
   "PSL161": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl161/produto/885",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Baldwin": ["B1447"], "Fil Filter": ["ZP62B"], "Fram": ["PH8830"],
       "GM": ["93156863"], "Hengst": ["H90W29"], "Land Rover": ["LPW100230"],
@@ -679,7 +679,7 @@ export const filtrosOleo = {
   "PSL167": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl167/produto/1344",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "-": [], ".": [], "Altura:": ["94"],
       "Baldwin": ["BT344S", "PSL167", "BT8417"], "Bosch": ["0986B01002", "PSL167"], "Caixa:": ["06"],
@@ -702,7 +702,7 @@ export const filtrosOleo = {
   "PSL168": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl168/produto/2316",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "* Exclusivo Exportação.": [], "-": [], ".": [],
       "Altura:": ["74"], "Caixa:": ["12"], "Compartilhar produto": [],
@@ -721,7 +721,7 @@ export const filtrosOleo = {
   "PSL280": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl280/produto/50",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0280"], "Baldwin": ["BT339", "BT7349"], "Bosch": ["0986B01008", "9455081022"],
       "Case": ["47368538", "84476054", "J908615", "J932217", "J934430", "J937743"], "Chrysler": ["5083285AA"], "Cross": ["FB14/2"],
@@ -774,7 +774,7 @@ export const filtrosOleo = {
   "PSL283": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl283/produto/139",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Agrale": ["601200107800R"], "Alliance": ["A99918002090097"], "Authomix": ["FOL0283"],
       "Baldwin": ["BT7237MPG"], "Bosch": ["0986B01054"], "Case": ["87803261"],
@@ -838,7 +838,7 @@ export const filtrosOleo = {
   "PSL300": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl300/produto/452",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["PF1217"], "Authomix": ["FOL0300"], "Baldwin": ["BD103"],
       "Bosch": ["0986B01011"], "Cnh": ["84485647"], "Cross": ["FB200"],
@@ -892,7 +892,7 @@ export const filtrosOleo = {
   "PSL339": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl339/produto/347",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0339"], "Baldwin": ["BT349", "BT8302"], "Bosch": ["0451301088", "0986B01015", "9455081025"],
       "Cross": ["FB62"], "Delkraft": ["DL203"], "Delphi": ["EFL523"],
@@ -956,7 +956,7 @@ export const filtrosOleo = {
   "PSL340": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl340/produto/1",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 93, diametroExterno: 138, diametroInterno: null, rosca: "1\" 1/2 - 16 UN", elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01FBO041", "19347731"], "Agrale": ["6008001204004"], "Alliance": ["A40018001090097"],
       "Authomix": ["FOL0340"], "Bosch": ["0986B01016"], "Delkraft": ["DL237"],
@@ -1026,7 +1026,7 @@ export const filtrosOleo = {
   "PSL356": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl356/produto/1473",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0356"], "Cummins": ["5266016"], "Fleetguard": ["LF17356"],
       "Japanparts": ["FOBR91S"], "Js Asakashi": ["CP40001"], "Tecfil": ["PSL356"],
@@ -1053,7 +1053,7 @@ export const filtrosOleo = {
   "PSL541": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl541/produto/154",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0541"], "Bosch": ["0986B00055"], "Delphi": ["EFL759"],
       "Ford": ["71185", "BG8T6731AA"], "Japanparts": ["FOBR18S"], "Mahle": ["OC1055"],
@@ -1071,7 +1071,7 @@ export const filtrosOleo = {
   "PSL560": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl560/produto/31",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01FBO023", "19347724"], "Authomix": ["FOL0560"], "Bosch": ["0986B00016", "F000KP1521"],
       "Controil": ["CLFO00007"], "Cross": ["FB15/2"], "Delkraft": ["DLL80"],
@@ -1140,7 +1140,7 @@ export const filtrosOleo = {
   "PSL619": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl619/produto/75",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01FBO019", "01FBO027", "19347721", "88905845"], "Authomix": ["FOL0619"], "Bosch": ["0451103079", "0986B00021", "451103097", "451103709", "9455081501", "9455081512"],
       "Controil": ["CLFO00009"], "Cross": ["FB42"], "Daewoo": ["94797406"],
@@ -1212,7 +1212,7 @@ export const filtrosOleo = {
   "PSL630": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl630/produto/1964",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Citroen": ["9809532380"], "Hengst": ["H388W"], "Mann": ["W7063"],
       "Tecfil": ["PSL630"], "Ufi": ["2375200"], "Vox": ["LB630"],
@@ -1240,7 +1240,7 @@ export const filtrosOleo = {
   "PSL657": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl657/produto/69",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0657"], "Baldwin": ["B7496"], "Bosch": ["0986B00059"],
       "Delphi": ["EDL111"], "Donaldson": ["P766162"], "Fiat": ["5801985959", "8094872"],
@@ -1276,7 +1276,7 @@ export const filtrosOleo = {
   "PSL900": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl900/produto/13",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: 126, diametroExterno: 92.7, diametroInterno: null, rosca: "3/4\" - 16 UN", elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01FBO006", "01FBO048", "19347736"], "AGCO": ["1447048V1"], "Agrale": ["6006001208009"],
       "Atlas-Copco": ["9807019800"], "Authomix": ["FOL0900"], "Baldwin": ["BT216"],
@@ -1350,7 +1350,7 @@ export const filtrosOleo = {
   "PSL902": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl902/produto/37",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01FBO014", "19347733"], "Authomix": ["FOL0902"], "Baldwin": ["B2"],
       "Bosch": ["0986B01026"], "Cross": ["FB83"], "Delkraft": ["DL226"],
@@ -1421,7 +1421,7 @@ export const filtrosOleo = {
   "PSL909": {
     tipo: "oleo",
     url: "https://catalogo.tecfil.com.br/search/psl909/produto/406",
-    especificacoes: { elemento: "Papel" },
+    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
     conversoes: {
       "Authomix": ["FOL0909"], "Baldwin": ["BD7309"], "Bosch": ["0986B01043"],
       "Cnh": ["84485647"], "Cummins": ["3401544"], "Delkraft": ["DL295"],
@@ -1486,7 +1486,7 @@ export const filtrosOleo = {
   "PEL110": {
     "tipo": "oleo",
     "url": "https://catalogo.tecfil.com.br/search/pel108/produto/57?aplicacao=184155",
-    especificacoes: { elemento: "Papel", altura: 144, diametroExterno: 59, rosca: "Não possui" },
+    especificacoes: { altura: 144, diametroExterno: 59, diametroInterno: null, rosca: "Não possui", elemento: "Papel" },
     "conversoes": {
       "ACDelco": [
         "19347729"

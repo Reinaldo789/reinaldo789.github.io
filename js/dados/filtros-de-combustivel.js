@@ -1118,9 +1118,9 @@ export const filtrosCombustivel = {
     }
   },
 
-    "PSD480/1": {
+   "PSD480/1": {
     tipo: "combustivel",
-    especificacoes: { altura: 217, diametroExterno: 108.7, rosca: "1\\", elemento: "Papel", observacao: "SUBSTITUI O PSD480" },
+    especificacoes: { altura: 217, diametroExterno: 108.7, rosca: '1"', elemento: "Papel", observacao: "SUBSTITUI O PSD480" },
     conversoes: {
       "Alliance": ["A38447770150097"], "Authomix": ["FSE4801"], "Bosch": ["0986450727","0986BF0214"],
       "Delkraft": ["DSA514/1"], "Delphi": ["EFS108"], "Donaldson": ["P502461"],
@@ -1170,7 +1170,7 @@ export const filtrosCombustivel = {
         ["1318","OM 904 LA","01/2003 - 11/2004"]
       ]
     }
-  }
+  },
 
   "PSD490": {
     tipo: "combustivel",

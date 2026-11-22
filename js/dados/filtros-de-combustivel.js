@@ -1118,74 +1118,59 @@ export const filtrosCombustivel = {
     }
   },
 
-  "PSD480": {
+    "PSD480/1": {
     tipo: "combustivel",
-    url: "https://catalogo.tecfil.com.br/search/psd480/produto/368",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 217, diametroExterno: 108.7, rosca: "1\\", elemento: "Papel", observacao: "SUBSTITUI O PSD480" },
     conversoes: {
-      "Alliance": ["A38447770150097"], "Authomix": ["FSE4801"], "Bosch": ["0986450727", "0986BF0214"],
+      "Alliance": ["A38447770150097"], "Authomix": ["FSE4801"], "Bosch": ["0986450727","0986BF0214"],
       "Delkraft": ["DSA514/1"], "Delphi": ["EFS108"], "Donaldson": ["P502461"],
-      "FAM": ["FSD580/1"], "Fiat Iveco": ["503100412", "7147274", "7147701"], "Fram": ["PS10037", "PS10610", "PS9026", "PS9027"],
+      "FAM": ["FSD580/1"], "Fiat Iveco": ["503100412","7147274","7147701"], "Fram": ["PS10037","PS10610","PS9026","PS9027"],
       "Gonher": ["GPP1060"], "Inpeca": ["SSB0480"], "Irlemp": ["R9030MB"],
       "IVECO": ["503103529"], "Japanparts": ["FCBR83S"], "KS": ["473FS"],
-      "KSPG": ["50013473"], "Mahle": ["KC126", "KC126/1", "KC647D"], "Mann": ["WK1050/1"],
-      "Master Parts": ["MM100349"], "Mercedes Benz": ["4570920001", "A4570920001KZ"], "Parker": ["R9030MB"],
-      "Purolator": ["F1076", "F1085", "F1086"], "Racor": ["49030MB", "R12010MB", "R12030M"], "Tecfil": ["PSD480/1", "PSD480"],
+      "KSPG": ["50013473"], "Mahle": ["KC126","KC126/1","KC647D"], "Mann": ["WK1050/1"],
+      "Master Parts": ["MM100349"], "Mercedes Benz": ["4570920001","A4570920001KZ"], "Parker": ["R9030MB"],
+      "Purolator": ["F1076","F1085","F1086"], "Racor": ["49030MB","R12010MB","R12030M"], "Tecfil": ["PSD480/1"],
       "Trp": ["915023"], "Turbo Filtros": ["TBC480"], "Unifilter": ["RK90MB"],
       "Vox": ["FBS480/1"], "Vox Antigo": ["FBS3034"], "Wega": ["FCD2214"],
-      "WIX": ["WF10288", "WF10305"]
+      "WIX": ["WF10288","WF10305"]
     },
     aplicacoes: {
       "IVECO": [
-        ["EuroCargo 120E15", "Iveco 8060.25V", "01/1999"]
-      ],
-      "- >": [
-        ["Diesel EuroCargo", "150E18", "Iveco 8060.25V"],
-        ["09/1991 - >", "Diesel", "EuroCargo"],
-        ["180E32 CURSOR 8", "2006", "- >"],
-        ["EuroCargo 450E320T (Cavallino)", "CURSOR 8 7.8L", "11/2006"],
-        ["Diesel EuroCargo", "450E32", "CURSOR 8"],
-        ["2006 - >", "Diesel", "EUROTECH (BR)"],
-        ["450E37T 8210-42K", "01/1999", "- >"],
-        ["EuroTrakker 720E42HT", "CURSOR 13 F3BE0681G", "05/2006"],
-        ["Diesel EuroTrakker (BR)", "380E37H", "8210-42K"],
-        ["2001 - 2004", "Diesel", "EuroTrakker (BR)"],
-        ["380T38 CURSOR 13 F3BE0681G", "2001", "- 2004"],
-        ["EuroTrakker (BR) 380T38", "CURSOR 13 F3BE0681G", "01/2004"],
-        ["Diesel EuroTrakker (BR)", "450E370T", "8210-42K"],
-        ["1998 - 2001", "Diesel", "EuroTrakker (BR)"],
-        ["720T42T CURSOR 13 F3BE0681G", "2005", "- 2006"],
-        ["Stralis (BR) HD570S38T", "CURSOR 13 F3BE0681G", "08/2005"],
-        ["- 08/2006 Diesel", "Stralis (BR)", "HD570S38T"],
-        ["CURSOR 13 F3BE0681G 09/2006", "- 2012", "Diesel"],
-        ["Stralis (BR) HD570S42T", "CURSOR 13 F3BE0681V", "09/06"],
-        ["- 2012 Diesel", "Stralis (BR)", "HD450S42T"],
-        ["CURSOR 13 F3BE0681V 09/06", "- >", "Diesel"],
-        ["Stralis (BR) HD490S38T", "CURSOR 13", "01/2008"],
-        ["Diesel Stralis (BR)", "HD490S42T", "CURSOR 13"],
-        ["01/2008 - >", "Diesel", "Stralis (BR)"],
-        ["HD450E38 CURSOR 13 F3BE0681G", "08/2005", "- >"],
-        ["Stralis (BR) HD740S42T", "CURSOR 13 F3BE0681V", "08/05"],
-        ["- 08/06 Diesel", "Stralis (BR)", "HD450S38T"],
-        ["CURSOR 13 F3BE0681G 09/2006", "- >", "Diesel"],
-        ["Stralis (BR) HD570S42T", "CURSOR 13 F3BE0681V", "08/05"],
-        ["- 08/06 Diesel", "Stralis (BR)", "HD450S42T"],
-        ["CURSOR 13 F3BE0681V 08/05", "- 08/06", "Diesel"],
-        ["Stralis (BR) HD380", "CURSOR 13 F3BE0681G", "08/2005"],
-        ["Diesel Stralis (BR)", "HD450S38T", "CURSOR 13 F3BE0681G"],
-        ["08/2005 - 08/2006", "Diesel", "Stralis (BR)"],
-        ["HD740S42T CURSOR 13 F3BE0681V", "09/06", "- >"],
-        ["Stralis 380 (F3BE0681G)", "CURSOR 13", "08/2005"]
-      ],
-      "-": [
-        ["Stralis 450 E38 F3BE0681G", "CURSOR 13", "08/2005"],
-        ["Stralis 450 S42T CURSOR 13 F3BE0681V", "08/2005", "- >"]
+        ["EuroCargo 180E32","CURSOR 8","2006 - >"],
+        ["EuroCargo 450E320T (Cavallino)","CURSOR 8 7.8L","11/2006 - >"],
+        ["EuroCargo 450E32","CURSOR 8","2006 - >"],
+        ["EuroCargo 120E15","Iveco 8060.25V","01/1999 - >"],
+        ["EuroCargo 150E18","Iveco 8060.25V","09/1991 - >"],
+        ["EUROTECH (BR) 450E37T","8210-42K","01/1999 - >"],
+        ["EuroTrakker 720E42HT","CURSOR 13 F3BE0681G","05/2006 - >"],
+        ["EuroTrakker (BR) 380E37H","8210-42K","2001 - 2004"],
+        ["EuroTrakker (BR) 380T38","CURSOR 13 F3BE0681G","2001 - 2004"],
+        ["EuroTrakker (BR) 380T38","CURSOR 13 F3BE0681G","01/2004 - >"],
+        ["EuroTrakker (BR) 450E370T","8210-42K","1998 - 2001"],
+        ["EuroTrakker (BR) 720T42T","CURSOR 13 F3BE0681G","2005 - 2006"],
+        ["Stralis (BR) HD570S38T","CURSOR 13 F3BE0681G","08/2005 - 08/2006"],
+        ["Stralis (BR) HD570S38T","CURSOR 13 F3BE0681G","09/2006 - 2012"],
+        ["Stralis (BR) HD570S42T","CURSOR 13 F3BE0681V","09/06 - 2012"],
+        ["Stralis (BR) HD450S42T","CURSOR 13 F3BE0681V","09/06 - >"],
+        ["Stralis (BR) HD490S38T","CURSOR 13","01/2008 - >"],
+        ["Stralis (BR) HD490S42T","CURSOR 13","01/2008 - >"],
+        ["Stralis (BR) HD450E38","CURSOR 13 F3BE0681G","08/2005 - >"],
+        ["Stralis (BR) HD740S42T","CURSOR 13 F3BE0681V","08/05 - 08/06"],
+        ["Stralis (BR) HD450S38T","CURSOR 13 F3BE0681G","09/2006 - >"],
+        ["Stralis (BR) HD570S42T","CURSOR 13 F3BE0681V","08/05 - 08/06"],
+        ["Stralis (BR) HD450S42T","CURSOR 13 F3BE0681V","08/05 - 08/06"],
+        ["Stralis (BR) HD380","CURSOR 13 F3BE0681G","08/2005 - >"],
+        ["Stralis (BR) HD450S38T","CURSOR 13 F3BE0681G","08/2005 - 08/2006"],
+        ["Stralis (BR) HD740S42T","CURSOR 13 F3BE0681V","09/06 - >"],
+        ["Stralis 380 (F3BE0681G)","CURSOR 13","08/2005 - >"],
+        ["Stralis 450 E38 F3BE0681G","CURSOR 13","08/2005 - >"],
+        ["Stralis 450 S42T","CURSOR 13 F3BE0681V","08/2005 - >"]
       ],
       "Mercedes Benz": [
-        ["1318 OM 904 LA", "01/2003", "- 11/2004"]
+        ["1318","OM 904 LA","01/2003 - 11/2004"]
       ]
     }
-  },
+  }
 
   "PSD490": {
     tipo: "combustivel",

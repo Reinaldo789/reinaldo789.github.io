@@ -845,12 +845,11 @@ export const filtrosCombustivel = {
 
   "PSC498/4": {
     tipo: "combustivel",
-    url: "https://catalogo.tecfil.com.br/search/psc498/4/produto/177",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 164, diametroExterno: 97, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
       "Authomix": ["FCO4984"], "Delphi": ["HDF842"], "Fram": ["P4836A"],
       "GM": ["94707151"], "Hengst": ["H334WK"], "Japanparts": ["FCBR77S"],
-      "Mahle": ["KL747"], "Mann": ["WK940/35"], "MWM": ["905410500105", "905411510035"],
+      "Mahle": ["KL747"], "Mann": ["WK940/35"], "MWM": ["905410500105","905411510035"],
       "Purolator": ["F1108"], "Tecfil": ["PSC498/4"], "Turbo Filtros": ["TBC4984"],
       "Vox": ["FBD498/4"], "Wega": ["FCD2066/1"], "WIX": ["WF10298"]
     },

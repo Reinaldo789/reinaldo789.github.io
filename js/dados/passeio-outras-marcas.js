@@ -159,7 +159,7 @@ export const passeioOutrasMarcas = {
       2: "Uso normal (rodovia): 10.000 km ou 1 ano. Uso severo (trânsito urbano pesado / percursos curtos frequentes): Reduzir estritamente para 5.000 km ou 6 meses."
     },
     filtros: {
-      oleo: 'PEL674',
+      oleo: 'PEL108',
       ar: 'ARL5047',
       combustivel: 'GI50/7'
     }
@@ -181,8 +181,8 @@ export const passeioOutrasMarcas = {
       combustivel: 'GI04/7'
     }
   },
-  
-  'Citroën C4 Lounge 1.6 THP Flex / Gasolina (2013 a 2022)': {
+
+  'Citroën C4 Lounge 1.6 THP Flex / Gasolina (2013 a 2021)': {
     sistemas: [
       { sistema: 'Motor (1.6 16V THP Turbo Injeção Direta)', especificacao: 'SAE 0W-30 ou 5W-30 Sintético (Norma PSA B71 2312 / B71 2297) [1]', capacidade: '4,25 L (com filtro)', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Automático (AT6)', especificacao: 'ATF AW-1', capacidade: '7,0 L', intervalo: '60.000 km (Inspeção)' },
@@ -195,11 +195,11 @@ export const passeioOutrasMarcas = {
     filtros: {
       oleo: 'PEL108',
       ar: 'ARL5047',
-      combustivel: 'GI04/7'
+      combustivel: 'GI50/7'
     }
   },
 
-  'Citroën C4 Lounge 2.0 16V Flex (2014 a 2019)': {
+  'Citroën C4 Lounge 2.0 16V Flex (2013 a 2016)': {
     sistemas: [
       { sistema: 'Motor (2.0 16V EW10A Aspirado)', especificacao: 'SAE 5W-30 Sintético (Norma PSA B71 2296 / API SN) [1]', capacidade: '4,5 L (com filtro)', intervalo: 'Ver nota [2]' },
       { sistema: 'Câmbio Manual (5 marchas) ou Automático (AT6)', especificacao: 'SAE 75W-80 API GL-4 (Manual) / ATF AW-1 (AT6)', capacidade: '2,0 L (Manual) / 7,0 L (AT6)', intervalo: '60.000 km (Inspeção / Troca)' },
@@ -211,8 +211,8 @@ export const passeioOutrasMarcas = {
     },
     filtros: {
       oleo: 'PEL108',
-      ar: 'ARL5047',
-      combustivel: 'GI04/7'
+      ar: 'ARL8109',
+      combustivel: 'GI50/7'
     }
   },
 
@@ -229,7 +229,7 @@ export const passeioOutrasMarcas = {
     filtros: {
       oleo: 'PEL108',
       ar: 'ARL5053',
-      combustivel: 'GI04/7'
+      combustivel: 'GI50/7'
     }
   },
 
@@ -246,7 +246,7 @@ export const passeioOutrasMarcas = {
     filtros: {
       oleo: 'PEL108',
       ar: 'ARL5047',
-      combustivel: 'GI04/7'
+      combustivel: 'GI50/7'
     }
   },
 
@@ -262,9 +262,8 @@ export const passeioOutrasMarcas = {
     },
     filtros: {
       oleo: 'PEL108',
-      ar: 'ARL5047',
-      combustivel: 'GI04/7'
+      ar: 'ARL5041 (1.6) / ARL8109 (2.0)',
+      combustivel: 'GI50/7'
     }
   }
 };
-

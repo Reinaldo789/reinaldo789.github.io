@@ -1004,7 +1004,7 @@ export const filtrosAr = {
   "ASR234": {
     tipo: "ar",
     url: "https://catalogo.tecfil.com.br/search/asr234/produto/704",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 412, diametroExterno: 97, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
       "AGCO": ["6223615M1"], "Agrale": ["6015001015009"], "Authomix": ["FAR0234"],
       "Case": ["87370415"], "Donaldson": ["P628399"], "Mahle": ["LXS370"],

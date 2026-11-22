@@ -994,56 +994,50 @@ export const filtrosCombustivel = {
 
   "PSD450/1": {
     tipo: "combustivel",
-    url: "https://catalogo.tecfil.com.br/search/psd450/1/produto/138",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 175, diametroExterno: 109.5, rosca: "1\\", elemento: "Papel", observacao: "SUBSTITUI O PSD450" },
     conversoes: {
       "ACDelco": ["01FBD020"], "Authomix": ["FSE4501"], "Bosch": ["0986450710"],
       "Delkraft": ["DSA511/1"], "Delphi": ["EFS101"], "Donaldson": ["P551853"],
       "Donsson": ["GS270"], "FAM": ["FSD550/1"], "Filtran": ["106450/1"],
-      "Ford": ["BF8TB55AA"], "Fram": ["PS10300", "PS10608", "PS9029"], "Inpeca": ["SSB0450"],
+      "Ford": ["BF8TB55AA"], "Fram": ["PS10300","PS10608","PS9029"], "Inpeca": ["SSB0450"],
       "Irlemp": ["R4510M"], "Japanparts": ["FCBR96S"], "KS": ["50013574"],
-      "KSPG": ["50014903"], "Mahle": ["KC121", "KC641D"], "Mann": ["WK1030"],
+      "KSPG": ["50014903"], "Mahle": ["KC121","KC641D"], "Mann": ["WK1030"],
       "MWM": ["905411510020"], "Partmo": ["AS1441SP"], "Tecfil": ["PSD450/1"],
-      "Turbo Filtros": ["TBC450"], "Unifilter": ["R45A", "RK45"], "Volkswagen": ["2RD12791"],
+      "Turbo Filtros": ["TBC450"], "Unifilter": ["R45A","RK45"], "Volkswagen": ["2RD12791"],
       "Vox": ["FBS450/1"], "Vox Antigo": ["FBS3802"], "Wega": ["FCD2212"],
       "WIX": ["WF36250"]
     },
     aplicacoes: {
       "Agrale": [
-        ["7000 MWM 4.10 T", "01/1993", "- 12/1999"],
-        ["8500 MWM 4.10 TCA", "01/1998", "- 12/1999"],
-        ["MA 7.0 MWM 4.10T", "01/1997", "- 05/2000"],
-        ["MA 7.5 T MWM 4.10 TCA", "01/1996", "- 05/2000"],
-        ["MA 8.5 MWM 4.10 TCA", "01/1996", "- 05/2000"],
-        ["Volare A8 MWM 4.10 TCA", "01/00", "- 05/00"],
-        ["W8 4.3L8V D4.10TCA", "2005", "- >"]
+        ["7000","MWM 4.10 T","01/1993 - 12/1999"],
+        ["8500","MWM 4.10 TCA","01/1998 - 12/1999"],
+        ["MA 7.0","MWM 4.10T","01/1997 - 05/2000"],
+        ["MA 7.5 T","MWM 4.10 TCA","01/1996 - 05/2000"],
+        ["MA 8.5","MWM 4.10 TCA","01/1996 - 05/2000"],
+        ["Volare A8","MWM 4.10 TCA","01/00 - 05/00"],
+        ["W8","4.3L8V D4.10TCA","2005 - >"]
       ],
       "Ford": [
-        ["F1000 LWB", "4.3 8V", "1993"],
-        ["- 1996 Diesel", "F1000", "S. CAB"],
-        ["4.3 8V 1993", "- 1996", "Diesel"],
-        ["F14000 6 BTAA", "5.9", "1999"]
+        ["F1000 LWB","4.3 8V","1993 - 1996"],
+        ["F1000 S. CAB","4.3 8V","1993 - 1996"],
+        ["F14000 6 BTAA","5.9","1999 - >"]
       ],
-      "- >": [
-        ["Diesel GENERAL MOTORS", "Silverado", "MWM Sprint 6.07"],
-        ["4.2 2000", "- 12/2001", "Diesel"],
-        ["Silverado MWM Sprint 6.07", "4.2", "2000"],
-        ["- 12/2001 Diesel", "RENAULT", "Master"],
-        ["Diesel 12180", "6.10T", "MWM"],
-        ["01/99 - >", "Diesel", "14150"],
-        ["6.10T MWM", "04/97", "- >"],
-        ["14180 6.10 T", "MWM", "10/99"],
-        ["Diesel 5140E", "Delivery 4.08 TCE", "MWM"],
-        ["08/05 - >", "Diesel", "8100"],
-        ["4.10 T MWM", "07/97", "- >"],
-        ["8140 4.10 T", "MWM", "03/94"],
-        ["Diesel L 80", "4.10 T", "MWM"]
+      "General Motors": [
+        ["Silverado MWM Sprint 6.07","4.2","2000 - 12/2001"],
+        ["Silverado MWM Sprint 6.07","4.2","2000 - 12/2001"]
       ],
-      "D / Dci / Dti": [
-        ["2.8 8V 01/2000", "- >", "Diesel"]
+      "Renault": [
+        ["Master D / DCI / DTI","2.8 8V","01/2000 - >"]
       ],
       "Volkswagen": [
-        ["12140T 4.10 T", "MWM", "04/97"]
+        ["12140T 4.10 T","MWM","04/97 - >"],
+        ["12180 6.10T","MWM","01/99 - >"],
+        ["14150 6.10T","MWM","04/97 - >"],
+        ["14180 6.10 T","MWM","10/99 - >"],
+        ["5140E Delivery 4.08 TCE","MWM","08/05 - >"],
+        ["8100 4.10 T","MWM","07/97 - >"],
+        ["8140 4.10 T","MWM","03/94 - >"],
+        ["L 80 4.10 T","MWM","01/96 - 12/97"]
       ]
     }
   },

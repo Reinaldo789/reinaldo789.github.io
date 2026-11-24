@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cadastro de filtros · Guia Técnico</title>
+<script>(function(){var t;try{t=localStorage.getItem("guia-tema")}catch(e){}if(t!=="claro"&&t!=="escuro")t=matchMedia("(prefers-color-scheme: dark)").matches?"escuro":"claro";document.documentElement.setAttribute("data-tema",t)})()</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--papel:#F2F4F5;--cartao:#fff;--linha:#D6DDE0;--texto:#15252C;--suave:#55666E;--ambar:#E8A317;--ambar-txt:#865700;--tinta:#11262F;--campo:#fff;--aviso:#FFF6E0;--ok:#1b6b3a;color-scheme:light}
+:root[data-tema="escuro"]{--papel:#0D1317;--cartao:#151F26;--linha:#26343D;--texto:#E4ECEF;--suave:#9BB0B9;--ambar-txt:#F2B84B;--tinta:#1A3743;--campo:#0f181d;--aviso:rgba(232,163,23,.10);--ok:#5fd08a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--texto);font:400 16px/1.5 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:600;line-height:1.08;margin:0}
+main{max-width:1000px;margin:0 auto;padding:22px 16px 60px}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.topo a{color:var(--ambar-txt);font-weight:600}
+h1{font-size:2.2rem}
+h2{font-size:1.4rem;margin:0 0 10px}
+.cartao{background:var(--cartao);border:1px solid var(--linha);border-left:5px solid var(--ambar);border-radius:14px;padding:18px;margin:0 0 18px}
+.nota{color:var(--suave);font-size:.9rem;margin:6px 0 0}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--suave);margin:0 0 4px}
+input,select,textarea{width:100%;padding:9px 11px;border:1px solid var(--linha);border-radius:9px;background:var(--campo);color:var(--texto);font:inherit}
+input[type="file"]{padding:7px 9px;font-size:.9rem}
+textarea{min-height:120px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ambar);outline-offset:1px}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.col2{grid-column:span 2}
+.busca-linha{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-top:10px}
+.busca-linha > div{flex:1;min-width:200px}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+button,.botao{border:0;border-radius:10px;padding:10px 16px;font:600 .95rem "IBM Plex Sans",sans-serif;cursor:pointer;background:var(--ambar);color:#11262F;text-decoration:none;display:inline-block}
+button.sec,.botao.sec{background:transparent;color:var(--texto);border:1px solid var(--linha)}
+button.pq{padding:5px 11px;font-size:.82rem}
+.status{margin-top:10px;font-weight:600;color:var(--ok);min-height:1.4em}
+.status.erro{color:#c0392b}
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:10px;max-height:340px;overflow:auto}
+.item{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--linha);border-radius:10px;padding:7px 10px;background:var(--campo)}
+.item b{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92rem}
+.item small{color:var(--suave)}
+.abas{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 4px}
+.abas button{background:transparent;color:var(--suave);border:1px solid var(--linha);padding:6px 12px}
+.abas button[aria-pressed="true"]{background:var(--aviso);color:var(--ambar-txt);border-color:var(--ambar)}
+details summary{cursor:pointer;font-weight:600}
+pre{background:var(--campo);border:1px solid var(--linha);border-radius:10px;padding:12px;overflow:auto;max-height:300px;font-size:12.5px}
+@media(max-width:600px){.col2{grid-column:span 1}}
+</style>
+</head>
+<body>
+<main>
+  <div class="topo">
+    <h1>Cadastro de filtros</h1>
+    <a href="index.html">← Voltar ao guia</a>
+  </div>
+
+  <section class="cartao">
+    <h2>1. Carregar arquivo HTML salvo do catálogo</h2>
+    <p class="nota">Selecione o arquivo <strong>.html</strong> / <strong>.htm</strong> salvo da página do produto (ou cole o conteúdo/texto abaixo) para preencher os campos automaticamente.</p>
+    <div class="busca-linha">
+      <div>
+        <label for="arq-html">Arquivo .html / .htm salvo do catálogo</label>
+        <input type="file" id="arq-html" accept=".html,.htm,text/html">
+      </div>
+    </div>
+    <textarea id="colar" placeholder="Opcional: cole aqui o código HTML ou o texto copiado da página do produto…" style="margin-top:12px"></textarea>
+    <div class="acoes">
+      <button type="button" id="btn-ler">Preencher os campos</button>
+      <button type="button" class="sec" id="btn-limpar-colar">Limpar</button>
+    </div>
+    <div class="status" id="st-ler" role="status"></div>
+  </section>
+
+  <section class="cartao">
+    <h2>2. Dados do filtro</h2>
+    <div class="grade">
+      <div><label for="f-tipo">Tipo</label><select id="f-tipo"><option value="oleo">Óleo</option><option value="ar">Ar</option><option value="combustivel">Combustível</option><option value="cabine">Cabine</option></select></div>
+      <div><label for="f-cod">Código Tecfil</label><input id="f-cod" placeholder="Ex.: PSL340" autocomplete="off"></div>
+      <div><label for="s-altura">Altura (mm)</label><input id="s-altura" inputmode="decimal"></div>
+      <div><label for="s-ext">Ø externo / comprimento (mm)</label><input id="s-ext" inputmode="decimal"></div>
+      <div><label for="s-int">Ø interno / largura (mm)</label><input id="s-int" inputmode="decimal"></div>
+      <div><label for="s-rosca">Rosca</label><input id="s-rosca" placeholder='Ex.: 3/4" - 16 UN'></div>
+      <div><label for="s-elem">Elemento</label><input id="s-elem" placeholder="Papel"></div>
+      <div><label for="s-vant">Válvula anti-retorno</label><select id="s-vant"><option value="">—</option><option>Sim</option><option>Não</option></select></div>
+      <div><label for="s-valv">Válvula de alívio</label><select id="s-valv"><option value="">—</option><option>Sim</option><option>Não</option></select></div>
+      <div><label for="s-pl">Peso líquido (kg)</label><input id="s-pl" inputmode="decimal"></div>
+      <div><label for="s-pb">Peso bruto (kg)</label><input id="s-pb" inputmode="decimal"></div>
+      <div><label for="s-caixa">Caixa (un.)</label><input id="s-caixa"></div>
+      <div class="col2"><label for="s-obs">Observação</label><input id="s-obs" placeholder="Ex.: COM SEXTAVADO"></div>
+    </div>
+    <div style="margin-top:14px">
+      <label for="f-conv">Conversões (uma marca por linha: <code>Marca: código1, código2</code>)</label>
+      <textarea id="f-conv" placeholder="Mann: W 1323&#10;Mahle: OC 404"></textarea>
+    </div>
+    <div style="margin-top:14px">
+      <label for="f-apl">Aplicações (uma por linha: <code>Montadora | Veículo / modelo | Motor | Ano</code>)</label>
+      <textarea id="f-apl" placeholder="Agrale | Marruá AM 200-E | MWM Sprint 4.07 | 06/2006 - &gt;"></textarea>
+    </div>
+    <div class="acoes">
+      <button type="button" id="btn-add">Adicionar ao arquivo</button>
+      <button type="button" class="sec" id="btn-novo">Limpar formulário</button>
+    </div>
+    <div class="status" id="st-add" role="status"></div>
+  </section>
+
+  <section class="cartao">
+    <h2>3. Salvar nos arquivos do site</h2>
+    <p class="nota">Conecte uma vez a pasta do site (a que tem <code>index.html</code> e <code>js/</code>). Depois disso, “Adicionar ao arquivo” grava direto em <code>js/dados/</code>: se o código ainda não existe, entra automaticamente; se já existe, a página pergunta se você quer substituir. Sem a pasta conectada, o arquivo atualizado é baixado e você o substitui em <code>js/dados/</code>.</p>
+    <div class="acoes"><button type="button" id="btn-pasta">Conectar pasta do site</button></div>
+    <div class="status" id="st-pasta" role="status"></div>
+    <details style="margin-top:10px"><summary>Baixar manualmente os arquivos</summary>
+      <div class="acoes" style="margin-top:8px">
+        <button type="button" class="sec" data-baixar="oleo">Baixar filtros-de-oleo.js</button>
+        <button type="button" class="sec" data-baixar="ar">Baixar filtros-de-ar.js</button>
+        <button type="button" class="sec" data-baixar="combustivel">Baixar filtros-de-combustivel.js</button>
+        <button type="button" class="sec" data-baixar="cabine">Baixar filtros-de-cabine.js</button>
+      </div>
+    </details>
+    <div class="status" id="st-baixar" role="status"></div>
+    <details style="margin-top:10px">
+      <summary>Ver o código da entrada atual</summary>
+      <div class="acoes" style="margin-top:8px"><button type="button" class="sec pq" id="btn-copiar-previa">Copiar prévia</button></div>
+      <pre id="previa">Preencha o formulário e clique em “Adicionar ao arquivo”.</pre>
+    </details>
+  </section>
+
+  <section class="cartao">
+    <h2>Filtros já cadastrados</h2>
+    <div class="abas" id="abas-cad"></div>
+    <input id="busca-cad" placeholder="Filtrar por código…" autocomplete="off">
+    <div class="lista" id="lista-cad"></div>
+  </section>
+
+  <section class="cartao">
+    <h2>Filtros do guia que ainda faltam</h2>
+    <p class="nota">Códigos Tecfil usados nos veículos e que não estão nos arquivos do catálogo.</p>
+    <div class="abas" id="abas-falta"></div>
+    <div class="lista" id="lista-falta"><span class="nota">Carregando…</span></div>
+  </section>
+</main>
+
+<script type="module">
+var $ = function(id){ return document.getElementById(id); };
+var TIPOS = {
+  oleo:        { arq:"filtros-de-oleo.js",        exp:"filtrosOleo",        rotulo:"Óleo",        nome:"óleo" },
+  ar:          { arq:"filtros-de-ar.js",          exp:"filtrosAr",          rotulo:"Ar",          nome:"ar" },
+  combustivel: { arq:"filtros-de-combustivel.js", exp:"filtrosCombustivel", rotulo:"Combustível", nome:"combustível" },
+  cabine:      { arq:"filtros-de-cabine.js",      exp:"filtrosCabine",      rotulo:"Cabine",      nome:"cabine" }
+};
+var ARQUIVOS = [
+  "caminhoes-daf.js","caminhoes-ford.js","caminhoes-iveco.js","caminhoes-mercedes.js",
+  "caminhoes-scania.js","caminhoes-volkswagen.js","caminhoes-volvo.js",
+  "passeio-chevrolet.js","passeio-fiat.js","passeio-ford.js","passeio-outras-marcas.js","passeio-volkswagen.js",
+  "utilitarios-agrale.js","utilitarios-chevrolet.js","utilitarios-ford.js","utilitarios-mitsubishi.js","utilitarios-toyota.js",
+  "vans-fiat.js","vans-ford.js","vans-iveco.js","vans-mercedes.js","vans-psa.js","vans-renault.js","vans-volkswagen-agrale.js"
+];
+var DADOS = { oleo:{}, ar:{}, combustivel:{}, cabine:{} };
+var abaCad = "oleo", abaFalta = "oleo", faltam = { oleo:[], ar:[], combustivel:[], cabine:[] };
+var PASTA = null;   // pasta js/dados conectada (File System Access API)
+
+function norm(s){ return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+var SIGLAS = ["GM","KSPG","WIX","ZF","KS","VME","CAV","CBT","MWM","FAM","CVRD","AGCO","JAC","BMW","TAC","VW","MAN","IVECO","DAF"];
+function nomeMarca(v){
+  v = String(v || "").trim();
+  if(!v) return "";
+  if(v === "ACDELCO") return "ACDelco";
+  if(v === v.toUpperCase() && /[A-Z]/.test(v) && SIGLAS.indexOf(v) < 0) return v.toLowerCase().replace(/(^|[\s\-\/])(\p{L})/gu, function(m,a,b){ return a+b.toUpperCase(); });
+  return v;
+}
+function tipoDaFuncao(f){
+  f = (f || "").toLowerCase();
+  if(f.indexOf("lubrific") > -1) return "oleo";
+  if(f.indexOf("cabine") > -1) return "cabine";
+  if(f.indexOf("combust") > -1) return "combustivel";
+  if(/^ar\b/.test(f)) return "ar";
+  return null;
+}
+function inferirTipoPeloCodigo(cod){
+  cod = String(cod || "").trim().toUpperCase();
+  if(/^(PSL|PEL|PL)/.test(cod)) return "oleo";
+  if(/^(ARL|ARS|AP|ASR)/.test(cod)) return "ar";
+  if(/^(PC|PSC|PSD|FCI|GI|PEC)/.test(cod)) return "combustivel";
+  if(/^(ACP|ACA)/.test(cod)) return "cabine";
+  return null;
+}
+
+/* ---------- carregar o que já existe ---------- */
+async function importar(nome){
+  if(PASTA){
+    try {
+      var txt = await (await (await PASTA.getFileHandle(nome)).getFile()).text();
+      var u = URL.createObjectURL(new Blob([txt], { type:"text/javascript" }));
+      try { return await import(u); } finally { URL.revokeObjectURL(u); }
+    } catch(e){ if(e && e.name === "NotFoundError") throw e; }
+  }
+  return import("./js/dados/"+nome+"?v="+Date.now());
+}
+async function carregar(){
+  DADOS = { oleo:{}, ar:{}, combustivel:{}, cabine:{} };
+  faltam = { oleo:[], ar:[], combustivel:[], cabine:[] };
+  await Promise.all(Object.keys(TIPOS).map(async function(t){
+    try {
+      var m = await importar(TIPOS[t].arq);
+      Object.keys(m).forEach(function(n){ var o = m[n]; if(o && typeof o === "object" && !Array.isArray(o)) Object.keys(o).forEach(function(k){ DADOS[t][k] = o[k]; }); });
+    } catch(e){}
+  }));
+  var banco = {};
+  var rs = await Promise.allSettled(ARQUIVOS.map(function(a){ return importar(a); }));
+  rs.forEach(function(r){ if(r.status === "fulfilled") Object.keys(r.value).forEach(function(n){ var o = r.value[n]; if(o && typeof o === "object" && !Array.isArray(o)) Object.keys(o).forEach(function(k){ banco[k] = o[k]; }); }); });
+  var vistos = {};
+  Object.keys(banco).forEach(function(v){
+    var f = banco[v].filtros || {};
+    Object.keys(TIPOS).forEach(function(t){
+      var tec = (f[t] || {}).tecfil;
+      if(!tec || tec === "-" || /n[aã]o/i.test(tec)) return;
+      String(tec).split(/\s*\/\s*(?=[A-Za-z]{2,}\d)/).forEach(function(p){
+        var m = p.match(/[A-Za-z]+\d+[\w\/.\-]*/); if(!m) return;
+        var c = m[0].toUpperCase(), k = t+"|"+norm(c);
+        if(!vistos[k]){ vistos[k] = 1; faltam[t].push(c); }
+      });
+    });
+  });
+  desenharTudo();
+}
+function jaCadastrado(t, cod){ return Object.keys(DADOS[t]).some(function(k){ return norm(k) === norm(cod); }); }
+function atualizarFaltam(){ Object.keys(faltam).forEach(function(t){ faltam[t].sort(function(a,b){ return a.localeCompare(b,"en",{numeric:true}); }); }); }
+
+/* ---------- formulário <-> entrada ---------- */
+function numero(v){ var s = String(v || "").trim().replace(",", "."); return s !== "" && !isNaN(s) ? Number(s) : null; }
+function numOuTexto(v){ var n = numero(v); return n !== null ? n : (String(v || "").trim() || null); }
+function lerConversoes(txt){
+  var o = {};
+  txt.split("\n").forEach(function(l){
+    l = l.trim(); if(!l) return;
+    var i = l.indexOf(":"); if(i < 1) return;
+    var marca = l.slice(0,i).trim(), cods = l.slice(i+1).split(/[,;]/).map(function(c){ return c.trim(); }).filter(Boolean);
+    if(cods.length) o[marca] = (o[marca] || []).concat(cods);
+  });
+  return o;
+}
+function lerAplicacoes(txt){
+  var o = {}, n = 0;
+  txt.split("\n").forEach(function(l){
+    if(!l.trim()) return;
+    var p = l.split(/\s*\|\s*|\t/).map(function(x){ return x.trim(); });
+    if(p.length < 2) return;
+    var m = p[0] || "Outros";
+    (o[m] = o[m] || []).push([p[1], p[2] || "-", p[3] || "-"]); n++;
+  });
+  return n ? o : null;
+}
+function entradaDoFormulario(){
+  var spec = {
+    altura: numero($("s-altura").value),
+    diametroExterno: numero($("s-ext").value),
+    diametroInterno: numero($("s-int").value),
+    rosca: $("s-rosca").value.trim() || null,
+    elemento: $("s-elem").value.trim() || null,
+    observacao: $("s-obs").value.trim() || null,
+    valvulaAntiRetorno: $("s-vant").value || null,
+    valvulaAlivio: $("s-valv").value || null,
+    pesoLiquido: numOuTexto($("s-pl").value),
+    pesoBruto: numOuTexto($("s-pb").value),
+    caixa: numOuTexto($("s-caixa").value)
+  };
+  Object.keys(spec).forEach(function(k){ if(spec[k] === null) delete spec[k]; });
+  return { tipo:$("f-tipo").value, especificacoes:spec, conversoes:lerConversoes($("f-conv").value), aplicacoes:lerAplicacoes($("f-apl").value) };
+}
+function preencher(cod, e){
+  $("f-tipo").value = e.tipo || "oleo"; $("f-cod").value = cod || "";
+  var s = e.especificacoes || {};
+  var v = function(x){ return x === null || x === undefined ? "" : String(x); };
+  $("s-altura").value = v(s.altura); $("s-ext").value = v(s.diametroExterno); $("s-int").value = v(s.diametroInterno);
+  $("s-rosca").value = v(s.rosca); $("s-elem").value = v(s.elemento);
+  $("s-vant").value = v(s.valvulaAntiRetorno); $("s-valv").value = v(s.valvulaAlivio);
+  $("s-pl").value = v(s.pesoLiquido); $("s-pb").value = v(s.pesoBruto); $("s-caixa").value = v(s.caixa);
+  $("s-obs").value = v(s.observacao);
+  $("f-conv").value = Object.keys(e.conversoes || {}).map(function(m){ return m+": "+e.conversoes[m].join(", "); }).join("\n");
+  var linhas = [];
+  Object.keys(e.aplicacoes || {}).forEach(function(m){ e.aplicacoes[m].forEach(function(a){ linhas.push([m,a[0],a[1],a[2]].join(" | ")); }); });
+  $("f-apl").value = linhas.join("\n");
+}
+
+/* ---------- extrair dados de arquivo HTML / payload Next.js / DOM ---------- */
+function extrairPayloadNext(html){
+  var out = { cod:"", funcao:null, s:{}, conv:{}, apl:[] };
+  var rePush = /self\.__next_f\.push\(\[\s*1\s*,\s*"((?:\\.|[^"\\])*)"\s*\]\)/g;
+  var chunks = [], m;
+  while((m = rePush.exec(html)) !== null){
+    try { chunks.push(JSON.parse('"' + m[1] + '"')); } catch(e){}
+  }
+  var blob = chunks.join("\n");
+  if(!blob) return null;
+
+  var codM = blob.match(/"NumeroProduto"\s*:\s*"([^"]+)"/);
+  if(codM) out.cod = codM[1].trim().toUpperCase();
+
+  var pickStr = function(key){
+    var r = new RegExp('"' + key + '"\\s*:\\s*("[^"]*"|null)');
+    var mm = blob.match(r);
+    if(!mm || mm[1] === "null") return "";
+    try { return JSON.parse(mm[1]).trim(); } catch(e){ return mm[1].replace(/^"|"$/g,"").trim(); }
+  };
+
+  var func = pickStr("CpoAuxProd10");
+  if(func) out.funcao = func;
+
+  var roscaRaw = pickStr("CpoAuxProd35");
+  var obsRaw = pickStr("Observacao");
+  var limparTraco = function(x){ return (!x || x === "-") ? "" : x; };
+  var limparSimNao = function(x){
+    if(!x || x === "-") return "";
+    if(/^sim/i.test(x)) return "Sim";
+    if(/^n[aã]o/i.test(x)) return "Não";
+    return x;
+  };
+
+  out.s = {
+    altura: limparTraco(pickStr("CpoAuxProd28")),
+    diametroExterno: limparTraco(pickStr("CpoAuxProd30")),
+    diametroInterno: limparTraco(pickStr("CpoAuxProd29")),
+    rosca: (!roscaRaw || roscaRaw === "-" || /^n[aã]o$/i.test(roscaRaw)) ? (roscaRaw === "-" ? "" : "Não possui") : roscaRaw,
+    elemento: limparTraco(pickStr("CpoAuxProd19")),
+    valvulaAntiRetorno: limparSimNao(pickStr("CpoAuxProd24")),
+    valvulaAlivio: limparSimNao(pickStr("CpoAuxProd25")),
+    pesoLiquido: limparTraco(pickStr("CpoAuxProd43")),
+    pesoBruto: limparTraco(pickStr("CpoAuxProd42")),
+    caixa: limparTraco(pickStr("CpoAuxProd47")),
+    observacao: obsRaw ? obsRaw.replace(/^\*\s*/,"").replace(/\.$/,"").trim() : ""
+  };
+
+  var reAplObj = /"DescricaoFabricante"\s*:\s*"([^"]*)"[\s\S]*?"ComplementoAplicacao3_1"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_2"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_3"\s*:\s*("[^"]*"|null)[\s\S]*?"ComplementoAplicacao3_4"\s*:\s*("[^"]*"|null)/g;
+  var am, aplSet = {};
+  while((am = reAplObj.exec(blob)) !== null){
+    var parseVal = function(v){ if(!v || v === "null") return ""; try{ return JSON.parse(v).trim(); }catch(e){ return v.replace(/^"|"$/g,"").trim(); } };
+    var mont = nomeMarca(am[1]);
+    var mod = parseVal(am[2]);
+    var mot = parseVal(am[3]) || "-";
+    var aIni = parseVal(am[4]);
+    var aFim = parseVal(am[5]);
+    var ano = (aIni || aFim) ? ((aIni || "?") + " - " + (aFim || "->")) : "-";
+    if(mont || mod){
+      var linha = [mont || "Outros", mod || "-", mot, ano].join(" | ");
+      if(!aplSet[linha]){ aplSet[linha] = 1; out.apl.push(linha); }
+    }
+  }
+
+  return (out.cod || Object.values(out.s).some(Boolean) || out.apl.length) ? out : null;
+}
+
+function interpretarHTML(html){
+  var payload = extrairPayloadNext(html) || { cod:"", funcao:null, s:{}, conv:{}, apl:[] };
+  var doc = new DOMParser().parseFromString(html, "text/html");
+  var textoVisivel = doc.body ? (doc.body.innerText || doc.body.textContent || "") : "";
+  var fallback = interpretarTexto(textoVisivel);
+
+  var convDom = {};
+  doc.querySelectorAll("table").forEach(function(tbl){
+    var headers = Array.from(tbl.querySelectorAll("th")).map(function(th){ return (th.textContent || "").trim(); });
+    var eConversao = headers.some(function(h){ return /mann|mahle|fram|wega|acdelco|agrale|vox|wix/i.test(h); }) || tbl.className.indexOf("numeros-referencia") > -1;
+    if(!eConversao) return;
+    var marcaAtual = null;
+    tbl.querySelectorAll("tr").forEach(function(tr){
+      var th = tr.querySelector("th");
+      if(th){
+        var mTxt = (th.textContent || "").trim();
+        if(mTxt){ marcaAtual = nomeMarca(mTxt); convDom[marcaAtual] = convDom[marcaAtual] || []; }
+      }
+      tr.querySelectorAll("td").forEach(function(td){
+        var cTxt = (td.textContent || "").trim();
+        if(marcaAtual && cTxt && convDom[marcaAtual].indexOf(cTxt) < 0){
+          convDom[marcaAtual].push(cTxt);
+        }
+      });
+    });
+  });
+
+  var aplDom = [];
+  doc.querySelectorAll("table").forEach(function(tbl){
+    var ths = Array.from(tbl.querySelectorAll("thead th")).map(function(x){ return (x.textContent || "").trim().toLowerCase(); });
+    if(!ths.some(function(h){ return h.indexOf("veículo") > -1 || h.indexOf("veiculo") > -1; })) return;
+    var montAtual = "Outros";
+    tbl.querySelectorAll("tbody").forEach(function(tb){
+      tb.querySelectorAll("tr").forEach(function(tr){
+        var tdUnico = tr.querySelector("td[colspan]");
+        if(tdUnico){
+          var mNome = (tdUnico.textContent || "").trim();
+          if(mNome) montAtual = nomeMarca(mNome);
+          return;
+        }
+        var tds = Array.from(tr.querySelectorAll("td")).map(function(td){ return (td.textContent || "").replace(/\s+/g, " ").trim(); });
+        if(tds.length >= 4){
+          var veic = tds[0] || "";
+          var mod = tds[1] || "";
+          var mot = tds[2] || "-";
+          var ano = tds[3] || "-";
+          var veicMod = (veic + " " + mod).trim() || "-";
+          aplDom.push([montAtual, veicMod, mot, ano].join(" | "));
+        }
+      });
+    });
+  });
+
+  var sMerged = {};
+  Object.keys(fallback.s || {}).forEach(function(k){ sMerged[k] = payload.s[k] || fallback.s[k] || ""; });
+
+  return {
+    cod: payload.cod || fallback.cod || "",
+    funcao: payload.funcao || fallback.funcao || null,
+    s: sMerged,
+    conv: Object.keys(convDom).length ? convDom : fallback.conv,
+    apl: aplDom.length ? aplDom : (payload.apl.length ? payload.apl : fallback.apl)
+  };
+}
+
+/* ---------- ler o texto colado da página do catálogo (aceita quebra de linha entre rótulo e valor) ---------- */
+function interpretarTexto(t){
+  t = String(t || "").replace(/\r/g, "");
+  var linhas = t.split("\n").map(function(l){ return l.trim(); });
+
+  var campo = function(rot){
+    var re = new RegExp("^"+rot.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s*:?\\s*(.*)$", "i");
+    for(var i = 0; i < linhas.length; i++){
+      var m = linhas[i].match(re);
+      if(m){
+        if(m[1] && m[1].trim() !== "") return m[1].trim();
+        for(var j = i + 1; j < linhas.length; j++){
+          if(linhas[j] !== "") return linhas[j];
+        }
+      }
+    }
+    return null;
+  };
+
+  var codMatch = t.match(/C[óo]digo\s*:?\s*([A-Z]{2,4}\d{2,5}(?:\/\d+)?)/i);
+  var out = {
+    cod: codMatch ? codMatch[1].toUpperCase() : "",
+    funcao: campo("Função") || (/\bLUBRIFICANTE\b/i.test(t) ? "Lubrificante" : /\bCOMBUST[ÍI]VEL\b/i.test(t) ? "Combustível" : /\bCABINE\b/i.test(t) ? "Cabine" : /\bAR\b/.test(t) ? "Ar" : null)
+  };
+
+  var rosca = campo("Ø Rosca"), obs = campo("Observação"), dado = function(x){ return (x === null || x === "-" || x === "") ? "" : x; };
+  out.s = {
+    altura: dado(campo("Altura")),
+    diametroExterno: dado(campo("Ø Ext. Comp.")),
+    diametroInterno: dado(campo("Ø Int. Larg.")),
+    rosca: rosca && /^n[aã]o$/i.test(rosca) ? "Não possui" : dado(rosca),
+    elemento: dado(campo("Elemento")),
+    valvulaAntiRetorno: (campo("Válvula Anti-retorno") || "").replace(/^sim.*/i,"Sim").replace(/^n[aã]o.*/i,"Não"),
+    valvulaAlivio: (campo("Válvula Alívio") || "").replace(/^sim.*/i,"Sim").replace(/^n[aã]o.*/i,"Não"),
+    pesoLiquido: dado(campo("Peso Líquido")),
+    pesoBruto: dado(campo("Peso Bruto")),
+    caixa: dado(campo("Caixa")),
+    observacao: obs ? obs.replace(/^\*\s*/,"").replace(/\.$/,"").trim() : ""
+  };
+
+  var ic = -1, ia = -1, fim = linhas.length;
+  for(var i = 0; i < linhas.length; i++){
+    if(ic < 0 && /^N[ºo°]\s*Convers[ãa]o$/i.test(linhas[i])) ic = i;
+    if(ia < 0 && /^VE[ÍI]CULO$/i.test(linhas[i])) ia = i;
+    if(ia < 0 && /^Ve[ií]culo\s+(\t|\s)*Modelo/i.test(linhas[i])) ia = i;
+    if(/^Filtros relacionados/i.test(linhas[i]) && i > Math.max(ic, ia)) fim = Math.min(fim, i);
+  }
+
+  var conv = {}, marca = null;
+  if(ic >= 0){
+    var limiteConv = ia >= 0 ? ia : fim;
+    for(var k = ic + 1; k < limiteConv; k++){
+      var v = linhas[k];
+      if(!v || /^Especifica[çc][õo]es/i.test(v)) continue;
+      if(v.indexOf("\t") > -1){
+        var p = v.split("\t").map(function(x){ return x.trim(); }).filter(Boolean);
+        if(p.length >= 2){
+          marca = nomeMarca(p[0]);
+          conv[marca] = conv[marca] || [];
+          if(conv[marca].indexOf(p[1]) < 0) conv[marca].push(p[1]);
+          continue;
+        }
+        v = p[0] || "";
+      }
+      if(!/\d/.test(v) && v.length < 30){
+        marca = nomeMarca(v);
+        conv[marca] = conv[marca] || [];
+      } else if(marca && conv[marca].indexOf(v) < 0){
+        conv[marca].push(v);
+      }
+    }
+  }
+  out.conv = conv;
+
+  var apl = [], mont = null;
+  if(ia >= 0){
+    var blocoApl = linhas.slice(ia, fim).filter(Boolean);
+    var temTab = blocoApl.some(function(l){ return l.indexOf("\t") > -1; });
+
+    if(temTab){
+      blocoApl.forEach(function(l){
+        if(/^Ve[ií]culo\s*\t\s*Modelo/i.test(l)) return;
+        var c = l.split("\t").map(function(x){ return x.trim(); });
+        if(c.length === 1 || c.slice(1).every(function(x){ return !x; })){
+          if(!/^(ve[ií]culo|modelo|motor|ano|combust[ií]vel)$/i.test(c[0])) mont = nomeMarca(c[0]);
+          return;
+        }
+        apl.push([mont || "Outros", ((c[0]||"")+" "+(c[1]||"")).trim(), c[2] || "-", c[3] || "-"].join(" | "));
+      });
+    } else {
+      var idx = 0;
+      while(idx < blocoApl.length && /^(ve[ií]culo|modelo|motor|ano|combust[ií]vel)$/i.test(blocoApl[idx])) idx++;
+      var dadosApl = blocoApl.slice(idx);
+      var j = 0;
+      while(j < dadosApl.length){
+        var item = dadosApl[j];
+        if(item === item.toUpperCase() && !/\d/.test(item) && item.length <= 25 && (j + 1 >= dadosApl.length || !/^\d{2}\/\d{4}|^\d{4}\s*-/.test(dadosApl[j+1]))){
+          if(j + 4 < dadosApl.length && /(\d{4}|->)/.test(dadosApl[j+4])){
+            mont = nomeMarca(item);
+            j += 1;
+            continue;
+          } else if(j + 1 === dadosApl.length || (dadosApl[j+1] === dadosApl[j+1].toUpperCase() && !/\d/.test(dadosApl[j+1]))){
+            mont = nomeMarca(item);
+            j += 1;
+            continue;
+          }
+        }
+        if(j + 3 < dadosApl.length){
+          var veic = dadosApl[j], mod = dadosApl[j+1], mot = dadosApl[j+2], ano = dadosApl[j+3];
+          var temComb = (j + 4 < dadosApl.length) && /^(diesel|flex|gasolina|etanol|gnv|h[íi]brido|el[ée]trico|-)$/i.test(dadosApl[j+4]);
+          apl.push([mont || "Outros", (veic + " " + mod).trim(), mot || "-", ano || "-"].join(" | "));
+          j += temComb ? 5 : 4;
+        } else {
+          j++;
+        }
+      }
+    }
+  }
+  out.apl = apl;
+  return out;
+}
+
+function pareceHTML(str){
+  return /<!doctype\s+html|<html[\s>]|<body[\s>]|<table[\s>]|self\.__next_f\.push/i.test(str);
+}
+
+function aplicarResultadoLeitura(r, origemRotulo){
+  var tipo = tipoDaFuncao(r.funcao) || inferirTipoPeloCodigo(r.cod);
+  var codFinal = (r.cod || $("f-cod").value || "").trim().toUpperCase();
+  var e = { tipo: tipo || $("f-tipo").value, especificacoes: {}, conversoes: r.conv || {}, aplicacoes: null };
+  preencher(codFinal, e);
+  var s = r.s || {};
+  $("s-altura").value = s.altura || ""; $("s-ext").value = s.diametroExterno || ""; $("s-int").value = s.diametroInterno || ""; $("s-rosca").value = s.rosca || ""; $("s-elem").value = s.elemento || "";
+  $("s-vant").value = s.valvulaAntiRetorno || ""; $("s-valv").value = s.valvulaAlivio || ""; $("s-pl").value = s.pesoLiquido || ""; $("s-pb").value = s.pesoBruto || ""; $("s-caixa").value = s.caixa || ""; $("s-obs").value = s.observacao || "";
+  $("f-apl").value = (r.apl || []).join("\n");
+  var nm = Object.keys(r.conv || {}).length;
+  var temDados = Boolean(codFinal || nm || (r.apl && r.apl.length));
+  $("st-ler").className = "status" + (temDados ? "" : " erro");
+  $("st-ler").textContent = codFinal
+    ? ((origemRotulo ? origemRotulo + " · " : "") + "Código " + codFinal + ": " + nm + " marcas, " + (r.apl || []).length + " aplicações lidas. Confira os campos abaixo.")
+    : "Não achei o código na página. Preencha os campos à mão.";
+}
+
+/* ---------- gerar o arquivo .js ---------- */
+var q = JSON.stringify;
+function emitir(cod, e){
+  var spec = Object.keys(e.especificacoes || {}).map(function(k){ return k+": "+q(e.especificacoes[k]); }).join(", ");
+  var conv = Object.keys(e.conversoes || {}).map(function(m){ return q(m)+": "+q(e.conversoes[m]); }), lc = [];
+  for(var i = 0; i < conv.length; i += 3) lc.push("      "+conv.slice(i,i+3).join(", "));
+  var apl = "null";
+  if(e.aplicacoes) apl = "{\n"+Object.keys(e.aplicacoes).map(function(m){ return "      "+q(m)+": [\n"+e.aplicacoes[m].map(function(x){ return "        "+q(x); }).join(",\n")+"\n      ]"; }).join(",\n")+"\n    }";
+  return "  "+q(cod)+": {\n    tipo: "+q(e.tipo)+",\n    especificacoes: { "+spec+" },\n    conversoes: {\n"+lc.join(",\n")+"\n    },\n    aplicacoes: "+apl+"\n  }";
+}
+function textoArquivo(t){
+  var T = TIPOS[t], chaves = Object.keys(DADOS[t]).sort(function(a,b){ return a.localeCompare(b,"en",{numeric:true}); });
+  return "/* Filtros de "+T.nome+" (dados do Catálogo Tecfil). Uma entrada por código Tecfil.\n   Campos: tipo, especificacoes, conversoes, aplicacoes.\n   aplicacoes: { \"Montadora\": [[\"Veículo / modelo\", \"Motor\", \"Ano\"], ...] } ou null. */\nexport const "+T.exp+" = {\n\n"+chaves.map(function(k){ return emitir(k, DADOS[t][k]); }).join(",\n\n")+"\n};\n";
+}
+
+/* ---------- desenho das listas ---------- */
+function abas(el, atual, onClick, contar){
+  el.innerHTML = Object.keys(TIPOS).map(function(t){ return '<button type="button" data-t="'+t+'" aria-pressed="'+(t === atual)+'">'+TIPOS[t].rotulo+' ('+contar(t)+')</button>'; }).join("");
+  el.querySelectorAll("button").forEach(function(b){ b.onclick = function(){ onClick(b.dataset.t); }; });
+}
+function desenharCad(){
+  abas($("abas-cad"), abaCad, function(t){ abaCad = t; desenharCad(); }, function(t){ return Object.keys(DADOS[t]).length; });
+  var f = norm($("busca-cad").value);
+  var chaves = Object.keys(DADOS[abaCad]).filter(function(k){ return !f || norm(k).indexOf(f) > -1; }).sort(function(a,b){ return a.localeCompare(b,"en",{numeric:true}); });
+  $("lista-cad").innerHTML = chaves.length ? chaves.map(function(k){
+    var e = DADOS[abaCad][k], nApl = e.aplicacoes ? Object.keys(e.aplicacoes).reduce(function(s,m){ return s+e.aplicacoes[m].length; }, 0) : 0;
+    return '<div class="item"><span><b>'+esc(k)+'</b><br><small>'+Object.keys(e.conversoes || {}).length+' marcas · '+nApl+' aplicações</small></span><span><button type="button" class="sec pq" data-ed="'+esc(k)+'">Editar</button> <button type="button" class="sec pq" data-rm="'+esc(k)+'">Remover</button></span></div>';
+  }).join("") : '<span class="nota">Nenhum filtro cadastrado.</span>';
+  $("lista-cad").querySelectorAll("[data-ed]").forEach(function(b){ b.onclick = function(){ preencher(b.dataset.ed, DADOS[abaCad][b.dataset.ed]); $("st-add").textContent = ""; window.scrollTo({ top: $("f-cod").getBoundingClientRect().top + scrollY - 120, behavior:"smooth" }); }; });
+  $("lista-cad").querySelectorAll("[data-rm]").forEach(function(b){ b.onclick = function(){ if(confirm("Remover "+b.dataset.rm+" do arquivo de "+TIPOS[abaCad].nome+"?")){ delete DADOS[abaCad][b.dataset.rm]; var tp = abaCad, cd = b.dataset.rm; desenharTudo(); salvar(tp).then(function(como){ $("st-baixar").className = "status"; $("st-baixar").textContent = cd+" removido. "+(como === "pasta" ? "Gravado em js/dados/"+TIPOS[tp].arq+"." : TIPOS[tp].arq+" baixado: substitua em js/dados/."); }).catch(function(){ $("st-baixar").className = "status erro"; $("st-baixar").textContent = "Não consegui gravar a remoção no arquivo."; }); } }; });
+}
+function desenharFalta(){
+  var pend = function(t){ return faltam[t].filter(function(c){ return !jaCadastrado(t, c); }); };
+  abas($("abas-falta"), abaFalta, function(t){ abaFalta = t; desenharFalta(); }, function(t){ return pend(t).length; });
+  var l = pend(abaFalta);
+  $("lista-falta").innerHTML = l.length ? l.map(function(c){
+    return '<div class="item"><b>'+esc(c)+'</b><span><button type="button" class="pq" data-c="'+esc(c)+'">Cadastrar</button></span></div>';
+  }).join("") : '<span class="nota">Nenhum filtro pendente neste tipo.</span>';
+  $("lista-falta").querySelectorAll("[data-c]").forEach(function(b){ b.onclick = function(){
+    var cod = b.dataset.c;
+    preencher(cod, { tipo:abaFalta }); $("st-add").textContent = "";
+    window.scrollTo({ top: $("arq-html").getBoundingClientRect().top + scrollY - 100, behavior:"smooth" });
+    $("arq-html").focus();
+  }; });
+}
+function desenharTudo(){ atualizarFaltam(); desenharCad(); desenharFalta(); }
+
+/* ---------- eventos ---------- */
+$("arq-html").addEventListener("change", function(e){
+  var arq = e.target.files && e.target.files[0];
+  if(!arq) return;
+  var leitor = new FileReader();
+  leitor.onload = function(){
+    var conteudo = String(leitor.result || "");
+    $("colar").value = conteudo;
+    var r = interpretarHTML(conteudo);
+    aplicarResultadoLeitura(r, "Arquivo " + arq.name);
+  };
+  leitor.onerror = function(){
+    $("st-ler").className = "status erro";
+    $("st-ler").textContent = "Não foi possível ler o arquivo HTML selecionado.";
+  };
+  leitor.readAsText(arq, "utf-8");
+});
+
+$("busca-cad").oninput = desenharCad;
+$("btn-ler").onclick = function(){
+  var txt = $("colar").value;
+  if(!txt.trim()){ $("st-ler").className = "status erro"; $("st-ler").textContent = "Selecione um arquivo .html ou cole o conteúdo/texto primeiro."; return; }
+  var r = pareceHTML(txt) ? interpretarHTML(txt) : interpretarTexto(txt);
+  aplicarResultadoLeitura(r, pareceHTML(txt) ? "HTML" : "Texto");
+};
+$("btn-limpar-colar").onclick = function(){ $("colar").value = ""; $("arq-html").value = ""; $("st-ler").textContent = ""; };
+$("btn-novo").onclick = function(){ preencher("", { tipo:$("f-tipo").value }); $("st-add").textContent = ""; };
+$("btn-add").onclick = async function(){
+  var cod = $("f-cod").value.trim().toUpperCase(), st = $("st-add");
+  if(!cod){ st.className = "status erro"; st.textContent = "Informe o código Tecfil."; return; }
+  var e = entradaDoFormulario(), t = e.tipo, ja = jaCadastrado(t, cod);
+  if(ja && !confirm("O filtro "+cod+" já está cadastrado em "+TIPOS[t].arq+".\n\nDeseja substituir o cadastro existente pelos dados do formulário?")){
+    st.className = "status"; st.textContent = cod+" já existe: mantive o cadastro atual e não alterei nada.";
+    return;
+  }
+  var removidos = {};
+  Object.keys(DADOS[t]).forEach(function(k){ if(norm(k) === norm(cod)){ removidos[k] = DADOS[t][k]; delete DADOS[t][k]; } });
+  DADOS[t][cod] = e;
+  $("previa").textContent = emitir(cod, e);
+  var como;
+  try { como = await salvar(t); }
+  catch(err){
+    delete DADOS[t][cod]; Object.keys(removidos).forEach(function(k){ DADOS[t][k] = removidos[k]; });
+    st.className = "status erro"; st.textContent = "Não consegui gravar "+TIPOS[t].arq+" ("+(err && err.message ? err.message : "erro")+"). Nada foi alterado.";
+    desenharTudo(); return;
+  }
+  st.className = "status";
+  st.textContent = (ja ? "Substituído: " : "Adicionado: ")+cod+" em "+TIPOS[t].nome+". "+(como === "pasta" ? "Gravado em js/dados/"+TIPOS[t].arq+"." : TIPOS[t].arq+" baixado: substitua o arquivo em js/dados/.");
+  $("st-baixar").textContent = "";
+  desenharTudo();
+};
+$("btn-copiar-previa").onclick = function(){
+  var txt = $("previa").textContent;
+  if(!txt || txt.indexOf("Preencha o formulário") === 0) return;
+  navigator.clipboard.writeText(txt).then(function(){
+    $("st-add").className = "status";
+    $("st-add").textContent = "Prévia copiada para a área de transferência.";
+  }).catch(function(){});
+};
+function baixar(t){
+  var blob = new Blob([textoArquivo(t)], { type:"text/javascript;charset=utf-8" }), a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = TIPOS[t].arq; document.body.appendChild(a); a.click(); a.remove();
+}
+async function permissao(hd){
+  var o = { mode:"readwrite" };
+  if((await hd.queryPermission(o)) === "granted") return true;
+  return (await hd.requestPermission(o)) === "granted";
+}
+async function salvar(t){
+  if(PASTA && await permissao(PASTA)){
+    var w = await (await PASTA.getFileHandle(TIPOS[t].arq, { create:true })).createWritable();
+    await w.write(textoArquivo(t)); await w.close();
+    return "pasta";
+  }
+  baixar(t); return "download";
+}
+document.querySelectorAll("[data-baixar]").forEach(function(b){ b.onclick = function(){
+  var t = b.dataset.baixar; baixar(t);
+  $("st-baixar").className = "status"; $("st-baixar").textContent = TIPOS[t].arq+" baixado com "+Object.keys(DADOS[t]).length+" filtros. Substitua o arquivo em js/dados/.";
+}; });
+
+/* ---------- pasta do site (Chrome/Edge) ---------- */
+function idb(){ return new Promise(function(ok, er){ var r = indexedDB.open("cadastro-filtros", 1); r.onupgradeneeded = function(){ r.result.createObjectStore("k"); }; r.onsuccess = function(){ ok(r.result); }; r.onerror = function(){ er(r.error); }; }); }
+async function idbGet(k){ var d = await idb(); return new Promise(function(ok){ var q = d.transaction("k").objectStore("k").get(k); q.onsuccess = function(){ ok(q.result); }; q.onerror = function(){ ok(null); }; }); }
+async function idbSet(k, v){ var d = await idb(); return new Promise(function(ok){ var t = d.transaction("k", "readwrite"); t.objectStore("k").put(v, k); t.oncomplete = ok; t.onerror = ok; }); }
+async function achaDados(h){
+  var sub = async function(d, n){ try { return await d.getDirectoryHandle(n); } catch(e){ return null; } };
+  var cand = [], j = await sub(h, "js"), dd = await sub(h, "dados");
+  if(j){ var jd = await sub(j, "dados"); if(jd) cand.push(jd); cand.push(j); }
+  if(dd) cand.push(dd);
+  cand.push(h);
+  var nomes = ARQUIVOS.concat(Object.keys(TIPOS).map(function(t){ return TIPOS[t].arq; }));
+  for(var i = 0; i < cand.length; i++) for(var k = 0; k < nomes.length; k++){
+    try { await cand[i].getFileHandle(nomes[k]); return cand[i]; } catch(e){}
+  }
+  return null;
+}
+var PASTA_SALVA = null;
+async function iniciarPasta(){
+  var b = $("btn-pasta"), st = $("st-pasta");
+  if(!window.showDirectoryPicker){
+    b.style.display = "none"; st.className = "nota";
+    st.textContent = "Este navegador não grava direto na pasta (use Chrome ou Edge). O arquivo atualizado será baixado para você substituir em js/dados/.";
+    return;
+  }
+  try {
+    var h = await idbGet("pasta");
+    if(h){
+      PASTA_SALVA = h;
+      if((await h.queryPermission({ mode:"readwrite" })) === "granted"){ PASTA = h; st.textContent = "Pasta conectada: "+h.name; b.textContent = "Trocar pasta"; }
+      else { b.textContent = "Reconectar pasta “"+h.name+"”"; st.className = "nota"; st.textContent = "Clique para liberar o acesso à pasta salva."; }
+    }
+  } catch(e){}
+}
+$("btn-pasta").onclick = async function(){
+  var st = $("st-pasta");
+  try {
+    var h;
+    if(PASTA_SALVA && !PASTA){ if(!(await permissao(PASTA_SALVA))) return; h = PASTA_SALVA; }
+    else h = await showDirectoryPicker({ mode:"readwrite", id:"filtros-site" });
+    var d = await achaDados(h);
+    if(!d){ st.className = "status erro"; st.textContent = "Não achei os arquivos de dados nessa pasta. Escolha a pasta do site (com js/dados) ou a própria js/dados."; return; }
+    PASTA = PASTA_SALVA = d; await idbSet("pasta", d);
+    st.className = "status"; st.textContent = "Pasta conectada: "+d.name+". Os filtros serão gravados aqui.";
+    $("btn-pasta").textContent = "Trocar pasta";
+    await carregar();
+  } catch(e){ if(e && e.name === "AbortError") return; st.className = "status erro"; st.textContent = "Não foi possível conectar a pasta: "+(e && e.message ? e.message : "erro"); }
+};
+
+iniciarPasta().then(carregar);
+</script>
+</body>
+</html>

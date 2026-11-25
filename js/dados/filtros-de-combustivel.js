@@ -21,6 +21,38 @@ export const filtrosCombustivel = {
       ]
     }
   },
+   
+     "PSC491": {
+    tipo: "combustivel",
+    especificacoes: { altura: 128, diametroExterno: 109.5, rosca: "1\\", elemento: "Papel", observacao: "APLICADO COM OS FILTROS: PSD530, PSD960, PSD970" },
+    conversoes: {
+      "Alliance": ["A40009002510097"], "Authomix": ["FCO0491"], "Bosch": ["0986450723"],
+      "Delkraft": ["DSC732"], "Delphi": ["HDF416"], "Donaldson": ["P502487"],
+      "FAM": ["FC541"], "Fleetguard": ["FF5934"], "Fram": ["P10607"],
+      "Japanparts": ["FCBR93S"], "KSPG": ["50013550"], "Mahle": ["KC437"],
+      "Mann": ["WK1124"], "MWM": ["905411510023"], "Racor": ["RC347AQ"],
+      "Sakura": ["FC31040"], "Tecfil": ["PSC491"], "Turbo Filtros": ["TBC491"],
+      "Unifilter": ["USC347AQ"], "Volkswagen": ["2R0127177A","2RD127491P2"], "Vox": ["FBD491"],
+      "Vox Antigo": ["FBD2625"], "Wega": ["FCD2225"], "WIX": ["WF10254"]
+    },
+    aplicacoes: {
+      "Volkswagen": [
+        ["17210 6.10 TCA","MWM","05/02 - >"],
+        ["13150 4.10TCA","MWM","01/00 - >"],
+        ["15180EOD","4.3 L 8V 4.10 TB","2003 - 2006"],
+        ["16210CO","4.3 L 8V 4.10 TB","2001 - 2005"],
+        ["17210EOD","MWM 6.10 TCA","09/2001 - >"],
+        ["23210 6.10 TCA","MWM","05/02 - >"],
+        ["5140OD","4.8 L 8V Acteon 4.12 TCE","2004 - 2006"],
+        ["6140/ 6160 D 4.10","4.3 L 8V SOHV L4","2002 - 2005"],
+        ["690P D 4.10","4.3 L 8V SOHV L4","2000 - 2006"],
+        ["7110 4.10 TCA","MWM","01/2002 - >"],
+        ["8120 4.10 TCA","MWM","01/2000 - 01/2005"],
+        ["8120OD","4.8 L 8V Acteon 4.12 TCE","2004 - >"],
+        ["8150 4.10 TCA","MWM","01/2000 - 01/2005"]
+      ]
+    }
+  },
 
   "GI04/7": {
     tipo: "combustivel",

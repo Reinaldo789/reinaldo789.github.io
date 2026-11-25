@@ -1472,6 +1472,58 @@ export const filtrosCombustivel = {
     "aplicacoes": null
   },
 
+  "PSD970/1": {
+    tipo: "combustivel",
+    especificacoes: { altura: 225, diametroExterno: 96, rosca: "1\\", elemento: "Papel", observacao: "SUCÇÃO - FLUXO INVERTIDO - SUBSTITUI O PSD970 - COM ENTRADA PARA SENSOR" },
+    conversoes: {
+      "Fleetguard": ["FS1105"], "Authomix": ["FSE9701"], "Bosch": ["0986450729"],
+      "Delkraft": ["DSA518/1"], "Delphi": ["EFS110"], "FAM": ["FSD590/1"],
+      "Fram": ["PS10606"], "Inpeca": ["SSB0510"], "Japanparts": ["FCBR85S"],
+      "KSPG": ["50013871"], "Mann": ["WK950/14"], "Master Parts": ["MM100351"],
+      "MWM": ["0060"], "Purolator": ["F1080"], "Racor": ["228RS30M","R2830M","R28A30"],
+      "Seineca Antigo": ["SEI2654"], "Tecfil": ["PSD970/1"], "Trp": ["915025"],
+      "Turbo Filtros": ["TBC970"], "Unifilter": ["R28AHP","UR28A"], "Volkswagen": ["2R0127177","2R0201511","2RO127177","FBS970/1"],
+      "Vox Antigo": ["FBS2627"], "Wega": ["FCD2215","FCD3028"], "WIX": ["WF36315"],
+      "Yanmar": ["2RO127177"]
+    },
+    aplicacoes: {
+      "Agrale": [
+        ["7000","MWM 4.10 T","2000 - >"],
+        ["7500","MWM 4.10 TCA","01/2000 - >"],
+        ["7500","MWM 4.10 TCA","01/1993 - 12/1999"],
+        ["Furgovan 6000","2.8 MWM Sprinter 4.07 TCA","01/2002 - >"],
+        ["MA 7.0","MWM 4.10T","06/2000 - >"],
+        ["MA 7.5 T","MWM 4.10 TCA","06/2000 - >"],
+        ["MA 8.5","MWM 4.10 TCA","06/2000 - >"],
+        ["MA 8.5 T","Cummins 6BTAA","01/2004 - >"],
+        ["Volare A5","MWM 4.07 TCA","01/00 - >"],
+        ["Volare A6","MWM 4.07 TCA","01/00 - 12/01"],
+        ["Volare A8","MWM 4.10 TCA","06/00 - >"]
+      ],
+      "Volkswagen": [
+        ["13150 4.10TCA","MWM","01/00 - >"],
+        ["13170 6BTAA (Separador de água ref. original: 2R0127177 ou 2TD127491A)","Cummins","01/2000 - >"],
+        ["15180 6.10 TCA","MWM","01/00 - >"],
+        ["15180EOD","4.3 L 8V 4.10 TB","2003 - 2006"],
+        ["16180CO","3.0 L 8V Sprint 4.08 TCE","2004 - 2006"],
+        ["16210CO","4.3 L 8V 4.10 TB","2001 - 2005"],
+        ["17180 6.10 TCA","MWM","01/2006 - >"],
+        ["17210 6BTAA","Cummins","05/02 - >"],
+        ["17210 6.10 TCA","MWM","05/02 - >"],
+        ["17220","Cummins","1991 - 1992"],
+        ["17300","Cummins","2000 - >"],
+        ["17300 Com Ref. Original: 2RK127177B e 2TD127491A","Cummins","2000 - >"],
+        ["17300","Cummins","1992 - 1999"],
+        ["17310 Titan - Com Ref. Original: 2RK127177B e 2R0127177","Cummins","2002 - >"],
+        ["18310 Titan 6CTAA","Cummins","2000 - >"],
+        ["23210 6.10 TCA","MWM","05/02 - >"],
+        ["23310 -","Cummins 6CTAA","01/2002 - 12/2005"],
+        ["24220 Ref. Original: 2T0115561 e TJG115561","Cummins","2000 - 2005"],
+        ["24220 Com Ref. Original: 2TD127491A e 2R0127177","Cummins","2000 - 2005"]
+      ]
+    }
+  },
+
   PSC355: {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/PSC355",

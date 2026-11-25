@@ -12,9 +12,9 @@ export const caminhoesVW = {
     },
     filtros: {
       oleo: 'PSL339 (MWM) / PSL280 (Cummins)',
-      ar: 'ARL8891',
-      combustivel: 'PSC71',
-      sedimentador: 'PSD480'
+      ar: 'ARS9839, ASR839',
+      combustivel: 'PSC491',
+      sedimentador: 'PSD970/1'
     }
   },
   'Volkswagen Worker / Constellation (Motores Cummins ISB 3.9 / 6.7 - Euro III / Euro V)': {

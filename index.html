@@ -251,10 +251,10 @@ body{transition:background-color .25s,color .25s}
 .dica-busca{margin:10px 4px 0;color:var(--suave);font-size:.88rem}
 .detalhes-cat{margin:14px 0}
 .detalhes-cat summary{cursor:pointer;font-weight:600;padding:8px 0;color:var(--ambar-txt)}
-.rolagem{max-height:440px;overflow:auto;border:1px solid var(--linha);border-radius:12px;background:var(--cartao)}
+.rolagem{overflow-x:auto;border:1px solid var(--linha);border-radius:12px;background:var(--cartao)}
 .tabela-app{width:100%;border-collapse:collapse;font-size:.9rem}
 .tabela-app th,.tabela-app td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--linha)}
-.tabela-app thead th{position:sticky;top:0;background:var(--cartao);font-size:.8rem;color:var(--suave)}
+.tabela-app thead th{background:var(--cartao);font-size:.8rem;color:var(--suave)}
 .tabela-app .linha-marca th{background:var(--papel);color:var(--ambar-txt)}
 .botao-cat{display:inline-block;padding:9px 16px;border-radius:10px;background:var(--ambar);color:#11262F;font-weight:600;text-decoration:none}
 </style>
@@ -856,10 +856,11 @@ function paginaFiltro(g){
   var cat = CATALOGO[compacto(g.cod)];
   var cv = (cat && cat.conversoes) || {}, mc = Object.keys(cv);
   /* Códigos equivalentes: com ficha no catálogo, todas as conversões do catálogo; sem ficha, os códigos do guia */
-  if(mc.length) h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+mc.map(function(m){
+  var hCod = "";
+  if(mc.length) hCod += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+mc.map(function(m){
     return '<div><dt>'+esc(m)+'</dt><dd>'+cv[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
   }).join("")+'</dl></article></div>';
-  else if(marcas.length) h += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
+  else if(marcas.length) hCod += '<h2>Códigos equivalentes</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+marcas.map(function(m){
     return '<div><dt>'+esc(NOME_COLUNA[m] || m)+'</dt><dd>'+g.codigos[m].map(function(c){ return '<span class="filtro-tag">'+esc(c)+'</span>'; }).join(" ")+'</dd></div>';
   }).join("")+'</dl></article></div>';
   if(cat && (cat.especificacoes || cat.conversoes || cat.aplicacoes)){
@@ -870,6 +871,7 @@ function paginaFiltro(g){
     if(linhas.length) h += '<h2>Especificações técnicas</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+linhas.map(function(l){
       return '<div><dt>'+esc(l[0])+'</dt><dd>'+esc(l[1])+'</dd></div>';
     }).join("")+'</dl></article></div>';
+    h += hCod;
     if(cat.aplicacoes){
       var ma = Object.keys(cat.aplicacoes);
       h += '<h2 class="sec-filtros">Aplicações no catálogo Tecfil</h2><div class="rolagem"><table class="tabela-app"><thead><tr><th>Veículo</th><th>Motor</th><th>Ano</th></tr></thead><tbody>'+
@@ -883,6 +885,7 @@ function paginaFiltro(g){
     }
     h += '<p><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
   } else {
+    h += hCod;
     h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
   }
   return h;

@@ -193,6 +193,10 @@ a{color:inherit}
 .ico-filtro svg{width:20px;height:20px;stroke:currentColor}
 .tabela-filtros th:first-child,.tabela-filtros td:first-child{padding:11px 10px 11px 12px}
 .tabela-filtros tbody th .ico-filtro{display:grid}
+.dica-filtros{margin:-4px 0 12px;font-size:.9rem;color:var(--suave)}
+.linha-filtro{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.ico-filtro[data-t=oleo]{color:#b45309}.ico-filtro[data-t=ar]{color:#0369a1}.ico-filtro[data-t=arSecundario],.ico-filtro[data-t=ar_secundario]{color:#7c3aed}
+.ico-filtro[data-t=combustivel]{color:#0f766e}.ico-filtro[data-t=sedimentador],.ico-filtro[data-t=separador_agua]{color:#c2410c}
 .legenda-filtros{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin:-4px 0 12px;padding:0;font-size:.9rem;color:var(--suave)}
 .legenda-filtros li{display:flex;align-items:center;gap:8px}
 
@@ -838,7 +842,11 @@ function paginaAssunto(t){
 ICONES.vento = '<path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7"/>';
 ICONES.bomba = '<path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M4 21h12M8 7h4M15 10h2a2 2 0 0 1 2 2v4a1.5 1.5 0 0 0 3 0V9l-3-3"/>';
 ICONES.carro = '<path d="M5 17v-5l2-5h10l2 5v5M5 17h14M5 17v2M19 17v2M8 13.5h.01M16 13.5h.01"/>';
-var CHAVE_ICONE = { oleo:"gota", ar:"vento", combustivel:"bomba", cabine:"carro" };
+ICONES.escudo = '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12h6"/>';
+ICONES.funil = '<path d="M4 4h16l-6 8v6l-4 2v-8z"/>';
+var CHAVE_ICONE = { oleo:"gota", ar:"vento", arSecundario:"escudo", ar_secundario:"escudo", combustivel:"bomba", sedimentador:"funil", separador_agua:"funil", preFiltroCombustivel:"bomba", cabine:"carro" };
+var ROTULO_LINHA = { sedimentador:"Sedimentador", separador_agua:"Separador de água", preFiltroCombustivel:"Pré-filtro" };
+function rotuloLinha(t){ return ROTULO_LINHA[t] || nomeFiltro(t); }
 function nomeFiltro(t){ var n = (ROTULO_FILTRO[t] || t).replace("Filtro de ",""); return n.charAt(0).toUpperCase()+n.slice(1); }
 var ORDEM_FILTROS = ["original","tecfil","vox","authomix","mann","mahle","wega","fram"];
 var NOME_COLUNA = { original:"Original", vox:"Vox", tecfil:"Tecfil", authomix:"Authomix", mann:"Mann", mahle:"Mahle", wega:"Wega", fram:"Fram" };
@@ -922,12 +930,10 @@ function paginaVeiculo(v){
       var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
     });
-    h += '<h2 class="sec-filtros">Filtros equivalentes</h2><ul class="legenda-filtros">'+tipos.map(function(t){
-      return '<li><span class="ico-filtro" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span>'+esc(nomeFiltro(t))+'</li>';
-    }).join("")+'</ul><div class="caixa-tabela"><table class="tabela-filtros"><thead><tr><th><span class="sr">Filtro</span></th>'+
+    h += '<h2 class="sec-filtros">Filtros equivalentes</h2><p class="dica-filtros">Toque num código da Tecfil para ver a ficha do filtro. O <strong>+N</strong> mostra em quantos outros veículos ele também serve.</p><div class="caixa-tabela"><table class="tabela-filtros"><thead><tr><th>Filtro</th>'+
       cols.map(function(c){ return '<th>'+esc(NOME_COLUNA[c] || c)+'</th>'; }).join("")+'</tr></thead><tbody>'+
       tipos.map(function(t){
-        return '<tr><th scope="row" title="'+esc(nomeFiltro(t))+'"><span class="ico-filtro" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span class="sr">'+esc(nomeFiltro(t))+'</span></th>'+cols.map(function(c){
+        return '<tr><th scope="row"><span class="linha-filtro"><span class="ico-filtro" data-t="'+esc(t)+'" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span>'+esc(rotuloLinha(t))+'</span></span></th>'+cols.map(function(c){
           var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
           if(c === "tecfil" && !codVazio(cod)){
             tag = partirCod(cod).map(function(p){

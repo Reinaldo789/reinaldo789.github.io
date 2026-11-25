@@ -985,10 +985,9 @@ export const filtrosAr = {
     }
   },
 
-  "ASR234": {
+    "ASR234": {
     tipo: "ar",
-    url: "https://catalogo.tecfil.com.br/search/asr234/produto/704",
-    especificacoes: { altura: 412, diametroExterno: 97, rosca: "Não possui", elemento: "Papel" },
+    especificacoes: { altura: 412, diametroExterno: 97, rosca: "Não possui", elemento: "Papel", observacao: "COM SEXTAVADO" },
     conversoes: {
       "AGCO": ["6223615M1"], "Agrale": ["6015001015009"], "Authomix": ["FAR0234"],
       "Case": ["87370415"], "Donaldson": ["P628399"], "Mahle": ["LXS370"],
@@ -997,23 +996,18 @@ export const filtrosAr = {
     },
     aplicacoes: {
       "Agrale": [
-        ["Marruá AM 100-E (6011.000.120.00.7) Sprint 4.07 TCA", "MWM", "02/2007"]
-      ],
-      "- >": [
-        ["Diesel Marruá AM 150-E (6011.000.123.00.1)", "Sprint 4.07 TCA", "MWM"],
-        ["04/2007 - >", "Diesel", "Marruá AM 200-E (6011.000.115.00.7)"],
-        ["Sprint 4.07 TCA MWM", "06/2006", "- >"]
+        ["Marruá AM 100-E (6011.000.120.00.7) Sprint 4.07 TCA","MWM","02/2007 - >"],
+        ["Marruá AM 150-E (6011.000.123.00.1) Sprint 4.07 TCA","MWM","04/2007 - >"],
+        ["Marruá AM 200-E (6011.000.115.00.7) Sprint 4.07 TCA","MWM","06/2006 - >"]
       ],
       "IVECO": [
-        ["Tector 11190 FPT NEF4 190cv", "2019", "- >"],
-        ["Tector 11-190 4X2 (Euro 5)", "FPT P7 190cv", "2022"]
-      ],
-      "-": [
-        ["Tector 9-190 FPT NEF4 190cv", "2020", "- >"],
-        ["4297 AGCO POWER TURBO", "4 Cilindros", "-"]
+        ["Tector 11190","FPT NEF4 190cv","2019 - >"],
+        ["Tector 11-190 4X2 (Euro 5)","FPT P7 190cv","2022 - >"],
+        ["Tector 9-190","FPT NEF4 190cv","2020 - >"]
       ],
       "Massey Ferguson": [
-        ["4292HD AGCO POWER TURBO", "4 Cilindros", "2010"]
+        ["4292HD AGCO POWER TURBO","4 Cilindros","2010 - >"],
+        ["4297 AGCO POWER TURBO","4 Cilindros","-"]
       ]
     }
   },

@@ -477,56 +477,52 @@ export const filtrosAr = {
     }
   },
 
-  "ARS1013": {
+    "ARS1013": {
     tipo: "ar",
-    url: "https://catalogo.tecfil.com.br/search/ars1013/produto/63",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 286.5, diametroExterno: 168, diametroInterno: 83, rosca: "Não possui", elemento: "Papel", valvulaAntiRetorno: "Não", valvulaAlivio: "Não", pesoLiquido: 0.9, pesoBruto: 0.987, caixa: 1 },
     conversoes: {
       "Authomix": ["FAR1013"], "Bosch": ["1457432282"], "Cross": ["FE940/2"],
       "Delkraft": ["DR1387"], "Delphi": ["EFA933"], "FAM": ["FI1006"],
-      "Fiat": ["1310636080", "1337057080"], "Filtran": ["2051013"], "Fram": ["CA5611", "CA9231"],
+      "Fiat": ["1310636080","1337057080"], "Filtran": ["2051013"], "Fram": ["CA5611","CA9231"],
       "Hengst": ["E328L"], "Inpeca": ["SRS6080"], "Japanparts": ["FA6080S"],
       "KSPG": ["50014834"], "Mahle": ["LX611"], "Mann": ["C17278"],
       "Master Parts": ["MM100571"], "Recer Filtros": ["AR3040RC"], "Sakura": ["A22300"],
       "Tecfil": ["ARS1013"], "Turbo Filtros": ["TR9402"], "Unifilter": ["UA25296P"],
       "Vox": ["HD1013"], "Vox Antigo": ["HD2815"], "Wega": ["WR316"],
-      "WIX": ["ARS48950", "W48950BR"], "Xanfil": ["XL2101"]
+      "WIX": ["ARS48950","W48950BR"], "Xanfil": ["XL2101"]
     },
     aplicacoes: {
       "Caterpillar": [
-        ["RM300 - BWR1-UP CAT RSX1-UP", "-", "CITROEN"],
-        ["Jumper 2.8 D", "09/2000", "- >"],
-        ["Jumper 2.5 8V", "01/1995", "- 12/1998"],
-        ["Jumper HDi", "2.8", "01/2000"],
-        ["- 12/2004 Diesel", "Jumper", "HDi 127"],
-        ["2.8 01/2005", "- >", "Diesel"],
-        ["Jumper JTD", "2.3", "01/2009"]
+        ["RM300 - BWR1-UP","CAT RSX1-UP","-"]
       ],
-      "- >": [
-        ["Diesel DAIHATSU", "Feroza", "SX"],
-        ["1.6 8V 01/1994", "- 12/1998", "Gasolina"],
-        ["Diesel Ducato", "8140.43N", "2.8 JTD"],
-        ["04/2004 - 06/2006", "Diesel", "Ducato"],
-        ["Turbo Intercooler 2.8 8V", "01/1997", "- 12/2005"]
+      "Citroen": [
+        ["Jumper","2.8 D","09/2000 - >"],
+        ["Jumper","2.5 8V","01/1995 - 12/1998"],
+        ["Jumper HDi","2.8","01/2000 - 12/2004"],
+        ["Jumper HDi 127","2.8","01/2005 - >"],
+        ["Jumper JTD","2.3","01/2009 - >"]
+      ],
+      "Daihatsu": [
+        ["Feroza SX","1.6 8V","01/1994 - 12/1998"]
       ],
       "Fiat": [
-        ["Ducato 2.8 D 8V", "02/1998", "- >"],
-        ["Ducato Turbo JTD", "2.8 8V", "01/2006"]
+        ["Ducato","2.8 D 8V","02/1998 - >"],
+        ["Ducato Turbo JTD","2.8 8V","01/2006 - >"],
+        ["Ducato 8140.43N","2.8 JTD","04/2004 - 06/2006"],
+        ["Ducato Turbo Intercooler","2.8 8V","01/1997 - 12/2005"]
       ],
       "Peugeot": [
-        ["Boxer 2.3", "01/2009", "- >"],
-        ["Boxer Di Combi 320M F28D", "2.8", "Diesel"],
-        ["Boxer 8140.43S", "2.8 HDI 127", "09/2000"],
-        ["- 03/2002 Diesel", "Boxer", "-"],
-        ["2.8 8V 01/1998", "- 12/2002", "Diesel"],
-        ["Boxer 1.9 TD", "07/1994", "- >"],
-        ["Boxer -", "2.8 8V", "01/2002"],
-        ["- 12/2006 Diesel", "Boxer", "1.9 TD"],
-        ["01/1996 - >", "Diesel", "Boxer"],
-        ["2.8 8V 01/2005", "- 12/2009", "Diesel"]
+        ["Boxer","2.3","01/2009 - >"],
+        ["Boxer Di Combi 320M F28D","2.8","-"],
+        ["Boxer 8140.43S","2.8 HDI 127","09/2000 - 03/2002"],
+        ["Boxer -","2.8 8V","01/1998 - 12/2002"],
+        ["Boxer","1.9 TD","07/1994 - >"],
+        ["Boxer -","2.8 8V","01/2002 - 12/2006"],
+        ["Boxer","1.9 TD","01/1996 - >"],
+        ["Boxer -","2.8 8V","01/2005 - 12/2009"]
       ]
     }
-  },
+  }
 
   "ARS2868": {
     tipo: "ar",

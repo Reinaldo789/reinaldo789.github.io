@@ -846,6 +846,7 @@ export const filtrosCombustivel = {
   "PSC498/4": {
     tipo: "combustivel",
     especificacoes: { altura: 164, diametroExterno: 97, rosca: "Não possui", elemento: "Papel" },
+    notaTecnica: { codigoOriginal: "6011.101.069.00.4", observacao: "Original: filtro de combustível Agrale Marruá com sensor (MWM). Pode ser usado, mas o sensor não enrosca neste filtro." },
     conversoes: {
       "Authomix": ["FCO4984"], "Delphi": ["HDF842"], "Fram": ["P4836A"],
       "GM": ["94707151"], "Hengst": ["H334WK"], "Japanparts": ["FCBR77S"],

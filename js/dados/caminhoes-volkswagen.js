@@ -1,8 +1,8 @@
 export const caminhoesVW = {
-  'Volkswagen Worker 5Ton (Motores MWM 6.10 - Bomba Injetora Mecânica 2000 a 2012)': {
+  'Volkswagen Worker (Motores MWM 6.10 TCA - Bomba Injetora Mecânica 2000 a 2012)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (MWM 6.10)', especificacao: 'SAE 15W-40 API CI-4 / CH-4 (Mineral)', capacidade: 'MWM 6.10: 14,0 L (com filtro)', intervalo: '10.000 km' },
+      { sistema: 'Motor (MWM 6.10 L)', especificacao: 'SAE 15W-40 API CI-4 / CH-4 (Mineral)', capacidade: 'MWM 6.10: 14,0 L (com filtro)', intervalo: '10.000 km' },
       { sistema: 'Câmbio Manual (Eaton FS-5306 / ZF 6S)', especificacao: 'SAE 80W-90 API GL-4 / GL-5', capacidade: '6,0 L a 7,5 L', intervalo: '50.000 km' },
       { sistema: 'Diferencial Traseiro (Meritor / Dana)', especificacao: 'SAE 85W-140 API GL-5', capacidade: '12,0 L a 15,0 L', intervalo: '50.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Corretivo / Orgânico (50/50)', capacidade: '22,0 L a 28,0 L', intervalo: '1 ano ou 40.000 km' }
@@ -11,14 +11,15 @@ export const caminhoesVW = {
       1: "Veículos com sistema de injeção mecânica direta (bomba injetora em linha Bosch). Não utilizam ARLA 32. Atenção à drenagem diária do copo separador de água para proteger os elementos da bomba."
     },
     filtros: {
-      oleo: 'PSL339 (MWM) / PSL280 (Cummins)',
-      ar: 'ARS9839, ASR839',
+      oleo: 'PSL339',
+      ar: 'ARS9839 / ASR839',
+      arSecundario: 'ASR839',
       combustivel: 'PSC491',
       sedimentador: 'PSD970/1'
     }
   },
-  
-  'Volkswagen Worker (Motores Cummins 6BTAA - Bomba Injetora Mecânica 2000 a 2012)': {
+
+  'Volkswagen Worker (Cummins 6BTAA - Bomba Injetora Mecânica 2000 a 2012)': {
     usaArla32: false,
     sistemas: [
       { sistema: 'Motor (Cummins 6BTAA 5.9L)', especificacao: 'SAE 15W-40 API CI-4 / CH-4 (Mineral)', capacidade: 'Cummins 6BTAA: 16,0 L (com filtro)', intervalo: '10.000 km' },
@@ -30,10 +31,11 @@ export const caminhoesVW = {
       1: "Veículos com sistema de injeção mecânica direta (bomba injetora em linha Bosch). Não utilizam ARLA 32. Atenção à drenagem diária do copo separador de água para proteger os elementos da bomba."
     },
     filtros: {
-      oleo: 'PSL339 (MWM) / PSL280 (Cummins)',
-      ar: 'ARS9839, ASR839',
-      combustivel: 'PSC491',
-      sedimentador: 'PSD970/1'
+      oleo: 'PSL280',
+      ar: 'ARL8891',
+      arSecundario: 'ASR839',
+      combustivel: 'PSC71',
+      sedimentador: 'PSD480'
     }
   },
   

@@ -1,3 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist de Ajustes | Me Tira do Sanha</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-hover: #293548;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #f59e0b;
+      --primary-hover: #d97706;
+      --danger: #ef4444;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand h1 {
+      font-size: 1.35rem;
+      color: var(--primary);
+    }
+
+    .brand span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    button, select, input {
+      background-color: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary);
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--surface-hover);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #0f172a;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-danger {
+      color: var(--danger);
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+
+    .btn-danger:hover {
+      background-color: rgba(239, 68, 68, 0.15);
+    }
+
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 0.82rem;
+    }
+
+    .add-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .add-main {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .add-main input[type="text"] {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .add-extra {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .add-extra input {
+      flex: 1;
+      min-width: 180px;
+      padding: 8px 10px;
+      font-size: 0.88rem;
+    }
+
+    .summary-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn.active {
+      background-color: rgba(245, 158, 11, 0.18);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+
+    .task-item:hover {
+      border-color: #475569;
+    }
+
+    .task-item.done {
+      opacity: 0.6;
+    }
+
+    .task-item.done .task-title {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .task-checkbox {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .task-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .task-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .task-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      word-break: break-word;
+    }
+
+    .tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background-color: rgba(245, 158, 11, 0.14);
+      color: var(--primary);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .task-detail {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .task-date {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 36px 16px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      color: var(--text-muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background-color: var(--success);
+      color: #0f172a;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>Checklist de Ajustes</h1>
+        <span>metiradosanha.com.br</span>
+      </div>
+      <div class="header-actions">
+        <a href="/" style="text-decoration:none;"><button type="button" class="btn-sm">← Voltar ao site</button></a>
+        <button type="button" class="btn-sm" onclick="copiarPendentes()">Copiar Pendentes</button>
+        <button type="button" class="btn-sm btn-danger" onclick="limparConcluidos()">Limpar Concluídos</button>
+      </div>
+    </header>
+
+    <form class="add-box" onsubmit="adicionarItem(event)">
+      <div class="add-main">
+        <input type="text" id="itemTexto" placeholder="O que falta ajustar? Ex: Corrigir chave '- >' no PSC498/4" required>
+        <select id="itemTag">
+          <option value="Catálogo JS">Catálogo JS</option>
+          <option value="Site / Layout">Site / Layout</option>
+          <option value="Oficina / Dados">Oficina / Dados</option>
+          <option value="Geral">Geral</option>
+        </select>
+        <button type="submit" class="btn-primary">+ Adicionar</button>
+      </div>
+      <div class="add-extra">
+        <input type="text" id="itemDetalhe" placeholder="Detalhe opcional (ex: arquivo js/dados/combustivel.js, linha, observação...)">
+      </div>
+    </form>
+
+    <div class="summary-bar">
+      <span id="contador">0 pendentes · 0 concluídos</span>
+      <div class="filters">
+        <button type="button" class="btn-sm filter-btn active" data-filter="pendentes" onclick="setFiltro('pendentes', this)">Pendentes</button>
+        <button type="button" class="btn-sm filter-btn" data-filter="todos" onclick="setFiltro('todos', this)">Todos</button>
+        <button type="button" class="btn-sm filter-btn" data-filter="concluidos" onclick="setFiltro('concluidos', this)">Concluídos</button>
+      </div>
+    </div>
+
+    <div id="listaChecklist" class="checklist"></div>
+  </div>
+
+  <div id="toast" class="toast">Pronto!</div>
+
+  <script>
+    const STORAGE_KEY = 'metiradosanha_checklist_v1';
+    let filtroAtual = 'pendentes';
+
+    let itens = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (!itens) {
+      itens = [
+        {
+          id: '1',
+          texto: 'Revisar quebras de linha em aplicacoes (ex: remover chave "- >" e separar montadoras)',
+          detalhe: 'Arquivos em js/dados/*.js',
+          tag: 'Catálogo JS',
+          feito: false,
+          criadoEm: new Date().toLocaleDateString('pt-BR')
+        }
+      ];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(itens));
+    }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 1800);
+    }
+
+    function salvar() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(itens));
+      renderizar();
+    }
+
+    function adicionarItem(e) {
+      e.preventDefault();
+      const inputTexto = document.getElementById('itemTexto');
+      const inputDetalhe = document.getElementById('itemDetalhe');
+      const selectTag = document.getElementById('itemTag');
+
+      const texto = inputTexto.value.trim();
+      const detalhe = inputDetalhe.value.trim();
+      if (!texto) return;
+
+      itens.unshift({
+        id: Date.now().toString(),
+        texto,
+        detalhe,
+        tag: selectTag.value,
+        feito: false,
+        criadoEm: new Date().toLocaleDateString('pt-BR')
+      });
+
+      inputTexto.value = '';
+      inputDetalhe.value = '';
+      inputTexto.focus();
+      salvar();
+      toast('Item adicionado!');
+    }
+
+    function alternarItem(id) {
+      const item = itens.find(i => i.id === id);
+      if (!item) return;
+      item.feito = !item.feito;
+      salvar();
+    }
+
+    function excluirItem(id) {
+      itens = itens.filter(i => i.id !== id);
+      salvar();
+      toast('Item removido');
+    }
+
+    function limparConcluidos() {
+      const antes = itens.length;
+      itens = itens.filter(i => !i.feito);
+      if (itens.length === antes) {
+        toast('Nenhum item concluído');
+        return;
+      }
+      salvar();
+      toast('Concluídos removidos');
+    }
+
+    function setFiltro(novoFiltro, btn) {
+      filtroAtual = novoFiltro;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderizar();
+    }
+
+    function copiarPendentes() {
+      const pendentes = itens.filter(i => !i.feito);
+      if (!pendentes.length) {
+        toast('Sem itens pendentes');
+        return;
+      }
+      const texto = pendentes
+        .map(i => `[ ] (${i.tag}) ${i.texto}${i.detalhe ? ' — ' + i.detalhe : ''}`)
+        .join('\n');
+      navigator.clipboard.writeText(texto);
+      toast('Pendentes copiados!');
+    }
+
+    function esc(str) {
+      return (str || '').replace(/[&<>'"]/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[c]));
+    }
+
+    function renderizar() {
+      const container = document.getElementById('listaChecklist');
+      const totalFeitos = itens.filter(i => i.feito).length;
+      const totalPendentes = itens.length - totalFeitos;
+
+      document.getElementById('contador').textContent =
+        `${totalPendentes} pendente(s) · ${totalFeitos} concluído(s)`;
+
+      const visiveis = itens.filter(i => {
+        if (filtroAtual === 'pendentes') return !i.feito;
+        if (filtroAtual === 'concluidos') return i.feito;
+        return true;
+      });
+
+      if (!visiveis.length) {
+        container.innerHTML = `<div class="empty-state">Nada por aqui nesse filtro.</div>`;
+        return;
+      }
+
+      container.innerHTML = visiveis.map(item => `
+        <div class="task-item ${item.feito ? 'done' : ''}">
+          <input
+            type="checkbox"
+            class="task-checkbox"
+            ${item.feito ? 'checked' : ''}
+            onchange="alternarItem('${item.id}')"
+          >
+          <div class="task-content">
+            <div class="task-top">
+              <span class="task-title">${esc(item.texto)}</span>
+              <span class="tag">${esc(item.tag)}</span>
+            </div>
+            ${item.detalhe ? `<div class="task-detail">${esc(item.detalhe)}</div>` : ''}
+            <div class="task-date">Adicionado em ${esc(item.criadoEm)}</div>
+          </div>
+          <button type="button" class="btn-sm btn-danger" onclick="excluirItem('${item.id}')" title="Excluir">×</button>
+        </div>
+      `).join('');
+    }
+
+    renderizar();
+  </script>
+</body>
+</html>
+
+
 Inpeca SSB-0510 é um separador de água do sistema Racor (sem copo na embalagem original, que usa o copo transparente reutilizável na base) para motores diesel da linha pesada e micro-ônibus.
 Ele se aplica principalmente aos seguintes modelos:
 Marcador Volkswagen Caminhões e Ônibus (motores MWM 4.10/6.10 e Cummins 4BT/6BT):

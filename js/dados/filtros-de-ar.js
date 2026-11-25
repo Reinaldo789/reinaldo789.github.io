@@ -717,63 +717,51 @@ export const filtrosAr = {
 
   "ARS8234": {
     tipo: "ar",
-    url: "https://catalogo.tecfil.com.br/search/ars8234/produto/2",
-    especificacoes: { altura: 414, diametroExterno: 174.5, diametroInterno: 106, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 414, diametroExterno: 174.5, diametroInterno: 106, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
-      "AGCO": ["6223614M1", "87370414"], "Agrale": ["6015001014002"], "Authomix": ["FAR8234"],
+      "AGCO": ["6223614M1","87370414"], "Agrale": ["6015001014002"], "Authomix": ["FAR8234"],
       "Delkraft": ["DR1411/1"], "Delphi": ["EDA115"], "FAM": ["FA9319"],
-      "Fiat Iveco": ["93828280"], "Filtran": ["2058280"], "Fram": ["CA10221", "FLI9510"],
-      "Japanparts": ["FA8280S"], "Mahle": ["LX2532"], "Mann": ["C18450", "C18450/1", "C18450/2"],
+      "Fiat Iveco": ["93828280"], "Filtran": ["2058280"], "Fram": ["CA10221","FLI9510"],
+      "Japanparts": ["FA8280S"], "Mahle": ["LX2532"], "Mann": ["C18450","C18450/1","C18450/2"],
       "Nexpro": ["500058822"], "Sakura": ["AS22470"], "Tecfil": ["ARS8234"],
       "Troller": ["2001321001"], "Turbo Filtros": ["TR8280"], "Unifilter": ["UAEP18450P"],
       "Vox": ["HD8234"], "Vox Antigo": ["HD2839"], "Wega": ["WR200/8"],
-      "WIX": ["W49110BR", "WA10530"], "Xanfil": ["XL2131"]
+      "WIX": ["W49110BR","WA10530"], "Xanfil": ["XL2131"]
     },
     aplicacoes: {
       "Agrale": [
-        ["Marruá AM 100-E (6011.000.120.00.7) Sprint 4.07 TCA", "MWM", "02/2007"]
-      ],
-      "- >": [
-        ["Diesel Marruá AM 150-E (6011.000.123.00.1)", "Sprint 4.07 TCA", "MWM"],
-        ["04/2007 - >", "Diesel", "Marruá AM 200-E (6011.000.115.00.7)"],
-        ["Sprint 4.07 TCA MWM", "06/2006", "- >"],
-        ["Diesel Daily", "49.12 8140.23", "2.8 8V"],
-        ["05/2005 - >", "Diesel", "Daily"],
-        ["40.13 8140.43S 2.8 8V", "01/2005", "- >"],
-        ["Daily 49.10 8140.43S", "2.8 8V", "05/2002"],
-        ["Diesel Daily", "50.13 8140.43S", "2.8 8V"],
-        ["01/2003 - >", "Diesel", "Daily"],
-        ["50 C 15 - Importado Ecoline 146 cv", "2013", "- >"],
-        ["Daily 59.12 8140.43S", "2.8 8V", "01/2005"],
-        ["Diesel Daily", "Scudato 59.12", "-"],
-        ["04/2003 - >", "Diesel", "Daily"],
-        ["35.10 8140.23 2.8 8V", "05/2002", "- >"],
-        ["Daily 60.12 Scudato 8140.23", "2.8 8V", "01/2003"],
-        ["Diesel Daily", "50 C 17 - Importado", "Ecoline 170 cv"],
-        ["2013 - >", "Diesel", "Daily"],
-        ["60.13 Scudato 8140.43S 2.8 8V", "01/2006", "- >"],
-        ["Daily 70.12 8140.43S", "2.8 8V", "01/2004"],
-        ["Diesel Daily", "70.13 8140.43S", "2.8 8V"],
-        ["01/2005 - >", "Diesel", "Daily"],
-        ["35.13 8140.43S 2.8 8V", "05/2002", "- >"],
-        ["Daily 55 C 16", "3.0", "01/2008"],
-        ["Diesel Daily", "35 S 14 - (Chassi / Furgone / Grand Furgone) - Mecânico", "Ecoline 146cv"],
-        ["45 S 17 - (Chassi / Furgone / Grand Furgone) - Mecânico Ecoline 170cv", "2013", "- >"],
-        ["Daily 55 C 17 - (Chassi / Vetrato) - Mecânico", "Ecoline 170cv", "2013"],
-        ["Diesel Daily", "70 C 17 - (Chassi / Truck) - Mecânico", "Ecoline 170cv"],
-        ["2013 - >", "Diesel", "Scudato 50.13 HMV VEDRATO"],
-        ["2.8 L 8V 8140-43 2001", "- 2005", "Diesel"],
-        ["Scudato 59.12S HM 2.8 L 8V 8140-43", "2004", "- >"],
-        ["Scudato 60.13 HM CITY 2.8 L 8V 8140-43", "2005", "- >"],
-        ["Tector 11190 FPT NEF4 190cv", "2019", "- >"],
-        ["Tector 11-190 4X2 (Euro 5)", "FPT P7 190cv", "2022"]
+        ["Marruá AM 100-E (6011.000.120.00.7) Sprint 4.07 TCA","MWM","02/2007 - >"],
+        ["Marruá AM 150-E (6011.000.123.00.1) Sprint 4.07 TCA","MWM","04/2007 - >"],
+        ["Marruá AM 200-E (6011.000.115.00.7) Sprint 4.07 TCA","MWM","06/2006 - >"]
       ],
       "IVECO": [
-        ["Daily 38.13 8140.43S", "2.8 8V", "01/2005"]
-      ],
-      "-": [
-        ["Tector 9-190 FPT NEF4 190cv", "2020", "- >"],
-        ["Vertis 90V18", "Euro 5", "01/2012"]
+        ["Daily 38.13 8140.43S","2.8 8V","01/2005 - >"],
+        ["Daily 49.12 8140.23","2.8 8V","05/2005 - >"],
+        ["Daily 40.13 8140.43S","2.8 8V","01/2005 - >"],
+        ["Daily 49.10 8140.43S","2.8 8V","05/2002 - >"],
+        ["Daily 50.13 8140.43S","2.8 8V","01/2003 - >"],
+        ["Daily 50 C 15 - Importado","Ecoline 146 cv","2013 - >"],
+        ["Daily 59.12 8140.43S","2.8 8V","01/2005 - >"],
+        ["Daily Scudato 59.12","-","04/2003 - >"],
+        ["Daily 35.10 8140.23","2.8 8V","05/2002 - >"],
+        ["Daily 60.12 Scudato 8140.23","2.8 8V","01/2003 - >"],
+        ["Daily 50 C 17 - Importado","Ecoline 170 cv","2013 - >"],
+        ["Daily 60.13 Scudato 8140.43S","2.8 8V","01/2006 - >"],
+        ["Daily 70.12 8140.43S","2.8 8V","01/2004 - >"],
+        ["Daily 70.13 8140.43S","2.8 8V","01/2005 - >"],
+        ["Daily 35.13 8140.43S","2.8 8V","05/2002 - >"],
+        ["Daily 55 C 16","3.0","01/2008 - >"],
+        ["Daily 35 S 14 - (Chassi / Furgone / Grand Furgone) - Mecânico","Ecoline 146cv","2013 - >"],
+        ["Daily 45 S 17 - (Chassi / Furgone / Grand Furgone) - Mecânico","Ecoline 170cv","2013 - >"],
+        ["Daily 55 C 17 - (Chassi / Vetrato) - Mecânico","Ecoline 170cv","2013 - >"],
+        ["Daily 70 C 17 - (Chassi / Truck) - Mecânico","Ecoline 170cv","2013 - >"],
+        ["Scudato 50.13 HMV VEDRATO","2.8 L 8V 8140-43","2001 - 2005"],
+        ["Scudato 59.12S HM","2.8 L 8V 8140-43","2004 - >"],
+        ["Scudato 60.13 HM CITY","2.8 L 8V 8140-43","2005 - >"],
+        ["Tector 11190","FPT NEF4 190cv","2019 - >"],
+        ["Tector 11-190 4X2 (Euro 5)","FPT P7 190cv","2022 - >"],
+        ["Tector 9-190","FPT NEF4 190cv","2020 - >"],
+        ["Vertis 90V18","Euro 5","01/2012 - >"]
       ]
     }
   },

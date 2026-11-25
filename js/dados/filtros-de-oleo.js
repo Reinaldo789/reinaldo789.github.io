@@ -912,66 +912,63 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL339": {
+    "PSL339": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl339/produto/347",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 232, diametroExterno: 109.6, rosca: "1\\", elemento: "Papel", observacao: "APLICADO COM OS FILTROS: PSD530, PSD960, PSD970" },
     conversoes: {
-      "Authomix": ["FOL0339"], "Baldwin": ["BT349", "BT8302"], "Bosch": ["0451301088", "0986B01015", "9455081025"],
+      "Authomix": ["FOL0339"], "Baldwin": ["BT349","BT8302"], "Bosch": ["0451301088","0986B01015","9455081025"],
       "Cross": ["FB62"], "Delkraft": ["DL203"], "Delphi": ["EFL523"],
-      "Donaldson": ["P172555", "P551604", "P779225"], "Donsson": ["GS056"], "FAM": ["FL733"],
-      "Fiat": ["19011604", "1909137", "4667338", "4667339", "4667755", "7111041", "7111671", "7121369", "7121389", "7122733"], "Fiat Allis": ["4667755", "75285228"], "Fleetguard": ["LF3346"],
+      "Donaldson": ["P172555","P551604","P779225"], "Donsson": ["GS056"], "FAM": ["FL733"],
+      "Fiat": ["19011604","1909137","4667338","4667339","4667755","7111041","7111671","7121369","7121389","7122733"], "Fiat Allis": ["4667755","75285228"], "Fleetguard": ["LF3346"],
       "Fram": ["PH2883"], "Franig": ["HCX4667755"], "Gonher": ["GP88"],
-      "Hengst": ["H220W"], "Inpeca": ["J339E", "SB0964", "SLB0964"], "Irlemp": ["PERI236"],
+      "Hengst": ["H220W"], "Inpeca": ["J339E","SB0964","SLB0964"], "Irlemp": ["PERI236"],
       "IVECO": ["1907570"], "KS": ["017OS"], "KSPG": ["50013017"],
       "Logan": ["FL242US"], "Lucas": ["EFL523"], "Mahle": ["OC35"],
-      "Mann": ["W1170"], "MWM": ["905411880011", "905411880022", "905411880037"], "Nasa": ["NS1025"],
+      "Mann": ["W1170"], "MWM": ["905411880011","905411880022","905411880037"], "Nasa": ["NS1025"],
       "New Holland": ["R1930544"], "Parker": ["RL236RA"], "Partmo": ["A349"],
-      "Purolator": ["L1086", "PC232"], "Racor": ["RL236"], "Roma": ["LUS339"],
+      "Purolator": ["L1086","PC232"], "Racor": ["RL236"], "Roma": ["LUS339"],
       "Sakura": ["C7008"], "Schulz": ["00701440"], "Stara": ["79114309"],
       "Tecfil": ["PSL339"], "Top Parts": ["130501"], "Turbo Filtros": ["TB339"],
-      "Unifilter": ["USL236"], "Valmet": ["3338079", "80842000"], "VME": ["3338079"],
-      "Volkswagen": ["905411880011", "TAE115561"], "Vox": ["LB339"], "Vox Antigo": ["LB2814"],
-      "Wega": ["WO610"], "WIX": ["W51825", "W51832", "WL51832"], "ZF": ["0070131265"]
+      "Unifilter": ["USL236"], "Valmet": ["3338079","80842000"], "VME": ["3338079"],
+      "Volkswagen": ["905411880011","TAE115561"], "Vox": ["LB339"], "Vox Antigo": ["LB2814"],
+      "Wega": ["WO610"], "WIX": ["W51825","W51832","WL51832"], "ZF": ["0070131265"]
     },
     aplicacoes: {
+      "Volkswagen": [
+        ["17210 6.10 TCA","MWM","05/02 - >"],
+        ["12180 6.10T","MWM","01/99 - >"],
+        ["13180 MWM 6.10 TCA SERIE 10 / X10 6.5 L 12V SOHV L6","MWM 6.10 TCA","2000 - 2005"],
+        ["14150 6.10T","MWM","04/97 - >"],
+        ["14150 6.10T","MWM","01/91 - 04/97"],
+        ["14180 6.10 T","MWM","10/99 - >"],
+        ["14200 6.10T","MWM","01/92 - >"],
+        ["15180 6.10 TCA","MWM","01/00 - >"],
+        ["16180 6.10 T","MWM","01/92 - >"],
+        ["17180 6.10 TCA","MWM","01/2006 - >"],
+        ["17210EOD Ref. Original 2R0127177C","MWM 6.12 TCAE","12/2005 - >"],
+        ["17210EOD Ref. Original 2R0127177D","MWM 6.12 TCAE","12/2005 - >"],
+        ["17210EOD","MWM 6.10 TCA","09/2001 - >"],
+        ["17230EOD EuroIII - Ref. Original 2R0127177D","MWM 6.12 TCE","04/2004 - >"],
+        ["17230EOD EurollI - Ref. Original 2R0127177C","MWM 6.12 TCE","04/2004 - >"],
+        ["17230EOD V-Tronic","MWM 6.12 TCE EuroIII","01/2008 - >"],
+        ["17240OT","MWM 6.10 TCA","03/2001 - >"],
+        ["17260EOT Ref. Original 2R0127177D","MWM 6.10 TCAE","04/2004 - >"],
+        ["17260EOT V-Tronic","MWM 6.12 TCE EuroIII","01/2008 - >"],
+        ["18320EOT","MWM 6.12 TCAE","04/2004 - >"],
+        ["23210 6.10 TCA","MWM","05/02 - >"],
+        ["26260E Worker - Com Ref. Original: 2R0127177C e 2R0127177D","MWM","12/2005 - >"],
+        ["31260E Worker / Com Ref. Original: 2R0127177C e 2R0127177D","MWM","12/2005 - >"],
+        ["8150ODM","6.4 L 12V D 6.10","1992 - 1998"]
+      ],
       "Adams": [
-        ["300, 330, 440, 550, 660, 777, H-HR-NH 6.6.4 Cummins", "04/2004", "- >"]
+        ["300, 330, 440, 550, 660, 777, H-HR-NH 6.6.4","Cummins","04/2004 - >"]
       ],
       "Agrale": [
-        ["4130 MWM D229/6", "80", "- >"],
-        ["BX130 MWM D229/6", "80", "- >"],
-        ["BX4130 MWM 229/6", "90", "- >"],
-        ["BX4130 MWM TD229/6", "80", "- >"],
-        ["BX6150 MWM D229/6", "2004", "- >"]
-      ],
-      "Barber Green": [
-        ["Micro Carregadeiras M711, M790 Agrale", "82", "- 82"]
-      ],
-      "Bob Cat": [
-        ["711 Agrale M790", "-", "CASE"],
-        ["CA1175DS MWM TD 229/6", "-", "FIAT"],
-        ["120 8360 Nacional", "01/1978", "- 12/1984"],
-        ["130 CP3 Nacional", "01/1978", "- 01/1983"],
-        ["140 8360 Nacional", "01/1978", "- 12/1984"],
-        ["190E/F/H 8210 Importado", "12/1985", "- >"],
-        ["190E/F/H 8210 Nacional", "12/1985", "- >"],
-        ["190H 8210 Nacional Turbo", "01/1982", "- 12/1985"],
-        ["210S 8210 Importado", "12/1985", "- >"],
-        ["210S 8210 Nacional", "12/1985", "- >"],
-        ["Fiat 130 8.3 L 12V 8360", "1977", "- 1978"],
-        ["Fiat 140 8.3 L 12V 8360", "1978", "- 1979"]
-      ],
-      "Fiat Allis": [
-        ["14C Fiat 8205.05", "-", "A20"],
-        ["Fiat -", "AD10", "Fiat 8365.05"],
-        ["AD14 AD14", "-", "AD14"],
-        ["Fiat -", "AD14B", "-"],
-        ["AD14C Fiat 8205.05", "-", "AD18"]
-      ],
-      "-": [
-        ["AD20 Fiat", "-", "ADDB14"],
-        ["Fiat 6956 -", "BD14", "-"]
+        ["4130","MWM D229/6","80 - >"],
+        ["BX130","MWM D229/6","80 - >"],
+        ["BX4130","MWM 229/6","90 - >"],
+        ["BX4130","MWM TD229/6","80 - >"],
+        ["BX6150","MWM D229/6","2004 - >"]
       ]
     }
   },

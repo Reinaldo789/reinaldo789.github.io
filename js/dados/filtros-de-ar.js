@@ -522,7 +522,7 @@ export const filtrosAr = {
         ["Boxer -","2.8 8V","01/2005 - 12/2009"]
       ]
     }
-  }
+  },
 
   "ARS2868": {
     tipo: "ar",

@@ -150,6 +150,9 @@ a{color:inherit}
 .conferir{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:720px}
 .conferir li{position:relative;padding:14px 16px 14px 46px;background:var(--cartao);border:1px solid var(--linha);border-radius:12px}
 .conferir li::before{content:"";position:absolute;left:16px;top:17px;width:16px;height:9px;border-left:3px solid var(--ambar);border-bottom:3px solid var(--ambar);transform:rotate(-45deg) scale(.9)}
+.nota-tec{margin:0 0 24px;padding:16px 20px;border:1px solid var(--aviso-borda);border-left:6px solid var(--ambar);background:var(--aviso-bg);border-radius:12px}
+.nota-tec h2{margin:0 0 8px;font-size:1.2rem}
+.nota-tec p{margin:6px 0;line-height:1.55}
 .nota{max-width:720px;margin-top:22px;padding:16px 18px;border-left:4px solid var(--ambar);background:#FFF6E0;border-radius:0 12px 12px 0}
 
 /* ---------- Ficha do veículo ---------- */
@@ -854,6 +857,12 @@ function paginaFiltro(g){
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
   });
   var cat = CATALOGO[compacto(g.cod)];
+  var nt = cat && cat.notaTecnica;
+  if(nt && (nt.codigoOriginal || nt.observacao)){
+    h += '<aside class="nota-tec" aria-label="Nota técnica"><h2>Nota técnica</h2>'+
+      (nt.codigoOriginal ? '<p><strong>Código original:</strong> <span class="filtro-tag">'+esc(nt.codigoOriginal)+'</span></p>' : '')+
+      (nt.observacao ? '<p>'+esc(nt.observacao).replace(/\n/g, "<br>")+'</p>' : '')+'</aside>';
+  }
   var cv = (cat && cat.conversoes) || {}, mc = Object.keys(cv);
   /* Códigos equivalentes: com ficha no catálogo, todas as conversões do catálogo; sem ficha, os códigos do guia */
   var hCod = "";

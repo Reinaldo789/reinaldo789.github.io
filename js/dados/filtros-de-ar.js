@@ -477,7 +477,7 @@ export const filtrosAr = {
     }
   },
 
-    "ARS1013": {
+      "ARS1013": {
     tipo: "ar",
     especificacoes: { altura: 286.5, diametroExterno: 168, diametroInterno: 83, rosca: "Não possui", elemento: "Papel", valvulaAntiRetorno: "Não", valvulaAlivio: "Não", pesoLiquido: 0.9, pesoBruto: 0.987, caixa: 1 },
     conversoes: {

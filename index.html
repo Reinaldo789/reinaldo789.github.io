@@ -244,6 +244,20 @@ body{transition:background-color .25s,color .25s}
 .filtro-link:hover{border-color:var(--ambar);background:var(--aviso-bg)}
 .mais-n{margin-left:7px;padding:0 7px;border-radius:99px;background:var(--ambar);color:#11262F;font:600 .76rem "IBM Plex Sans",sans-serif}
 .mais-n.info{padding:0 8px;font-family:Georgia,serif;font-style:italic}
+.barra-pesquisa{background:var(--tinta);border-radius:16px;padding:16px;max-width:none}
+.bp-topo{display:flex;align-items:center;gap:16px}
+.bp-topo .busca{flex:1;min-width:0;max-width:none}
+.bp-rotulo{flex:none;font-weight:700;font-style:italic;letter-spacing:.04em;text-transform:uppercase;color:var(--ambar);font-size:1rem}
+.bp-linha{display:grid;grid-template-columns:1.15fr 1fr 1.4fr;gap:12px;margin-top:12px}
+.bp-linha .busca{max-width:none}
+.barra-pesquisa .busca-campo{height:52px;border-radius:12px;border-width:1px}
+.barra-pesquisa .busca-campo input{font-size:1rem}
+.barra-pesquisa select{height:52px;min-width:0;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:var(--tinta2);color:#fff;font:inherit;font-size:1rem;font-weight:600;padding:0 14px;cursor:pointer}
+.barra-pesquisa select:disabled{opacity:.55;cursor:not-allowed}
+.barra-pesquisa select:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
+.barra-pesquisa .resultados{position:absolute;left:0;right:0;top:100%;margin-top:8px;z-index:30;box-shadow:0 12px 28px rgba(0,0,0,.28)}
+.bp-dica{margin:12px 2px 0;color:#b9c7cd;font-size:.88rem}
+@media(max-width:900px){.bp-topo{flex-direction:column;align-items:stretch;gap:8px}.bp-linha{grid-template-columns:1fr}}
 .buscas{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
 .busca-rotulo{display:block;margin:0 0 8px 4px;font-size:.84rem;font-weight:600;letter-spacing:.02em;color:var(--suave)}
 .buscas .busca-campo{height:56px}
@@ -315,25 +329,33 @@ body{transition:background-color .25s,color .25s}
     <div id="vista-inicio">
       <section class="hero">
         <div id="principal"></div>
-        <div class="buscas" role="search">
-          <div class="busca">
-            <label class="busca-rotulo" for="busca">Buscar veículo ou assunto</label>
-            <div class="busca-campo">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-              <input id="busca" type="search" autocomplete="off" placeholder="Ex.: Hilux, Strada, correia dentada" aria-controls="resultados">
-              <kbd aria-hidden="true">/</kbd>
+        <div class="barra-pesquisa" role="search">
+          <div class="bp-topo">
+            <label class="bp-rotulo" for="busca">Pesquisa geral:</label>
+            <div class="busca">
+              <div class="busca-campo">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                <input id="busca" type="search" autocomplete="off" placeholder="Veículo ou assunto. Ex.: Hilux, correia dentada" aria-controls="resultados">
+                <kbd aria-hidden="true">/</kbd>
+              </div>
+              <div class="resultados" id="resultados" aria-live="polite" hidden></div>
             </div>
-            <div class="resultados" id="resultados" aria-live="polite" hidden></div>
           </div>
-          <div class="busca">
-            <label class="busca-rotulo" for="busca-filtro">Buscar filtro</label>
-            <div class="busca-campo">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg>
-              <input id="busca-filtro" type="search" autocomplete="off" placeholder="Ex.: PSL340, W 1323, LF701" aria-controls="resultados-filtro">
+          <div class="bp-linha">
+            <div class="busca">
+              <label class="sr" for="busca-filtro">Código do filtro</label>
+              <div class="busca-campo">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg>
+                <input id="busca-filtro" type="search" autocomplete="off" placeholder="Cód. Tecfil | Nº conversão" aria-controls="resultados-filtro">
+              </div>
+              <div class="resultados" id="resultados-filtro" aria-live="polite" hidden></div>
             </div>
-            <p class="dica-busca">Código de qualquer marca. Abre as especificações e as aplicações do filtro.</p>
-            <div class="resultados" id="resultados-filtro" aria-live="polite" hidden></div>
+            <label class="sr" for="sel-marca">Montadora</label>
+            <select id="sel-marca"><option value="">Montadora</option></select>
+            <label class="sr" for="sel-modelo">Veículo</label>
+            <select id="sel-modelo" disabled><option value="">Veículo</option></select>
           </div>
+          <p class="bp-dica">Código de qualquer marca (Tecfil, Mann, Mahle, Wega…) abre a ficha do filtro. Escolha a montadora e o veículo para ver lubrificantes e filtros.</p>
         </div>
         <p class="nota" id="erro-dados" hidden>Não foi possível carregar os dados dos veículos (js/dados). Abra o site pelo endereço publicado ou por um servidor local: módulos JavaScript não carregam quando o arquivo é aberto direto do disco.</p>
       </section>
@@ -797,6 +819,18 @@ function ligarBusca(idCampo, idCaixa, grupo){
 }
 ligarBusca("busca", "resultados", "veiculo");
 ligarBusca("busca-filtro", "resultados-filtro", "filtro");
+
+/* Menus Montadora > Veículo (estilo catálogo): escolher o veículo abre a ficha dele */
+(function(){
+  var sm = $("sel-marca"), sv = $("sel-modelo");
+  sm.innerHTML = '<option value="">Montadora</option>'+MONTADORAS.map(function(m){ return '<option value="'+esc(m.id)+'">'+esc(m.nome)+' ('+m.veiculos.length+')</option>'; }).join("");
+  sm.onchange = function(){
+    var m = MONTADORAS.filter(function(x){ return x.id === sm.value; })[0];
+    sv.innerHTML = '<option value="">Veículo</option>'+(m ? m.veiculos.map(function(v){ return '<option value="'+esc(v.id)+'">'+esc(v.modelo)+'</option>'; }).join("") : "");
+    sv.disabled = !m; sv.value = "";
+  };
+  sv.onchange = function(){ if(sv.value){ var id = sv.value; sv.value = ""; location.hash = "#/veiculo/"+id; } };
+})();
 
 document.addEventListener("keydown", function(e){
   var el = document.activeElement, digitando = el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");

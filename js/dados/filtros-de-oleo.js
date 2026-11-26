@@ -1086,71 +1086,59 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL560": {
+    "PSL560": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl560/produto/31",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 84, diametroExterno: 75.7, rosca: "3/4\\", elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL560, PSL561, PSL562, PSL563 E PSL564" },
     conversoes: {
-      "ACDelco": ["01FBO023", "19347724"], "Authomix": ["FOL0560"], "Bosch": ["0986B00016", "F000KP1521"],
+      "ACDelco": ["01FBO023","19347724"], "Authomix": ["FOL0560"], "Bosch": ["0986B00016","F000KP1521"],
       "Controil": ["CLFO00007"], "Cross": ["FB15/2"], "Delkraft": ["DLL80"],
-      "Delphi": ["EFL563"], "FAM": ["FL612"], "Fram": ["PH5548", "PH5548A"],
-      "Inpeca": ["SB0563", "SLB0563"], "Japanparts": ["FOBR5S"], "Knecht": ["OC207"],
-      "KS": ["188OS", "5013188"], "KSPG": ["50013188"], "Lucas": ["EFL563", "LFL5612"],
-      "Mahle": ["OC250"], "Mann": ["W712/52", "W712/53", "W7125"], "Millard": ["ML5548"],
+      "Delphi": ["EFL563"], "FAM": ["FL612"], "Fram": ["PH5548","PH5548A"],
+      "Inpeca": ["SB0563","SLB0563"], "Japanparts": ["FOBR5S"], "Knecht": ["OC207"],
+      "KS": ["188OS","5013188"], "KSPG": ["50013188"], "Lucas": ["EFL563","LFL5612"],
+      "Mahle": ["OC250"], "Mann": ["W712/52","W712/53","W7125"], "Millard": ["ML5548"],
       "Motorcraft": ["GAMJ/6731/CA/"], "Purolator": ["L1063"], "Seineca": ["SOF7012"],
       "Seineca Antigo": ["SEI0712"], "Tecfil": ["PSL560"], "Turbo Filtros": ["TB560"],
-      "Volkswagen": ["030115561", "030115561AH", "030115561AQ", "030115561AR", "030115561K", "030115561P", "030115561Q", "030115561T", "301155612"], "Vox": ["LB560"], "Vox Antigo": ["LB2601"],
-      "Wega": ["WO340"], "WIX": ["W54030BR", "WL10174", "WL570003/4D"]
+      "Volkswagen": ["030115561","030115561AH","030115561AQ","030115561AR","030115561K","030115561P","030115561Q","030115561T","301155612"], "Vox": ["LB560"], "Vox Antigo": ["LB2601"],
+      "Wega": ["WO340"], "WIX": ["W54030BR","WL10174","WL570003/4D"]
     },
     aplicacoes: {
       "Audi": [
-        ["A3 1.6 8V", "01/2007", "- 2011"]
+        ["A3","1.6 8V","01/2007 - 2011"]
       ],
       "Chrysler": [
-        ["PT Cruiser 2.4 e 2.0 16V", "2000", "- 2011"]
+        ["PT Cruiser","2.4 e 2.0 16V","2000 - 2011"]
       ],
       "Seat": [
-        ["Ibiza Popular", "1.0 16V", "2000"],
-        ["- 2002 Gasolina", "VOLKSWAGEN", "Bora"],
-        ["mecânico 1.6 16V 105cv", "2000", "- 2000"],
-        ["Bora automático", "1.6 16V 120cv", "2000"],
-        ["- 2000 Gasolina", "Cross Fox", "(MSI) - automático / mecânico"],
-        ["1.6 8V 103cv 2005", "- 2009", "Total Flex"],
-        ["Cross Fox (I-Motion / Urban White) - automático / mecânico", "1.6 8V 104cv", "2010"],
-        ["- 2017 Total Flex", "Fox", "(MI / Plus / Route / Sportline / Sports) - mecânico"],
-        ["1.6 8V 103cv 2003", "- 2010", "Total Flex"],
-        ["Fox (MI / City / Plus / Route) - mecânico", "1.0 4cil. 8V 76cv", "2008"],
-        ["- 2009 Total Flex", "Fox", "(MI / City / Plus / Sportline / Sports) - mecânico"],
-        ["1.0 4cil. 8V 73cv 2003", "- 2008", "Total Flex"],
-        ["Fox (MI / Imotion / Extreme / BlueMotion / Prime)", "1.6 8V 103cv", "2010"],
-        ["- 2017 Total Flex", "Fox", "(MI / Trend / Sunrise) - mecânico"],
-        ["1.0 4cil. 8V 76cv 2010", "- 2015", "Total Flex"],
-        ["Gol 16V / FUN / PLUS / HIGHWAY / POWER / SELEÇÃO", "1.0 16v 76cv", "1999"],
-        ["- 2006 Gasolina", "Gol", "G5 - MI / City / Trend - mecânico"],
-        ["1.0 8V 76cv 2008", "- 2010", "Total Flex"],
-        ["Gol G4 / G5 - mecânico", "1.0 16V 71cv", "2004"],
-        ["- 2008 Flex", "Gol", "G2 - Special / Trend / EFI / MI Plus - mecânico"],
-        ["1.0 4cil. 8V 50cv 1996", "- 2002", "Gasolina"],
-        ["Gol G5 / G6 / MI / Power / Imotion / Rallye - mecânico", "1.6 8V 104cv", "2008"],
-        ["- 2015 Total Flex", "Gol", "G5 / G6 - MI / Black / Ecomotion / Track - mecânico"],
-        ["1.0 8V 76cv 2011", "- 2015", "Total Flex"],
-        ["Gol G3 / G4 - MI / Fun / Highway / Sport / Plus / Power) - mecânico", "1.0 4cil. 8V 76cv", "2001"],
-        ["- 2003 Gasolina", "Gol", "G3 / G4 - MI / City / Plus / Trend / Tech / Power - mecânico"],
-        ["1.0 4c il 8V 61cv 2002", "- 2005", "Etanol"],
-        ["Gol G3 / G4 - MI / City / Plus / Trend / Tech / Power - mecânico", "1.0 4cil. 8V 65cv", "2002"],
-        ["- 2013 Gasolina", "Gol", "G2 - 1000 EFI - mecânico"],
-        ["1.0 4cil 8V 1997", "- 2001", "Etanol"],
-        ["Gol G2 - MI / Pus / Ouro - mecânico", "1.0 4cil 16V 69cv", "1997"],
-        ["- 2001 Álcool/Gasolina", "Golf", "Nacional - MI / Trip / Sport - mecânico"],
-        ["1.6 8V 94cv 2001", "- 2006", "Gasolina"],
-        ["Golf MI / Tech / Flash / Sportline - mecânico", "1.6 8V 104cv", "2007"],
-        ["- 2011 Total Flex", "Golf", "MI / Tech / Flash / Sportline - mecânico"],
-        ["1.6 8V 104cv 2012", "- 2014", "Total Flex"],
-        ["Golf MI / Black / Silver - mecânico", "1.6 8V 103cv", "2006"],
-        ["- 2007 Total Flex", "Kombi", "1.4"],
-        ["01/2006 - 2014", "Flex", "Parati"],
-        ["(MI / Comfortline / Track Field) - mecânico 1.6 8V", "2004", "- 2008"],
-        ["Total Flex Parati", "(MI / Comfortline / Track Field) - mecânico", "1.6 8V 99cv"]
+        ["Ibiza Popular","1.0 16V","2000 - 2002"]
+      ],
+      "Volkswagen": [
+        ["Bora mecânico","1.6 16V 105cv","2000 - 2000"],
+        ["Bora automático","1.6 16V 120cv","2000 - 2000"],
+        ["Cross Fox (MSI) - automático / mecânico","1.6 8V 103cv","2005 - 2009"],
+        ["Cross Fox (I-Motion / Urban White) - automático / mecânico","1.6 8V 104cv","2010 - 2017"],
+        ["Fox (MI / Plus / Route / Sportline / Sports) - mecânico","1.6 8V 103cv","2003 - 2010"],
+        ["Fox (MI / City / Plus / Route) - mecânico","1.0 4cil. 8V 76cv","2008 - 2009"],
+        ["Fox (MI / City / Plus / Sportline / Sports) - mecânico","1.0 4cil. 8V 73cv","2003 - 2008"],
+        ["Fox (MI / Imotion / Extreme / BlueMotion / Prime)","1.6 8V 103cv","2010 - 2017"],
+        ["Fox (MI / Trend / Sunrise) - mecânico","1.0 4cil. 8V 76cv","2010 - 2015"],
+        ["Gol 16V / FUN / PLUS / HIGHWAY / POWER / SELEÇÃO","1.0 16v 76cv","1999 - 2006"],
+        ["Gol G5 - MI / City / Trend - mecânico","1.0 8V 76cv","2008 - 2010"],
+        ["Gol G4 / G5 - mecânico","1.0 16V 71cv","2004 - 2008"],
+        ["Gol G2 - Special / Trend / EFI / MI Plus - mecânico","1.0 4cil. 8V 50cv","1996 - 2002"],
+        ["Gol G5 / G6 / MI / Power / Imotion / Rallye - mecânico","1.6 8V 104cv","2008 - 2015"],
+        ["Gol G5 / G6 - MI / Black / Ecomotion / Track - mecânico","1.0 8V 76cv","2011 - 2015"],
+        ["Gol G3 / G4 - MI / Fun / Highway / Sport / Plus / Power) - mecânico","1.0 4cil. 8V 76cv","2001 - 2003"],
+        ["Gol G3 / G4 - MI / City / Plus / Trend / Tech / Power - mecânico","1.0 4c il 8V 61cv","2002 - 2005"],
+        ["Gol G3 / G4 - MI / City / Plus / Trend / Tech / Power - mecânico","1.0 4cil. 8V 65cv","2002 - 2013"],
+        ["Gol G2 - 1000 EFI - mecânico","1.0 4cil 8V","1997 - 2001"],
+        ["Gol G2 - MI / Pus / Ouro - mecânico","1.0 4cil 16V 69cv","1997 - 2001"],
+        ["Golf Nacional - MI / Trip / Sport - mecânico","1.6 8V 94cv","2001 - 2006"],
+        ["Golf MI / Tech / Flash / Sportline - mecânico","1.6 8V 104cv","2007 - 2011"],
+        ["Golf MI / Tech / Flash / Sportline - mecânico","1.6 8V 104cv","2012 - 2014"],
+        ["Golf MI / Black / Silver - mecânico","1.6 8V 103cv","2006 - 2007"],
+        ["Kombi","1.4","01/2006 - 2014"],
+        ["Parati (MI / Comfortline / Track Field) - mecânico","1.6 8V","2004 - 2008"],
+        ["Parati (MI / Comfortline / Track Field) - mecânico","1.6 8V 99cv","2006 - 2012"]
       ]
     }
   },

@@ -1427,67 +1427,64 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL909": {
+    "PSL909": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl909/produto/406",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 298, diametroExterno: 119.2, rosca: "2\\", elemento: "Papel", observacao: "FILTRO FORNECIDO COM SISTEMA VENTURI E SISTEMA BY-PASS" },
     conversoes: {
       "Authomix": ["FOL0909"], "Baldwin": ["BD7309"], "Bosch": ["0986B01043"],
       "Cnh": ["84485647"], "Cummins": ["3401544"], "Delkraft": ["DL295"],
-      "Delphi": ["EFL752"], "Donaldson": ["DBL7300", "P553000"], "Fleetguard": ["LF9009"],
-      "Ford": ["BG2X6731CA"], "Fram": ["HPH6349AFP", "HPH9500", "PH11009"], "Gonher": ["GP3001"],
+      "Delphi": ["EFL752"], "Donaldson": ["DBL7300","P553000"], "Fleetguard": ["LF9009"],
+      "Ford": ["BG2X6731CA"], "Fram": ["HPH6349AFP","HPH9500","PH11009"], "Gonher": ["GP3001"],
       "Hengst": ["H300W07"], "Japanparts": ["FOBR19S"], "John Deere": ["AT193242"],
       "Js Asakashi": ["C0077"], "Mahle": ["OC1176"], "Mann": ["WP12121"],
       "Master Parts": ["MM100225"], "Motorcraft": ["MB6X6731BA"], "Nexpro": ["48074341"],
       "Parker": ["RL370"], "Sakura": ["C5707"], "Sisu": ["1216400561"],
-      "Tecfil": ["PH11009", "PSL909"], "Trp": ["915020"], "Turbo Filtros": ["TB30011"],
+      "Tecfil": ["PH11009","PSL909"], "Trp": ["915020"], "Turbo Filtros": ["TB30011"],
       "Unifilter": ["USL9009"], "Volkswagen": ["2T0115561"], "Vox": ["LB909"],
       "Vox Antigo": ["LB909"], "Wega": ["WO711"], "WIX": ["51748XD"]
     },
     aplicacoes: {
       "Agrale": [
-        ["Optima 650 BF6M1013 ECP", "-", "Optima 650"],
-        ["Cummins -", "ATLAS-COPCO", "MT2010"],
-        ["Cummins QSL9 0 -", "ST1030", "Cummins QSL9 0"],
-        ["2007 - 2007", "-", "CASE"],
-        ["2388 Cummins 6CTAA 8.3", "1998", "- >"],
-        ["912C CUMMINS QSM 11", "-", "DAF"],
-        ["F95.530XF 95XF", "CUMMINS VF390M", "1997"]
+        ["Optima 650","BF6M1013 ECP","-"],
+        ["Optima 650","Cummins","-"]
       ],
-      "- >": [
-        ["Diesel 1933", "Cargo / Tractor", "Cummins ISL8.9 330 P7-0"],
-        ["2012 - >", "Diesel", "2422"],
-        ["8.3 Cummins 6CTAA 11/2003", "- >", "Diesel"],
-        ["2425 8.3", "Cummins 6TCAA", "11/2003"],
-        ["Diesel 2626", "6 CTAA", "8.3"],
-        ["2001 - >", "Diesel", "2630"],
-        ["6 CTAA 8.3", "2001", "- >"],
-        ["2631 6 CTAA", "8.3 MAX TON", "2001"],
-        ["Diesel 2632E", "Cummins ISCE", "8.3"],
-        ["02/2006 - >", "Diesel", "2831"],
-        ["6 CTAA 8.3", "2005", "- 2006"],
-        ["3222 6 CTAA", "8", "2002"],
-        ["- 2006 Diesel", "3224", "6 CTAA"],
-        ["8.3 2001", "- >", "Diesel"],
-        ["4030 6 CT", "8.3", "2001"],
-        ["Diesel 4030", "6 CTAA", "8.3 MAX TON"],
-        ["2002 - >", "Diesel", "4031"],
-        ["6 CT 8.3", "2001", "- >"],
-        ["4031 6 CTAA", "8.3 MAX TON", "2002"],
-        ["- 2006 Diesel", "4331", "6 CTAA"],
-        ["8.3 2003", "- 2006", "Diesel"],
-        ["4432E CUMMINS ISCE", "8.3", "2006"]
+      "Atlas-Copco": [
+        ["MT2010","Cummins QSL9 0","-"],
+        ["ST1030","Cummins QSL9 0","2007 - 2007"]
       ],
-      "-": [
-        ["Doosan DL400", "Carregadoras Com Rodas", "CUMMINS QSL9"]
+      "Case": [
+        ["2388","Cummins 6CTAA 8.3","1998 - >"],
+        ["912C","CUMMINS QSM 11","-"]
+      ],
+      "DAF": [
+        ["F95.530XF 95XF","CUMMINS VF390M","1997 - >"]
+      ],
+      "Doosan": [
+        ["DL400 Carregadoras Com Rodas","CUMMINS QSL9","-"]
       ],
       "Ford": [
-        ["1617 8.3 CUMMINS 6CT", "01/2004", "- >"],
-        ["1622 8.3 Cummins 6CTA", "01/2002", "- >"],
-        ["1622 8.3 Cummins 6CTA", "11/2001", "- 12/2001"],
-        ["1722 8.3 Cummins 6CTAA", "01/2004", "- >"],
-        ["1731 8.3 Cummins 6CTAA", "01/2004", "- >"],
-        ["1932 Cargo", "Cummins", "2011"]
+        ["1617","8.3 CUMMINS 6CT","01/2004 - >"],
+        ["1622","8.3 Cummins 6CTA","01/2002 - >"],
+        ["1622","8.3 Cummins 6CTA","11/2001 - 12/2001"],
+        ["1722","8.3 Cummins 6CTAA","01/2004 - >"],
+        ["1731","8.3 Cummins 6CTAA","01/2004 - >"],
+        ["1932 Cargo","Cummins","2011 - >"],
+        ["1933 Cargo / Tractor","Cummins ISL8.9 330 P7-0","2012 - >"],
+        ["2422","8.3 Cummins 6CTAA","11/2003 - >"],
+        ["2425 8.3","Cummins 6TCAA","11/2003 - >"],
+        ["2626 6 CTAA","8.3","2001 - >"],
+        ["2630 6 CTAA","8.3","2001 - >"],
+        ["2631 6 CTAA","8.3 MAX TON","2001 - >"],
+        ["2632E Cummins ISCE","8.3","02/2006 - >"],
+        ["2831 6 CTAA","8.3","2005 - 2006"],
+        ["3222 6 CTAA","8","2002 - 2006"],
+        ["3224 6 CTAA","8.3","2001 - >"],
+        ["4030 6 CT","8.3","2001 - >"],
+        ["4030 6 CTAA","8.3 MAX TON","2002 - >"],
+        ["4031 6 CT","8.3","2001 - >"],
+        ["4031 6 CTAA","8.3 MAX TON","2002 - 2006"],
+        ["4331 6 CTAA","8.3","2003 - 2006"],
+        ["4432E CUMMINS ISCE","8.3","2006 - 2007"]
       ]
     }
   },

@@ -955,72 +955,59 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL340": {
+   "PSL340": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl340/produto/1",
-    especificacoes: { altura: 93, diametroExterno: 138, diametroInterno: null, rosca: "1\" 1/2 - 16 UN", elemento: "Papel" },
+    especificacoes: { altura: 93, diametroExterno: 138, rosca: "1\\", elemento: "Papel", observacao: "COM SEXTAVADO" },
     conversoes: {
-      "ACDelco": ["01FBO041", "19347731"], "Agrale": ["6008001204004"], "Alliance": ["A40018001090097"],
+      "ACDelco": ["01FBO041","19347731"], "Agrale": ["6008001204004"], "Alliance": ["A40018001090097"],
       "Authomix": ["FOL0340"], "Bosch": ["0986B01016"], "Delkraft": ["DL237"],
       "Delphi": ["EFL737"], "Donaldson": ["P550893"], "FAM": ["FL325"],
-      "Fram": ["PH9503"], "Franig": ["HCX8018"], "GM": ["93342367", "MS054102"],
+      "Fram": ["PH9503"], "Franig": ["HCX8018"], "GM": ["93342367","MS054102"],
       "Hengst": ["H300W09"], "Inpeca": ["SLB0720"], "Japanparts": ["FOBR3S"],
       "KSPG": ["50013478"], "Mahle": ["OC404"], "Mann": ["W1323"],
-      "MWM": ["905411880018", "905411880026"], "Nissan": ["152086S300"], "Partmo": ["AL106"],
+      "MWM": ["905411880018","905411880026"], "Nissan": ["152086S300"], "Partmo": ["AL106"],
       "Purolator": ["L1078"], "Racor": ["RL350"], "Sakura": ["C7972"],
       "Seineca": ["SOF7036"], "Seineca Antigo": ["SEI2704"], "Tecfil": ["PSL340"],
       "Troller": ["0102497"], "Turbo Filtros": ["TB350"], "Unifilter": ["USL350"],
       "Volkswagen": ["062115561A"], "Vox": ["LB340"], "Vox Antigo": ["LB2435"],
-      "Wega": ["WO540"], "WIX": ["W54175BR", "WL7414"], "ZF": ["0070131269"]
+      "Wega": ["WO540"], "WIX": ["W54175BR","WL7414"], "ZF": ["0070131269"]
     },
     aplicacoes: {
       "Agrale": [
-        ["CARGO (4WDM) (6011.000.005.00.0)", "2.8 MWM SPRINT 4.07 TCA", "2006"]
-      ],
-      "- >": [
-        ["Diesel Furgovan 6000", "2.8 MWM Sprinter 4.07 TCA", "01/2002"],
-        ["Diesel Furgovan 6000E", "MWM 4.07 TCE", "01/2005"],
-        ["Diesel Furgovan 6000E", "MWM 4.08 TCE", "01/2005"],
-        ["Diesel MA 5.0 E", "MWM 4.07 TCE", "01/2002"],
-        ["Diesel MA 5.0 E", "MWM 4.08 TCE", "01/2005"],
-        ["Diesel MA 6.0 E", "MWM 4.08 TCE", "01/2005"],
-        ["Diesel MA 6.0 E", "MWM 4.07 TCE", "01/2005"],
-        ["Diesel Marruá AM 100-E (6011.000.120.00.7)", "Sprint 4.07 TCA", "MWM"],
-        ["02/2007 - >", "Diesel", "Marruá AM 150-E (6011.000.123.00.1)"],
-        ["Sprint 4.07 TCA MWM", "04/2007", "- >"],
-        ["Marruá AM 200-E (6011.000.115.00.7) Sprint 4.07 TCA", "MWM", "06/2006"],
-        ["Diesel Volare A5", "MWM 4.07 TCA", "01/00"],
-        ["Diesel Volare A6", "MWM 4.07 TCA", "01/98"],
-        ["- 12/99 Diesel", "Volare A6", "MWM 4.07 TCA"],
-        ["01/00 - 12/01", "Diesel", "Volare A6"],
-        ["MWM 4.07 TCA 01/02", "- >", "Diesel"],
-        ["Diesel Blazer", "STD Turbo", "2.8 8V"],
-        ["2000 - 2006", "Diesel", "Blazer"],
-        ["Sprint 4.07 TCA 2.8 MWM", "01/2002", "- >"],
-        ["Blazer Sprint DLX 4X2 / 4X4 Intercooler", "2.8 MWM", "01/2005"],
-        ["Diesel S10", "TDI STD DLX LTD (4X4)", "2.8 MWM Sprint"],
-        ["03/2005 - >", "Diesel", "S10"]
+        ["CARGO (4WDM) (6011.000.005.00.0)","2.8 MWM SPRINT 4.07 TCA","2006 - >"],
+        ["Furgovan 6000","2.8 MWM Sprinter 4.07 TCA","01/2002 - >"],
+        ["Furgovan 6000E","MWM 4.07 TCE","01/2005 - >"],
+        ["Furgovan 6000E","MWM 4.08 TCE","01/2005 - >"],
+        ["MA 5.0 E","MWM 4.07 TCE","01/2002 - >"],
+        ["MA 5.0 E","MWM 4.08 TCE","01/2005 - >"],
+        ["MA 6.0 E","MWM 4.08 TCE","01/2005 - >"],
+        ["MA 6.0 E","MWM 4.07 TCE","01/2005 - >"],
+        ["Marruá AM 100-E (6011.000.120.00.7) Sprint 4.07 TCA","MWM","02/2007 - >"],
+        ["Marruá AM 150-E (6011.000.123.00.1) Sprint 4.07 TCA","MWM","04/2007 - >"],
+        ["Marruá AM 200-E (6011.000.115.00.7) Sprint 4.07 TCA","MWM","06/2006 - >"],
+        ["Volare A5","MWM 4.07 TCA","01/00 - >"],
+        ["Volare A6","MWM 4.07 TCA","01/98 - 12/99"],
+        ["Volare A6","MWM 4.07 TCA","01/00 - 12/01"],
+        ["Volare A6","MWM 4.07 TCA","01/02 - >"]
       ],
       "General Motors": [
-        ["Blazer EXECUTIVE 4X4", "2.8 8V", "2005"]
-      ],
-      "Std / Dlx": [
-        ["MWM Sprint 2.8 SOHC 01/2000", "- >", "Diesel"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv", "2002"],
-        ["- 2005 Diesel", "S10", "Turbo Intercooler Mecânico - com sist. anti-borbulha"],
-        ["2.8 MWM 01/2002", "- >", "Diesel"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv", "2006"],
-        ["- 2007 Diesel", "S10", "Turbo - (CS / CD / CE) - mecânico"],
-        ["2.8 12V MWM 132cv 1998", "- 2001", "Diesel"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv", "2007"],
-        ["- 2011 Diesel", "S10", "TDI STD DLX"],
-        ["2.8 MWM Sprint 01/2000", "- 01/2002", "Diesel"]
+        ["Blazer EXECUTIVE 4X4","2.8 8V","2005 - >"],
+        ["Blazer STD Turbo","2.8 8V","2000 - 2006"],
+        ["Blazer Sprint 4.07 TCA","2.8 MWM","01/2002 - >"],
+        ["Blazer Sprint DLX 4X2 / 4X4 Intercooler","2.8 MWM","01/2005 - >"],
+        ["S10 TDI STD DLX LTD (4X4)","2.8 MWM Sprint","03/2005 - >"],
+        ["S10 STD / DLX","MWM Sprint 2.8 SOHC","01/2000 - >"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","2002 - 2005"],
+        ["S10 Turbo Intercooler Mecânico - com sist. anti-borbulha","2.8 MWM","01/2002 - >"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2006 - 2007"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","1998 - 2001"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2007 - 2011"],
+        ["S10 TDI STD DLX","2.8 MWM Sprint","01/2000 - 01/2002"]
       ],
       "Nissan": [
-        ["Frontier (SE / Serrana / Attack)", "2.8 MWM Sprint", "2007"],
-        ["- 2007 Diesel", "Frontier", "(SE / One / Strick / XE)"],
-        ["2.8 MWM Sprint 2002", "- 2005", "Diesel"],
-        ["Frontier (SE / Serrana / Attack)", "2.8 MWM Sprint", "2006"]
+        ["Frontier (SE / Serrana / Attack)","2.8 MWM Sprint","2007 - 2007"],
+        ["Frontier (SE / One / Strick / XE)","2.8 MWM Sprint","2002 - 2005"],
+        ["Frontier (SE / Serrana / Attack)","2.8 MWM Sprint","2006 - 2006"]
       ]
     }
   },

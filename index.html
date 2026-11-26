@@ -706,7 +706,7 @@ Object.keys(GRUPOS).forEach(function(k){
   if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ cc.conversoes[m].forEach(function(c){ pares.push({ m:m, c:c, k:compacto(c) }); }); });
   if(cc && cc.conversoes) Object.keys(cc.conversoes).forEach(function(m){ todos = todos.concat(cc.conversoes[m]); });
   var txt = norm(todos.join(" ")+" "+(ROTULO_FILTRO[g.tipo] || g.tipo));
-  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:(g.veic.length ? "Serve em "+g.veic.length+(g.veic.length === 1 ? " veículo" : " veículos") : "Catálogo Tecfil"), href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", pares:pares, n:g.veic.length });
+  INDICE.push({ titulo:(ROTULO_FILTRO[g.tipo] || g.tipo)+" "+g.cod, tag:"✓ Encontrado", href:"#/filtro/"+k.replace("|","/"), texto:txt, compacto:compacto(txt), grupo:"filtro", pares:pares, n:g.veic.length });
 });
 
 function buscar(q, grupo){
@@ -755,7 +755,7 @@ function ligarBusca(idCampo, idCaixa, grupo){
     caixa.hidden = false;
     var ext = (grupo === "filtro" && /\d/.test(q)) ? '<p class="busca-cat"><a href="'+esc(urlCatalogo(q.trim()))+'" target="_blank" rel="noopener">Procurar “'+esc(q.trim())+'” no catálogo Tecfil ↗</a></p>' : "";
     if(!lista.length){
-      caixa.innerHTML = '<p class="vazio"><strong>Nada encontrado para “'+esc(q.trim())+'”.</strong> '+(grupo === "filtro" ? 'Confira o código ou tente o de outra marca (ex.: Mann, Mahle, Wega).' : 'Tente só o modelo (ex.: Strada) ou um assunto (ex.: pneu, bateria).')+'</p>'+ext;
+      caixa.innerHTML = '<p class="vazio"><strong>'+(grupo === "filtro" ? '✕ Não encontrado: “' : 'Nada encontrado para “')+esc(q.trim())+'”.</strong> '+(grupo === "filtro" ? 'Confira o código ou tente o de outra marca (ex.: Mann, Mahle, Wega).' : 'Tente só o modelo (ex.: Strada) ou um assunto (ex.: pneu, bateria).')+'</p>'+ext;
       return;
     }
     caixa.innerHTML = '<ul>'+lista.map(function(i){

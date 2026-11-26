@@ -362,10 +362,9 @@ export const filtrosOleo = {
     }
   },
 
-  "PEL726": {
+    "PEL726": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/pel726/produto/873",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 163.8, diametroExterno: 64, diametroInterno: 28.3, rosca: "Não possui", elemento: "Papel", observacao: "LINHA ECOLÓGICA" },
     conversoes: {
       "Authomix": ["FOL0726"], "Fleetguard": ["LF16372"], "Fram": ["CH11724"],
       "GM": ["12636838"], "Japanparts": ["FOBR45S"], "Mahle": ["OX1016D"],
@@ -375,10 +374,8 @@ export const filtrosOleo = {
     },
     aplicacoes: {
       "General Motors": [
-        ["S10 Turbo - (CS / CD / CE) - automático / mecânico", "2.8 16V 200cv", "2012"]
-      ],
-      "- >": [
-        ["Diesel Trailblazer", "TDI Turbo Diesel - LTZ - Automático", "2.8 16V"]
+        ["S10 Turbo - (CS / CD / CE) - automático / mecânico","2.8 16V 200cv","2012 - >"],
+        ["Trailblazer TDI Turbo Diesel - LTZ - Automático","2.8 16V","2012 - >"]
       ]
     }
   },

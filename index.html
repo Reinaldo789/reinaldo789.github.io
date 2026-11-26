@@ -102,8 +102,25 @@ a{color:inherit}
 .notas-tec li:last-child{margin-bottom:0}
 
 /* ---------- Estrutura ---------- */
-.topo{display:none}
-.principal{margin-left:calc(var(--lateral) + 28px);min-height:100vh}
+.topo{position:sticky;top:0;z-index:30;background:var(--tinta);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.topo-in{max-width:1080px;margin:0 auto;padding:10px 44px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.topo .marca-txt strong{color:#fff}.topo .marca-txt small{color:#b9c7cd}
+.topo-acoes{display:flex;align-items:center;gap:10px}
+.btn-home{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:12px;background:var(--ambar);color:#11262F;font-weight:700;text-decoration:none}
+.btn-home svg{width:19px;height:19px;stroke:currentColor}
+.btn-home:hover{filter:brightness(1.07)}
+.topo .tema{display:flex;gap:2px;padding:3px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px}
+.topo .tema button{padding:7px 11px;color:#cfdadf}
+.topo .tema button:hover{color:#fff}
+.topo .tema button[aria-pressed="true"]{background:var(--ambar);color:#11262F}
+.btn-home:focus-visible,.topo .tema button:focus-visible,.voltar-topo:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
+.principal{margin-left:0;min-height:100vh}
+.rodape-site{max-width:1080px;margin:0 auto;padding:0 44px 44px;color:var(--suave);font-size:.88rem}
+.voltar-topo{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;align-items:center;gap:8px;height:46px;padding:0 18px;border:1px solid rgba(255,255,255,.25);border-radius:99px;background:var(--tinta);color:#fff;font:600 .92rem "IBM Plex Sans",sans-serif;box-shadow:0 8px 22px rgba(0,0,0,.3);cursor:pointer;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s,transform .2s}
+.voltar-topo.visivel{opacity:1;transform:none;pointer-events:auto}
+.voltar-topo:hover{background:var(--tinta3)}
+.voltar-topo svg{width:18px;height:18px;stroke:#fff}
+@media (prefers-reduced-motion:reduce){.voltar-topo{transition:none}}
 .miolo{max-width:1080px;margin:0 auto;padding:56px 44px 40px}
 .veu{display:none}
 
@@ -213,17 +230,17 @@ a{color:inherit}
 /* ---------- Celular e tablet ---------- */
 @media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:900px){
-  .menu{top:10px;bottom:10px;left:10px;width:min(88vw,340px);transform:translateX(calc(-100% - 24px))}
-  .menu.aberto{transform:none}
-  .fechar{display:grid;place-items:center}
-  .principal{margin-left:0}
-  .topo{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:30;height:58px;padding:0 14px;background:var(--tinta);color:#fff}
-  .topo button{display:flex;align-items:center;gap:8px;height:42px;padding:0 14px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font:inherit;cursor:pointer}
-  .topo button svg{width:20px;height:20px;stroke:#fff}
-  .veu{display:block;position:fixed;inset:0;background:rgba(10,20,25,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:35}
-  .veu.aberto{opacity:1;pointer-events:auto}
   .miolo{padding:32px 18px 32px}
   .busca-campo kbd{display:none}
+  .topo-in{padding:8px 14px}
+  .rodape-site{padding:0 18px 40px}
+  .voltar-topo{right:14px;bottom:14px}
+}
+@media (max-width:600px){
+  .topo .marca-txt small{display:none}
+  .topo .tema button{font-size:0;gap:0;padding:8px 10px}
+  .btn-home{padding:0 12px}
+  .voltar-topo span{display:none}.voltar-topo{width:46px;padding:0;justify-content:center}
 }
 @media (max-width:600px){.cards{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -283,44 +300,21 @@ body{transition:background-color .25s,color .25s}
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-<aside class="menu" id="menu" aria-label="Menu principal">
-  <div class="menu-marca">
-    <a class="marca-link" href="#/inicio">
-      <span class="marca-ico" aria-hidden="true">GT</span>
-      <span class="marca-txt"><strong>Guia Técnico</strong><small>Lubrificantes &amp; Filtros</small></span>
-    </a>
-    <button class="fechar" id="fechar" aria-label="Fechar menu">&times;</button>
-  </div>
-
-  <div class="menu-fixo">
-    <a class="item" href="#/inicio" data-rota="inicio">
-      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>
-      Início
-    </a>
-  </div>
-
-  <nav class="menu-corpo" aria-label="Seções do guia">
-    <p class="grupo-titulo">Montadoras e veículos</p>
-    <div id="menu-montadoras"></div>
-    <p class="grupo-titulo">Manutenção por assunto</p>
-    <div id="menu-topicos"></div>
-  </nav>
-  <div class="menu-rodape">
-    <div class="tema" role="group" aria-label="Aparência do site">
+<div class="principal">
+  <header class="topo">
+    <div class="topo-in">
+      <a class="marca-link" href="#/inicio" aria-label="Guia Técnico: ir para o início">
+        <span class="marca-ico" aria-hidden="true">GT</span>
+        <span class="marca-txt"><strong>Guia Técnico</strong><small>Lubrificantes &amp; Filtros</small></span>
+      </a>
+      <nav class="topo-acoes" aria-label="Atalhos">
+        <a class="btn-home" href="#/inicio" data-rota="inicio"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+        <div class="tema" role="group" aria-label="Aparência do site">
       <button type="button" data-tema-btn="claro" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Claro</button>
       <button type="button" data-tema-btn="escuro" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Escuro</button>
     </div>
-    <p>Confirme sempre com o manual do fabricante antes de executar a manutenção.</p>
-  </div>
-</aside>
-<div class="veu" id="veu"></div>
-
-<div class="principal">
-  <header class="topo">
-    <button id="abrir" aria-controls="menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      Menu
-    </button>
+      </nav>
+    </div>
   </header>
 
   <main class="miolo" id="conteudo" tabindex="-1">
@@ -372,6 +366,8 @@ body{transition:background-color .25s,color .25s}
     <!-- Páginas internas (assunto ou veículo) -->
     <div id="vista-detalhe" class="detalhe" hidden></div>
   </main>
+  <footer class="rodape-site"><p>Confirme sempre com o manual do fabricante antes de executar a manutenção.</p></footer>
+  <button type="button" class="voltar-topo" id="voltar-topo" aria-label="Voltar ao início da página"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Início da página</span></button>
 </div>
 
 <script>
@@ -640,70 +636,31 @@ function logo(nome){
 }
 
 /* =====================================================================
-   MENU LATERAL
+   TOPO: link da página atual e botão "Início da página"
    ===================================================================== */
-function montarMenu(){
-  $("menu-topicos").innerHTML = TOPICOS.map(function(t){
-    return '<a class="item" href="#/assunto/'+t.id+'" data-rota="assunto/'+t.id+'">'+svg(t.icone,"ic")+esc(t.titulo)+'</a>';
-  }).join("");
-
-  $("menu-montadoras").innerHTML = MONTADORAS.map(function(m){
-    return '<div class="mont" data-mont="'+m.id+'">'+
-      '<button class="mont-btn" aria-expanded="false" aria-controls="sub-'+m.id+'">'+
-        logo(m.nome)+'<span class="nome">'+esc(m.nome)+'</span><span class="qtd">'+m.veiculos.length+'</span>'+
-        '<svg class="seta" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>'+
-      '</button>'+
-      '<div class="sub" id="sub-'+m.id+'"><ul>'+
-        m.veiculos.map(function(v){ return '<li><a href="#/veiculo/'+v.id+'" data-rota="veiculo/'+v.id+'">'+esc(v.modelo)+'</a></li>'; }).join("")+
-      '</ul></div></div>';
-  }).join("");
-
-  $("menu-montadoras").addEventListener("click", function(e){
-    var btn = e.target.closest(".mont-btn");
-    if(!btn) return;
-    var abrir = btn.getAttribute("aria-expanded") !== "true";
-    expandir(btn.parentNode.getAttribute("data-mont"), abrir);
-  });
-}
-
-/* Abrir uma montadora recolhe as outras */
-function expandir(id, abrir){
-  document.querySelectorAll(".mont").forEach(function(el){
-    var meu = el.getAttribute("data-mont") === id;
-    var aberto = meu ? abrir : false;
-    el.querySelector(".mont-btn").setAttribute("aria-expanded", aberto);
-    el.querySelector(".sub").classList.toggle("aberto", aberto);
-    el.classList.toggle("aberta", aberto);
-  });
-}
-
 function marcarAtivo(rota){
   document.querySelectorAll("[data-rota]").forEach(function(a){
     if(a.getAttribute("data-rota") === rota) a.setAttribute("aria-current","page");
     else a.removeAttribute("aria-current");
   });
-  var ativo = document.querySelector('.sub a[aria-current="page"]');
-  if(ativo) expandir(ativo.closest(".mont").getAttribute("data-mont"), true);
-  else expandir("", false);
 }
-
-/* Menu como gaveta no celular */
-function gaveta(abrir){
-  $("menu").classList.toggle("aberto", abrir);
-  $("veu").classList.toggle("aberto", abrir);
-  $("abrir").setAttribute("aria-expanded", abrir);
-}
-$("abrir").addEventListener("click", function(){ gaveta(true); });
-$("fechar").addEventListener("click", function(){ gaveta(false); });
-$("veu").addEventListener("click", function(){ gaveta(false); });
-document.addEventListener("keydown", function(e){ if(e.key === "Escape") gaveta(false); });
+(function(){
+  var b = $("voltar-topo");
+  function ver(){ b.classList.toggle("visivel", window.scrollY > 500); }
+  window.addEventListener("scroll", ver, { passive:true }); ver();
+  b.addEventListener("click", function(){
+    var reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top:0, behavior: reduz ? "auto" : "smooth" });
+    document.querySelector(".btn-home").focus({ preventScroll:true });
+  });
+})();
 
 /* =====================================================================
    TELA INICIAL: TÍTULO, CARDS E BUSCA
    ===================================================================== */
 function montarCards(){
   $("principal").innerHTML = '<header class="titulo-pagina"><h1>Pesquisa Lubrificação e Filtros</h1></header>';
-  $("cards").innerHTML = TOPICOS.filter(function(t){ return !t.destaque; }).map(function(t){
+  $("cards").innerHTML = TOPICOS.map(function(t){
     return '<a class="card" href="#/assunto/'+t.id+'">'+
       '<span class="ico">'+svg(t.icone)+'</span>'+
       '<h3>'+esc(t.titulo)+'</h3><p>'+esc(t.resumo)+'</p>'+
@@ -862,7 +819,6 @@ function rota(){
   $("conteudo").classList.toggle("inicio", !interna);
   document.title = (interna ? det.querySelector("h1").textContent+" · " : "") + "Guia Técnico de Lubrificantes & Filtros";
   marcarAtivo(rotaAtiva);
-  gaveta(false);
   window.scrollTo(0,0);
 }
 
@@ -999,7 +955,6 @@ if(erroDados){
   $("erro-dados").textContent = "Alguns dados não carregaram ("+falhas.join(" | ")+"). Confira o arquivo indicado em js/dados; se abriu o site direto do disco, use o endereço publicado ou um servidor local.";
   $("erro-dados").hidden = false;
 }
-montarMenu();
 montarCards();
 window.addEventListener("hashchange", rota);
 rota();

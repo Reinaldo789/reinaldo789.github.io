@@ -554,10 +554,9 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL127": {
+    "PSL127": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl127/produto/697",
-    especificacoes: { altura: 86.5, diametroExterno: 76.2, diametroInterno: null, rosca: "3/4\" - 16 UN", elemento: "Papel" },
+    especificacoes: { altura: 86.5, diametroExterno: 76.2, rosca: "3/4\\", elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL47, PSL127, PSL144, PSL145, PSL146, PSL147, PSL148, PSL545 E PSL565" },
     conversoes: {
       "Authomix": ["FOL0127"], "Bosch": ["0986B00066"], "Delphi": ["EDL113"],
       "Fleetguard": ["LF3335"], "Japanparts": ["FO279S"], "Js Asakashi": ["C110J"],
@@ -565,51 +564,37 @@ export const filtrosOleo = {
       "Partmo": ["A14302PLUS"], "Sakura": ["C1123"], "Seineca": ["SOF7023"],
       "Seineca Antigo": ["SEI2674"], "Tecfil": ["PSL127"], "Toyota": ["9091520003"],
       "Turbo Filtros": ["TB211"], "Vox": ["LB127"], "Wega": ["JFO0211"],
-      "WIX": ["WL10165"],
-      "Mahle": ["OC 696","OC 988"],
-      "Fram": ["PH4967","PH2870"]
+      "WIX": ["WL10165"]
     },
     aplicacoes: {
+      "Toyota": [
+        ["Hilux D4-D CD / SR / SRV / SW4 / 4x2/ 4x4 / Aut","3.0 16V","01/2006 - 12/2010"],
+        ["Hilux CDSRV TBI","3.0 16V","2006 - 12/2010"],
+        ["Hilux TDI Turbo (SW4) - automático","2.8 16V 177cv","2016 - >"],
+        ["Hilux D/C SRV Turbo 4x4 e 4X2","3.0 16V","2001 - 2006"],
+        ["Hilux DOHC VVT-i - SR","2.7 16V","10/2008 - 2010"],
+        ["Hilux D/C DX AC 4X2 e 4X4","2.5 16V","2005 - 12/2010"],
+        ["Hilux TDI Turbo (CD / SR) - automático","2.8 16V 177cv","2016 - >"],
+        ["Hilux SW4","2.7 16V","12/2011 - 2015"],
+        ["Hilux D/C SRV TBI","3.0 16V","2005 - 12/2010"],
+        ["Hilux Turbo Diesel - (SW4 / SRV / CD /CS) - Automático / Mecânico","3.0 16V 163cv","12/2011 - 2015"],
+        ["Hilux D/C SRV 4x4","3.0 16V","2005 - 12/2010"],
+        ["Hilux SW NEW AT","3.0 16V","2005 - 10/2010"],
+        ["Hilux SW NEM MT","3.0 16V","2005 - 10/2010"],
+        ["Hilux CDSRV","3.0 16V","2006 - 12/2010"],
+        ["Hilux Turbo Diesel - (CD / CS) - Automático / Mecânico","2.5 16V 102cv","12/2011 - 2015"],
+        ["Hilux SW4 (SR / SRV)","2.7 16V 4 cil.","2016 - >"],
+        ["Hiace Turbo DX Autom.","2.8 16V 174cv","2025 - >"],
+        ["Hilux SW4 4x4 - Turbo","3.0 - 16V - 171CV","2014 - 2015"],
+        ["Previa LE/DLX 16V","2.4 L 16V DOHC L4","1990 - 2000"]
+      ],
       "Jetour": [
-        ["S06 PHEV", "1.5 - Turbo GDI - 315cv", "2026"]
-      ],
-      "- >": [
-        ["Híbrido T1", "PHEV", "1.5 - Turbo GDI - 380cv"],
-        ["2026 - >", "Híbrido", "T2"],
-        ["Diesel Hilux", "SW4 (SR / SRV)", "2.7 16V 4 cil."],
-        ["2016 - >", "Flex", "Hilux"],
-        ["D/C SRV Turbo 4x4 e 4X2 3.0 16V", "2001", "- 2006"],
-        ["Hilux DOHC VVT-i - SR", "2.7 16V", "10/2008"],
-        ["- 2010 Gasolina", "Hilux", "D/C DX AC 4X2 e 4X4"],
-        ["2.5 16V 2005", "- 12/2010", "Diesel"],
-        ["Hilux D4-D CD / SR / SRV / SW4 / 4x2/ 4x4 / Aut", "3.0 16V", "01/2006"],
-        ["- 12/2010 Diesel", "Hilux", "CDSRV TBI"],
-        ["3.0 16V 2006", "- 12/2010", "Diesel"],
-        ["Hilux TDI Turbo (SW4) - automático", "2.8 16V 177cv", "2016"],
-        ["Diesel Hilux", "TDI Turbo (CD / SR) - automático", "2.8 16V 177cv"],
-        ["2016 - >", "Diesel", "Hilux"],
-        ["SW4 2.7 16V", "12/2011", "- 2015"],
-        ["Hilux D/C SRV TBI", "3.0 16V", "2005"],
-        ["- 12/2010 Diesel", "Hilux", "Turbo Diesel - (SW4 / SRV / CD /CS) - Automático / Mecânico"],
-        ["3.0 16V 163cv 12/2011", "- 2015", "Diesel"],
-        ["Hilux D/C SRV 4x4", "3.0 16V", "2005"],
-        ["- 12/2010 Diesel", "Hilux", "SW NEW AT"],
-        ["3.0 16V 2005", "- 10/2010", "Diesel"],
-        ["Hilux SW NEM MT", "3.0 16V", "2005"],
-        ["- 10/2010 Diesel", "Hilux", "CDSRV"],
-        ["Hilux Turbo Diesel - (CD / CS) - Automático / Mecânico", "2.5 16V 102cv", "12/2011"],
-        ["- 2015 Diesel", "Hilux SW4", "4x4 - Turbo"],
-        ["3.0 - 16V - 171CV 2014", "- 2015", "Diesel"],
-        ["Previa LE/DLX 16V", "2.4 L 16V DOHC L4", "1990"]
-      ],
-      "Phev": [
-        ["1.5 - Turbo GDI - 385cv 2026", "- >", "Híbrido"]
+        ["S06 PHEV","1.5 - Turbo GDI - 315cv","2026 - >"],
+        ["T1 PHEV","1.5 - Turbo GDI - 380cv","2026 - >"],
+        ["T2 PHEV","1.5 - Turbo GDI - 385cv","2026 - >"]
       ],
       "Suzuki": [
-        ["Sidekick 1.6 16V 80 cv", "1990", "- 1996"]
-      ],
-      "Toyota": [
-        ["Hiace Turbo DX Autom.", "2.8 16V 174cv", "2025"]
+        ["Sidekick","1.6 16V 80 cv","1990 - 1996"]
       ]
     }
   },

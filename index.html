@@ -270,6 +270,20 @@ body{transition:background-color .25s,color .25s}
 .barra-pesquisa .busca-campo{height:52px;border-radius:12px;border-width:1px}
 .barra-pesquisa .busca-campo input{font-size:1rem}
 .barra-pesquisa select{height:52px;min-width:0;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:var(--tinta2);color:#fff;font:inherit;font-size:1rem;font-weight:600;padding:0 14px;cursor:pointer}
+.barra-pesquisa select option{background:#0E437A;color:#fff}
+.barra-pesquisa select option:hover,.barra-pesquisa select option:focus,.barra-pesquisa select option:checked{background:#FFD200;color:#003772}
+@supports (appearance:base-select){
+  .barra-pesquisa select,.barra-pesquisa select::picker(select){appearance:base-select}
+  .barra-pesquisa select{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .barra-pesquisa select::picker-icon{color:#fff;font-size:.8rem}
+  .barra-pesquisa select::picker(select){min-width:anchor-size(width)}
+  .barra-pesquisa select::picker(select){background:#0E437A;border:1px solid #26679B;border-radius:12px;padding:6px;max-height:60vh;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+  .barra-pesquisa select option{padding:10px 12px;border-radius:8px;color:#fff;font-weight:500}
+  .barra-pesquisa select option:hover,.barra-pesquisa select option:focus-visible{background:#FFD200;color:#003772;font-weight:700}
+  .barra-pesquisa select option:checked{background:#26679B;color:#fff;font-weight:700}
+  .barra-pesquisa select option:checked:hover{background:#FFD200;color:#003772}
+  .barra-pesquisa select option::checkmark{color:currentColor}
+}
 .barra-pesquisa select:disabled{opacity:.55;cursor:not-allowed}
 .barra-pesquisa select:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
 .barra-pesquisa .resultados{position:absolute;left:0;right:0;top:100%;margin-top:8px;z-index:30;box-shadow:0 12px 28px rgba(0,0,0,.28)}

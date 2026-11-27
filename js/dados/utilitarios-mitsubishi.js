@@ -55,7 +55,7 @@ export const utilitariosMitsubishi = {
       2: "Diferencial traseiro convencional ou com bloqueio mecânico acionado eletronicamente (R/D Lock, conforme versão), utilizando óleo API GL-5 convencional (sem necessidade de aditivo LS)."
     },
     filtros: {
-      oleo: 'PSL55 (2º lubrificante: TM5; confira também PSL818 conforme aplicação)',
+      oleo: 'PSL55',
       ar: 'ARL4139',
       combustivel: 'PC949',
       cabine: 'ACP816'

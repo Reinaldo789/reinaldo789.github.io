@@ -232,6 +232,12 @@ a{color:inherit}
   body.tem-abas .principal{padding-bottom:84px}
   body.tem-abas .voltar-topo{bottom:90px}
 }
+.lista-filtros{display:grid;gap:12px}
+.filtro-linha{padding:14px 18px;background:var(--cartao);border:1px solid var(--linha);border-left:5px solid var(--ambar);border-radius:14px}
+.filtro-nome{margin:0 0 10px;display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:700;text-transform:none}
+.codigos-linha{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.par{display:inline-flex;align-items:center;gap:7px}
+.par small{color:var(--suave);font-size:.8rem;font-weight:500}
 .dica-filtros{margin:-4px 0 12px;font-size:.9rem;color:var(--suave)}
 .linha-filtro{display:flex;align-items:center;gap:10px;white-space:nowrap}
 .ico-filtro[data-t=oleo]{color:#b45309}.ico-filtro[data-t=ar]{color:#0369a1}.ico-filtro[data-t=arSecundario],.ico-filtro[data-t=ar_secundario]{color:#7c3aed}
@@ -1004,27 +1010,27 @@ function construcao(txt, extra){
 }
 
 function tabelaFiltros(d, tipos){
-  var cols = [];
-  tipos.forEach(function(t){ Object.keys(d.filtros[t]).forEach(function(m){ if(cols.indexOf(m) < 0) cols.push(m); }); });
-  cols.sort(function(a,b){
-    var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
-    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-  });
-  return '<p class="dica-filtros">Toque num código da Tecfil para abrir a ficha completa do filtro. O <strong>+N</strong> mostra em quantos outros veículos ele também serve.</p><div class="caixa-tabela"><table class="tabela-filtros"><thead><tr><th>Filtro</th>'+
-    cols.map(function(c){ return '<th>'+esc(NOME_COLUNA[c] || c)+'</th>'; }).join("")+'</tr></thead><tbody>'+
+  /* Cada filtro numa linha; os códigos de cada marca ficam em sequência, quebrando linha só se faltar espaço */
+  return '<p class="dica-filtros">Toque num código da Tecfil para abrir a ficha completa do filtro. O <strong>+N</strong> mostra em quantos outros veículos ele também serve.</p><div class="lista-filtros">'+
     tipos.map(function(t){
-      return '<tr><th scope="row"><span class="linha-filtro"><span class="ico-filtro" data-t="'+esc(t)+'" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span>'+esc(rotuloLinha(t))+'</span></span></th>'+cols.map(function(c){
-        var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
-        if(c === "tecfil" && !codVazio(cod)){
-          tag = partirCod(cod).map(function(p){
-            var g = GRUPOS[t+"|"+compacto(p.cod)], n = g ? g.veic.length-1 : 0, rot = p.rot ? ' <small>('+esc(p.rot)+')</small>' : '';
-            if(!g) return '<span class="filtro-tag">'+esc(p.cod)+'</span>'+rot;
-            return '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(p.cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(p.cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(p.cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>'+rot;
-          }).join(" ");
-        }
-        return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
-      }).join("")+'</tr>';
-    }).join("")+'</tbody></table></div>';
+      var marcas = Object.keys(d.filtros[t]).filter(function(m){ var c = d.filtros[t][m]; return c && c !== "-"; });
+      marcas.sort(function(a,b){
+        var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
+        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+      });
+      return '<article class="filtro-linha"><h3 class="filtro-nome"><span class="ico-filtro" data-t="'+esc(t)+'" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span>'+esc(rotuloLinha(t))+'</h3><div class="codigos-linha">'+
+        marcas.map(function(c){
+          var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
+          if(c === "tecfil" && !codVazio(cod)){
+            tag = partirCod(cod).map(function(p){
+              var g = GRUPOS[t+"|"+compacto(p.cod)], n = g ? g.veic.length-1 : 0, rot = p.rot ? ' <small>('+esc(p.rot)+')</small>' : '';
+              if(!g) return '<span class="filtro-tag">'+esc(p.cod)+'</span>'+rot;
+              return '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(p.cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(p.cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(p.cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>'+rot;
+            }).join(" ");
+          }
+          return '<span class="par"><small>'+esc(NOME_COLUNA[c] || c)+'</small>'+tag+'</span>';
+        }).join("")+'</div></article>';
+    }).join("")+'</div>';
 }
 
 function abaLubrificantes(d){

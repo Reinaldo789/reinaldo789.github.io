@@ -697,13 +697,12 @@ export const filtrosAr = {
     }
   },
 
-  "ARS2870": {
+    "ARS2870": {
     tipo: "ar",
-    url: "https://catalogo.tecfil.com.br/search/ars2870/produto/717",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 270, diametroExterno: 161, diametroInterno: 87, rosca: "Não possui", elemento: "Papel", observacao: "CÓD CÂMBIO" },
     conversoes: {
       "ACDelco": ["94771925"], "Authomix": ["FAR2870"], "Bosch": ["0986B03014"],
-      "Filtran": ["2052870"], "Fram": ["CA11077", "CA8852B"], "General Motors": ["52046262", "52160963"],
+      "Filtran": ["2052870"], "Fram": ["CA11077","CA8852B"], "General Motors": ["52046262","52160963"],
       "GM": ["94771925"], "Interfil": ["F52A04"], "Japanparts": ["FABR78S"],
       "Mahle": ["LX3679"], "Mann": ["C16010/1"], "Mann Argentina": ["C16010"],
       "Master Parts": ["MM100252"], "Sakura": ["A65510"], "Seineca": ["SAR8113"],
@@ -712,15 +711,11 @@ export const filtrosAr = {
     },
     aplicacoes: {
       "General Motors": [
-        ["S10 Ecotec", "2.5 16V 206cv", "2014"]
-      ],
-      "- >": [
-        ["Flex S10", "Turbo - (CS / CD / CE) - automático / mecânico", "2.8 16V 200cv"],
-        ["2012 - >", "Diesel", "S10"],
-        ["Flex Power - (CS / CD / CE) - automático / mecânico 2.4 8V 147cv", "2012", "- >"],
-        ["Trailblazer LTZ - Automático", "3.6 V6", "2012"],
-        ["- 2015 Gasolina", "Trailblazer", "TDI Turbo Diesel - LTZ - Automático"],
-        ["2.8 16V 2012", "- >", "Diesel"]
+        ["S10 Turbo - (CS / CD / CE) - automático / mecânico","2.8 16V 200cv","2012 - >"],
+        ["S10 Ecotec","2.5 16V 206cv","2014 - >"],
+        ["S10 Flex Power - (CS / CD / CE) - automático / mecânico","2.4 8V 147cv","2012 - >"],
+        ["Trailblazer LTZ - Automático","3.6 V6","2012 - 2015"],
+        ["Trailblazer TDI Turbo Diesel - LTZ - Automático","2.8 16V","2012 - >"]
       ]
     }
   },

@@ -48,13 +48,14 @@ export const utilitariosMitsubishi = {
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '9,0 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Quinta geração (Triton Sport) com bloco de alumínio e comando variável MIVEC. Direção hidráulica e tração Super Select II com seletor eletrônico.",
+      1: "Quinta geração (Triton Sport) com bloco de alumínio e comando variável MIVEC. Direção hidráulica e tração Super Select II com seletor eletrônico. No catálogo aparecem dois registros 2.4 Diesel 190 cv (DI-D 2016+ e Triton Sport CD/GLS 2017+).",
       2: "Diferencial traseiro convencional ou com bloqueio mecânico acionado eletronicamente (R/D Lock, conforme versão HPE/HPE-S/Savana), utilizando óleo API GL-5 convencional (sem necessidade de aditivo LS)."
     },
     filtros: {
-      oleo: 'PSL818',
+      oleo: 'PSL55 (2º lubrificante: TM5; confira também PSL818 conforme aplicação)',
       ar: 'ARL4139',
-      combustivel: 'PC949'
+      combustivel: 'PC949',
+      cabine: 'ACP816'
     }
   },
 

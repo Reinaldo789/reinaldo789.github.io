@@ -12,9 +12,9 @@ export const utilitariosMitsubishi = {
       2: "Na versão HPE, o diferencial traseiro utiliza bloqueio mecânico acionável (R/D LOCK) e trabalha com óleo API GL-5 convencional (sem aditivo LS). Apenas as unidades equipadas com diferencial traseiro de deslizamento limitado (LSD, como algumas Outdoor/Savana com eixo Dana) exigem óleo específico GL-5 LS."
     },
     filtros: {
-      oleo: 'PSL55',
-      ar: 'ARL7001',
-      combustivel: 'PSD380'
+      oleo: 'PSL158 (Sport/HPE/Outdoor) / PSL327 (antigas até 2004)',
+      ar: 'ARS7109 (Sport/HPE) / ARS6223 (Outdoor 2010–2012)',
+      combustivel: 'PSC990'
     }
   },
   
@@ -32,9 +32,9 @@ export const utilitariosMitsubishi = {
       2: "Nas versões equipadas com bloqueio traseiro acionável ou eixo convencional, utiliza óleo API GL-5 comum (sem aditivo LS). Utilize óleo GL-5 LS apenas se o eixo traseiro possuir etiqueta/especificação LSD (deslizamento limitado)."
     },
     filtros: {
-      oleo: 'PSL75',
-      ar: 'ARL9602',
-      combustivel: 'PSC722'
+      oleo: 'PSL158',
+      ar: 'ARL4141',
+      combustivel: 'PSC890 (2008–2011) / PC949 (2012–2016)'
     }
   },
 
@@ -52,9 +52,9 @@ export const utilitariosMitsubishi = {
       2: "Diferencial traseiro convencional ou com bloqueio mecânico acionado eletronicamente (R/D Lock, conforme versão HPE/HPE-S/Savana), utilizando óleo API GL-5 convencional (sem necessidade de aditivo LS)."
     },
     filtros: {
-      oleo: 'PSL75',
-      ar: 'ARL9605',
-      combustivel: 'PSC730'
+      oleo: 'PSL818',
+      ar: 'ARL4139',
+      combustivel: 'PC949'
     }
   },
 
@@ -72,9 +72,9 @@ export const utilitariosMitsubishi = {
       2: "Diferencial traseiro convencional ou equipado com bloqueio traseiro acionável eletronicamente (conforme versão), utilizando óleo API GL-5 convencional (sem aditivo LS)."
     },
     filtros: {
-      oleo: 'PSL75',
-      ar: 'ARL9605',
-      combustivel: 'PSC740'
+      oleo: 'OEM 1230A182',
+      ar: 'OEM 16546A000P',
+      combustivel: 'OEM 16405A000P'
     }
   }
 };

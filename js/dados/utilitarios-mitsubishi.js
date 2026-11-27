@@ -1,6 +1,7 @@
 export const utilitariosMitsubishi = {
   'Mitsubishi L200 Sport / Outdoor 2.5 (8V - Até 2012)': {
     usaArla32: false,
+    temDpf: false,
     sistemas: [
       { sistema: 'Motor (2.5 8V - 4D56 Tradicional)', especificacao: 'SAE 15W-40 API CI-4 / CH-4', capacidade: '6,5 L a 7,0 L (com filtro)', intervalo: '5.000 km a 7.500 km' },
       { sistema: 'Câmbio Manual / Automático', especificacao: 'Manual: SAE 75W-90 GL-4 | Auto: ATF DEXRON III', capacidade: 'Manual: ~2,2 L', intervalo: '40.000 km' },
@@ -8,7 +9,7 @@ export const utilitariosMitsubishi = {
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Etilenoglicol (50/50)', capacidade: '8,0 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Linha clássica L200 Sport, Outdoor e Savana com motor 2.5 de 8 válvulas, focada em robustez mecânica e sem eletrônica complexa.",
+      1: "Linha clássica L200 Sport, Outdoor e Savana com motor 2.5 de 8 válvulas, sem Arla 32 e sem DPF.",
       2: "Na versão HPE, o diferencial traseiro utiliza bloqueio mecânico acionável (R/D LOCK) e trabalha com óleo API GL-5 convencional (sem aditivo LS). Apenas as unidades equipadas com diferencial traseiro de deslizamento limitado (LSD, como algumas Outdoor/Savana com eixo Dana) exigem óleo específico GL-5 LS."
     },
     filtros: {
@@ -17,9 +18,10 @@ export const utilitariosMitsubishi = {
       combustivel: 'PSC990'
     }
   },
-  
+
   'Mitsubishi L200 Triton 3.2 16V (Motor 4M41 - 2008 a 2016)': {
     usaArla32: false,
+    temDpf: false,
     sistemas: [
       { sistema: 'Motor (4M41 3.2 Diesel - 165/180 cv)', especificacao: 'SAE 15W-40 ou 10W-30 (API CI-4 / ACEA A3/B4)', capacidade: '8,0 L a 8,3 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
       { sistema: 'Câmbio Manual (5 marchas) / Automático (5 marchas - INVECS-II)', especificacao: 'Manual: SAE 75W-85 API GL-4/GL-5 | Auto: ATF SP-III', capacidade: 'Manual: 3,4 L | Auto: 8,7 L (Total)', intervalo: 'Manual: 80.000 km | Auto: 40.000 km' },
@@ -28,7 +30,7 @@ export const utilitariosMitsubishi = {
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '8,5 L a 8,8 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Geração clássica produzida em Catalão (GO) com motor 3.2 DI-D de 16 válvulas.",
+      1: "Geração clássica produzida em Catalão (GO) com motor 3.2 DI-D de 16 válvulas, sem Arla 32 e sem DPF.",
       2: "Nas versões equipadas com bloqueio traseiro acionável ou eixo convencional, utiliza óleo API GL-5 comum (sem aditivo LS). Utilize óleo GL-5 LS apenas se o eixo traseiro possuir etiqueta/especificação LSD (deslizamento limitado)."
     },
     filtros: {
@@ -38,18 +40,19 @@ export const utilitariosMitsubishi = {
     }
   },
 
-  'Mitsubishi L200 Triton Sport 2.4 (Motor 4N15 MIVEC - 2016 a 2024)': {
+  'Mitsubishi L200 Triton Sport 2.4 Diesel 190 cv (2016 a 2024/2025)': {
     usaArla32: false,
+    temDpf: true,
     sistemas: [
-      { sistema: 'Motor (4N15 2.4 16V MIVEC Diesel - 190 cv)', especificacao: 'SAE 5W-30 Sintético ou 10W-30 (API CI-4 / CK-4 / ACEA A3/B4) [1]', capacidade: '7,5 L a 8,4 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Motor (2.4 16V Turbo Diesel - 190 cv)', especificacao: 'SAE 5W-30 Sintético ou 10W-30 (API CI-4 / CK-4 / ACEA A3/B4) [1]', capacidade: '7,5 L a 8,4 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
       { sistema: 'Câmbio Manual (6 marchas) / Automático (6 marchas)', especificacao: 'Manual: SAE 75W-85 GL-4 | Auto: ATF SP-IV', capacidade: 'Manual: 2,2 L | Auto (Total): ~8,5 L', intervalo: 'Manual: 80.000 km | Auto: 50.000 km' },
       { sistema: 'Caixa de Transferência (Super Select II)', especificacao: 'SAE 75W-85 API GL-4', capacidade: '2,4 L', intervalo: '80.000 km' },
       { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: SAE 80W-90 GL-5 | Tras: SAE 90 ou 80W-90 GL-5 (Convencional / Bloqueio R/D Lock) [2]', capacidade: 'Diant: 1,2 L | Tras: 2,8 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '9,0 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Quinta geração (Triton Sport) com bloco de alumínio e comando variável MIVEC. Direção hidráulica e tração Super Select II com seletor eletrônico. No catálogo aparecem dois registros 2.4 Diesel 190 cv (DI-D 2016+ e Triton Sport CD/GLS 2017+).",
-      2: "Diferencial traseiro convencional ou com bloqueio mecânico acionado eletronicamente (R/D Lock, conforme versão HPE/HPE-S/Savana), utilizando óleo API GL-5 convencional (sem necessidade de aditivo LS)."
+      1: "Linha 2.4 16V Turbo Diesel de 190 cv (GL, GLX, GLS, HPE, HPE-S, Savana, Sertões, etc., incluindo os registros DI-D 2016+ e Triton Sport CD/GLS 2017+ no catálogo). Possui filtro de partículas DPF de fábrica, mas NÃO utiliza Arla 32.",
+      2: "Diferencial traseiro convencional ou com bloqueio mecânico acionado eletronicamente (R/D Lock, conforme versão), utilizando óleo API GL-5 convencional (sem necessidade de aditivo LS)."
     },
     filtros: {
       oleo: 'PSL55 (2º lubrificante: TM5; confira também PSL818 conforme aplicação)',
@@ -59,23 +62,24 @@ export const utilitariosMitsubishi = {
     }
   },
 
-  'Mitsubishi Triton 2.4 Bi-Turbo (Motor 4N16 - 2025 a 2026+)': {
-    usaArla32: false,
+  'Mitsubishi Triton 2.4 Bi-Turbo Diesel 205 cv (2025 em diante)': {
+    usaArla32: true,
+    temDpf: true,
     sistemas: [
-      { sistema: 'Motor (4N16 2.4 16V Bi-Turbo Diesel - 205 cv)', especificacao: 'SAE 5W-30 Sintético (Norma ACEA C4 / JASO DL-1) [1]', capacidade: '7,3 L a 8,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
+      { sistema: 'Motor (2.4 16V Bi-Turbo Diesel - 205 cv)', especificacao: 'SAE 5W-30 Sintético (Norma ACEA C4 / JASO DL-1) [1]', capacidade: '7,3 L a 8,5 L (com filtro)', intervalo: '10.000 km ou 1 ano' },
       { sistema: 'Câmbio Manual (6 marchas) / Automático (6 marchas)', especificacao: 'Manual: SAE 75W-85 GL-4 | Auto: ATF E-SP IV / SP-IV', capacidade: 'Manual: 2,2 L | Auto (Total): ~8,5 L', intervalo: 'Manual: 80.000 km | Auto: Inspeção periódica' },
       { sistema: 'Caixa de Transferência (Super Select II)', especificacao: 'SAE 75W-85 API GL-4', capacidade: '2,4 L', intervalo: '80.000 km' },
       { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: SAE 80W-90 GL-5 | Tras: SAE 80W-90 ou 85W-140 API GL-5 (Convencional / Bloqueio) [2]', capacidade: 'Diant: 1,2 L | Tras: 2,8 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '9,2 L', intervalo: '5 anos ou 100.000 km' }
     ],
     notas: {
-      1: "Nova geração global da picape (batizada oficialmente apenas como 'Triton'). Adota novo motor 4N16 Bi-Turbo de 205 cv, direção 100% elétrica, chassi reforçado e exige estritamente óleos Low SAPS norma **ACEA C4** ou **JASO DL-1** para preservação dos sistemas de emissões.",
+      1: "Nova geração Triton 2025+ (GL, GLS, HPE, HPE-S, Savana, Katana, Tarmac) adequada às exigências de emissões com tanque de Arla 32 (SCR) e filtro DPF. Exige lubrificante de baixa cinza (Low SAPS) na norma ACEA C4 ou JASO DL-1.",
       2: "Diferencial traseiro convencional ou equipado com bloqueio traseiro acionável eletronicamente (conforme versão), utilizando óleo API GL-5 convencional (sem aditivo LS)."
     },
     filtros: {
-      oleo: 'OEM 1230A182',
-      ar: 'OEM 16546A000P',
-      combustivel: 'OEM 16405A000P'
+      oleo: 'Confirmar no catálogo / concessionária',
+      ar: 'Confirmar no catálogo / concessionária',
+      combustivel: 'Confirmar no catálogo / concessionária'
     }
   }
 };

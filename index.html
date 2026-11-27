@@ -210,6 +210,28 @@ a{color:inherit}
 .ico-filtro svg{width:20px;height:20px;stroke:currentColor}
 .tabela-filtros th:first-child,.tabela-filtros td:first-child{padding:11px 10px 11px 12px}
 .tabela-filtros tbody th .ico-filtro{display:grid}
+.abas-veic{display:flex;gap:8px;margin:0 0 24px;overflow-x:auto;scrollbar-width:thin}
+.abas-veic a{flex:none;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--linha);background:var(--cartao);color:var(--texto);font-weight:600;text-decoration:none;white-space:nowrap}
+.abas-veic a:hover{border-color:var(--tinta3)}
+.abas-veic a[aria-current="page"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.abas-veic svg{width:20px;height:20px;stroke:currentColor;flex:none}
+.aba-curta{display:none}
+.construcao{max-width:620px;margin:8px 0 24px;padding:32px 28px;text-align:center;background:var(--cartao);border:2px dashed var(--linha);border-radius:16px}
+.construcao-ico{width:56px;height:56px;margin:0 auto 12px;display:grid;place-items:center;border-radius:16px;background:var(--ambar);color:#003772}
+.construcao-ico svg{width:28px;height:28px;stroke:currentColor}
+.construcao h2{margin:0 0 6px}
+.construcao p{margin:6px 0;color:var(--suave)}
+.ficha-filtro{margin-top:32px;padding-top:8px;border-top:2px solid var(--linha)}
+.ficha-filtro h3,.nota-tec h3{font-size:1.1rem;margin:18px 0 8px}
+.ficha-filtro > h2 small{font-weight:500;color:var(--suave)}
+@media(max-width:900px){
+  .abas-veic{position:fixed;left:0;right:0;bottom:0;z-index:45;margin:0;gap:0;padding:0 0 env(safe-area-inset-bottom);background:var(--tinta);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 -6px 18px rgba(0,0,0,.25);overflow:visible}
+  .abas-veic a{flex:1;min-width:0;flex-direction:column;justify-content:center;gap:3px;padding:9px 2px 8px;border:0;border-radius:0;background:transparent;color:#BFD3E6;font-size:.72rem;text-align:center}
+  .abas-veic a[aria-current="page"]{background:#0E437A;color:#FFD200;box-shadow:inset 0 3px 0 #FFD200}
+  .aba-longa{display:none}.aba-curta{display:inline}
+  body.tem-abas .principal{padding-bottom:84px}
+  body.tem-abas .voltar-topo{bottom:90px}
+}
 .dica-filtros{margin:-4px 0 12px;font-size:.9rem;color:var(--suave)}
 .linha-filtro{display:flex;align-items:center;gap:10px;white-space:nowrap}
 .ico-filtro[data-t=oleo]{color:#b45309}.ico-filtro[data-t=ar]{color:#0369a1}.ico-filtro[data-t=arSecundario],.ico-filtro[data-t=ar_secundario]{color:#7c3aed}
@@ -863,8 +885,10 @@ function rota(){
     var t = TOPICOS.filter(function(x){ return x.id === id; })[0];
     if(t){ det.innerHTML = paginaAssunto(t); rotaAtiva = "assunto/"+id; }
   } else if(tipo === "veiculo"){
-    var v = VEICULOS.filter(function(x){ return x.id === id; })[0];
-    if(v){ det.innerHTML = paginaVeiculo(v); rotaAtiva = "veiculo/"+id; }
+    var pv = id.split("/"), aba = "lub";
+    if(pv.length > 1 && ABAS_VEIC.some(function(a){ return a.id === pv[1]; })) aba = pv[1];
+    var v = VEICULOS.filter(function(x){ return x.id === pv[0]; })[0];
+    if(v){ det.innerHTML = paginaVeiculo(v, aba); rotaAtiva = "veiculo/"+v.id; }
   } else if(tipo === "filtro"){
     var pf = id.split("/"), gf = GRUPOS[pf[0]+"|"+pf[1]];
     if(gf){ det.innerHTML = paginaFiltro(gf); rotaAtiva = "filtro/"+id; }
@@ -872,6 +896,7 @@ function rota(){
 
   var interna = rotaAtiva !== "inicio";
   inicio.hidden = interna; det.hidden = !interna;
+  document.body.classList.toggle("tem-abas", interna && !!det.querySelector(".abas-veic"));
   $("conteudo").classList.toggle("inicio", !interna);
   document.title = (interna ? det.querySelector("h1").textContent+" · " : "") + "Guia Técnico de Lubrificantes & Filtros";
   marcarAtivo(rotaAtiva);
@@ -903,9 +928,14 @@ function urlCatalogo(cod){
 }
 
 function paginaFiltro(g){
-  var rot = ROTULO_FILTRO[g.tipo] || g.tipo, n = g.veic.length;
-  var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(rot)+'</span><span>/</span><span>'+esc(g.cod)+'</span></nav>'+
-    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil</p></header>';
+  var rot = ROTULO_FILTRO[g.tipo] || g.tipo;
+  return '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(rot)+'</span><span>/</span><span>'+esc(g.cod)+'</span></nav>'+
+    '<header class="ficha-cab"><h1>'+esc(g.cod)+'</h1><p class="lead">'+esc(rot)+' Tecfil</p></header>'+corpoFiltro(g, false);
+}
+
+/* Conteúdo da ficha do filtro. resumo=true: versão para as abas do veículo (sem a tabela longa de aplicações) */
+function corpoFiltro(g, resumo){
+  var n = g.veic.length, h = "";
   var marcas = Object.keys(g.codigos).sort(function(a,b){
     var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
@@ -936,7 +966,7 @@ function paginaFiltro(g){
       return '<div><dt>'+esc(l[0])+'</dt><dd>'+esc(l[1])+'</dd></div>';
     }).join("")+'</dl></article></div>';
     h += hCod;
-    if(cat.aplicacoes){
+    if(cat.aplicacoes && !resumo){
       var ma = Object.keys(cat.aplicacoes);
       h += '<h2 class="sec-filtros">Aplicações no catálogo Tecfil</h2><div class="rolagem"><table class="tabela-app"><thead><tr><th>Veículo</th><th>Motor</th><th>Ano</th></tr></thead><tbody>'+
         ma.map(function(m){
@@ -944,7 +974,7 @@ function paginaFiltro(g){
             return '<tr><td>'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>';
           }).join("");
         }).join("")+'</tbody></table></div>';
-    } else if(cat.url){
+    } else if(cat.url && !resumo){
       h += '<p class="nota">A lista completa de aplicações está no catálogo da Tecfil.</p>';
     }
     h += '<p><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
@@ -952,14 +982,53 @@ function paginaFiltro(g){
     h += hCod;
     h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
   }
+  if(resumo){
+    if(cat && cat.aplicacoes) h += '<p><a href="#/filtro/'+g.tipo+'/'+compacto(g.cod)+'">Ver ficha completa e aplicações →</a></p>';
+    h = h.replace(/<h2/g, "<h3").replace(/<\/h2>/g, "</h3>");
+  }
   return h;
 }
 
-function paginaVeiculo(v){
-  var d = v.dados || {}, k = VEICULOS.indexOf(v);
-  var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(v.marca)+'</span><span>/</span><span>'+esc(v.modelo)+'</span></nav>'+
-    '<header class="ficha-cab"><h1>'+esc(v.modelo)+'</h1><p class="lead">'+esc(v.marca)+'</p></header>';
+ICONES.filtro = '<rect x="7" y="7" width="10" height="13" rx="2"/><path d="M8 7V4h8v3M7 12h10"/>';
+ICONES.obras = '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>';
+var ABAS_VEIC = [
+  { id:"lub", rot:"Lubrificantes", curto:"Lubrificantes", ic:"gota" },
+  { id:"oleo", rot:"Filtro de óleo", curto:"Óleo", ic:"filtro", tipos:["oleo"] },
+  { id:"combustivel", rot:"Filtro de combustível", curto:"Combustível", ic:"bomba", tipos:["preFiltroCombustivel","combustivel","sedimentador"] },
+  { id:"ar", rot:"Filtro de ar", curto:"Ar", ic:"vento", tipos:["ar","arSecundario"] },
+  { id:"correias", rot:"Correias", curto:"Correias", ic:"correia" }
+];
 
+function construcao(txt, extra){
+  return '<section class="construcao"><div class="construcao-ico">'+svg("obras","")+'</div><h2>Em construção</h2><p>'+esc(txt)+'</p>'+(extra || "")+'</section>';
+}
+
+function tabelaFiltros(d, tipos){
+  var cols = [];
+  tipos.forEach(function(t){ Object.keys(d.filtros[t]).forEach(function(m){ if(cols.indexOf(m) < 0) cols.push(m); }); });
+  cols.sort(function(a,b){
+    var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
+    return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  });
+  return '<p class="dica-filtros">Toque num código da Tecfil para abrir a ficha completa do filtro. O <strong>+N</strong> mostra em quantos outros veículos ele também serve.</p><div class="caixa-tabela"><table class="tabela-filtros"><thead><tr><th>Filtro</th>'+
+    cols.map(function(c){ return '<th>'+esc(NOME_COLUNA[c] || c)+'</th>'; }).join("")+'</tr></thead><tbody>'+
+    tipos.map(function(t){
+      return '<tr><th scope="row"><span class="linha-filtro"><span class="ico-filtro" data-t="'+esc(t)+'" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span>'+esc(rotuloLinha(t))+'</span></span></th>'+cols.map(function(c){
+        var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
+        if(c === "tecfil" && !codVazio(cod)){
+          tag = partirCod(cod).map(function(p){
+            var g = GRUPOS[t+"|"+compacto(p.cod)], n = g ? g.veic.length-1 : 0, rot = p.rot ? ' <small>('+esc(p.rot)+')</small>' : '';
+            if(!g) return '<span class="filtro-tag">'+esc(p.cod)+'</span>'+rot;
+            return '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(p.cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(p.cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(p.cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>'+rot;
+          }).join(" ");
+        }
+        return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
+      }).join("")+'</tr>';
+    }).join("")+'</tbody></table></div>';
+}
+
+function abaLubrificantes(d){
+  var h = "";
   if(d.sistemas && d.sistemas.length){
     h += '<h2>Lubrificantes e fluidos</h2><div class="grade-sis">'+d.sistemas.map(function(x){
       return '<article class="cartao-sis"><h3>'+esc(x.sistema)+'</h3><dl>'+
@@ -968,42 +1037,54 @@ function paginaVeiculo(v){
         '<div><dt>Intervalo</dt><dd>'+esc(x.intervalo)+'</dd></div></dl></article>';
     }).join("")+'</div>';
   }
-
-  if(d.filtros){
-    var tipos = Object.keys(d.filtros), cols = [];
-    tipos.forEach(function(t){ Object.keys(d.filtros[t]).forEach(function(m){ if(cols.indexOf(m) < 0) cols.push(m); }); });
-    cols.sort(function(a,b){
-      var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
-      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-    });
-    h += '<h2 class="sec-filtros">Filtros equivalentes</h2><p class="dica-filtros">Toque num código da Tecfil para ver a ficha do filtro. O <strong>+N</strong> mostra em quantos outros veículos ele também serve.</p><div class="caixa-tabela"><table class="tabela-filtros"><thead><tr><th>Filtro</th>'+
-      cols.map(function(c){ return '<th>'+esc(NOME_COLUNA[c] || c)+'</th>'; }).join("")+'</tr></thead><tbody>'+
-      tipos.map(function(t){
-        return '<tr><th scope="row"><span class="linha-filtro"><span class="ico-filtro" data-t="'+esc(t)+'" aria-hidden="true">'+svg(CHAVE_ICONE[t] || "lista","")+'</span><span>'+esc(rotuloLinha(t))+'</span></span></th>'+cols.map(function(c){
-          var cod = d.filtros[t][c], tag = '<span class="filtro-tag">'+esc(cod)+'</span>';
-          if(c === "tecfil" && !codVazio(cod)){
-            tag = partirCod(cod).map(function(p){
-              var g = GRUPOS[t+"|"+compacto(p.cod)], n = g ? g.veic.length-1 : 0, rot = p.rot ? ' <small>('+esc(p.rot)+')</small>' : '';
-              if(!g) return '<span class="filtro-tag">'+esc(p.cod)+'</span>'+rot;
-              return '<a class="filtro-tag filtro-link" href="#/filtro/'+t+'/'+compacto(p.cod)+'" title="Ver especificações e aplicações deste filtro" aria-label="'+esc(p.cod)+(n > 0 ? ', serve em mais '+n+(n === 1 ? ' veículo' : ' veículos') : ', ver aplicações')+'">'+esc(p.cod)+(n > 0 ? '<span class="mais-n">+'+n+'</span>' : '<span class="mais-n info">i</span>')+'</a>'+rot;
-            }).join(" ");
-          }
-          return '<td>'+(cod && cod !== "-" ? tag : '<span class="sem">-</span>')+'</td>';
-        }).join("")+'</tr>';
-      }).join("")+'</tbody></table></div>';
-  }
-
   if(d.notas){
     h += '<aside class="notas-tec"><h2>Notas técnicas e condições de uso</h2><ul>'+Object.keys(d.notas).map(function(n){
       return '<li><strong>['+esc(n)+']</strong> '+esc(d.notas[n])+'</li>';
     }).join("")+'</ul></aside>';
   }
-  if(!d.sistemas && !d.filtros) h += '<p class="nota">A ficha técnica deste veículo ainda não está disponível aqui.</p>';
+  return h || construcao("Os lubrificantes deste veículo ainda não foram cadastrados.");
+}
 
-  var ant = VEICULOS[k-1], prox = VEICULOS[k+1];
+function abaFiltros(v, aba){
+  var f = (v.dados || {}).filtros || {};
+  var tipos = aba.tipos.filter(function(t){ return f[t]; });
+  if(!tipos.length) return construcao("Este filtro ainda não foi cadastrado para este veículo.");
+  var h = '<h2>'+esc(aba.rot)+'</h2>'+tabelaFiltros(v.dados, tipos);
+  tipos.forEach(function(t){
+    if(codVazio(f[t].tecfil)) return;
+    partirCod(f[t].tecfil).forEach(function(p){
+      var g = GRUPOS[t+"|"+compacto(p.cod)];
+      if(g) h += '<section class="ficha-filtro"><h2>'+esc((ROTULO_FILTRO[t] || t)+" "+g.cod)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : '')+'</h2>'+corpoFiltro(g, true)+'</section>';
+    });
+  });
+  return h;
+}
+
+function abaCorreias(v){
+  var c = (v.dados || {}).correias;
+  if(c && c.length){
+    return '<h2>Correias</h2><div class="grade-sis">'+c.map(function(x){
+      var l = [["Código", x.codigo], ["Intervalo", x.intervalo], ["Observação", x.obs]].filter(function(y){ return y[1]; });
+      return '<article class="cartao-sis"><h3>'+esc(x.item)+'</h3><dl>'+l.map(function(y){ return '<div><dt>'+y[0]+'</dt><dd>'+esc(y[1])+'</dd></div>'; }).join("")+'</dl></article>';
+    }).join("")+'</div>';
+  }
+  return construcao("As correias deste veículo (dentada, poli-V e tensores) ainda não foram cadastradas.", '<p><a href="#/assunto/correias">Enquanto isso, veja o que conferir em Correias →</a></p>');
+}
+
+function paginaVeiculo(v, abaId){
+  var d = v.dados || {}, k = VEICULOS.indexOf(v), aba = ABAS_VEIC.filter(function(a){ return a.id === abaId; })[0] || ABAS_VEIC[0];
+  var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(v.marca)+'</span><span>/</span><span>'+esc(v.modelo)+'</span></nav>'+
+    '<header class="ficha-cab"><h1>'+esc(v.modelo)+'</h1><p class="lead">'+esc(v.marca)+'</p></header>'+
+    '<nav class="abas-veic" aria-label="Seções do veículo">'+ABAS_VEIC.map(function(a){
+      return '<a href="#/veiculo/'+v.id+(a.id === "lub" ? "" : "/"+a.id)+'"'+(a.id === aba.id ? ' aria-current="page"' : '')+'>'+svg(a.ic,"")+'<span class="aba-longa">'+esc(a.rot)+'</span><span class="aba-curta">'+esc(a.curto)+'</span></a>';
+    }).join("")+'</nav>';
+  if(!d.sistemas && !d.filtros && aba.id !== "correias") h += '<p class="nota">A ficha técnica deste veículo ainda não está disponível aqui.</p>';
+  else h += aba.id === "lub" ? abaLubrificantes(d) : aba.id === "correias" ? abaCorreias(v) : abaFiltros(v, aba);
+
+  var suf = aba.id === "lub" ? "" : "/"+aba.id, ant = VEICULOS[k-1], prox = VEICULOS[k+1];
   h += '<div class="nav-ficha">'+
-    (ant ? '<a href="#/veiculo/'+ant.id+'"><small>Anterior</small>'+esc(ant.marca+" "+ant.modelo)+'</a>' : '<span></span>')+
-    (prox ? '<a class="prox" href="#/veiculo/'+prox.id+'"><small>Próximo</small>'+esc(prox.marca+" "+prox.modelo)+'</a>' : '')+'</div>';
+    (ant ? '<a href="#/veiculo/'+ant.id+suf+'"><small>Anterior</small>'+esc(ant.marca+" "+ant.modelo)+'</a>' : '<span></span>')+
+    (prox ? '<a class="prox" href="#/veiculo/'+prox.id+suf+'"><small>Próximo</small>'+esc(prox.marca+" "+prox.modelo)+'</a>' : '')+'</div>';
   return h;
 }
 

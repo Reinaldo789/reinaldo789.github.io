@@ -203,41 +203,33 @@ export const filtrosCombustivel = {
     }
   },
 
-  "PC949": {
+    "PC949": {
     tipo: "combustivel",
-    url: "https://catalogo.tecfil.com.br/search/pc949/produto/302",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 77.5, diametroExterno: 83.3, rosca: "Não possui", elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL55, PSL78, PSL152 E PSL166" },
     conversoes: {
       "Authomix": ["FCO0949"], "Donaldson": ["P505973"], "Fleetguard": ["FF5764"],
-      "Fram": ["C10353", "C10353ECO"], "GM": ["19266444", "5876150170"], "Gonher": ["GG2341"],
+      "Fram": ["C10353","C10353ECO"], "GM": ["19266444","5876150170"], "Gonher": ["GG2341"],
       "Isuzu": ["5876150240"], "Japanparts": ["FC200S"], "Mahle": ["KX268D"],
-      "Mann": ["PU835X"], "Millard": ["MF16262", "MF16263"], "Sakura": ["F1111"],
-      "Seineca": ["SFD9016"], "Tecfil": ["PC949"], "Toyota": ["233000L020", "2339000000000000", "233900E010", "233900L010", "233900L041", "23390YZZA1"],
+      "Mann": ["PU835X"], "Millard": ["MF16262","MF16263"], "Sakura": ["F1111"],
+      "Seineca": ["SFD9016"], "Tecfil": ["PC949"], "Toyota": ["233000L020","2339000000000000","233900E010","233900L010","233900L041","23390YZZA1"],
       "Turbo Filtros": ["TC949"], "Vox": ["FN949"], "Wega": ["JFC207/2"],
       "WIX": ["WF8429"]
     },
     aplicacoes: {
       "Mitsubishi": [
-        ["L200 DI-D 2.4 16V 190 CV", "2.4", "2016"]
-      ],
-      "- >": [
-        ["Diesel L200", "Triton", "3.2 TDI"],
-        ["2012 - 2019", "Diesel", "L200"],
-        ["Triton Sport diesel - (CD/GLS) 2.4 16V 4 CIL.190CV 2.4", "2017", "- >"]
+        ["L200 DI-D 2.4 16V 190 CV","2.4","2016 - >"],
+        ["L200 Triton","3.2 TDI","2012 - 2019"],
+        ["L200 Triton Sport diesel - (CD/GLS) 2.4 16V 4 CIL.190CV","2.4","2017 - >"]
       ],
       "Toyota": [
-        ["Hilux D/C DX AC 4X2 e 4X4", "2.5 16V", "2005"],
-        ["- 12/2010 Diesel", "Hilux", "D4-D CD / SR / SRV / SW4 / 4x2/ 4x4 / Aut"],
-        ["3.0 16V 01/2006", "- 12/2010", "Diesel"],
-        ["Hilux CDSRV TBI", "3.0 16V", "2006"],
-        ["- 12/2010 Diesel", "Hilux", "D/C SRV TBI"],
-        ["3.0 16V 2005", "- 12/2010", "Diesel"],
-        ["Hilux D/C SRV 4x4", "3.0 16V", "2005"],
-        ["- 12/2010 Diesel", "Hilux", "SW NEW AT"],
-        ["3.0 16V 2005", "- 10/2010", "Diesel"],
-        ["Hilux SW NEM MT", "3.0 16V", "2005"],
-        ["- 10/2010 Diesel", "Hilux", "CDSRV"],
-        ["3.0 16V 2006", "- 12/2010", "Diesel"]
+        ["Hilux D/C DX AC 4X2 e 4X4","2.5 16V","2005 - 12/2010"],
+        ["Hilux D4-D CD / SR / SRV / SW4 / 4x2/ 4x4 / Aut","3.0 16V","01/2006 - 12/2010"],
+        ["Hilux CDSRV TBI","3.0 16V","2006 - 12/2010"],
+        ["Hilux D/C SRV TBI","3.0 16V","2005 - 12/2010"],
+        ["Hilux D/C SRV 4x4","3.0 16V","2005 - 12/2010"],
+        ["Hilux SW NEW AT","3.0 16V","2005 - 10/2010"],
+        ["Hilux SW NEM MT","3.0 16V","2005 - 10/2010"],
+        ["Hilux CDSRV","3.0 16V","2006 - 12/2010"]
       ]
     }
   },

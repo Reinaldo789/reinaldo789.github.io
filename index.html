@@ -269,26 +269,23 @@ body{transition:background-color .25s,color .25s}
 .bp-linha .busca{max-width:none}
 .barra-pesquisa .busca-campo{height:52px;border-radius:12px;border-width:1px}
 .barra-pesquisa .busca-campo input{font-size:1rem}
-.barra-pesquisa select{height:52px;min-width:0;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:var(--tinta2);color:#fff;font:inherit;font-size:1rem;font-weight:600;padding:0 14px;cursor:pointer}
-.barra-pesquisa select option{background:#0E437A;color:#fff}
-.barra-pesquisa select option:hover,.barra-pesquisa select option:focus,.barra-pesquisa select option:checked{background:#FFD200;color:#003772}
-@supports (appearance:base-select){
-  .barra-pesquisa select,.barra-pesquisa select::picker(select){appearance:base-select}
-  .barra-pesquisa select{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .barra-pesquisa select::picker-icon{color:#fff;font-size:.8rem}
-  .barra-pesquisa select::picker(select){min-width:anchor-size(width)}
-  .barra-pesquisa select::picker(select){background:#0E437A;border:1px solid #26679B;border-radius:12px;padding:6px;max-height:60vh;box-shadow:0 12px 28px rgba(0,0,0,.35)}
-  .barra-pesquisa select option{padding:10px 12px;border-radius:8px;color:#fff;font-weight:500}
-  .barra-pesquisa select option:hover,.barra-pesquisa select option:focus-visible{background:#FFD200;color:#003772;font-weight:700}
-  .barra-pesquisa select option:checked{background:#26679B;color:#fff;font-weight:700}
-  .barra-pesquisa select option:checked:hover{background:#FFD200;color:#003772}
-  .barra-pesquisa select option::checkmark{color:currentColor}
-}
-.barra-pesquisa select:disabled{opacity:.55;cursor:not-allowed}
-.barra-pesquisa select:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
+.dd{position:relative;min-width:0}
+.dd-btn{width:100%;height:52px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:var(--tinta2);color:#fff;font:inherit;font-size:1rem;font-weight:600;padding:0 14px;cursor:pointer;text-align:left}
+.dd-btn .dd-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dd-btn svg{flex:none;width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;transition:transform .15s}
+.dd-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.dd-btn:disabled{opacity:.55;cursor:not-allowed}
+.dd-btn:focus-visible{outline:3px solid var(--ambar);outline-offset:2px}
+.dd-lista{position:absolute;z-index:40;top:calc(100% + 6px);left:0;width:100%;max-height:min(60vh,420px);overflow:auto;margin:0;padding:6px;list-style:none;background:#0E437A;border:1px solid #26679B;border-radius:12px;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.dd-lista[hidden]{display:none}
+.dd-lista li{padding:10px 12px;border-radius:8px;color:#fff;font-weight:500;line-height:1.35;cursor:pointer}
+.dd-lista li[aria-selected="true"]{background:#26679B;font-weight:700}
+.dd-lista li[aria-selected="true"]::before{content:"✓ "}
+.dd-lista li.ativo{background:#FFD200;color:#003772;font-weight:700}
+#dd-modelo .dd-lista{left:auto;right:0;width:min(600px,92vw)}
 .barra-pesquisa .resultados{position:absolute;left:0;right:0;top:100%;margin-top:8px;z-index:30;box-shadow:0 12px 28px rgba(0,0,0,.28)}
 .bp-dica{margin:12px 2px 0;color:#BFD3E6;font-size:.88rem}
-@media(max-width:900px){.bp-topo{flex-direction:column;align-items:stretch;gap:8px}.bp-linha{grid-template-columns:1fr}}
+@media(max-width:900px){.bp-topo{flex-direction:column;align-items:stretch;gap:8px}.bp-linha{grid-template-columns:1fr}#dd-modelo .dd-lista{left:0;right:0;width:100%}}
 .buscas{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
 .busca-rotulo{display:block;margin:0 0 8px 4px;font-size:.84rem;font-weight:600;letter-spacing:.02em;color:var(--suave)}
 .buscas .busca-campo{height:56px}
@@ -358,10 +355,8 @@ body{transition:background-color .25s,color .25s}
               </div>
               <div class="resultados" id="resultados-filtro" aria-live="polite" hidden></div>
             </div>
-            <label class="sr" for="sel-marca">Montadora</label>
-            <select id="sel-marca"><option value="">Montadora</option></select>
-            <label class="sr" for="sel-modelo">Veículo</label>
-            <select id="sel-modelo" disabled><option value="">Veículo</option></select>
+            <div class="dd" id="dd-marca"><button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Montadora"><span class="dd-txt">Montadora</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="dd-lista" role="listbox" aria-label="Montadora" hidden></ul></div>
+            <div class="dd" id="dd-modelo"><button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Veículo" disabled><span class="dd-txt">Veículo</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="dd-lista" role="listbox" aria-label="Veículo" hidden></ul></div>
           </div>
           <p class="bp-dica">Código de qualquer marca (Tecfil, Mann, Mahle, Wega…) abre a ficha do filtro. Escolha a montadora e o veículo para ver lubrificantes e filtros.</p>
         </div>
@@ -791,16 +786,63 @@ function ligarBusca(idCampo, idCaixa, grupo){
 ligarBusca("busca", "resultados", "veiculo");
 ligarBusca("busca-filtro", "resultados-filtro", "filtro");
 
-/* Menus Montadora > Veículo (estilo catálogo): escolher o veículo abre a ficha dele */
-(function(){
-  var sm = $("sel-marca"), sv = $("sel-modelo");
-  sm.innerHTML = '<option value="">Montadora</option>'+MONTADORAS.map(function(m){ return '<option value="'+esc(m.id)+'">'+esc(m.nome)+' ('+m.veiculos.length+')</option>'; }).join("");
-  sm.onchange = function(){
-    var m = MONTADORAS.filter(function(x){ return x.id === sm.value; })[0];
-    sv.innerHTML = '<option value="">Veículo</option>'+(m ? m.veiculos.map(function(v){ return '<option value="'+esc(v.id)+'">'+esc(v.modelo)+'</option>'; }).join("") : "");
-    sv.disabled = !m; sv.value = "";
+/* Menus Montadora > Veículo: listas próprias (destaque amarelo sob o mouse, igual em todos os navegadores) */
+function criarDD(raiz, rotulo, aoEscolher){
+  var btn = raiz.querySelector(".dd-btn"), txt = raiz.querySelector(".dd-txt"), lista = raiz.querySelector(".dd-lista");
+  var itens = [], atual = -1, valor = "";
+  function fechar(foco){ lista.hidden = true; btn.setAttribute("aria-expanded", "false"); if(foco) btn.focus(); }
+  function marcar(i){
+    atual = i;
+    Array.prototype.forEach.call(lista.children, function(li, k){ li.classList.toggle("ativo", k === i); });
+    if(i >= 0 && lista.children[i]) lista.children[i].scrollIntoView({ block:"nearest" });
+  }
+  function abrir(){
+    if(btn.disabled || !itens.length) return;
+    document.dispatchEvent(new CustomEvent("dd-abrir", { detail:raiz }));
+    lista.hidden = false; btn.setAttribute("aria-expanded", "true");
+    var s = itens.map(function(i){ return i.valor; }).indexOf(valor);
+    marcar(s >= 0 ? s : 0);
+  }
+  function escolher(i){
+    valor = itens[i].valor; txt.textContent = itens[i].rotulo;
+    Array.prototype.forEach.call(lista.children, function(li, k){ li.setAttribute("aria-selected", k === i ? "true" : "false"); });
+    fechar(true); aoEscolher(valor);
+  }
+  btn.addEventListener("click", function(){ if(lista.hidden) abrir(); else fechar(false); });
+  btn.addEventListener("keydown", function(e){
+    var aberta = !lista.hidden, k = e.key;
+    if(k === "ArrowDown" || k === "ArrowUp"){ e.preventDefault(); if(!aberta) abrir(); else marcar(Math.max(0, Math.min(itens.length - 1, atual + (k === "ArrowDown" ? 1 : -1)))); }
+    else if(k === "Home" && aberta){ e.preventDefault(); marcar(0); }
+    else if(k === "End" && aberta){ e.preventDefault(); marcar(itens.length - 1); }
+    else if((k === "Enter" || k === " ") && aberta){ e.preventDefault(); if(atual >= 0) escolher(atual); }
+    else if(k === "Escape" && aberta){ e.preventDefault(); fechar(true); }
+    else if(k === "Tab" && aberta){ fechar(false); }
+  });
+  document.addEventListener("click", function(e){ if(!raiz.contains(e.target)) fechar(false); });
+  document.addEventListener("dd-abrir", function(e){ if(e.detail !== raiz) fechar(false); });
+  return {
+    definir: function(novos){
+      itens = novos; valor = ""; txt.textContent = rotulo; lista.innerHTML = "";
+      novos.forEach(function(it, k){
+        var li = document.createElement("li"); li.setAttribute("role", "option"); li.setAttribute("aria-selected", "false"); li.textContent = it.rotulo;
+        li.addEventListener("mouseenter", function(){ marcar(k); });
+        li.addEventListener("click", function(){ escolher(k); });
+        lista.appendChild(li);
+      });
+      btn.disabled = !novos.length; fechar(false);
+    },
+    limpar: function(){ valor = ""; txt.textContent = rotulo; Array.prototype.forEach.call(lista.children, function(li){ li.setAttribute("aria-selected", "false"); }); },
+    abrir: function(){ btn.focus(); abrir(); }
   };
-  sv.onchange = function(){ if(sv.value){ var id = sv.value; sv.value = ""; location.hash = "#/veiculo/"+id; } };
+}
+(function(){
+  var ddVeiculo = criarDD($("dd-modelo"), "Veículo", function(id){ location.hash = "#/veiculo/"+id; setTimeout(function(){ ddVeiculo.limpar(); }, 0); });
+  var ddMarca = criarDD($("dd-marca"), "Montadora", function(idMarca){
+    var m = MONTADORAS.filter(function(x){ return x.id === idMarca; })[0];
+    ddVeiculo.definir(m ? m.veiculos.map(function(v){ return { valor:v.id, rotulo:v.modelo }; }) : []);
+    setTimeout(function(){ ddVeiculo.abrir(); }, 0);
+  });
+  ddMarca.definir(MONTADORAS.map(function(m){ return { valor:m.id, rotulo:m.nome+" ("+m.veiculos.length+")" }; }));
 })();
 
 document.addEventListener("keydown", function(e){

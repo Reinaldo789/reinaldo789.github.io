@@ -599,18 +599,17 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL158": {
+    "PSL158": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl158/produto/255",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 146, diametroExterno: 108.5, rosca: "M26 x 1,5", elemento: "Papel", observacao: "FILTRO COM DUPLA FILTRAGEM" },
     conversoes: {
       "Authomix": ["FOL0158"], "Baldwin": ["BD7028"], "Bosch": ["0986B00060"],
       "Delkraft": ["DLL89"], "Delphi": ["EFL253"], "Donaldson": ["P502008"],
       "Donsson": ["GS207"], "Fil Filter": ["ZP3048"], "Fleetguard": ["LF3830"],
-      "Fram": ["PH5529", "PH8936"], "Franig": ["HCX092"], "Gonher": ["GP13307"],
+      "Fram": ["PH5529","PH8936"], "Franig": ["HCX092"], "Gonher": ["GP13307"],
       "Hengst": ["H96W03"], "Japanparts": ["FO597S"], "Js Asakashi": ["C313J"],
-      "KSPG": ["50014810"], "Luberfiner": ["LFP3307"], "Mahle": ["OC1062", "OC297"],
-      "Mann": ["W9069", "WP1045"], "Mercedes Benz": ["A4001800212"], "Millard": ["ML6355"],
+      "KSPG": ["50014810"], "Luberfiner": ["LFP3307"], "Mahle": ["OC1062","OC297"],
+      "Mann": ["W9069","WP1045"], "Mercedes Benz": ["A4001800212"], "Millard": ["ML6355"],
       "Mitsubishi": ["CD120013"], "Partmo": ["AD7028"], "Sakura": ["C5816"],
       "Seineca": ["SOF7421"], "Seineca Antigo": ["SEI2681"], "Tecfil": ["PSL158"],
       "Turbo Filtros": ["TB158"], "Vox": ["LB158"], "Wega": ["JFO0597"],
@@ -618,28 +617,20 @@ export const filtrosOleo = {
     },
     aplicacoes: {
       "Mitsubishi": [
-        ["L200 (CD/GL/GLS/GLX) Automático/Mecânico", "3.2", "2008"],
-        ["- 2010 Diesel", "L200", "Triton"],
-        ["3.2 TDI 2012", "- 2019", "Diesel"],
-        ["L200 (Triton / Outdoor / Savana) - Com Ref. Orig: CD130107", "3.2 TDI", "2010"],
-        ["- 2012 Diesel", "L200", "SPORT / HPE"],
-        ["2.5 TD 2000", "- 2007", "Diesel"],
-        ["L200 (GL / GLS) - Automático", "2.5 121 cv Turbo", "2005"],
-        ["- 2007 Diesel", "L200", "Triton"],
-        ["3.2 TDI 12/2007", "- 12/2008", "Diesel"],
-        ["Pajero (HD) - automático / mecânico", "2.5 121cv", "2011"]
-      ],
-      "- >": [
-        ["Diesel Pajero", "Turbo - (GLS / GLX / GLZ) - automático / mecânico", "2.8 125cv"],
-        ["1992 - 2002", "Diesel", "Pajero Dakar"],
-        ["(HPE) - automático / mecânico 3.2 V6 165cv", "2012", "- >"],
-        ["Pajero Full Turbo (V88W) - automatico / mecânico", "3.2 200cv", "12/2006"],
-        ["- 09/2010 Diesel", "Pajero Full", "TDI - (GLS / PKHPE) - automático / mecânico"],
-        ["3.2 165cv 2002", "- >", "Diesel"],
-        ["Pajero Sport (AT) - automático / mecânico", "2.5 121cv", "2011"],
-        ["Diesel Pajero Sport", "(HPE) - automático", "2.5 143cv"],
-        ["2006 - 2012", "Diesel", "Space Wagon"],
-        ["2.8 8V TDI 09/2001", "- >", "Diesel"]
+        ["L200 (CD/GL/GLS/GLX) Automático/Mecânico","3.2","2008 - 2010"],
+        ["L200 Triton","3.2 TDI","2012 - 2019"],
+        ["L200 (Triton / Outdoor / Savana) - Com Ref. Orig: CD130107","3.2 TDI","2010 - 2012"],
+        ["L200 SPORT / HPE","2.5 TD","2000 - 2007"],
+        ["L200 (GL / GLS) - Automático","2.5 121 cv Turbo","2005 - 2007"],
+        ["L200 Triton","3.2 TDI","12/2007 - 12/2008"],
+        ["Pajero (HD) - automático / mecânico","2.5 121cv","2011 - >"],
+        ["Pajero Turbo - (GLS / GLX / GLZ) - automático / mecânico","2.8 125cv","1992 - 2002"],
+        ["Pajero Dakar (HPE) - automático / mecânico","3.2 V6 165cv","2012 - >"],
+        ["Pajero Full Turbo (V88W) - automatico / mecânico","3.2 200cv","12/2006 - 09/2010"],
+        ["Pajero Full TDI - (GLS / PKHPE) - automático / mecânico","3.2 165cv","2002 - >"],
+        ["Pajero Sport (AT) - automático / mecânico","2.5 121cv","2011 - >"],
+        ["Pajero Sport (HPE) - automático","2.5 143cv","2006 - 2012"],
+        ["Space Wagon","2.8 8V TDI","09/2001 - >"]
       ]
     }
   },

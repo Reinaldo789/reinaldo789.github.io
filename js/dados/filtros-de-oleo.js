@@ -533,68 +533,58 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL55": {
+    "PSL55": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl55/produto/1558",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 83, diametroExterno: 67, rosca: "M20 x 1,5", elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL55, PSL78, PSL152 E PSL166" },
     conversoes: {
-      "Fram": ["PH10757"], "Japanparts": ["FOBR48S"], "Mahle": ["OC593/4"],
-      "Mann": ["W712/94"], "Tecfil": ["PSL55"], "Volkswagen": ["03C115561C", "03C115561D", "03C115561H"],
-      "Vox": ["LB556"], "Wega": ["WO342"],
-      "Authomix": ["FOL0055"]
+      "ACDelco": ["01FBO043","19347722"], "Authomix": ["FOL0055"], "Bosch": ["0986B00015","986452350"],
+      "Controil": ["CLFO00005"], "Delkraft": ["DLL87"], "Delphi": ["EFL734"],
+      "FAM": ["FL179"], "Fiat": ["46751179"], "Fil Filter": ["ZP3100"],
+      "Fleetguard": ["LF3644"], "Fram": ["PH5317","PH5343","PH5949","PH7317","PH8999"], "Hengst": ["H97W05"],
+      "Honda": ["04154PR3E00","15400PLC004","15400PLMA01","15400PLMA02","15400PMLIM001","15400RTA003"], "Hyundai": ["2630002750","2630002751","2630002752","S2630002500","S2630002501","S2630002502","S2630002503"], "Inpeca": ["SLB0055"],
+      "Intrupa": ["83322"], "Jac Motors": ["1017100GG010"], "Japanparts": ["FO410B","FO410S"],
+      "Js Asakashi": ["C225J"], "KSPG": ["50013560"], "Mahle": ["OC259"],
+      "Mann": ["W610","W610/10","W610/3","W610/6","W610/7","W6110"], "Mazda": ["JEYO14302"], "Millard": ["ML3593","ML5949"],
+      "Mitsubishi": ["CD120000","MZ690115"], "Motorcraft": ["GAMJ/6731/AA/"], "Nissan": ["1520865F00","1520865F01","1520865F0E","1520865F10","152089","152089E000"],
+      "Partmo": ["A1402"], "Purolator": ["L1067"], "Sakura": ["C1011"],
+      "Seineca": ["SMF7007","SOF7005","SOF7018","SOF7026","SOF7049"], "Seineca Antigo": ["SEI0705","SEI2677"], "Tecfil": ["PSL55"],
+      "Toyota": ["15400RAFT01"], "Turbo Filtros": ["TB55"], "Vox": ["LB55"],
+      "Vox Antigo": ["LB2827"], "Wega": ["JFO0197","JFO0198","JFO0315","JFO0410","WO120"], "WIX": ["51356","W54140BR","WL54140","WL57356"]
     },
     aplicacoes: {
-      "Audi": [
-        ["A1 TFSI S-Tronic", "1.4 16 V", "2010"]
+      "Mitsubishi": [
+        ["L200 DI-D 2.4 16V 190 CV","2.4","2016 - >"],
+        ["L200 Triton Sport diesel - (CD/GLS) 2.4 16V 4 CIL.190CV","2.4","2017 - >"],
+        ["L200 Triton","2.5 16V 206cv","2017 - >"],
+        ["Airtrek 4X4","2.4 16V","2003 - 2008"],
+        ["ASX","2.0 16V MIVEC","2014 - >"],
+        ["ASX 4B11","2.0 16V","2011 - >"],
+        ["Eclipse HPE FULL","3.8 24V","2006 - 2011"],
+        ["Galant Sedan V6","2.5 24V","1993 - 2005"],
+        ["Grandis","2.4 16V","2004 - 2008"],
+        ["Lancer GT / HL / HLI - Automático","2.0 16V","2011 - 2016"],
+        ["Outlander","2.0 16V","05/2011 - >"],
+        ["Outlander CW0","2.4 16V","2008 - 2010"],
+        ["Outlander","2.0 16V MIVEC","06/2009 - 12/2012"],
+        ["Outlander CW6W","3.0 V6","2008 - 2013"],
+        ["Outlander Sport","2.0","2021 - >"],
+        ["Pajero Sport","2.4 16v 4cil Turbo","2019 - >"]
       ],
-      "- >": [
-        ["Gasolina BYD", "Song Plus", "Premium DM-i - (Plug-in)"],
-        ["1.5 - 324cv Turbo 2025", "- >", "Híbrido"]
-      ]
-    }
-  },
-
-    "PSL127": {
-    tipo: "oleo",
-    especificacoes: { altura: 86.5, diametroExterno: 76.2, rosca: "3/4\\", elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL47, PSL127, PSL144, PSL145, PSL146, PSL147, PSL148, PSL545 E PSL565" },
-    conversoes: {
-      "Authomix": ["FOL0127"], "Bosch": ["0986B00066"], "Delphi": ["EDL113"],
-      "Fleetguard": ["LF3335"], "Japanparts": ["FO279S"], "Js Asakashi": ["C110J"],
-      "KSPG": ["50014814"], "Mann": ["W711/80"], "Master Parts": ["MM100715"],
-      "Partmo": ["A14302PLUS"], "Sakura": ["C1123"], "Seineca": ["SOF7023"],
-      "Seineca Antigo": ["SEI2674"], "Tecfil": ["PSL127"], "Toyota": ["9091520003"],
-      "Turbo Filtros": ["TB211"], "Vox": ["LB127"], "Wega": ["JFO0211"],
-      "WIX": ["WL10165"]
-    },
-    aplicacoes: {
-      "Toyota": [
-        ["Hilux D4-D CD / SR / SRV / SW4 / 4x2/ 4x4 / Aut","3.0 16V","01/2006 - 12/2010"],
-        ["Hilux CDSRV TBI","3.0 16V","2006 - 12/2010"],
-        ["Hilux TDI Turbo (SW4) - automático","2.8 16V 177cv","2016 - >"],
-        ["Hilux D/C SRV Turbo 4x4 e 4X2","3.0 16V","2001 - 2006"],
-        ["Hilux DOHC VVT-i - SR","2.7 16V","10/2008 - 2010"],
-        ["Hilux D/C DX AC 4X2 e 4X4","2.5 16V","2005 - 12/2010"],
-        ["Hilux TDI Turbo (CD / SR) - automático","2.8 16V 177cv","2016 - >"],
-        ["Hilux SW4","2.7 16V","12/2011 - 2015"],
-        ["Hilux D/C SRV TBI","3.0 16V","2005 - 12/2010"],
-        ["Hilux Turbo Diesel - (SW4 / SRV / CD /CS) - Automático / Mecânico","3.0 16V 163cv","12/2011 - 2015"],
-        ["Hilux D/C SRV 4x4","3.0 16V","2005 - 12/2010"],
-        ["Hilux SW NEW AT","3.0 16V","2005 - 10/2010"],
-        ["Hilux SW NEM MT","3.0 16V","2005 - 10/2010"],
-        ["Hilux CDSRV","3.0 16V","2006 - 12/2010"],
-        ["Hilux Turbo Diesel - (CD / CS) - Automático / Mecânico","2.5 16V 102cv","12/2011 - 2015"],
-        ["Hilux SW4 (SR / SRV)","2.7 16V 4 cil.","2016 - >"],
-        ["Hiace Turbo DX Autom.","2.8 16V 174cv","2025 - >"],
-        ["Hilux SW4 4x4 - Turbo","3.0 - 16V - 171CV","2014 - 2015"],
-        ["Previa LE/DLX 16V","2.4 L 16V DOHC L4","1990 - 2000"]
-      ],
-      "Jetour": [
-        ["S06 PHEV","1.5 - Turbo GDI - 315cv","2026 - >"],
-        ["T1 PHEV","1.5 - Turbo GDI - 380cv","2026 - >"],
-        ["T2 PHEV","1.5 - Turbo GDI - 385cv","2026 - >"]
-      ],
-      "Suzuki": [
-        ["Sidekick","1.6 16V 80 cv","1990 - 1996"]
+      "Fiat": [
+        ["Cinquecento (Fiat 500) MULTIAIR - (Sport / Lounge)","1.4 16V","07/2007 - 07/2011"],
+        ["Cinquecento (Fiat 500) EVO (Cult Dualogic / Cult)","1.4 8V","08/2011 - >"],
+        ["Doblo Cargo / EX RST","1.3 16V","2001 - 2006"],
+        ["Doblo Attractive / ELX","1.4 8V","11/2009 - 2015"],
+        ["Fiorino Furgão Fire","1.4 8V EVO","11/2013 - >"],
+        ["Fiorino Furgão Fire","1.3 8V","2002 - 2006"],
+        ["Fiorino Fire Flex","1.3 8V","2007 - 10/2013"],
+        ["Grand Siena (EVO / ATTRACTIVE)","1.0 8V - 75 cv","2017 - >"],
+        ["Grand Siena Attractive","1.4 8V Fire","2012 - 2014"],
+        ["Grand Siena","1.4 8V","2015 - >"],
+        ["Idea Attractive/ELX FIRE","1.4 8V","2005 - 2012"],
+        ["Mobi Fire - Easy / Like / Way","1.0 4cil","2016 - >"],
+        ["Palio FIRE","1.0 8V","2003 - >"],
+        ["Palio ELX / EX FIRE","1.0 16V","2001 - 2003"]
       ]
     }
   },

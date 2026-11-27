@@ -4,11 +4,12 @@ export const utilitariosMitsubishi = {
     sistemas: [
       { sistema: 'Motor (2.5 8V - 4D56 Tradicional)', especificacao: 'SAE 15W-40 API CI-4 / CH-4', capacidade: '6,5 L a 7,0 L (com filtro)', intervalo: '5.000 km a 7.500 km' },
       { sistema: 'Câmbio Manual / Automático', especificacao: 'Manual: SAE 75W-90 GL-4 | Auto: ATF DEXRON III', capacidade: 'Manual: ~2,2 L', intervalo: '40.000 km' },
-      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: 75W-90 GL-5 | Tras: 85W-140 GL-5 (LSD)', capacidade: 'Diant: 1,2 L | Tras: 2,6 L', intervalo: '40.000 km' },
+      { sistema: 'Diferencial Dianteiro / Traseiro', especificacao: 'Diant: SAE 80W-90 ou 75W-90 GL-5 | Tras: SAE 80W-90 GL-5 (Convencional/HPE) ou 80W-90 GL-5 LS (se equipado com LSD) [2]', capacidade: 'Diant: 1,2 L | Tras: 2,6 L (eixo padrão) / 1,6 L (eixo Dana LSD)', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Etilenoglicol (50/50)', capacidade: '8,0 L', intervalo: '40.000 km ou 2 anos' }
     ],
     notas: {
-      1: "Linha clássica L200 Sport, Outdoor e Savana com motor 2.5 de 8 válvulas, focada em robustez mecânica e sem eletrônica complexa."
+      1: "Linha clássica L200 Sport, Outdoor e Savana com motor 2.5 de 8 válvulas, focada em robustez mecânica e sem eletrônica complexa.",
+      2: "Na versão HPE, o diferencial traseiro utiliza bloqueio mecânico acionável (R/D LOCK) e trabalha com óleo API GL-5 convencional (sem aditivo LS). Apenas as unidades equipadas com diferencial traseiro de deslizamento limitado (LSD, como algumas Outdoor/Savana com eixo Dana) exigem óleo específico GL-5 LS."
     },
     filtros: {
       oleo: 'PSL55',

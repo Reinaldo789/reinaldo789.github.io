@@ -72,6 +72,89 @@ export const filtrosAr = {
       ]
     }
   },
+     "ARL4141": {
+    tipo: "ar",
+    especificacoes: { altura: 62, diametroExterno: 240, diametroInterno: 241, rosca: "Não possui", elemento: "Sintética", observacao: "CÓD CÂMBIO" },
+    conversoes: {
+      "Authomix": ["FAR4141"], "Fleetguard": ["AF26543"], "Fram": ["CA10355"],
+      "Gonher": ["GA603"], "Japanparts": ["FA500S"], "Mahle": ["LX2834","LX3713"],
+      "Mann": ["C24011"], "Millard": ["MK51943"], "Mitsubishi": ["1500A098"],
+      "Sakura": ["A1517"], "Seineca": ["SAF8169"], "Tecfil": ["ARL4141"],
+      "Turbo Filtros": ["TR1441"], "Vox": ["HLP4141"], "Wega": ["JFA0500","JFA500"],
+      "WIX": ["47095","WA9589"]
+    },
+    aplicacoes: {
+      "Mitsubishi": [
+        ["L200 (CD/GL/GLS/GLX) Automático/Mecânico","3.2","2008 - 2010"],
+        ["L200 Triton","3.5 V6","2007 - 2009"],
+        ["L200 Triton","3.5 V6","2011 - >"],
+        ["L200 Triton","3.2 TDI","2012 - 2019"],
+        ["L200 TRITON HLS / HLS CHROME EDITION / OUTDOOR 2.4 16V 4 CIL. 142CV","2.4","2013 - 2019"],
+        ["L200 (Triton / Outdoor / Savana) - Com Ref. Orig: CD130107","3.2 TDI","2010 - 2012"],
+        ["L200 Triton","3.2 TDI","12/2007 - 12/2008"],
+        ["Pajero Dakar (HPE) - automático / mecânico","3.2 V6 165cv","2012 - >"],
+        ["Pajero Dakar (HPE) - automático / mecânico","3.5 V6 205cv","2011 - >"]
+      ]
+    }
+  },
+     "ARS7109": {
+    tipo: "ar",
+    especificacoes: { altura: 363.5, diametroExterno: 148, diametroInterno: 84.5, rosca: "Não possui", elemento: "Papel", observacao: "SUBSTITUI O FILTRO PSC998 APENAS NA LINHA MITSUBISHI" },
+    conversoes: {
+      "AGCO": ["055119R1"], "Authomix": ["FAR7109"], "Baldwin": ["RS3920"],
+      "Bosch": ["0986B03002"], "Case": ["87574362"], "Delkraft": ["DR1415"],
+      "Delphi": ["EFA949"], "Donaldson": ["P778989"], "FAM": ["FA9310"],
+      "Filtran": ["2055080/1","2057109"], "Fleetguard": ["AF25565"], "Fram": ["CA9003","CA9744"],
+      "Hengst": ["E1700L"], "Inpeca": ["SRS6202"], "Japanparts": ["FA15300S"],
+      "Jcb": ["32915802"], "KSPG": ["50013476"], "Mahle": ["LX1687/1"],
+      "Mann": ["C15300"], "Massey Ferguson": ["3901464M1"], "Master Parts": ["MM100015"],
+      "Maxion": ["055119"], "Mitsubishi": ["CK159029"], "MWM": ["905412970059"],
+      "Purolator": ["A1133"], "Randon": ["219000393"], "Sakura": ["A8553"],
+      "Seineca": ["SAR8764"], "Tecfil": ["ARS7109"], "Turbo Filtros": ["TR15300"],
+      "Unifilter": ["UAEP5802P"], "Vox": ["HD7109"], "Vox Antigo": ["HD4410"],
+      "Wega": ["WR200/4"], "WIX": ["W46836","WA46836"], "Xanfil": ["XL2096"],
+      "ZF": ["070131118"]
+    },
+    aplicacoes: {
+      "Mitsubishi": [
+        ["Pajero Sport (AT) - automático / mecânico","2.5 121cv","2011 - >"],
+        ["L200 Turbo Intercooler Diesel (Evolution 4x4)","3.2","01/2002 - 12/2004"],
+        ["L200 -","2.5 16V","1992 - 2004"],
+        ["L200 SPORT / HPE","2.5 TD","2000 - 2007"],
+        ["L200 (Outdoor / GLS / HPE /CD / Aut. / 4x4)","2.5 8V TDI SOHC","01/2007 - 12/2009"],
+        ["L200 (GL / GLS) - Automático","2.5 121 cv Turbo","2005 - 2007"],
+        ["L300 Base / DX / Canter","2.5 16V 206cv","01/1995 - 12/2000"],
+        ["Pajero (HD) - automático / mecânico","2.5 121cv","2011 - >"]
+      ],
+      "Atlas-Copco": [
+        ["QAS48","QAS 48","-"]
+      ],
+      "General Motors": [
+        ["Blazer Sprint DLX 4X2 / 4X4 Intercooler","2.8 MWM","01/2005 - >"]
+      ],
+      "Massey Ferguson": [
+        ["265","MWM A4 3.9","2002 - >"],
+        ["265","Perkins 4 Cils.","98 - >"],
+        ["275","MWM 4A 4.1","2002 - >"],
+        ["275","Perkins 4 Cils.","96 - >"],
+        ["283","Perkins 4000","2001 - >"],
+        ["283F","MWM A4 4.1","2002 - >"],
+        ["425","A 4236","-"],
+        ["435","Perkins 4000","-"],
+        ["MF 86 HS (Retroescavadeira)","MWM A4-4.1","2002 - >"]
+      ],
+      "Nissan": [
+        ["Frontier (SE / Serrana / Attack)","2.8 MWM Sprint","2007 - 2007"],
+        ["Frontier (SE / One / Strick / XE)","2.8 MWM Sprint","2002 - 2005"],
+        ["Frontier (SE / Serrana / Attack)","2.8 MWM Sprint","2006 - 2006"],
+        ["X-Terra XE 2.8 TDI 4X4","2.8 12V","2004 - 2006"]
+      ],
+      "Randon": [
+        ["RB406","-","-"],
+        ["RK 460B","MWM - X10","-"]
+      ]
+    }
+  },
 
   "ARL1655": {
     tipo: "ar",
@@ -974,7 +1057,7 @@ export const filtrosAr = {
       ]
     }
   },
-     "ARL4139": {
+       "ARL4139": {
     tipo: "ar",
     especificacoes: { altura: 62, diametroExterno: 241, diametroInterno: 223, elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL55, PSL78, PSL152 E PSL166" },
     conversoes: {

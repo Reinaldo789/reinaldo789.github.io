@@ -974,6 +974,21 @@ export const filtrosAr = {
       ]
     }
   },
+     "ARL4139": {
+    tipo: "ar",
+    especificacoes: { altura: 62, diametroExterno: 241, diametroInterno: 223, elemento: "Papel", observacao: "SUBSTITUI OS FILTROS PSL55, PSL78, PSL152 E PSL166" },
+    conversoes: {
+      "Authomix": ["FAR4139"], "Fleetguard": ["AF4282"], "Millard": ["MK20608"],
+      "Mitsubishi": ["1500A608","CD150292"], "Wega": ["JFA0507"], "WIX": ["49430"]
+    },
+    aplicacoes: {
+      "Mitsubishi": [
+        ["L200 DI-D 2.4 16V 190 CV","2.4","2016 - >"],
+        ["L200 Triton Sport diesel - (CD/GLS) 2.4 16V 4 CIL.190CV","2.4","2017 - >"],
+        ["Pajero Sport","2.4 16v 4cil Turbo","2019 - >"]
+      ]
+    }
+  },
 
     "ASR234": {
     tipo: "ar",

@@ -384,33 +384,31 @@ export const filtrosCombustivel = {
     }
   },
 
-  "PEC3023": {
+    "PEC3023": {
     tipo: "combustivel",
-    url: "https://catalogo.tecfil.com.br/search/pec3023/produto/67",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 101, diametroExterno: 67, rosca: "Não possui", elemento: "Papel", observacao: "LINHA ECOLÓGICA" },
     conversoes: {
       "Authomix": ["FCO3023"], "Bosch": ["0986BF0239"], "Citroen": ["190698"],
-      "Delkraft": ["DC136"], "Fiat": ["0077362340", "77363600", "77365902"], "Fil Filter": ["KFE1460", "KFE1460V"],
-      "Fram": ["C10705"], "GM": ["813569", "93181377"], "Hengst": ["E83KPD140"],
+      "Delkraft": ["DC136"], "Fiat": ["0077362340","77363600","77365902"], "Fil Filter": ["KFE1460","KFE1460V"],
+      "Fram": ["C10705"], "GM": ["813569","93181377"], "Hengst": ["E83KPD140"],
       "Inpeca": ["SPE0459"], "Japanparts": ["FCECO016"], "Mahle": ["KX208D"],
       "Mann": ["PU723X"], "Master Parts": ["MM100514"], "Peugeot": ["190697"],
       "Tecfil": ["PEC3023"], "Turbo Filtros": ["TC30212ECO"], "U.f.i.": ["60H2O00"],
-      "Vox": ["CE3023"], "Wega": ["FCD0771", "FCD0771/1", "FCD0771/2"], "WIX": ["WF8366"]
+      "Vox": ["CE3023"], "Wega": ["FCD0771","FCD0771/1","FCD0771/2"], "WIX": ["WF8366"]
     },
     aplicacoes: {
-      "Citroen": [
-        ["Jumper HDi 127", "2.8", "01/2005"]
+      "Peugeot": [
+        ["Boxer","2.3","01/2009 - >"],
+        ["Boxer -","2.8 8V","01/2005 - 12/2009"]
       ],
-      "- >": [
-        ["Diesel Jumper", "JTD", "2.3"],
-        ["01/2009 - >", "Diesel", "FIAT"],
-        ["Ducato JTD", "3.0 16V", "07/2006"],
-        ["- 05/2011 Diesel", "Ducato", "Turbo JTD"],
-        ["2.8 8V 01/2006", "- >", "Diesel"],
-        ["Ducato MultiJet", "2.3", "01/2009"],
-        ["- 2017 Diesel", "PEUGEOT", "Boxer"],
-        ["2.8 8V 01/2005", "- 12/2009", "Diesel"],
-        ["Boxer 2.3", "01/2009", "- >"]
+      "Citroen": [
+        ["Jumper HDi 127","2.8","01/2005 - >"],
+        ["Jumper JTD","2.3","01/2009 - >"]
+      ],
+      "Fiat": [
+        ["Ducato JTD","3.0 16V","07/2006 - 05/2011"],
+        ["Ducato Turbo JTD","2.8 8V","01/2006 - >"],
+        ["Ducato MultiJet","2.3","01/2009 - 2017"]
       ]
     }
   },

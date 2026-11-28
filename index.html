@@ -210,10 +210,11 @@ a{color:inherit}
 .ico-filtro svg{width:20px;height:20px;stroke:currentColor}
 .tabela-filtros th:first-child,.tabela-filtros td:first-child{padding:11px 10px 11px 12px}
 .tabela-filtros tbody th .ico-filtro{display:grid}
-.abas-veic{display:flex;gap:8px;margin:0 0 24px;overflow-x:auto;scrollbar-width:thin}
-.abas-veic a{flex:none;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--linha);background:var(--cartao);color:var(--texto);font-weight:600;text-decoration:none;white-space:nowrap}
-.abas-veic a:hover{border-color:var(--tinta3)}
-.abas-veic a[aria-current="page"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.abas-veic{position:sticky;top:76px;z-index:25;display:flex;align-items:center;gap:8px;margin:0 0 26px;padding:8px;background:var(--tinta);border-radius:16px;box-shadow:0 6px 18px rgba(0,51,114,.28);overflow-x:auto;scrollbar-width:thin}
+.abas-rotulo{flex:none;padding:0 6px 0 8px;color:#BFD3E6;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.abas-veic a{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 12px;border-radius:11px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:.97rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s,transform .15s}
+.abas-veic a:hover{background:rgba(255,255,255,.2);transform:translateY(-1px)}
+.abas-veic a[aria-current="page"]{background:#FFD200;border-color:#FFD200;color:#003772;box-shadow:0 3px 0 rgba(0,0,0,.25)}
 .abas-veic svg{width:20px;height:20px;stroke:currentColor;flex:none}
 .aba-curta{display:none}
 .construcao{max-width:620px;margin:8px 0 24px;padding:32px 28px;text-align:center;background:var(--cartao);border:2px dashed var(--linha);border-radius:16px}
@@ -229,9 +230,11 @@ a{color:inherit}
 .ficha-filtro h3,.nota-tec h3{font-size:1.1rem;margin:18px 0 8px}
 .ficha-filtro > h2 small{font-weight:500;color:var(--suave)}
 @media(max-width:900px){
-  .abas-veic{position:fixed;left:0;right:0;bottom:0;z-index:45;margin:0;gap:0;padding:0 0 env(safe-area-inset-bottom);background:var(--tinta);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 -6px 18px rgba(0,0,0,.25);overflow:visible}
+  .abas-veic{position:fixed;top:auto;left:0;right:0;bottom:0;z-index:45;margin:0;gap:0;border-radius:0;padding:0 0 env(safe-area-inset-bottom);background:var(--tinta);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 -6px 18px rgba(0,0,0,.25);overflow:visible}
   .abas-veic a{flex:1;min-width:0;flex-direction:column;justify-content:center;gap:3px;padding:9px 2px 8px;border:0;border-radius:0;background:transparent;color:#BFD3E6;font-size:.72rem;text-align:center}
   .abas-veic a[aria-current="page"]{background:#0E437A;color:#FFD200;box-shadow:inset 0 3px 0 #FFD200}
+  .abas-rotulo{display:none}
+  .abas-veic a:hover{transform:none}
   .aba-longa{display:none}.aba-curta{display:inline}
   body.tem-abas .principal{padding-bottom:84px}
   body.tem-abas .voltar-topo{bottom:90px}
@@ -1089,7 +1092,7 @@ function paginaVeiculo(v, abaId){
   var d = v.dados || {}, aba = ABAS_VEIC.filter(function(a){ return a.id === abaId; })[0] || ABAS_VEIC[0];
   var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(v.marca)+'</span><span>/</span><span>'+esc(v.modelo)+'</span></nav>'+
     '<header class="ficha-cab"><h1>'+esc(v.modelo)+'</h1><p class="lead">'+esc(v.marca)+'</p></header>'+
-    '<nav class="abas-veic" aria-label="Seções do veículo">'+ABAS_VEIC.map(function(a){
+    '<nav class="abas-veic" aria-label="Seções do veículo">'+'<span class="abas-rotulo" aria-hidden="true">Consultar:</span>'+ABAS_VEIC.map(function(a){
       return '<a href="#/veiculo/'+v.id+(a.id === "lub" ? "" : "/"+a.id)+'"'+(a.id === aba.id ? ' aria-current="page"' : '')+'>'+svg(a.ic,"")+'<span class="aba-longa">'+esc(a.rot)+'</span><span class="aba-curta">'+esc(a.curto)+'</span></a>';
     }).join("")+'</nav>';
   if(!d.sistemas && !d.filtros && aba.id !== "correias") h += '<p class="nota">A ficha técnica deste veículo ainda não está disponível aqui.</p>';

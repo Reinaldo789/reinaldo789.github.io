@@ -1199,38 +1199,37 @@ export const filtrosOleo = {
     }
   },
 
-  "PSL657": {
+    "PSL657": {
     tipo: "oleo",
-    url: "https://catalogo.tecfil.com.br/search/psl657/produto/69",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 73.5, diametroExterno: 93, rosca: "M22 x 1,5", elemento: "Papel", observacao: "LINHA ECOLÓGICA" },
     conversoes: {
       "Authomix": ["FOL0657"], "Baldwin": ["B7496"], "Bosch": ["0986B00059"],
-      "Delphi": ["EDL111"], "Donaldson": ["P766162"], "Fiat": ["5801985959", "8094872"],
+      "Delphi": ["EDL111"], "Donaldson": ["P766162"], "Fiat": ["5801985959","8094872"],
       "Fleetguard": ["LF17497"], "Fram": ["PH10268"], "Gonher": ["GP109"],
       "Hengst": ["H12W08"], "Inpeca": ["SLB0138"], "IVECO": ["504091563"],
       "Japanparts": ["FOBR65"], "KSPG": ["50014811"], "Mahle": ["OC1222"],
       "Mann": ["W914/28"], "Mann Argentina": ["W914/28"], "Mann Europa": ["W914/28"],
       "Master Parts": ["MM100610"], "Sakura": ["C222240"], "Seineca": ["SOF7046"],
       "Seineca Antigo": ["SEI2721"], "Tecfil": ["PSL657"], "Turbo Filtros": ["TB657"],
-      "Vox": ["LB657"], "Wega": ["WO420", "WO421"], "WIX": ["WL7443"]
+      "Vox": ["LB657"], "Wega": ["WO420","WO421"], "WIX": ["WL7443"]
     },
     aplicacoes: {
       "Citroen": [
-        ["Jumper JTD", "2.3", "01/2009"]
+        ["Jumper JTD","2.3","01/2009 - >"]
       ],
-      "- >": [
-        ["Diesel FIAT", "Ducato", "MultiJet"],
-        ["2.3 01/2009", "- 2017", "Diesel"],
-        ["Ducato MultiJet", "2.3", "2018"],
-        ["Diesel IVECO", "DAILY 30.130", "2.3 FPT 130cv"],
-        ["2020 - >", "-", "DAILY 45.170"],
-        ["3.0 FPT 170cv 2020", "- >", "-"],
-        ["DAILY 55.170 3.0 FPT 170cv", "2020", "- >"],
-        ["DAILY 65.170 3.0 FPT 170cv", "2020", "- >"],
-        ["DAILY CITY 30S13 2.3 16V FPT 130cv", "2018", "- >"]
+      "Fiat": [
+        ["Ducato MultiJet","2.3","01/2009 - 2017"],
+        ["Ducato MultiJet","2.3","2018 - >"]
+      ],
+      "IVECO": [
+        ["DAILY 30.130","2.3 FPT 130cv","2020 - >"],
+        ["DAILY 45.170","3.0 FPT 170cv","2020 - >"],
+        ["DAILY 55.170","3.0 FPT 170cv","2020 - >"],
+        ["DAILY 65.170","3.0 FPT 170cv","2020 - >"],
+        ["DAILY CITY 30S13","2.3 16V FPT 130cv","2018 - >"]
       ],
       "Peugeot": [
-        ["Boxer 2.3", "01/2009", "- >"]
+        ["Boxer","2.3","01/2009 - >"]
       ]
     }
   },

@@ -75,7 +75,7 @@ export const filtrosAr = {
 
     "ARS2868": {
     tipo: "ar",
-    especificacoes: { altura: 321, diametroExterno: 125, diametroInterno: 77.5, rosca: "Não possui", elemento: "Papel", observacao: "COM SEXTAVADO" },
+    especificacoes: { altura: 321, diametroExterno: 125, diametroInterno: 77.5, rosca: "Não possui", elemento: "Papel" },
     conversoes: {
       "ACDelco": ["01EFA015","19347766"], "Authomix": ["FAR2868"], "Baldwin": ["RS3942"],
       "Bosch": ["1457432286"], "Cross": ["FE880/1"], "Delkraft": ["DR1360"],

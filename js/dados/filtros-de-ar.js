@@ -72,6 +72,62 @@ export const filtrosAr = {
       ]
     }
   },
+
+     "ARS2868": {
+    tipo: "ar",
+    especificacoes: { altura: 321, diametroExterno: 125, diametroInterno: 77.5, rosca: "Não possui", elemento: "Papel", observacao: "COM SEXTAVADO" },
+    conversoes: {
+      "ACDelco": ["01EFA015","19347766"], "Authomix": ["FAR2868"], "Baldwin": ["RS3942"],
+      "Bosch": ["1457432286"], "Cross": ["FE880/1"], "Delkraft": ["DR1360"],
+      "Delphi": ["EFA907"], "Donaldson": ["P778984"], "Donsson": ["DA2978"],
+      "FAM": ["FA6201"], "Fil Filter": ["HP2549"], "Filtran": ["2052868"],
+      "Fleetguard": ["AF25727"], "Fram": ["CA5961","CA5961PU","FLI9178"], "Franig": ["HCA6069"],
+      "GM": ["93276069"], "Hengst": ["E1600L"], "Inpeca": ["SRS6201"],
+      "Japanparts": ["FA14200S"], "KS": ["287AR"], "KSPG": ["50013287"],
+      "Magneti Marelli": ["FA2868"], "Mahle": ["LX960"], "Mann": ["C14200"],
+      "Massey Ferguson": ["3901462M1","3901462M2"], "Master Parts": ["MM100326"], "MWM": ["MASTER0104"],
+      "Purolator": ["A1122"], "Seineca": ["SAR8111"], "Seineca Antigo": ["SEI0667"],
+      "Tecfil": ["ARS2868"], "Turbo Filtros": ["TR14200"], "Unifilter": ["UA14200P","UAEP14200P"],
+      "Valtra": ["84340600"], "Volkswagen": ["2171296201"], "Vox": ["HD2868"],
+      "Vox Antigo": ["HD2623"], "Wega": ["WR200/3"], "WIX": ["W48235BR","WA48235"],
+      "Xanfil": ["XL2105"], "ZF": ["0070131117"]
+    },
+    aplicacoes: {
+      "General Motors": [
+        ["Blazer EXECUTIVE 4X4","2.8 8V","2005 - >"],
+        ["Blazer STD Turbo","2.8 8V","2000 - 2006"],
+        ["Blazer MPFI","2.2 8V","01/1998 - 12/2000"],
+        ["Blazer Sprint 4.07 TCA","2.8 MWM","01/2002 - >"],
+        ["Grand Blazer DLX","4.2 MWM","01/1998 - >"],
+        ["S10 TDI STD DLX LTD (4X4)","2.8 MWM Sprint","03/2005 - >"],
+        ["S10 STD / DLX","MWM Sprint 2.8 SOHC","01/2000 - >"],
+        ["S10 MPFI - (CS / CD / CE) - mecânico","2.2 8V 136cv","1997 - 2000"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","2002 - 2005"],
+        ["S10 Turbo Intercooler Mecânico - com sist. anti-borbulha","2.8 MWM","01/2002 - >"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2006 - 2007"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","1998 - 2001"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2007 - 2011"],
+        ["S10 TDI STD DLX","2.8 MWM Sprint","01/2000 - 01/2002"],
+        ["Silverado","2.8 MWM Sprint","01/2001 - >"]
+      ],
+      "Massey Ferguson": [
+        ["250X","Perkins","96 - >"],
+        ["250X / SE","AD 3152","99 - >"],
+        ["250XE","SIMPSON 2500 3CIL.","2002 - >"],
+        ["250XF","A3 - 2.5","2002 - >"],
+        ["255","SIMPSON 2500 3CIL.","2002 - >"],
+        ["262","PERKINS D 3152T","-"],
+        ["415","Perkins D 3152","-"],
+        ["451","D 3.15","-"]
+      ],
+      "Volkswagen": [
+        ["Kombi EFI - (Refrigerado a Ar)","1.6 8V 67cv","01/1998 - 12/2011"],
+        ["Kombi EFI 1600 Ar","1.6 8V 58cv","01/1998 - 12/2005"],
+        ["Kombi EFI Refrigerado a Ar","1.6","01/1998 - 12/2005"],
+        ["Kombi","1.4","01/2006 - 2014"]
+      ]
+    }
+  },
      "ARL4141": {
     tipo: "ar",
     especificacoes: { altura: 62, diametroExterno: 240, diametroInterno: 241, rosca: "Não possui", elemento: "Sintética", observacao: "CÓD CÂMBIO" },

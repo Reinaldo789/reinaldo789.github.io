@@ -35,14 +35,14 @@ export const utilitariosAgrale = {
     notas: {
       1: "Atenção ao câmbio Eaton FSO-2405: siga rigorosamente a recomendação do fabricante quanto ao uso de ATF Dexron III nesta caixa específica para garantir o funcionamento correto dos sincronizadores.",
       2: "Eixos rígidos Dana. Caso o diferencial traseiro possua sistema de deslizamento limitado (LSD / Trac-Lok), utilize óleo GL-5 compatível com LSD ou adicione o aditivo modificador de atrito para evitar ruídos e desgaste prematuro.",
-      3: "Motorização MWM Sprint 4.07 TCE eletrônica (Euro III) aplicada nas versões finais da G1 e modelos militares (AM11, AM20, AM21, AM23). Confirme sempre a rosca do sensor de água no filtro de combustível antes da compra."
+      3: "Motorização MWM Sprint 4.07 TCE eletrônica (Euro III) usa o filtro diferente da mecânica, o sensor de água no combustível não enrosca nos filtros versões mecânica, da S10 até 2006 não serve."
     },
     // Só o código Tecfil: as demais marcas vêm do catálogo (js/dados/filtros-de-*.js)
     filtros: {
       oleo: 'PSL340',
       ar: 'ARS8234',
       arSecundario: 'ASR234',
-      combustivel: 'PSC498/4',
+      combustivel: 'PSC498/3',
       sedimentador: 'PSD450/1'
     }
   },

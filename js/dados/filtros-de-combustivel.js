@@ -21,6 +21,24 @@ export const filtrosCombustivel = {
       ]
     }
   },
+
+     "PSC454": {
+    tipo: "combustivel",
+    especificacoes: { altura: 188.6, diametroInterno: 85.4, rosca: "Não possui", elemento: "Papel", observacao: "COM SEXTAVADO" },
+    conversoes: {
+      "Authomix": ["FCO0454"], "Mahle": ["KL428"], "MWM": ["905410500118"],
+      "Nissan": ["164002BB0A"], "Tecfil": ["PSC454"], "Vox": ["FBD454"],
+      "Wega": ["FCD2066/2"]
+    },
+    aplicacoes: {
+      "General Motors": [
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2007 - 2011"]
+      ],
+      "Nissan": [
+        ["Frontier (SE / Serrana / Attack)","2.8 MWM Sprint","2007 - 2007"]
+      ]
+    }
+  },
    
      "PSC491": {
     tipo: "combustivel",

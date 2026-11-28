@@ -54,6 +54,32 @@ export const filtrosCombustivel = {
     }
   },
 
+     "PSC498/3": {
+    tipo: "combustivel",
+    especificacoes: { altura: 150, diametroExterno: 86, rosca: "Não possui", elemento: "Papel", observacao: "FORNECIDO COM DRENO" },
+    conversoes: {
+      "Authomix": ["FCO4983"], "Bosch": ["0986BF0308"], "Delkraft": ["DSC708/3"],
+      "Delphi": ["HDF424"], "Fram": ["P10707","P4836A"], "GM": ["MW054006"],
+      "Japanparts": ["FCBR09S"], "KSPG": ["50014905"], "Mahle": ["KL316"],
+      "Mann": ["WK842/14"], "MWM": ["905400150018","905400150020"], "Purolator": ["F1065"],
+      "Tecfil": ["PSC498/3"], "Vox": ["FBD498/3"], "Vox Antigo": ["FBD2231/1"],
+      "Wega": ["FCD2064"], "WIX": ["WF10270"]
+    },
+    aplicacoes: {
+      "General Motors": [
+        ["S10 TDI STD DLX LTD (4X4)","2.8 MWM Sprint","03/2005 - >"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","2002 - 2005"],
+        ["Blazer STD Turbo","2.8 8V","2000 - 2006"],
+        ["Blazer Sprint 4.07 TCA","2.8 MWM","01/2002 - >"],
+        ["Blazer Sprint DLX 4X2 / 4X4 Intercooler","2.8 MWM","01/2005 - >"]
+      ],
+      "Nissan": [
+        ["Frontier (SE / One / Strick / XE)","2.8 MWM Sprint","2002 - 2005"],
+        ["X-Terra XE 2.8 TDI 4X4","2.8 12V","2004 - 2006"]
+      ]
+    }
+  },
+
   "GI04/7": {
     tipo: "combustivel",
     url: "https://catalogo.tecfil.com.br/search/gi04/7/produto/8",

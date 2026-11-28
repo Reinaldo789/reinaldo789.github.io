@@ -73,7 +73,7 @@ export const filtrosAr = {
     }
   },
 
-     "ARS2868": {
+   "ARS2868": {
     tipo: "ar",
     especificacoes: { altura: 321, diametroExterno: 125, diametroInterno: 77.5, rosca: "Não possui", elemento: "Papel", observacao: "COM SEXTAVADO" },
     conversoes: {
@@ -128,7 +128,8 @@ export const filtrosAr = {
       ]
     }
   },
-     "ARL4141": {
+   
+   "ARL4141": {
     tipo: "ar",
     especificacoes: { altura: 62, diametroExterno: 240, diametroInterno: 241, rosca: "Não possui", elemento: "Sintética", observacao: "CÓD CÂMBIO" },
     conversoes: {
@@ -153,7 +154,7 @@ export const filtrosAr = {
       ]
     }
   },
-     "ARS7109": {
+   "ARS7109": {
     tipo: "ar",
     especificacoes: { altura: 363.5, diametroExterno: 148, diametroInterno: 84.5, rosca: "Não possui", elemento: "Papel", observacao: "SUBSTITUI O FILTRO PSC998 APENAS NA LINHA MITSUBISHI" },
     conversoes: {

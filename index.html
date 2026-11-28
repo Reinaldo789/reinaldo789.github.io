@@ -221,7 +221,11 @@ a{color:inherit}
 .construcao-ico svg{width:28px;height:28px;stroke:currentColor}
 .construcao h2{margin:0 0 6px}
 .construcao p{margin:6px 0;color:var(--suave)}
-.ficha-filtro{margin-top:32px;padding-top:8px;border-top:2px solid var(--linha)}
+.ficha-filtro{margin-top:8px}
+.ficha-filtro + .ficha-filtro{margin-top:36px;padding-top:12px;border-top:2px solid var(--linha)}
+.tag-original{margin-left:12px;font-size:.9rem;font-weight:600;color:var(--suave);white-space:nowrap}
+.tag-original .filtro-tag{margin-left:6px}
+.acoes-ficha{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
 .ficha-filtro h3,.nota-tec h3{font-size:1.1rem;margin:18px 0 8px}
 .ficha-filtro > h2 small{font-weight:500;color:var(--suave)}
 @media(max-width:900px){
@@ -948,9 +952,9 @@ function corpoFiltro(g, resumo){
   });
   var cat = CATALOGO[compacto(g.cod)];
   var nt = cat && cat.notaTecnica;
-  if(nt && (nt.codigoOriginal || nt.observacao)){
+  if(nt && (nt.observacao || (nt.codigoOriginal && !resumo))){
     h += '<aside class="nota-tec" aria-label="Nota técnica"><h2>Nota técnica</h2>'+
-      (nt.codigoOriginal ? '<p><strong>Código original:</strong> <span class="filtro-tag">'+esc(nt.codigoOriginal)+'</span></p>' : '')+
+      (nt.codigoOriginal && !resumo ? '<p><strong>Código original:</strong> <span class="filtro-tag">'+esc(nt.codigoOriginal)+'</span></p>' : '')+
       (nt.observacao ? '<p>'+esc(nt.observacao).replace(/\n/g, "<br>")+'</p>' : '')+'</aside>';
   }
   var cv = (cat && cat.conversoes) || {}, mc = Object.keys(cv);
@@ -983,13 +987,13 @@ function corpoFiltro(g, resumo){
     } else if(cat.url && !resumo){
       h += '<p class="nota">A lista completa de aplicações está no catálogo da Tecfil.</p>';
     }
-    h += '<p><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a></p>';
+    h += '<p class="acoes-ficha"><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a>'+
+      (resumo && cat.aplicacoes ? '<a class="botao-cat" href="#/filtro/'+g.tipo+'/'+compacto(g.cod)+'">Todas as aplicações</a>' : '')+'</p>';
   } else {
     h += hCod;
     h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
   }
   if(resumo){
-    if(cat && cat.aplicacoes) h += '<p><a href="#/filtro/'+g.tipo+'/'+compacto(g.cod)+'">Ver ficha completa e aplicações →</a></p>';
     h = h.replace(/<h2/g, "<h3").replace(/<\/h2>/g, "</h3>");
   }
   return h;
@@ -1055,13 +1059,19 @@ function abaFiltros(v, aba){
   var f = (v.dados || {}).filtros || {};
   var tipos = aba.tipos.filter(function(t){ return f[t]; });
   if(!tipos.length) return construcao("Este filtro ainda não foi cadastrado para este veículo.");
-  var h = '<h2>'+esc(aba.rot)+'</h2>'+tabelaFiltros(v.dados, tipos);
+  var h = "";
   tipos.forEach(function(t){
-    if(codVazio(f[t].tecfil)) return;
-    partirCod(f[t].tecfil).forEach(function(p){
+    var fichas = 0, rotulo = ROTULO_FILTRO[t] || t;
+    if(!codVazio(f[t].tecfil)) partirCod(f[t].tecfil).forEach(function(p){
       var g = GRUPOS[t+"|"+compacto(p.cod)];
-      if(g) h += '<section class="ficha-filtro"><h2>'+esc((ROTULO_FILTRO[t] || t)+" "+g.cod)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : '')+'</h2>'+corpoFiltro(g, true)+'</section>';
+      if(!g) return;
+      fichas++;
+      var cat = CATALOGO[compacto(g.cod)], orig = cat && cat.notaTecnica && cat.notaTecnica.codigoOriginal;
+      h += '<section class="ficha-filtro"><h2>'+esc(rotulo)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : '')+
+        (orig ? '<span class="tag-original">Original <span class="filtro-tag">'+esc(orig)+'</span></span>' : '')+'</h2>'+corpoFiltro(g, true)+'</section>';
     });
+    /* sem ficha para este filtro: mostra os códigos que existirem, em linha */
+    if(!fichas) h += '<section class="ficha-filtro"><h2>'+esc(rotulo)+'</h2>'+tabelaFiltros(v.dados, [t])+'</section>';
   });
   return h;
 }
@@ -1078,7 +1088,7 @@ function abaCorreias(v){
 }
 
 function paginaVeiculo(v, abaId){
-  var d = v.dados || {}, k = VEICULOS.indexOf(v), aba = ABAS_VEIC.filter(function(a){ return a.id === abaId; })[0] || ABAS_VEIC[0];
+  var d = v.dados || {}, aba = ABAS_VEIC.filter(function(a){ return a.id === abaId; })[0] || ABAS_VEIC[0];
   var h = '<nav class="trilha" aria-label="Você está em"><a href="#/inicio">Início</a><span>/</span><span>'+esc(v.marca)+'</span><span>/</span><span>'+esc(v.modelo)+'</span></nav>'+
     '<header class="ficha-cab"><h1>'+esc(v.modelo)+'</h1><p class="lead">'+esc(v.marca)+'</p></header>'+
     '<nav class="abas-veic" aria-label="Seções do veículo">'+ABAS_VEIC.map(function(a){
@@ -1087,10 +1097,6 @@ function paginaVeiculo(v, abaId){
   if(!d.sistemas && !d.filtros && aba.id !== "correias") h += '<p class="nota">A ficha técnica deste veículo ainda não está disponível aqui.</p>';
   else h += aba.id === "lub" ? abaLubrificantes(d) : aba.id === "correias" ? abaCorreias(v) : abaFiltros(v, aba);
 
-  var suf = aba.id === "lub" ? "" : "/"+aba.id, ant = VEICULOS[k-1], prox = VEICULOS[k+1];
-  h += '<div class="nav-ficha">'+
-    (ant ? '<a href="#/veiculo/'+ant.id+suf+'"><small>Anterior</small>'+esc(ant.marca+" "+ant.modelo)+'</a>' : '<span></span>')+
-    (prox ? '<a class="prox" href="#/veiculo/'+prox.id+suf+'"><small>Próximo</small>'+esc(prox.marca+" "+prox.modelo)+'</a>' : '')+'</div>';
   return h;
 }
 

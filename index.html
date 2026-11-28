@@ -973,7 +973,7 @@ function corpoFiltro(g, resumo){
   if(cat && (cat.especificacoes || cat.conversoes || cat.aplicacoes)){
     var e = cat.especificacoes || {};
     var fmt = function(v, un){ if(v === null || v === undefined || v === "") return null; if(v === true) return "Sim"; if(v === false) return "Não"; return String(v)+(un && typeof v === "number" ? " "+un : ""); };
-    var linhas = [["Elemento", fmt(e.elemento)], ["Altura", fmt(e.altura,"mm")], ["Ø int. / largura", fmt(e.diametroInterno,"mm")], ["Ø ext. / comprimento", fmt(e.diametroExterno,"mm")], ["Ø rosca", fmt(e.rosca)]]
+    var linhas = [["Elemento", fmt(e.elemento)], ["Altura", fmt(e.altura,"mm")], ["Ø int. / largura", fmt(e.diametroInterno,"mm")], ["Ø ext. / comprimento", fmt(e.diametroExterno,"mm")], ["Ø rosca", fmt(e.rosca)], ["Válvula anti-retorno", fmt(e.valvulaAntiRetorno)], ["Válvula de alívio", fmt(e.valvulaAlivio)], ["Peso líquido", fmt(e.pesoLiquido,"kg")], ["Peso bruto", fmt(e.pesoBruto,"kg")], ["Caixa (un.)", fmt(e.caixa)], ["Observação", fmt(e.observacao)]]
       .filter(function(l){ return l[1] !== null; });
     if(linhas.length) h += '<h2>Especificações técnicas</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+linhas.map(function(l){
       return '<div><dt>'+esc(l[0])+'</dt><dd>'+esc(l[1])+'</dd></div>';

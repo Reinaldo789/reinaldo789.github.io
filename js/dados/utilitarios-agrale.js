@@ -19,7 +19,6 @@ export const utilitariosAgrale = {
       ar: 'ARS8234',
       arSecundario: 'ASR234',
       combustivel: 'PSC498/4',
-      sedimentador: 'PSD450/1'
     }
   },
 
@@ -42,8 +41,7 @@ export const utilitariosAgrale = {
       oleo: 'PSL340',
       ar: 'ARS8234',
       arSecundario: 'ASR234',
-      combustivel: 'PSC498/3',
-      sedimentador: 'PSD450/1'
+      combustivel: 'PSC454',
     }
   },
 

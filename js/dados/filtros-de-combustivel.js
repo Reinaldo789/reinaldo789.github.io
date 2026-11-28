@@ -413,22 +413,19 @@ export const filtrosCombustivel = {
     }
   },
 
-  "PEC3029": {
+    "PEC3029": {
     tipo: "combustivel",
-    url: "https://catalogo.tecfil.com.br/search/pec3029/produto/874",
-    especificacoes: { altura: null, diametroExterno: null, diametroInterno: null, rosca: null, elemento: "Papel" },
+    especificacoes: { altura: 104, diametroExterno: 77.93, rosca: "Não possui", elemento: "Papel", observacao: "LINHA ECOLÓGICA" },
     conversoes: {
       "Authomix": ["FCO3029"], "Fram": ["C11723"], "General Motors": ["52100212"],
-      "GM": ["94771044"], "Japanparts": ["FCBR39S", "FCBR72/2S"], "Mahle": ["KX444", "KX444D"],
+      "GM": ["94771044"], "Japanparts": ["FCBR39S","FCBR72/2S"], "Mahle": ["KX444","KX444D"],
       "Mann": ["PU7020z"], "Sakura": ["EF65030"], "Tecfil": ["PEC3029"],
       "Turbo Filtros": ["TC3029ECO"], "Vox": ["CE3029"], "Wega": ["FCD0777"]
     },
     aplicacoes: {
       "General Motors": [
-        ["S10 Turbo - (CS / CD / CE) - automático / mecânico", "2.8 16V 200cv", "2012"]
-      ],
-      "- >": [
-        ["Diesel Trailblazer", "TDI Turbo Diesel - LTZ - Automático", "2.8 16V"]
+        ["S10 Turbo - (CS / CD / CE) - automático / mecânico","2.8 16V 200cv","2012 - >"],
+        ["Trailblazer TDI Turbo Diesel - LTZ - Automático","2.8 16V","2012 - >"]
       ]
     }
   },

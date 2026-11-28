@@ -1,21 +1,21 @@
 export const utilitariosChevrolet = {
-  'Chevrolet S10 2.8 MWM Sprint (Mecânica e Eletrônica - 2000 a 2011)': {
+  'Chevrolet S10 2.8 MWM Sprint Eletrônica (2007 a 2011)': {
     usaArla32: false,
     sistemas: [
-      { sistema: 'Motor (MWM Sprint 2.8 12V Turbo Intercooler)', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
-      { sistema: 'Câmbio Manual (Eaton FSO-1305 / 2405)', especificacao: 'ATF Dexron III (ou SAE 75W-90 API GL-4 conforme manual da caixa) [1]', capacidade: '2,2 L a 2,6 L', intervalo: '50.000 km' },
+      { sistema: 'Motor (MWM Sprint 2.8 12V Turbo Intercooler - Common Rail)', especificacao: 'SAE 15W-40 Mineral ou Semissintético (API CI-4 / ACEA E7)', capacidade: '7,0 L (com filtro)', intervalo: '10.000 km (Normal) / 5.000 km (Severo)' },
+      { sistema: 'Câmbio Manual (Eaton FSO-2405)', especificacao: 'ATF Dexron III (ou SAE 75W-90 API GL-4 conforme manual da caixa) [1]', capacidade: '2,2 L a 2,6 L', intervalo: '50.000 km' },
       { sistema: 'Caixa de Transferência (4x4 BorgWarner)', especificacao: 'ATF Dexron III', capacidade: '1,2 L', intervalo: '50.000 km' },
       { sistema: 'Diferencial Traseiro (Dana 44)', especificacao: 'SAE 85W-140 API GL-5 (com aditivo LSD se equipado com Positracker) [2]', capacidade: '2,2 L', intervalo: '40.000 km' },
       { sistema: 'Arrefecimento', especificacao: 'Aditivo Orgânico Long Life (50/50)', capacidade: '10,5 L', intervalo: '2 anos' }
     ],
     notas: {
-      1: "Fase clássica com motor MWM Sprint. As versões iniciais usavam bomba mecânica e as finais (NGD) injeção common-rail eletrônica. Atenção ao manual da caixa quanto à especificação exata do óleo (muitas usam ATF Dexron III).",
-      2: "Diferencial traseiro Dana 44. Versões 4x4 topo de linha costumavam vir com sistema de deslizamento limitado (Positracker / LSD), exigindo óleo GL-5 compatível com LSD."
+      1: "Motorização MWM Sprint 4.07TCE com sistema de injeção eletrônica Common Rail. Atenção ao manual da caixa quanto à especificação exata do óleo (a maioria utiliza ATF Dexron III).",
+      2: "Diferencial traseiro Dana 44. Versões 4x4 topo de linha contam com sistema de deslizamento limitado (Positracker / LSD), exigindo óleo GL-5 compatível com LSD."
     },
     filtros: {
       oleo: 'PSL340',
       ar: 'ARS2868',
-      combustivel: 'PSC498 (Mec) / PSC498/4 (Elet)'
+      combustivel: 'PSC454'
     }
   },
 

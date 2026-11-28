@@ -73,7 +73,7 @@ export const filtrosAr = {
     }
   },
 
-     "ARS2868": {
+    "ARS2868": {
     tipo: "ar",
     especificacoes: { altura: 321, diametroExterno: 125, diametroInterno: 77.5, rosca: "Não possui", elemento: "Papel", observacao: "COM SEXTAVADO" },
     conversoes: {
@@ -94,21 +94,21 @@ export const filtrosAr = {
     },
     aplicacoes: {
       "General Motors": [
-        ["Blazer EXECUTIVE 4X4", "2.8 8V", "2005 - >", "Diesel"],
-        ["Blazer STD Turbo", "2.8 8V", "2000 - 2006", "Diesel"],
-        ["Grand Blazer DLX", "4.2 MWM", "01/1998 - >", "Diesel"],
-        ["S10 TDI STD DLX LTD (4X4)", "2.8 MWM Sprint", "03/2005 - >", "Diesel"],
-        ["S10 STD / DLX", "MWM Sprint 2.8 SOHC", "01/2000 - >", "Diesel"],
-        ["S10 MPFI - (CS / CD / CE) - mecânico", "2.2 8V 136cv", "1997 - 2000", "Gasolina"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv", "2002 - 2005", "Diesel"],
-        ["S10 Turbo Intercooler Mecânico - com sist. anti-borbulha", "2.8 MWM", "01/2002 - >", "Diesel"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv", "2006 - 2007", "Diesel"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv", "1998 - 2001", "Diesel"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv", "2007 - 2011", "Diesel"],
-        ["S10 TDI STD DLX", "2.8 MWM Sprint", "01/2000 - 01/2002", "Diesel"],
-        ["Silverado", "2.8 MWM Sprint", "01/2001 - >", "Diesel"],
-        ["Blazer MPFI", "2.2 8V", "01/1998 - 12/2000", "Gasolina"],
-        ["Blazer Sprint 4.07 TCA", "2.8 MWM", "01/2002 - >", "Diesel"]
+        ["Blazer EXECUTIVE 4X4", "2.8 8V Diesel", "2005 - >"],
+        ["Blazer STD Turbo", "2.8 8V Diesel", "2000 - 2006"],
+        ["Grand Blazer DLX", "4.2 MWM Diesel", "01/1998 - >"],
+        ["S10 TDI STD DLX LTD (4X4)", "2.8 MWM Sprint Diesel", "03/2005 - >"],
+        ["S10 STD / DLX", "MWM Sprint 2.8 SOHC Diesel", "01/2000 - >"],
+        ["S10 MPFI - (CS / CD / CE) - mecânico", "2.2 8V 136cv Gasolina", "1997 - 2000"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv Diesel", "2002 - 2005"],
+        ["S10 Turbo Intercooler Mecânico - com sist. anti-borbulha", "2.8 MWM Diesel", "01/2002 - >"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv Diesel", "2006 - 2007"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv Diesel", "1998 - 2001"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv Diesel", "2007 - 2011"],
+        ["S10 TDI STD DLX", "2.8 MWM Sprint Diesel", "01/2000 - 01/2002"],
+        ["Silverado", "2.8 MWM Sprint Diesel", "01/2001 - >"],
+        ["Blazer MPFI", "2.2 8V Gasolina", "01/1998 - 12/2000"],
+        ["Blazer Sprint 4.07 TCA", "2.8 MWM Diesel", "01/2002 - >"]
       ],
       "Massey Ferguson": [
         ["250X", "Perkins", "96 - >"],

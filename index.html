@@ -952,9 +952,9 @@ function corpoFiltro(g, resumo){
   });
   var cat = CATALOGO[compacto(g.cod)];
   var nt = cat && cat.notaTecnica;
-  if(nt && (nt.observacao || (nt.codigoOriginal && !resumo))){
+  if(nt && (nt.codigoOriginal || nt.observacao)){
     h += '<aside class="nota-tec" aria-label="Nota técnica"><h2>Nota técnica</h2>'+
-      (nt.codigoOriginal && !resumo ? '<p><strong>Código original:</strong> <span class="filtro-tag">'+esc(nt.codigoOriginal)+'</span></p>' : '')+
+      (nt.codigoOriginal ? '<p><strong>Código original:</strong> <span class="filtro-tag">'+esc(nt.codigoOriginal)+'</span></p>' : '')+
       (nt.observacao ? '<p>'+esc(nt.observacao).replace(/\n/g, "<br>")+'</p>' : '')+'</aside>';
   }
   var cv = (cat && cat.conversoes) || {}, mc = Object.keys(cv);
@@ -1066,9 +1066,7 @@ function abaFiltros(v, aba){
       var g = GRUPOS[t+"|"+compacto(p.cod)];
       if(!g) return;
       fichas++;
-      var cat = CATALOGO[compacto(g.cod)], orig = cat && cat.notaTecnica && cat.notaTecnica.codigoOriginal;
-      h += '<section class="ficha-filtro"><h2>'+esc(rotulo)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : '')+
-        (orig ? '<span class="tag-original">Original <span class="filtro-tag">'+esc(orig)+'</span></span>' : '')+'</h2>'+corpoFiltro(g, true)+'</section>';
+      h += '<section class="ficha-filtro"><h2>'+esc(rotulo+" "+g.cod)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : '')+'</h2>'+corpoFiltro(g, true)+'</section>';
     });
     /* sem ficha para este filtro: mostra os códigos que existirem, em linha */
     if(!fichas) h += '<section class="ficha-filtro"><h2>'+esc(rotulo)+'</h2>'+tabelaFiltros(v.dados, [t])+'</section>';

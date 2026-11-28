@@ -94,37 +94,37 @@ export const filtrosAr = {
     },
     aplicacoes: {
       "General Motors": [
-        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2007 - 2011"],
-        ["S10 TDI STD DLX","2.8 MWM Sprint","01/2000 - 01/2002"],
-        ["S10 TDI STD DLX LTD (4X4)","2.8 MWM Sprint","03/2005 - >"],
-        ["S10 STD / DLX","MWM Sprint 2.8 SOHC","01/2000 - >"],
-        ["S10 MPFI - (CS / CD / CE) - mecânico","2.2 8V 136cv","1997 - 2000"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","2002 - 2005"],
-        ["S10 Turbo Intercooler Mecânico - com sist. anti-borbulha","2.8 MWM","01/2002 - >"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V 140cv","2006 - 2007"],
-        ["S10 Turbo - (CS / CD / CE) - mecânico","2.8 12V MWM 132cv","1998 - 2001"],
-        ["Blazer EXECUTIVE 4X4","2.8 8V","2005 - >"],
-        ["Blazer STD Turbo","2.8 8V","2000 - 2006"],
-        ["Blazer MPFI","2.2 8V","01/1998 - 12/2000"],
-        ["Blazer Sprint 4.07 TCA","2.8 MWM","01/2002 - >"],
-        ["Grand Blazer DLX","4.2 MWM","01/1998 - >"],
-        ["Silverado","2.8 MWM Sprint","01/2001 - >"]
+        ["Blazer EXECUTIVE 4X4", "2.8 8V", "2005 - >", "Diesel"],
+        ["Blazer STD Turbo", "2.8 8V", "2000 - 2006", "Diesel"],
+        ["Grand Blazer DLX", "4.2 MWM", "01/1998 - >", "Diesel"],
+        ["S10 TDI STD DLX LTD (4X4)", "2.8 MWM Sprint", "03/2005 - >", "Diesel"],
+        ["S10 STD / DLX", "MWM Sprint 2.8 SOHC", "01/2000 - >", "Diesel"],
+        ["S10 MPFI - (CS / CD / CE) - mecânico", "2.2 8V 136cv", "1997 - 2000", "Gasolina"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv", "2002 - 2005", "Diesel"],
+        ["S10 Turbo Intercooler Mecânico - com sist. anti-borbulha", "2.8 MWM", "01/2002 - >", "Diesel"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv", "2006 - 2007", "Diesel"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V MWM 132cv", "1998 - 2001", "Diesel"],
+        ["S10 Turbo - (CS / CD / CE) - mecânico", "2.8 12V 140cv", "2007 - 2011", "Diesel"],
+        ["S10 TDI STD DLX", "2.8 MWM Sprint", "01/2000 - 01/2002", "Diesel"],
+        ["Silverado", "2.8 MWM Sprint", "01/2001 - >", "Diesel"],
+        ["Blazer MPFI", "2.2 8V", "01/1998 - 12/2000", "Gasolina"],
+        ["Blazer Sprint 4.07 TCA", "2.8 MWM", "01/2002 - >", "Diesel"]
       ],
       "Massey Ferguson": [
-        ["250X","Perkins","96 - >"],
-        ["250X / SE","AD 3152","99 - >"],
-        ["250XE","SIMPSON 2500 3CIL.","2002 - >"],
-        ["250XF","A3 - 2.5","2002 - >"],
-        ["255","SIMPSON 2500 3CIL.","2002 - >"],
-        ["262","PERKINS D 3152T","-"],
-        ["415","Perkins D 3152","-"],
-        ["451","D 3.15","-"]
+        ["250X", "Perkins", "96 - >"],
+        ["250X / SE", "AD 3152", "99 - >"],
+        ["250XE", "SIMPSON 2500 3CIL.", "2002 - >"],
+        ["250XF", "A3 - 2.5", "2002 - >"],
+        ["255", "SIMPSON 2500 3CIL.", "2002 - >"],
+        ["262", "PERKINS D 3152T", "-"],
+        ["415", "Perkins D 3152", "-"],
+        ["451", "D 3.15", "-"]
       ],
       "Volkswagen": [
-        ["Kombi EFI - (Refrigerado a Ar)","1.6 8V 67cv","01/1998 - 12/2011"],
-        ["Kombi EFI 1600 Ar","1.6 8V 58cv","01/1998 - 12/2005"],
-        ["Kombi EFI Refrigerado a Ar","1.6","01/1998 - 12/2005"],
-        ["Kombi","1.4","01/2006 - 2014"]
+        ["Kombi EFI - (Refrigerado a Ar)", "1.6 8V 67cv", "01/1998 - 12/2011"],
+        ["Kombi EFI 1600 Ar", "1.6 8V 58cv", "01/1998 - 12/2005"],
+        ["Kombi EFI Refrigerado a Ar", "1.6", "01/1998 - 12/2005"],
+        ["Kombi", "1.4", "01/2006 - 2014"]
       ]
     }
   },

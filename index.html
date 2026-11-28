@@ -342,7 +342,8 @@ body{transition:background-color .25s,color .25s}
 .tabela-app .linha-marca th{background:var(--papel);color:var(--ambar-txt)}
 .botao-cat{display:inline-block;padding:9px 16px;border-radius:10px;background:var(--ambar);color:#003772;font-weight:600;text-decoration:none}
 /* ---------- Destaque do nome do filtro na aba do veículo ---------- */
-.ficha-filtro > h2{font-size:1.9rem;margin-bottom:14px}
+.titulo-filtro{margin:40px 0 16px;font:600 1.9rem/1.2 "Barlow Condensed","Arial Narrow",sans-serif}
+.titulo-filtro small{font-size:.6em;font-weight:500}
 .destaque-filtro{display:inline;padding:2px 12px;border-radius:8px;background:#FFF3B0;color:#0B1F33;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 :root[data-tema="escuro"] .destaque-filtro{background:rgba(255,210,0,.22);color:var(--texto)}
 </style>
@@ -951,8 +952,9 @@ function paginaFiltro(g){
 }
 
 /* Conteúdo da ficha do filtro. resumo=true: versão para as abas do veículo (sem a tabela longa de aplicações) */
-function corpoFiltro(g, resumo){
+function corpoFiltro(g, resumo, titulo){
   var n = g.veic.length, h = "";
+  var tit = (resumo && titulo) ? '<div class="titulo-filtro"><span class="destaque-filtro">'+titulo+'</span></div>' : '';
   var marcas = Object.keys(g.codigos).sort(function(a,b){
     var ia = ORDEM_FILTROS.indexOf(a), ib = ORDEM_FILTROS.indexOf(b);
     return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
@@ -982,7 +984,7 @@ function corpoFiltro(g, resumo){
     if(linhas.length) h += '<h2>Especificações técnicas</h2><div class="grade-sis"><article class="cartao-sis"><dl>'+linhas.map(function(l){
       return '<div><dt>'+esc(l[0])+'</dt><dd>'+esc(l[1])+'</dd></div>';
     }).join("")+'</dl></article></div>';
-    h += hCod;
+    h += tit + hCod;
     if(cat.aplicacoes){
       var ma = Object.keys(cat.aplicacoes);
       h += '<h2 class="sec-filtros">Aplicações no catálogo Tecfil</h2><div class="rolagem"><table class="tabela-app"><thead><tr><th>Veículo</th><th>Motor</th><th>Ano</th></tr></thead><tbody>'+
@@ -996,7 +998,7 @@ function corpoFiltro(g, resumo){
     }
     h += '<p class="acoes-ficha"><a class="botao-cat" href="'+esc(cat.url || urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Abrir no catálogo Tecfil ↗</a>'+'</p>';
   } else {
-    h += hCod;
+    h += tit + hCod;
     h += '<p class="nota">As especificações e as aplicações deste filtro estão no catálogo da Tecfil.</p><p><a class="botao-cat" href="'+esc(urlCatalogo(g.cod))+'" target="_blank" rel="noopener">Ver aplicações no catálogo Tecfil ↗</a></p>';
   }
   if(resumo){
@@ -1072,7 +1074,7 @@ function abaFiltros(v, aba){
       var g = GRUPOS[t+"|"+compacto(p.cod)];
       if(!g) return;
       fichas++;
-      h += '<section class="ficha-filtro"><h2><span class="destaque-filtro">'+esc(rotulo+" "+g.cod)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : '')+'</span></h2>'+corpoFiltro(g, true)+'</section>';
+      h += '<section class="ficha-filtro">'+corpoFiltro(g, true, esc(rotulo+" Tecfil "+g.cod)+(p.rot ? ' <small>('+esc(p.rot)+')</small>' : ''))+'</section>';
     });
     /* sem ficha para este filtro: mostra os códigos que existirem, em linha */
     if(!fichas) h += '<section class="ficha-filtro"><h2>'+esc(rotulo)+'</h2>'+tabelaFiltros(v.dados, [t])+'</section>';
